@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://asendrachauhan.github.io/Asendra-portfolio/sitemap.xml
+
+Sitemap: https://meek-pudding-0ac9b1.netlify.app/sitemap.xml

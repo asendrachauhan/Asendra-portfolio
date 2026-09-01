@@ -1,196 +1,1233 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0a0c0c">
-<meta name="description" content="Asendra Chauhan — Full-Stack / Product Engineer building production SaaS, integrations and practical GenAI workflows.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Asendra Chauhan — Full-Stack Product Engineer · Practical GenAI</title>
+<meta name="description" content="Asendra Chauhan is a full-stack product engineer working across frontend, backend, integrations and practical GenAI — contributing to KiteSuite, a production SaaS workspace platform.">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="Asendra Chauhan">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://asendrachauhan.github.io/Asendra-portfolio/">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="manifest" href="site.webmanifest">
-<meta property="og:title" content="Asendra Chauhan — Full-Stack / Product Engineer">
-<meta property="og:description" content="Production SaaS, full-stack systems, integrations and practical GenAI engineering.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f1e8" id="themeColorMeta">
+<link rel="canonical" href="https://meek-pudding-0ac9b1.netlify.app/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://asendrachauhan.github.io/Asendra-portfolio/assets/og-image.svg">
-<meta property="og:site_name" content="Asendra Chauhan — Engineering">
-<meta name="twitter:image" content="https://asendrachauhan.github.io/Asendra-portfolio/assets/og-image.svg">
-<meta property="og:url" content="https://asendrachauhan.github.io/Asendra-portfolio/">
+<meta property="og:title" content="Asendra Chauhan — Full-Stack Product Engineer">
+<meta property="og:description" content="I build production SaaS, practical GenAI workflows and the systems that connect them.">
+<meta property="og:url" content="https://meek-pudding-0ac9b1.netlify.app/">
+<meta property="og:image" content="https://meek-pudding-0ac9b1.netlify.app/assets/kitesuite/kitesuite-releases.webp">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<title>Asendra Chauhan — Full-Stack / Product Engineer</title>
+<meta name="twitter:title" content="Asendra Chauhan — Full-Stack Product Engineer">
+<meta name="twitter:description" content="I build production SaaS, practical GenAI workflows and the systems that connect them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">{
-  "@context":"https://schema.org","@type":"Person","name":"Asendra Chauhan","jobTitle":"Full-Stack / Product Engineer",
-  "email":"mailto:asendrachauhan176@gmail.com",
-  "sameAs":["https://www.linkedin.com/in/asendra-chauhan-410344221","https://github.com/asendrachauhan"]
-}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Asendra Chauhan","jobTitle":"Full-Stack Product Engineer","url":"https://meek-pudding-0ac9b1.netlify.app/","email":"mailto:asendrachauhan176@gmail.com","sameAs":["https://www.linkedin.com/in/asendra-chauhan-410344221","https://github.com/asendrachauhan"],"knowsAbout":["JavaScript","TypeScript","Angular","React","Node.js","Express.js","MongoDB","REST APIs","GenAI","LLM integration"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Rajasthan Technical University"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Asendra Chauhan — Portfolio","url":"https://meek-pudding-0ac9b1.netlify.app/"}
+</script>
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root{
+  --bg:#f5f1e8;--surface:#faf7f0;--surface-elevated:#ffffff;--surface-inverse:#0a0d0d;
+  --text:#0a0d0d;--text-muted:#68675f;--text-faint:#96958b;
+  --border:#ddd7c8;--border-strong:#c7c0ac;
+  --accent:#e8501c;--accent-contrast:#fff8f0;--accent-soft:rgba(232,80,28,.1);--accent-text:#b23c11;--btn-alt-bg:#c94015;
+  --focus:#1c6dd0;
+  --shadow:0 24px 64px rgba(20,18,10,.12);--shadow-sm:0 8px 24px rgba(20,18,10,.08);
+  --dark-bg:#0a0d0d;--dark-surface:#111514;--dark-surface-2:#161a19;--dark-border:#262b29;--dark-text:#f4f0e6;--dark-text-muted:#a3a69f;
+  --radius:14px;--radius-lg:20px;--radius-pill:999px;
+  --nav-bg:rgba(245,241,232,.86);
+  --font-display:'Inter',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;--font-mono:'DM Mono',ui-monospace,monospace;
+}
+html.dark{
+  --bg:#0a0d0d;--surface:#111514;--surface-elevated:#161a19;--surface-inverse:#f5f1e8;
+  --text:#f4f0e6;--text-muted:#a3a69f;--text-faint:#6d716c;
+  --border:#242928;--border-strong:#333937;
+  --accent:#ff6a34;--accent-contrast:#160c07;--accent-soft:rgba(255,106,52,.14);--accent-text:#ff6a34;--btn-alt-bg:#ff6a34;
+  --focus:#6ea8ff;
+  --shadow:0 24px 64px rgba(0,0,0,.5);--shadow-sm:0 8px 24px rgba(0,0,0,.4);
+  --nav-bg:rgba(10,13,13,.86);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .35s ease,color .35s ease}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%;display:block}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:fixed;top:-50px;left:12px;z-index:200;background:var(--accent);color:var(--accent-contrast);padding:10px 16px;border-radius:8px;font-weight:700;font-size:13px;transition:top .2s}
+.skip-link:focus{top:12px}
+.mono{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.09em;font-size:10px;color:var(--text-muted)}
+.wrap{width:min(1320px,calc(100% - 40px));margin-inline:auto}
+.accent{color:var(--accent)}
+.visually-decorative{}
+/* ===== NAV ===== */
+.nav{position:fixed;z-index:80;top:12px;left:50%;transform:translateX(-50%);width:min(1320px,calc(100% - 24px));min-height:56px;border:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 18px;border-radius:999px;box-shadow:var(--shadow-sm)}
+.brand{font-weight:900;letter-spacing:-.04em;display:flex;gap:8px;align-items:center;font-size:13px;white-space:nowrap}
+.brand .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 4px var(--accent-soft);flex:0 0 auto}
+.navlinks{display:flex;gap:18px;align-items:center;font-size:10px;font-weight:800;letter-spacing:.03em}
+.navlinks a{opacity:.6;transition:opacity .2s;padding:6px 2px}
+.navlinks a:hover,.navlinks a.active{opacity:1}
+.nav-actions{display:flex;gap:6px;align-items:center}
+.pill-btn{border:1px solid var(--border-strong);background:transparent;padding:9px 12px;border-radius:999px;font-size:10px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;color:var(--text)}
+.pill-btn:hover{border-color:var(--accent);color:var(--accent-text)}
+.menu-btn{display:none;border:1px solid var(--border-strong);background:transparent;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;cursor:pointer}
+.lang-wrap{position:relative}
+.lang-menu{position:absolute;top:calc(100% + 10px);right:0;background:var(--surface-elevated);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:6px;min-width:168px;display:none;flex-direction:column;gap:2px;z-index:90}
+.lang-menu.open{display:flex}
+.lang-menu button{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:600;text-align:left;width:100%}
+.lang-menu button:hover{background:var(--accent-soft);color:var(--accent)}
+.lang-menu button[aria-current="true"]{color:var(--accent-text);font-weight:800}
+/* ===== MOBILE MENU ===== */
+.mobile-menu{position:fixed;inset:0;z-index:70;background:var(--bg);padding:96px 24px 30px;display:none;flex-direction:column;overflow-y:auto}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:clamp(34px,11vw,52px);font-weight:900;letter-spacing:-.05em;line-height:1.05;padding:11px 0;border-bottom:1px solid var(--border)}
+.mobile-menu .mono{margin-top:auto;padding-top:24px}
+/* ===== HERO ===== */
+.hero{min-height:100svh;padding:150px 0 70px;display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center;position:relative}
+.eyebrow{display:flex;gap:8px;align-items:center;color:var(--text-muted)}
+.eyebrow:before{content:'';width:6px;height:6px;background:#25a875;border-radius:50%;flex:0 0 auto}
+.hero h1{font-size:clamp(48px,7.6vw,120px);line-height:.9;letter-spacing:-.055em;margin:26px 0 26px;font-weight:900}
+.hero h1 span{display:block}
+.lead{font-size:16px;line-height:1.65;color:var(--text-muted);max-width:560px}
+.actions{display:flex;gap:10px;margin:28px 0 32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 20px;border-radius:999px;background:var(--text);color:var(--bg);font-size:11px;font-weight:900;letter-spacing:.02em;border:1px solid transparent;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.btn.alt{background:var(--btn-alt-bg);color:var(--accent-contrast)}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--border-strong)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);max-width:640px}
+.stat{padding:16px 12px 0;border-right:1px solid var(--border)}
+.stat:last-child{border-right:0}
+.stat strong{font-size:20px;letter-spacing:-.03em;display:block}
+.stat small{display:block;margin-top:6px;color:var(--text-muted);font-size:9px;line-height:1.4;text-transform:uppercase;letter-spacing:.06em}
+/* ===== HERO SYSTEM VISUAL ===== */
+.system-visual{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-lg);padding:26px 20px;display:flex;flex-direction:column;gap:0;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;min-height:420px}
+#systemCanvas{position:absolute;inset:0;width:100%;height:100%;display:none;z-index:0;pointer-events:none}
+.system-visual .sv-head,.system-visual .sv-flow{position:relative;z-index:1}
+.system-visual .sv-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.sv-flow{display:flex;flex-direction:column;gap:0}
+.sv-node{display:flex;align-items:center;gap:14px;padding:14px 4px;position:relative}
+.sv-node .sv-dot{width:34px;height:34px;border-radius:10px;background:var(--surface-elevated);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;font-weight:700;flex:0 0 auto;color:var(--accent-text);position:relative;z-index:2;transition:border-color .25s,transform .25s}
+.sv-node:hover .sv-dot{border-color:var(--accent);transform:scale(1.06)}
+.sv-node .sv-line{position:absolute;left:21px;top:44px;width:1px;height:calc(100% - 12px);background:var(--border-strong)}
+.sv-node:last-child .sv-line{display:none}
+.sv-node-label strong{font-size:13px;display:block;letter-spacing:-.01em}
+.sv-node-label small{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+@media(prefers-reduced-motion:no-preference){.sv-node{animation:sv-in .5s ease both}
+.sv-node:nth-child(1){animation-delay:.05s}.sv-node:nth-child(2){animation-delay:.15s}.sv-node:nth-child(3){animation-delay:.25s}.sv-node:nth-child(4){animation-delay:.35s}.sv-node:nth-child(5){animation-delay:.45s}.sv-node:nth-child(6){animation-delay:.55s}.sv-node:nth-child(7){animation-delay:.65s}}
+@keyframes sv-in{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
+.marquee{background:var(--surface-inverse);color:#c8c7bf;overflow:hidden;border-block:1px solid var(--dark-border)}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+.marquee span{padding:14px 22px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;white-space:nowrap}
+.marquee i{color:var(--accent-text);font-style:normal}
+@keyframes marquee{to{transform:translateX(-50%)}}
+/* ===== SECTIONS COMMON ===== */
+.section{padding:120px 0}
+.section.dark{background:var(--surface-inverse);color:var(--dark-text)}
+html.dark .section.dark{background:var(--surface)}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:56px;align-items:end}
+.section-title{font-size:clamp(38px,5vw,72px);line-height:.95;letter-spacing:-.05em;margin:12px 0;font-weight:900}
+.section-title .muted{color:var(--text-muted)}
+.dark .section-title .muted{color:#8d908e}
+.section-copy{color:var(--text-muted);max-width:480px;line-height:1.65;font-size:14.5px}
+.dark .section-copy{color:#a3a69f}
+/* WORK / CASE STUDY */
+.work-context{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:20px}
+.context-card{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius);padding:22px}
+.context-card .mono{color:var(--accent-text);margin-bottom:8px}
+.context-card p{font-size:13.5px;line-height:1.6;color:var(--text-muted)}
+.role-note{border:1px dashed var(--border-strong);border-radius:var(--radius);padding:16px 18px;font-size:13px;color:var(--text-muted);display:flex;gap:10px;align-items:flex-start;margin-top:20px}
+.role-note svg{flex:0 0 auto;margin-top:2px;color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:32px}
+.step{background:var(--surface);padding:26px 20px}
+.step .mono{color:var(--accent-text)}
+.step h3{font-size:18px;letter-spacing:-.02em;margin:14px 0 8px}
+.step p{font-size:12.5px;color:var(--text-muted);line-height:1.55}
+/* EVIDENCE GALLERY */
+.evidence-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}
+.evidence-grid.reverse{grid-template-columns:.65fr 1.35fr}
+.ev-shot{border:1px solid var(--border);background:var(--surface-elevated);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+.ev-shot img{width:100%;height:auto;display:block}
+.ev-shot .ev-cap{padding:20px 22px 22px}
+.ev-shot .ev-cap .mono{color:var(--accent-text);margin-bottom:6px}
+.ev-shot .ev-cap h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.ev-shot .ev-cap p{font-size:13px;color:var(--text-muted);line-height:1.6}
+.ev-row{display:flex;flex-direction:column;gap:18px}
+.ev-mini{border:1px solid var(--border);background:var(--surface-elevated);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.ev-mini img{width:100%;height:140px;object-fit:cover;object-position:top}
+.ev-mini .ev-cap{padding:14px 16px 16px}
+.ev-mini .ev-cap h4{font-size:14px;letter-spacing:-.01em;margin-bottom:5px}
+.ev-mini .ev-cap p{font-size:11.5px;color:var(--text-muted);line-height:1.5}
+.evidence-block{margin-bottom:22px}
+/* SYSTEMS / ARCHITECTURE */
+.layers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.layer{border:1px solid var(--dark-border);background:var(--dark-surface-2);border-radius:var(--radius);padding:18px 20px;transition:border-color .25s,transform .25s;position:relative}
+.dark .layer{background:var(--surface-elevated);border-color:var(--border)}
+.layer:hover{border-color:var(--accent);transform:translateY(-2px)}
+.layer .mono{color:#7b8280}
+.dark .layer .mono{color:var(--text-faint)}
+.layer h3{font-size:15px;margin:8px 0 6px;letter-spacing:-.01em;font-weight:700}
+.layer p{font-size:12px;color:#8a8f8c;line-height:1.5}
+.dark .layer p{color:var(--text-muted)}
+/* SKILLS */
+.skills-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-group{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:22px}
+.skill-group .mono{color:var(--accent-text)}
+.skill-group h3{font-size:19px;margin:10px 0 12px;letter-spacing:-.02em}
+.skill-logos{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:12px}
+.skill-logos img{width:36px;height:36px;border-radius:10px;box-shadow:var(--shadow-sm);transition:transform .2s ease}
+.skill-logos img:hover{transform:translateY(-3px) scale(1.05)}
+.skill-chips{display:flex;flex-wrap:wrap;gap:6px}
+.skill-chip{border:1px solid var(--border-strong);border-radius:999px;padding:5px 10px;font-size:10.5px;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:.01em}
+/* GENAI */
+.genai-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:26px}
+.genai-card{border:1px solid var(--dark-border);border-radius:var(--radius-lg);background:var(--dark-surface-2);padding:24px}
+.dark .genai-card{background:var(--surface-elevated);border-color:var(--border)}
+.genai-card .badge{display:inline-block;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 9px;color:#c9ccca;margin-bottom:14px}
+.dark .genai-card .badge{border-color:var(--border-strong);color:var(--text-muted)}
+.genai-card h3{font-size:19px;margin-bottom:8px;letter-spacing:-.02em}
+.genai-card p{font-size:12.5px;line-height:1.6;color:#9a9e9c}
+.dark .genai-card p{color:var(--text-muted)}
+.concerns{border:1px solid var(--dark-border);border-radius:var(--radius-lg);padding:22px 24px}
+.dark .concerns{border-color:var(--border)}
+.concerns .mono{margin-bottom:14px;color:#7b8280}
+.dark .concerns .mono{color:var(--text-faint)}
+.concern-list{display:flex;flex-wrap:wrap;gap:8px}
+.concern-chip{border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 12px;font-size:11px;color:#c9ccca;font-family:var(--font-mono)}
+.dark .concern-chip{border-color:var(--border-strong);color:var(--text)}
+/* PROOF */
+.proof-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:34px}
+.proof-step{text-align:center;padding:16px 8px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}
+.proof-step .mono{color:var(--accent-text);margin-bottom:6px}
+.proof-step span{font-size:12.5px;font-weight:700}
+.proof-hist{border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;background:var(--surface)}
+.proof-hist .mono{color:var(--text-muted);margin-bottom:16px}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.metric{border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;background:var(--surface-elevated)}
+.metric strong{font-size:24px;letter-spacing:-.03em;color:var(--accent);display:block;margin-bottom:6px}
+.metric span{font-size:11.5px;color:var(--text-muted);line-height:1.4;display:block}
+.metric small{display:block;margin-top:8px;font-family:var(--font-mono);font-size:8.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-faint)}
+/* EXPERIENCE */
+.timeline{display:grid;gap:0}
+.timeline-item{display:grid;grid-template-columns:180px 1fr;gap:26px;padding:26px 0;border-top:1px solid var(--border)}
+.timeline-item:last-child{border-bottom:1px solid var(--border)}
+.timeline-date{color:var(--text-muted)}
+.timeline-item h3{margin:0 0 8px;font-size:21px;letter-spacing:-.02em}
+.timeline-item p{margin:0;color:var(--text-muted);font-size:13.5px;line-height:1.6;max-width:640px}
+.timeline-item .role-tag{display:inline-block;margin-top:10px;font-family:var(--font-mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);border:1px solid var(--accent-soft);background:var(--accent-soft);padding:4px 9px;border-radius:999px}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.about-body p{font-size:15px;line-height:1.75;color:var(--text-muted);max-width:640px}
+.about-cards{display:grid;gap:14px}
+.about-card{border:1px solid var(--border);padding:22px;background:var(--surface);border-radius:var(--radius)}
+.about-card .mono{color:var(--accent-text);margin-bottom:8px}
+.about-card h3{font-size:19px;letter-spacing:-.02em;margin-bottom:6px}
+.about-card p{font-size:12.5px;color:var(--text-muted);line-height:1.55}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:18px}
+.contact-card{border:1px solid var(--dark-border);background:var(--dark-surface-2);padding:28px;border-radius:var(--radius-lg)}
+.dark .contact-card{background:var(--surface-elevated);border-color:var(--border)}
+.contact-list{display:grid;gap:15px;margin-top:26px}
+.contact-list a{display:flex;justify-content:space-between;gap:15px;padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.12);font-size:13px;transition:color .2s}
+.dark .contact-list a{border-color:var(--border)}
+.contact-list a:hover{color:var(--accent-text)}
+.contact-list span:last-child{color:#8f9491}
+.dark .contact-list span:last-child{color:var(--text-muted)}
+.form{display:grid;gap:14px}
+.field{display:grid;gap:7px}
+.field label{font:9px var(--font-mono);color:#8f9491;text-transform:uppercase;letter-spacing:.05em}
+.dark .field label{color:var(--text-muted)}
+.field input,.field textarea{width:100%;border:1px solid rgba(255,255,255,.14);background:#0b0e0e;color:#fff;padding:14px 15px;border-radius:10px;outline:0;font:14px var(--font-body);transition:border-color .2s}
+.dark .field input,.dark .field textarea{background:var(--bg);color:var(--text);border-color:var(--border)}
+.field input:focus,.field textarea:focus{border-color:var(--accent)}
+.field input[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#ff6b6b}
+.field textarea{min-height:120px;resize:vertical}
+.field-error{font-size:11px;color:#ff8a6b;min-height:14px}
+.form-status{font-size:12px;color:#c9ccca;min-height:18px;display:flex;align-items:center;gap:8px}
+.dark .form-status{color:var(--text-muted)}
+.form-status.is-error{color:#ff8a6b}
+.copy-email-btn{margin-top:2px;align-self:flex-start;font-size:11px;font-weight:700;text-decoration:underline;color:#c9ccca;padding:2px 0}
+.dark .copy-email-btn{color:var(--text-muted)}
+.copy-email-btn:hover{color:var(--accent)}
+.spinner{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,.25);border-top-color:var(--accent);animation:spin .7s linear infinite}
+.dark .spinner{border-color:var(--border-strong);border-top-color:var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.spinner{animation:none}}
+.cta-band{padding:110px 0 0;background:var(--surface-inverse);color:var(--dark-text)}
+html.dark .cta-band{background:var(--surface)}
+.cta-band h2{font-size:clamp(52px,9vw,140px);line-height:.82;letter-spacing:-.06em;margin:18px 0 44px;max-width:1050px;font-weight:900}
+.footer{display:flex;justify-content:space-between;gap:20px;padding:24px 0 30px;background:var(--surface-inverse);color:#777c7a;font:9px var(--font-mono);text-transform:uppercase;letter-spacing:.04em;border-top:1px solid var(--dark-border);margin-top:80px}
+html.dark .footer{background:var(--surface)}
+.footer a{transition:color .2s}
+.footer a:hover{color:var(--accent-text)}
+/* LOADER / TOAST / PROGRESS */
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:150}
+.loader{position:fixed;inset:0;z-index:200;background:var(--surface-inverse);color:var(--dark-text);display:grid;place-items:center;transition:opacity .5s ease,visibility .5s}
+.loader.hide{opacity:0;visibility:hidden}
+.loader-inner{text-align:center}
+.loader-mark{font-size:38px;font-weight:900;letter-spacing:-.05em}
+.loader-line{width:200px;height:1px;background:#333;margin:20px auto;overflow:hidden}
+.loader-line i{display:block;width:45%;height:100%;background:var(--accent);animation:load 1.1s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.loader-line i{animation:none;width:100%}}
+.loader small{font:9px var(--font-mono);color:#777;text-transform:uppercase;letter-spacing:.06em}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(10px);background:var(--text);color:var(--bg);padding:12px 18px;border-radius:999px;font-size:11.5px;opacity:0;pointer-events:none;transition:.25s;z-index:160;max-width:min(90vw,420px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* ===== RESPONSIVE ===== */
+@media(max-width:1080px){
+  .wrap{width:min(100% - 32px,780px)}
+  .navlinks{display:none}
+  .menu-btn{display:inline-flex}
+  .hero{grid-template-columns:1fr;gap:14px;padding-top:118px;min-height:auto}
+  .hero h1{font-size:clamp(52px,13vw,96px);max-width:660px}
+  .system-visual{order:2;margin-top:8px}
+  .section{padding:84px 0}
+  .section-head{grid-template-columns:1fr;gap:18px}
+  .work-context{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .evidence-grid,.evidence-grid.reverse{grid-template-columns:1fr}
+  .ev-row{flex-direction:row;overflow-x:auto}
+  .ev-mini{min-width:220px}
+  .layers{grid-template-columns:1fr}
+  .skills-groups{grid-template-columns:1fr 1fr}
+  .genai-cards{grid-template-columns:1fr}
+  .proof-flow{grid-template-columns:repeat(5,1fr)}
+  .metric-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .cta-band{padding-top:80px}
+}
+@media(max-width:640px){
+  .wrap{width:calc(100% - 24px)}
+  .nav{height:52px;padding-left:14px;min-height:52px}
+  .brand{font-size:11px}
+  .brand span.brand-tag-full{display:none}
+  .nav-actions{gap:4px}
+  .pill-btn{padding:8px 10px;font-size:9px}
+  .hero{padding-top:100px;padding-bottom:40px}
+  .hero h1{font-size:clamp(42px,15vw,64px);line-height:.92;margin:20px 0}
+  .lead{font-size:13.5px;max-width:100%}
+  .actions{margin:20px 0 26px}
+  .btn{padding:13px 16px;font-size:10px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:14px 8px;border-bottom:1px solid var(--border)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(3){border-bottom:0}
+  .stat:nth-child(4){border-right:0;border-bottom:0}
+  .system-visual{padding:20px 14px}
+  .marquee span{padding:11px 14px;font-size:8px}
+  .section{padding:60px 0}
+  .section-title{font-size:clamp(34px,11vw,52px)}
+  .section-copy{font-size:13px}
+  .steps{grid-template-columns:1fr}
+  .skills-groups{grid-template-columns:1fr}
+  .genai-cards{grid-template-columns:1fr}
+  .proof-flow{grid-template-columns:1fr 1fr;gap:8px}
+  .metric-grid{grid-template-columns:1fr}
+  .timeline-item{grid-template-columns:1fr;gap:8px}
+  .cta-band h2{font-size:clamp(46px,15vw,72px)}
+  .footer{flex-direction:column;margin-top:50px;gap:8px}
+  .contact-card{padding:20px}
+  .toast{left:12px;right:12px;transform:translateY(10px);width:calc(100% - 24px)}
+  .toast.show{transform:translateY(0)}
+  .lang-menu{right:auto;left:0}
+  .ev-shot .ev-cap{padding:16px 18px 18px}
+}
+@media(min-width:1600px){.wrap{width:min(1480px,calc(100% - 60px))}}
+</style>
 </head>
 <body>
-<a class="skip-link" href="#top" data-i18n="a11y.skip">Skip to content</a>
-<div class="scroll-progress" aria-hidden="true"></div>
-<header class="site-header" id="header">
-  <a class="brand" href="#top" aria-label="Asendra Engineering"><span class="brand-mark">A</span><span>ASENDRA / ENGINEERING</span></a>
-  <nav class="desktop-nav" aria-label="Primary navigation">
-    <a href="#work" data-i18n="nav.work">Work</a><a href="#systems" data-i18n="nav.systems">Systems</a><a href="#skills" data-i18n="nav.skills">Skills</a><a href="#proof" data-i18n="nav.proof">Proof</a><a href="#about" data-i18n="nav.about">About</a><a href="#contact" data-i18n="nav.contact">Contact</a>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
+<div class="progress-bar" id="progressBar"></div>
+<div class="loader" id="loader" role="status" aria-label="Loading"><div class="loader-inner"><div class="loader-mark">ASENDRA</div><div class="loader-line"><i></i></div><small data-i18n="loader.tag">BUILD · INTEGRATE · SHIP</small></div></div>
+
+<header class="nav" aria-label="Primary">
+  <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span><span class="brand-tag-full">ASENDRA / ENGINEERING</span><span class="brand-tag-short" style="display:none">ASENDRA</span></a>
+  <nav class="navlinks" aria-label="Section navigation">
+    <a href="#work" data-i18n="nav.work">WORK</a>
+    <a href="#systems" data-i18n="nav.systems">SYSTEMS</a>
+    <a href="#skills" data-i18n="nav.skills">SKILLS</a>
+    <a href="#genai" data-i18n="nav.ai">GENAI</a>
+    <a href="#proof" data-i18n="nav.proof">PROOF</a>
+    <a href="#experience" data-i18n="nav.experience">EXPERIENCE</a>
+    <a href="#about" data-i18n="nav.about">ABOUT</a>
+    <a href="#contact" data-i18n="nav.contact">CONTACT</a>
   </nav>
-  <div class="header-tools">
-    <button class="control-btn" id="themeBtn" type="button" aria-label="Toggle theme"><span id="themeIcon">☾</span><span class="control-label" data-i18n="controls.theme">Theme</span></button>
-    <button class="control-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false"><span id="langValue">EN</span><span class="control-label" data-i18n="controls.language">Language</span></button>
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+  <div class="nav-actions">
+    <button class="pill-btn" id="themeToggle" data-i18n-aria="aria.themeToggle" aria-label="Toggle theme"><span id="themeIcon" aria-hidden="true">◐</span></button>
+    <div class="lang-wrap">
+      <button class="pill-btn" id="langToggle" data-i18n-aria="aria.langToggle" aria-label="Change language" aria-haspopup="true" aria-expanded="false"><span id="langLabel">EN</span></button>
+      <div class="lang-menu" id="langMenu" role="menu">
+        <button role="menuitem" data-lang="en" aria-current="true">English</button>
+        <button role="menuitem" data-lang="hi">हिन्दी</button>
+        <button role="menuitem" data-lang="es">Español</button>
+        <button role="menuitem" data-lang="fr">Français</button>
+        <button role="menuitem" data-lang="de">Deutsch</button>
+        <button role="menuitem" data-lang="ja">日本語</button>
+      </div>
+    </div>
+    <button class="menu-btn" id="menuBtn" data-i18n-aria="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg id="menuIcon" width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>
-<div class="mobile-menu" id="mobileMenu" hidden>
-  <a href="#work" data-i18n="nav.work">Work</a><a href="#systems" data-i18n="nav.systems">Systems</a><a href="#skills" data-i18n="nav.skills">Skills</a><a href="#proof" data-i18n="nav.proof">Proof</a><a href="#about" data-i18n="nav.about">About</a><a href="#contact" data-i18n="nav.contact">Contact</a>
-</div>
-<div class="lang-menu" id="langMenu" role="listbox" hidden>
-  <button data-lang="en">English</button><button data-lang="hi">हिन्दी</button><button data-lang="es">Español</button><button data-lang="fr">Français</button><button data-lang="de">Deutsch</button><button data-lang="ja">日本語</button>
-</div>
 
-<main id="top">
-<section class="hero section" aria-labelledby="heroTitle">
-  <div class="container hero-grid">
-    <div class="hero-copy reveal">
-      <p class="eyebrow"><span class="live-dot"></span><span data-i18n="hero.eyebrow">FULL-STACK / PRODUCT ENGINEER · AI / GENAI</span></p>
-      <h1 id="heroTitle"><span data-i18n="hero.a">I BUILD</span><br><span data-i18n="hero.b">PRODUCTS</span><br><span class="accent" data-i18n="hero.c">THAT SURVIVE.</span></h1>
-      <p class="hero-lede" data-i18n="hero.lede">I turn product requirements into working web systems — from responsive UI and APIs to data, integrations, testing and deployment.</p>
-      <div class="actions"><a class="btn btn-primary" href="#work" data-i18n="hero.ctaWork">VIEW SELECTED WORK ↘</a><a class="btn btn-ghost" href="#contact" data-i18n="hero.ctaTalk">LET'S TALK ↗</a><a class="text-link" href="assets/profile/ASENDRA_CHAUHAN_Full_Stack_Resume.pdf" target="_blank" rel="noreferrer" data-i18n="hero.resume">VIEW RESUME ↗</a></div>
-      <div class="hero-proof-grid">
-        <div><strong>1.5+</strong><span data-i18n="stats.experience">years professional experience</span></div>
-        <div><strong>5+</strong><span data-i18n="stats.apps">full-stack applications</span></div>
-        <div><strong>2,000+</strong><span data-i18n="stats.users">daily active users*</span></div>
-        <div><strong>10k+</strong><span data-i18n="stats.api">API requests/day*</span></div>
-      </div>
-      <p class="micro-note" data-i18n="stats.note">*Historical metrics from the supplied resume/project history; not claimed as KiteSuite metrics.</p>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Mobile section navigation">
+  <a href="#work" data-i18n="nav.work">WORK</a>
+  <a href="#systems" data-i18n="nav.systems">SYSTEMS</a>
+  <a href="#skills" data-i18n="nav.skills">SKILLS</a>
+  <a href="#genai" data-i18n="nav.ai">GENAI</a>
+  <a href="#proof" data-i18n="nav.proof">PROOF</a>
+  <a href="#experience" data-i18n="nav.experience">EXPERIENCE</a>
+  <a href="#about" data-i18n="nav.about">ABOUT</a>
+  <a href="#contact" data-i18n="nav.contact">CONTACT</a>
+  <div class="mono">ASENDRA / ENGINEERING</div>
+</nav>
+
+<main id="main">
+<section class="hero wrap" id="top">
+  <div class="reveal">
+    <div class="eyebrow mono" data-i18n="hero.eyebrow">FULL-STACK / PRODUCT ENGINEER · PRACTICAL GENAI</div>
+    <h1><span data-i18n="hero.h1a">I BUILD</span><span data-i18n-html="hero.h1b">THAT <b class="accent">SURVIVES</b></span><span data-i18n="hero.h1c">PRODUCTION.</span></h1>
+    <p class="lead" data-i18n="hero.lead">I work across frontend, backend, APIs, data and integrations — and increasingly, practical GenAI — contributing to KiteSuite, a production SaaS workspace platform.</p>
+    <div class="actions">
+      <a class="btn" href="#work" data-i18n="hero.ctaWork">VIEW SELECTED WORK ↘</a>
+      <a class="btn alt" href="#contact" data-i18n="hero.ctaContact">LET'S TALK ↗</a>
     </div>
-    <div class="system-map reveal" aria-label="Interactive product engineering system map" data-i18n="map.aria" data-i18n-attr="aria-label">
-      <div class="map-grid"></div><div class="map-ring ring-a"></div><div class="map-ring ring-b"></div>
-      <div class="map-core"><span data-i18n="map.production">PRODUCTION</span><b data-i18n="map.product">PRODUCT</b><small data-i18n="map.system">engineering system</small></div>
-      <button class="map-node node-ui" data-focus="surface" data-i18n="map.ui">UI</button><button class="map-node node-api" data-focus="api" data-i18n="map.api">API</button><button class="map-node node-data" data-focus="data" data-i18n="map.data">DATA</button><button class="map-node node-ai" data-focus="ai" data-i18n="map.ai">AI</button><button class="map-node node-int" data-focus="integrations" data-i18n="map.integrations">INTEGRATIONS</button><button class="map-node node-prod" data-focus="production" data-i18n="map.deploy">DEPLOY</button>
-      <svg class="map-lines" viewBox="0 0 620 620" aria-hidden="true"><path d="M310 310L100 110M310 310L520 110M310 310L565 310M310 310L510 520M310 310L110 520M310 310L55 310"/></svg>
-      <div class="map-label"><span>ASENDRA / 01</span><b data-i18n="map.label">PRODUCT ENGINEERING</b><small data-i18n="map.sub">Frontend → API → data → integrations → AI → production</small></div>
+    <div class="stats">
+      <div class="stat"><strong>2.2+</strong><small data-i18n="hero.stat1">Years building</small></div>
+      <div class="stat"><strong>9+</strong><small data-i18n="hero.stat2">Product surfaces contributed to</small></div>
+      <div class="stat"><strong>20+</strong><small data-i18n="hero.stat3">Integrations worked on</small></div>
+      <div class="stat"><strong>GenAI</strong><small data-i18n="hero.stat4">Practical AI workflows</small></div>
+    </div>
+  </div>
+  <div class="system-visual reveal" id="svCanvasWrap" role="img" data-i18n-aria="hero.systemAria" aria-label="Diagram: product surface connects to API layer, authentication, data layer, integrations, AI layer, and production deployment">
+    <canvas id="systemCanvas" aria-hidden="true"></canvas>
+    <div class="sv-head"><span class="mono" data-i18n="hero.systemLabel">SYSTEM FLOW</span><span class="mono" style="color:var(--accent-text)">01 → 06</span></div>
+    <div class="sv-flow">
+      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">01</div><div class="sv-node-label"><strong data-i18n="hero.node1t">Product surface</strong><small data-i18n="hero.node1s">Interface / UX</small></div></div>
+      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">02</div><div class="sv-node-label"><strong data-i18n="hero.node2t">API layer</strong><small data-i18n="hero.node2s">Node.js / Express</small></div></div>
+      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">03</div><div class="sv-node-label"><strong data-i18n="hero.node3t">Data layer</strong><small data-i18n="hero.node3s">MongoDB / Redis</small></div></div>
+      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">04</div><div class="sv-node-label"><strong data-i18n="hero.node4t">Integrations</strong><small data-i18n="hero.node4s">OAuth / Webhooks</small></div></div>
+      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">05</div><div class="sv-node-label"><strong data-i18n="hero.node5t">AI layer</strong><small data-i18n="hero.node5s">LLM / retrieval</small></div></div>
+      <div class="sv-node"><div class="sv-dot" aria-hidden="true">06</div><div class="sv-node-label"><strong data-i18n="hero.node6t">Production</strong><small data-i18n="hero.node6s">Deploy / observe</small></div></div>
     </div>
   </div>
 </section>
 
-<section class="stack-strip" aria-label="Technology stack" data-i18n="stack.aria" data-i18n-attr="aria-label">
-  <div class="container stack-inner">
-    <span class="stack-label" data-i18n="stack.label">WORKING STACK</span>
-    <div class="logo-row">
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/typescript" alt="TypeScript"><b>TypeScript</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/angular" alt="Angular"><b>Angular</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/react" alt="React"><b>React</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js"><b>Node.js</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/express" alt="Express"><b>Express</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/mongodb" alt="MongoDB"><b>MongoDB</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/redis" alt="Redis"><b>Redis</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/docker" alt="Docker"><b>Docker</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/amazonaws" alt="AWS"><b>AWS</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/git" alt="Git"><b>Git</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/postman" alt="Postman"><b>Postman</b></span>
-      <span class="tech-logo"><img src="https://cdn.simpleicons.org/figma" alt="Figma"><b>Figma</b></span>
-    </div>
-  </div>
-</section>
-
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+<span>ANGULAR <i>✦</i></span><span>NODE.JS <i>✦</i></span><span>MONGODB <i>✦</i></span><span>GENAI <i>✦</i></span><span>REST <i>✦</i></span><span>OAUTH <i>✦</i></span><span>WEBHOOKS <i>✦</i></span><span>PRODUCTION <i>✦</i></span>
+<span>ANGULAR <i>✦</i></span><span>NODE.JS <i>✦</i></span><span>MONGODB <i>✦</i></span><span>GENAI <i>✦</i></span><span>REST <i>✦</i></span><span>OAUTH <i>✦</i></span><span>WEBHOOKS <i>✦</i></span><span>PRODUCTION <i>✦</i></span>
+</div></div>
 <section class="section" id="work">
-  <div class="container">
-    <div class="section-head reveal"><div><p class="eyebrow">01 · <span data-i18n="work.eyebrow">FLAGSHIP CASE STUDY</span></p><h2><span data-i18n="work.title1">One product.</span><br><em data-i18n="work.title2">Many connected systems.</em></h2></div><p data-i18n="work.intro">KiteSuite is presented as a product I contribute to — not as a product I own. The case study focuses on the engineering surface, workflows and systems I can publicly show.</p></div>
-    <div class="ownership-note reveal"><span data-i18n="labels.contribution">CONTRIBUTION</span><b data-i18n="work.ownership">Product engineering contribution · screenshots are from the product and do not imply ownership.</b></div>
-    <div class="case-layout reveal">
-      <div class="case-main"><img src="assets/kitesuite/project_edit_Page.png" alt="KiteSuite project editing interface"><div class="image-meta"><span>KITESUITE</span><span data-i18n="case.projectManagement">PROJECT MANAGEMENT</span></div></div>
-      <div class="case-copy"><p class="eyebrow" data-i18n="labels.productSurface">PRODUCT SURFACE</p><h3 data-i18n="case.title">Built around how teams actually work.</h3><p data-i18n="case.desc">A multi-surface workspace spanning projects, recruiting, HRM, meetings, documents, forms, communication, time tracking and integrations.</p><div class="tag-list"><span>Angular</span><span>Node.js</span><span>MongoDB</span><span>REST APIs</span><span>OAuth</span><span>Webhooks</span><span>AI</span></div><a class="text-link" href="#systems" data-i18n="case.arch">SEE THE SYSTEM ARCHITECTURE ↘</a></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">02 · <span data-i18n="work.kicker">SELECTED WORK</span></div><h2 class="section-title" data-i18n-html="work.title">KiteSuite.<br><span class="muted">One product, many systems.</span></h2></div>
+      <p class="section-copy" data-i18n="work.intro">Instead of a list of small projects, this portfolio leads with the strongest proof: a multi-surface production SaaS platform and the engineering work behind it.</p>
     </div>
-    <div class="shot-grid">
-      <figure class="shot reveal"><img src="assets/kitesuite/jobs_cards_page.png" alt="KiteSuite jobs and recruiting screen" loading="lazy"><figcaption><b data-i18n="shots.ats.t">ATS / recruiting</b><span data-i18n="shots.ats.d">Recruiting is a product surface inside the same connected workspace.</span></figcaption></figure>
-      <figure class="shot reveal"><img src="assets/kitesuite/forms_design_settings.png" alt="KiteSuite form design settings" loading="lazy"><figcaption><b data-i18n="shots.forms.t">Forms and configuration</b><span data-i18n="shots.forms.d">Product configuration is treated as a real workflow, not a static settings page.</span></figcaption></figure>
-      <figure class="shot reveal"><img src="assets/kitesuite/integration_items_page.png" alt="KiteSuite integrations screen" loading="lazy"><figcaption><b data-i18n="shots.integrations.t">Integrations</b><span data-i18n="shots.integrations.d">External services become part of the product lifecycle.</span></figcaption></figure>
-      <figure class="shot reveal"><img src="assets/kitesuite/doc_edit_page.png" alt="KiteSuite collaborative document editor" loading="lazy"><figcaption><b data-i18n="shots.docs.t">Docs and knowledge</b><span data-i18n="shots.docs.d">Collaborative content sits alongside operational product workflows.</span></figcaption></figure>
+    <div class="work-context reveal">
+      <div class="context-card"><div class="mono" data-i18n="work.contextLabel">CONTEXT</div><p data-i18n="work.context">KiteSuite is a connected SaaS workspace platform spanning projects, recruiting, documents, meetings, forms, time tracking and integrations. It is a production system used across multiple interconnected modules, not a single-page demo.</p></div>
+      <div class="context-card"><div class="mono" data-i18n="work.roleLabelHead">ROLE</div><p data-i18n="work.roleBody">I contribute as a full-stack product engineer — frontend, backend, integrations and GenAI-adjacent features — across a platform built and owned by Rudra Innovative Software.</p></div>
     </div>
-    <button class="btn btn-outline reveal" id="galleryBtn" data-i18n="work.more">EXPLORE MORE PRODUCT SURFACES ↘</button>
-    <div class="gallery" id="gallery" hidden></div>
+    <div class="role-note reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span data-i18n="work.roleNote">Asendra is a contributing engineer on KiteSuite, not its founder or owner. Screenshots and descriptions below reflect engineering contribution, not company ownership.</span>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="mono">01</div><h3 data-i18n="work.step1t">Problem</h3><p data-i18n="work.step1c">Teams juggling projects, hiring, docs and meetings across disconnected tools lose context between systems.</p></div>
+      <div class="step"><div class="mono">02</div><h3 data-i18n="work.step2t">Contribution</h3><p data-i18n="work.step2c">Engineered and shipped features across multiple modules — frontend UI, backend APIs, data models and third-party integrations.</p></div>
+      <div class="step"><div class="mono">03</div><h3 data-i18n="work.step3t">Complexity</h3><p data-i18n="work.step3c">Cross-module data (projects ↔ calendar ↔ people ↔ forms) meant every change had to respect shared state and permissions.</p></div>
+      <div class="step"><div class="mono">04</div><h3 data-i18n="work.step4t">Verification &amp; delivery</h3><p data-i18n="work.step4c">Tested, debugged and shipped changes into a live production platform used by real workspaces.</p></div>
+    </div>
   </div>
 </section>
 
+<section class="section dark" id="evidence">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">03 · <span data-i18n="evidence.kicker">PRODUCT SURFACE</span></div><h2 class="section-title" data-i18n-html="evidence.title">Evidence,<br><span class="muted">not a screenshot wall.</span></h2></div>
+      <p class="section-copy" data-i18n="evidence.intro">A deliberate sequence through KiteSuite's product surface — each screenshot chosen for what it proves about the engineering behind it.</p>
+    </div>
+
+    <div class="evidence-block evidence-grid reveal">
+      <figure class="ev-shot">
+        <img src="assets/kitesuite/kitesuite-releases.webp" alt="" data-i18n-alt="evidence.item1.alt" loading="lazy" decoding="async" width="1200" height="590">
+        <figcaption class="ev-cap"><div class="mono" data-i18n="evidence.item1.label">RELEASE MANAGEMENT</div><h3 data-i18n="evidence.item1.title">Shipping is a tracked workflow, not a hope.</h3><p data-i18n="evidence.item1.body">Release planning and version tracking across a multi-module product. Proves comfort working inside structured production-delivery workflows, not just writing code in isolation.</p></figcaption>
+      </figure>
+      <div class="ev-row">
+        <figure class="ev-mini"><img src="assets/kitesuite/kitesuite-integrations.webp" alt="" data-i18n-alt="evidence.item2.alt" loading="lazy" decoding="async" width="1200" height="850"><figcaption class="ev-cap"><h4 data-i18n="evidence.item2.title">Integrations surface</h4><p data-i18n="evidence.item2.body">Third-party connectivity configuration — OAuth and webhook-driven integration work.</p></figcaption></figure>
+        <figure class="ev-mini"><img src="assets/kitesuite/kitesuite-ats.webp" alt="" data-i18n-alt="evidence.item3.alt" loading="lazy" decoding="async" width="1176" height="631"><figcaption class="ev-cap"><h4 data-i18n="evidence.item3.title">Recruiting / ATS workflow</h4><p data-i18n="evidence.item3.body">A full applicant-tracking module inside a broader SaaS suite, not a bolt-on feature.</p></figcaption></figure>
+      </div>
+    </div>
+
+    <div class="evidence-block evidence-grid reverse reveal">
+      <div class="ev-row">
+        <figure class="ev-mini"><img src="assets/kitesuite/kitesuite-planning.webp" alt="" data-i18n-alt="evidence.item4.alt" loading="lazy" decoding="async" width="1184" height="661"><figcaption class="ev-cap"><h4 data-i18n="evidence.item4.title">Project planning</h4><p data-i18n="evidence.item4.body">Calendar-driven project scheduling, tied to the same data model as tasks and releases.</p></figcaption></figure>
+        <figure class="ev-mini"><img src="assets/kitesuite/kitesuite-meetings.webp" alt="" data-i18n-alt="evidence.item5.alt" loading="lazy" decoding="async" width="1320" height="596"><figcaption class="ev-cap"><h4 data-i18n="evidence.item5.title">Meetings &amp; collaboration</h4><p data-i18n="evidence.item5.body">Scheduling and availability logic that has to stay consistent across time zones and teams.</p></figcaption></figure>
+      </div>
+      <figure class="ev-shot">
+        <img src="assets/kitesuite/kitesuite-reporting.webp" alt="" data-i18n-alt="evidence.item8.alt" loading="lazy" decoding="async" width="1366" height="592">
+        <figcaption class="ev-cap"><div class="mono" data-i18n="evidence.item8.label">REPORTING &amp; ANALYTICS</div><h3 data-i18n="evidence.item8.title">Turning raw activity into readable signal.</h3><p data-i18n="evidence.item8.body">Reporting surfaces built on aggregation across projects, time entries and workflow activity — direct application of the data-engineering skills listed below.</p></figcaption>
+      </figure>
+    </div>
+
+    <div class="evidence-block evidence-grid reveal">
+      <figure class="ev-shot">
+        <img src="assets/kitesuite/kitesuite-docs.webp" alt="" data-i18n-alt="evidence.item6.alt" loading="lazy" decoding="async" width="1334" height="656">
+        <figcaption class="ev-cap"><div class="mono" data-i18n="evidence.item6.label">DOCUMENTS &amp; DRIVE</div><h3 data-i18n="evidence.item6.title">File and document workflows at team scale.</h3><p data-i18n="evidence.item6.body">Document listing and organization with permissions tied to workspace roles — the kind of surface that looks simple but breaks first under real usage.</p></figcaption>
+      </figure>
+      <div class="ev-row">
+        <figure class="ev-mini"><img src="assets/kitesuite/kitesuite-time-tracking.webp" alt="" data-i18n-alt="evidence.item7.alt" loading="lazy" decoding="async" width="919" height="846"><figcaption class="ev-cap"><h4 data-i18n="evidence.item7.title">Time tracking</h4><p data-i18n="evidence.item7.body">Time-series productivity data tied back into reporting and billing-adjacent workflows.</p></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section" id="systems">
-  <div class="container">
-    <div class="section-head reveal"><div><p class="eyebrow">02 · <span data-i18n="systems.eyebrow">SYSTEM DESIGN</span></p><h2 data-i18n="systems.title">I think beyond the screen.</h2></div><p data-i18n="systems.intro">The strongest work connects UI decisions to API contracts, data models, integrations, failure states and production behavior.</p></div>
-    <div class="architecture" id="architecture">
-      <article class="layer-card reveal" data-layer="surface"><span>01</span><div><h3 data-i18n="arch.surface">Product surface</h3><p data-i18n="arch.surfaceD">Responsive interfaces, state, interaction and reusable UI patterns.</p></div><b>UI</b></article>
-      <article class="layer-card reveal" data-layer="api"><span>02</span><div><h3 data-i18n="arch.api">API layer</h3><p data-i18n="arch.apiD">RESTful APIs, authentication, validation, business rules and service boundaries.</p></div><b>API</b></article>
-      <article class="layer-card reveal" data-layer="data"><span>03</span><div><h3 data-i18n="arch.data">Data layer</h3><p data-i18n="arch.dataD">MongoDB, Mongoose, aggregation pipelines, indexing and query optimization.</p></div><b>DB</b></article>
-      <article class="layer-card reveal" data-layer="integrations"><span>04</span><div><h3 data-i18n="arch.int">Integrations</h3><p data-i18n="arch.intD">OAuth, webhooks, external APIs and cross-product workflows.</p></div><b>INT</b></article>
-      <article class="layer-card reveal" data-layer="ai"><span>05</span><div><h3 data-i18n="arch.ai">AI layer</h3><p data-i18n="arch.aiD">LLM APIs, embeddings, semantic retrieval and failure-aware model workflows.</p></div><b>AI</b></article>
-      <article class="layer-card reveal" data-layer="production"><span>06</span><div><h3 data-i18n="arch.prod">Production</h3><p data-i18n="arch.prodD">Testing, observability, CI/CD, deployment, permissions and recovery paths.</p></div><b>OPS</b></article>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">04 · <span data-i18n="systems.kicker">SYSTEMS</span></div><h2 class="section-title" data-i18n-html="systems.title">I think in<br><span class="muted">whole systems.</span></h2></div>
+      <p class="section-copy" data-i18n="systems.intro">A generalized view of how the layers of a production SaaS platform connect — not KiteSuite's actual infrastructure, but the kind of thinking behind contributing to it safely.</p>
     </div>
-    <div class="architecture-flow reveal"><span data-i18n="flow.product">PRODUCT</span><i>→</i><span data-i18n="flow.api">API</span><i>→</i><span data-i18n="flow.data">DATA</span><i>→</i><span data-i18n="flow.integrations">INTEGRATIONS</span><i>→</i><span data-i18n="flow.ai">AI</span><i>→</i><span data-i18n="flow.production">PRODUCTION</span></div>
-  </div>
-</section>
-
-<section class="section" id="skills">
-  <div class="container">
-    <div class="section-head reveal"><div><p class="eyebrow">03 · <span data-i18n="skills.eyebrow">SKILLS</span></p><h2 data-i18n="skills.title">A practical engineering toolkit.</h2></div><p data-i18n="skills.intro">Grouped by the work they support — not a wall of disconnected buzzwords.</p></div>
-    <div class="skills-matrix">
-      <article class="skill-card reveal"><span class="skill-index">01</span><h3 data-i18n="skills.frontend">Frontend engineering</h3><div class="skill-items"><span>React.js</span><span>Angular</span><span>TypeScript</span><span>JavaScript ES6+</span><span>Redux</span><span>React Router</span><span>HTML5</span><span>CSS3 / SCSS</span><span>Tailwind CSS</span><span>Bootstrap</span></div></article>
-      <article class="skill-card reveal"><span class="skill-index">02</span><h3 data-i18n="skills.backend">Backend & APIs</h3><div class="skill-items"><span>Node.js</span><span>Express.js</span><span>RESTful API design</span><span>JWT</span><span>OAuth 2.0</span><span>Validation</span><span>Service boundaries</span><span>Async workflows</span></div></article>
-      <article class="skill-card reveal"><span class="skill-index">03</span><h3 data-i18n="skills.data">Data engineering</h3><div class="skill-items"><span>MongoDB</span><span>Mongoose</span><span>Aggregation pipelines</span><span>Indexing</span><span>Query optimization</span><span>Redis</span><span>Data modeling</span></div></article>
-      <article class="skill-card reveal"><span class="skill-index">04</span><h3 data-i18n="skills.ai">GenAI / AI engineering</h3><div class="skill-items"><span>LLM API integration</span><span>Prompt design</span><span>Embeddings</span><span>Semantic search</span><span>Retrieval patterns</span><span>Failure-aware AI</span><span>AI product workflows</span></div><p class="skill-note" data-i18n="skills.aiNote">Shown as an active engineering focus; claims are intentionally framed around practical integration rather than ML research.</p></article>
-      <article class="skill-card reveal"><span class="skill-index">05</span><h3 data-i18n="skills.delivery">Quality & delivery</h3><div class="skill-items"><span>React Testing Library</span><span>Mocha</span><span>Postman</span><span>Git</span><span>GitHub</span><span>Bitbucket</span><span>CI/CD</span><span>Agile</span><span>Scrum</span></div></article>
-      <article class="skill-card reveal"><span class="skill-index">06</span><h3 data-i18n="skills.tools">Product & tooling</h3><div class="skill-items"><span>Figma</span><span>VS Code</span><span>Docker</span><span>AWS</span><span>Redis</span><span>API debugging</span><span>UI/UX refinement</span><span>Technical documentation</span></div></article>
+    <div class="layers reveal">
+      <div class="layer"><div class="mono">01</div><h3 data-i18n="systems.l1t">Product surfaces</h3><p data-i18n="systems.l1c">The modules a user actually touches — projects, ATS, docs, meetings, forms.</p></div>
+      <div class="layer"><div class="mono">02</div><h3 data-i18n="systems.l2t">Frontend</h3><p data-i18n="systems.l2c">Component-driven UI, state management and responsive interaction layers.</p></div>
+      <div class="layer"><div class="mono">03</div><h3 data-i18n="systems.l3t">API layer</h3><p data-i18n="systems.l3c">REST endpoints that mediate between the interface and the data underneath.</p></div>
+      <div class="layer"><div class="mono">04</div><h3 data-i18n="systems.l4t">Auth &amp; access</h3><p data-i18n="systems.l4c">Authentication and role-based access control across workspace boundaries.</p></div>
+      <div class="layer"><div class="mono">05</div><h3 data-i18n="systems.l5t">Data layer</h3><p data-i18n="systems.l5c">Document modeling, indexing and query design for cross-module lookups.</p></div>
+      <div class="layer"><div class="mono">06</div><h3 data-i18n="systems.l6t">Integrations</h3><p data-i18n="systems.l6c">OAuth and webhook-driven connections to external services and providers.</p></div>
+      <div class="layer"><div class="mono">07</div><h3 data-i18n="systems.l7t">Events &amp; async work</h3><p data-i18n="systems.l7c">Background jobs and asynchronous flows that keep the interface responsive.</p></div>
+      <div class="layer"><div class="mono">08</div><h3 data-i18n="systems.l8t">AI layer</h3><p data-i18n="systems.l8c">Model/provider integration for AI-assisted product features, kept separate from core logic.</p></div>
+      <div class="layer"><div class="mono">09</div><h3 data-i18n="systems.l9t">Observability &amp; validation</h3><p data-i18n="systems.l9c">Input validation, error handling and the checks that catch problems before users do.</p></div>
+      <div class="layer"><div class="mono">10</div><h3 data-i18n="systems.l10t">Production &amp; deployment</h3><p data-i18n="systems.l10c">Getting a change from a branch into something real users depend on.</p></div>
     </div>
   </div>
 </section>
-
-<section class="section ai-section" id="ai">
-  <div class="container">
-    <div class="section-head reveal"><div><p class="eyebrow">04 · <span data-i18n="ai.eyebrow">GENAI FOCUS</span></p><h2 data-i18n="ai.title">Practical AI, not AI theatre.</h2></div><p data-i18n="ai.intro">AI becomes engineering when the model is only one part of a reliable product workflow.</p></div>
-    <div class="ai-grid"><article class="ai-card reveal"><span data-i18n="labels.model">MODEL</span><h3 data-i18n="ai.c1t">LLM integration</h3><p data-i18n="ai.c1d">Connect model providers to application workflows with controlled inputs, outputs and user-facing behavior.</p></article><article class="ai-card reveal"><span data-i18n="labels.retrieval">RETRIEVAL</span><h3 data-i18n="ai.c2t">Embeddings & semantic search</h3><p data-i18n="ai.c2d">Use vector representations and retrieval patterns to search product information by meaning.</p></article><article class="ai-card reveal"><span data-i18n="labels.reliability">RELIABILITY</span><h3 data-i18n="ai.c3t">Failure-aware AI</h3><p data-i18n="ai.c3d">Design around latency, access control, fallbacks, validation, errors and observability.</p></article></div>
-    <div class="ai-pipeline reveal"><span data-i18n="pipeline.input">INPUT</span><i>→</i><span data-i18n="pipeline.retrieve">RETRIEVE</span><i>→</i><span data-i18n="pipeline.model">MODEL</span><i>→</i><span data-i18n="pipeline.validate">VALIDATE</span><i>→</i><span data-i18n="pipeline.respond">RESPOND</span><i>→</i><span data-i18n="pipeline.observe">OBSERVE</span></div>
+<section class="section dark" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">05 · <span data-i18n="skills.kicker">ENGINEERING SKILLS</span></div><h2 class="section-title" data-i18n-html="skills.title">Full range,<br><span class="muted">not a logo wall.</span></h2></div>
+      <p class="section-copy" data-i18n="skills.intro">Grouped by what each skill is actually for — not an unbroken list of names.</p>
+    </div>
+    <div class="skills-groups reveal">
+      <div class="skill-group"><div class="mono">01</div><h3 data-i18n="skills.g1t">Frontend Engineering</h3>
+        <div class="skill-logos"><img src="assets/tech/react.svg" alt="React.js" loading="lazy"><img src="assets/tech/angular.svg" alt="Angular" loading="lazy"><img src="assets/tech/typescript.svg" alt="TypeScript" loading="lazy"><img src="assets/tech/javascript.svg" alt="JavaScript" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip">HTML5</span><span class="skill-chip">CSS3 / SCSS</span><span class="skill-chip">Redux</span><span class="skill-chip">React Router</span><span class="skill-chip">Tailwind CSS</span><span class="skill-chip">Bootstrap</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">02</div><h3 data-i18n="skills.g2t">Backend / APIs</h3>
+        <div class="skill-logos"><img src="assets/tech/nodejs.svg" alt="Node.js" loading="lazy"><img src="assets/tech/express.svg" alt="Express.js" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip" data-i18n="skills.restApi">REST API design</span><span class="skill-chip">JWT</span><span class="skill-chip">OAuth 2.0</span><span class="skill-chip" data-i18n="skills.validation">Validation</span><span class="skill-chip" data-i18n="skills.serviceBoundaries">Service boundaries</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">03</div><h3 data-i18n="skills.g3t">Data Engineering</h3>
+        <div class="skill-logos"><img src="assets/tech/mongodb.svg" alt="MongoDB" loading="lazy"><img src="assets/tech/redis.svg" alt="Redis" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip">Mongoose</span><span class="skill-chip" data-i18n="skills.aggregation">Aggregation pipelines</span><span class="skill-chip" data-i18n="skills.indexing">Indexing</span><span class="skill-chip" data-i18n="skills.queryOpt">Query optimization</span><span class="skill-chip" data-i18n="skills.dataModeling">Data modeling</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">04</div><h3 data-i18n="skills.g4t">Product Engineering</h3>
+        <div class="skill-chips"><span class="skill-chip" data-i18n="skills.saasWorkflows">SaaS workflows</span><span class="skill-chip" data-i18n="skills.modularArch">Modular product architecture</span><span class="skill-chip" data-i18n="skills.crossModule">Cross-module integrations</span><span class="skill-chip" data-i18n="skills.uxRefinement">UX refinement</span><span class="skill-chip" data-i18n="skills.techDocs">Technical documentation</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">05</div><h3 data-i18n="skills.g5t">Integrations / Auth</h3>
+        <div class="skill-chips"><span class="skill-chip">OAuth</span><span class="skill-chip" data-i18n="skills.externalIntegrations">External integrations</span><span class="skill-chip" data-i18n="skills.emailWorkflows">Email workflows</span><span class="skill-chip" data-i18n="skills.calendarWorkflows">Calendar workflows</span><span class="skill-chip" data-i18n="skills.apiIntegrations">API integrations</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">06</div><h3 data-i18n="skills.g6t">Testing / Quality</h3>
+        <div class="skill-logos"><img src="assets/tech/postman.svg" alt="Postman" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip">React Testing Library</span><span class="skill-chip">Mocha</span><span class="skill-chip" data-i18n="skills.debugging">Debugging</span><span class="skill-chip">QA</span><span class="skill-chip" data-i18n="skills.regression">Regression testing</span><span class="skill-chip" data-i18n="skills.prodVerification">Production verification</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">07</div><h3 data-i18n="skills.g7t">Cloud / Delivery</h3>
+        <div class="skill-logos"><img src="assets/tech/git.svg" alt="Git" loading="lazy"><img src="assets/tech/github.svg" alt="GitHub" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip">Bitbucket</span><span class="skill-chip">CI/CD</span><span class="skill-chip" data-i18n="skills.deployment">Deployment</span><span class="skill-chip" data-i18n="skills.prodTroubleshooting">Production troubleshooting</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">08</div><h3 data-i18n="skills.g8t">GenAI / AI Engineering</h3>
+        <div class="skill-logos"><img src="assets/tech/ai.svg" alt="GenAI" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip" data-i18n="skills.llmIntegration">LLM integration</span><span class="skill-chip" data-i18n="skills.modelProvider">Model / provider integration</span><span class="skill-chip" data-i18n="skills.promptDesign">Prompt design</span><span class="skill-chip">Embeddings</span><span class="skill-chip" data-i18n="skills.semanticSearch">Semantic search</span><span class="skill-chip" data-i18n="skills.retrievalPatterns">Retrieval patterns</span><span class="skill-chip" data-i18n="skills.aiWorkflow">AI workflow integration</span><span class="skill-chip" data-i18n="skills.failureAware">Failure-aware AI</span></div>
+      </div>
+      <div class="skill-group"><div class="mono">09</div><h3 data-i18n="skills.g9t">Product / Design Tools</h3>
+        <div class="skill-logos"><img src="assets/tech/figma.svg" alt="Figma" loading="lazy"></div>
+        <div class="skill-chips"><span class="skill-chip">VS Code</span><span class="skill-chip" data-i18n="skills.apiDebugging">API debugging</span><span class="skill-chip" data-i18n="skills.uiRefinement">UI/UX refinement</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="genai">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">06 · <span data-i18n="genai.kicker">PRACTICAL GENAI</span></div><h2 class="section-title" data-i18n-html="genai.title">Practical AI.<br><span class="muted">Not AI theatre.</span></h2></div>
+      <p class="section-copy" data-i18n="genai.intro">AI treated as a product/engineering capability with real constraints — not a badge on a résumé.</p>
+    </div>
+    <div class="genai-cards reveal">
+      <div class="genai-card"><span class="badge" data-i18n="genai.shipped">SHIPPED DIRECTION</span><h3 data-i18n="genai.c1t">LLM integration</h3><p data-i18n="genai.c1c">Wiring model/provider APIs into product workflows — prompt construction, response handling and integrating AI output into existing UI, not just calling an endpoint.</p></div>
+      <div class="genai-card"><span class="badge" data-i18n="genai.explored">EXPLORED / PROTOTYPE DIRECTION</span><h3 data-i18n="genai.c2t">Embeddings &amp; semantic search</h3><p data-i18n="genai.c2c">Vector-based retrieval concepts for surfacing relevant content instead of relying on exact keyword matches.</p></div>
+      <div class="genai-card"><span class="badge" data-i18n="genai.shipped">SHIPPED DIRECTION</span><h3 data-i18n="genai.c3t">Failure-aware AI</h3><p data-i18n="genai.c3c">Designing for the case where the model is wrong, slow or unavailable — not just the happy path.</p></div>
+    </div>
+    <div class="concerns reveal">
+      <div class="mono" data-i18n="genai.concernsTitle">PRODUCTION CONCERNS THIS ACTUALLY REQUIRES</div>
+      <div class="concern-list">
+        <span class="concern-chip" data-i18n="genai.p1">Input / output control</span>
+        <span class="concern-chip" data-i18n="genai.p2">Latency</span>
+        <span class="concern-chip" data-i18n="genai.p3">Fallback behavior</span>
+        <span class="concern-chip" data-i18n="genai.p4">Validation</span>
+        <span class="concern-chip" data-i18n="genai.p5">Access control</span>
+        <span class="concern-chip" data-i18n="genai.p6">Observability</span>
+        <span class="concern-chip" data-i18n="genai.p7">Retrieval quality</span>
+        <span class="concern-chip" data-i18n="genai.p8">Model / provider abstraction</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section" id="proof">
-  <div class="container">
-    <div class="section-head reveal"><div><p class="eyebrow">05 · <span data-i18n="proof.eyebrow">PROOF & DELIVERY</span></p><h2 data-i18n="proof.title">Show the work. Show the outcome.</h2></div><p data-i18n="proof.intro">Real evidence belongs next to real claims. Historical performance numbers below come from the supplied resume, while KiteSuite is presented without invented business metrics.</p></div>
-    <div class="metric-grid"><article class="metric reveal"><strong>35%</strong><span data-i18n="metrics.m1">page-load improvement*</span><small data-i18n="metrics.role">Associate Web Developer role</small></article><article class="metric reveal"><strong>40%</strong><span data-i18n="metrics.m2">fewer React re-renders*</span><small data-i18n="metrics.role">Associate Web Developer role</small></article><article class="metric reveal"><strong>20%</strong><span data-i18n="metrics.m3">lower DB read/write latency*</span><small data-i18n="metrics.role">Associate Web Developer role</small></article><article class="metric reveal"><strong>30%</strong><span data-i18n="metrics.m4">faster release time*</span><small data-i18n="metrics.role">Associate Web Developer role</small></article><article class="metric reveal"><strong>50%</strong><span data-i18n="metrics.m7">fewer authentication failures*</span><small data-i18n="metrics.role">Associate Web Developer role</small></article><article class="metric reveal"><strong>95%</strong><span data-i18n="metrics.m8">on-time sprint delivery*</span><small data-i18n="metrics.role">Associate Web Developer role</small></article><article class="metric reveal"><strong>10k+</strong><span data-i18n="metrics.m5">API requests/day*</span><small data-i18n="metrics.zendu">ZenduIt project</small></article><article class="metric reveal"><strong>99.9%</strong><span data-i18n="metrics.m6">API uptime*</span><small data-i18n="metrics.zendu">ZenduIt project</small></article><article class="metric reveal"><strong>45%</strong><span data-i18n="metrics.m9">higher client operational efficiency*</span><small data-i18n="metrics.zendu">ZenduIt project</small></article><article class="metric reveal"><strong>50%</strong><span data-i18n="metrics.m10">faster report generation*</span><small data-i18n="metrics.zendu">ZenduIt project</small></article></div>
-    <p class="micro-note" data-i18n="metrics.note">*Metrics are historical claims from the supplied resume and project description. They are not presented as independently audited results.</p>
-    <div class="proof-flow reveal"><div><span>01</span><b data-i18n="proof.p1">Problem</b><small data-i18n="proof.p1d">Understand the workflow and constraints.</small></div><i>→</i><div><span>02</span><b data-i18n="proof.p2">Decision</b><small data-i18n="proof.p2d">Choose the architecture and interaction model.</small></div><i>→</i><div><span>03</span><b data-i18n="proof.p3">Build</b><small data-i18n="proof.p3d">Implement UI, API and data paths.</small></div><i>→</i><div><span>04</span><b data-i18n="proof.p4">Verify</b><small data-i18n="proof.p4d">Test edge cases and cross-system behavior.</small></div><i>→</i><div><span>05</span><b data-i18n="proof.p5">Ship</b><small data-i18n="proof.p5d">Deploy, observe and improve.</small></div></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">07 · <span data-i18n="proof.kicker">PROOF</span></div><h2 class="section-title" data-i18n-html="proof.title">Evidence,<br><span class="muted">not claims.</span></h2></div>
+      <p class="section-copy" data-i18n="proof.intro">A consistent framework for evaluating engineering work, applied honestly — including numbers that belong to a previous role, kept in that context.</p>
+    </div>
+    <div class="proof-flow reveal">
+      <div class="proof-step"><div class="mono">01</div><span data-i18n="proof.f1">Problem</span></div>
+      <div class="proof-step"><div class="mono">02</div><span data-i18n="proof.f2">Decision</span></div>
+      <div class="proof-step"><div class="mono">03</div><span data-i18n="proof.f3">Implementation</span></div>
+      <div class="proof-step"><div class="mono">04</div><span data-i18n="proof.f4">Verification</span></div>
+      <div class="proof-step"><div class="mono">05</div><span data-i18n="proof.f5">Production</span></div>
+    </div>
+    <div class="proof-hist reveal">
+      <div class="mono" data-i18n="proof.histLabel">PREVIOUS-ROLE EVIDENCE — SUMEDHA SOFTTECH / ZENDUIT (DEC 2023–APR 2025)</div>
+      <div class="metric-grid">
+        <div class="metric"><strong>35%</strong><span data-i18n="proof.m1">Page-load improvement</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
+        <div class="metric"><strong>40%</strong><span data-i18n="proof.m2">Fewer component re-renders</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
+        <div class="metric"><strong>50%</strong><span data-i18n="proof.m3">Reduction in authentication failures</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
+        <div class="metric"><strong>20%</strong><span data-i18n="proof.m4">Database latency reduction</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
+        <div class="metric"><strong>30%</strong><span data-i18n="proof.m5">Reduction in release time</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
+        <div class="metric"><strong>95%</strong><span data-i18n="proof.m6">Sprint delivery rate</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
+        <div class="metric"><strong>10,000+</strong><span data-i18n="proof.m7">API requests handled per day, at 99.9% uptime</span><small data-i18n="proof.histTagZenduit">ZenduIt project · previous role</small></div>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="section" id="experience">
-  <div class="container">
-    <div class="section-head reveal"><div><p class="eyebrow">06 · <span data-i18n="exp.eyebrow">EXPERIENCE</span></p><h2 data-i18n="exp.title">Built through real delivery.</h2></div><p data-i18n="exp.intro">A full-stack foundation, followed by deeper product engineering work across connected SaaS surfaces and AI-enabled workflows.</p></div>
-    <div class="timeline">
-      <article class="timeline-item reveal"><time data-i18n="exp.sumedhaDate">DEC 2023 — APR 2025</time><div><h3 data-i18n="exp.sumedhaRole">Associate Web Developer</h3><p class="company">Sumedha Softtech Pvt. Ltd. · Jaipur</p><p data-i18n="exp.sum">Built and maintained full-stack applications with React, Node.js, Express and MongoDB; worked on performance, authentication, APIs, database optimization and CI/CD.</p><div class="tag-list"><span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>CI/CD</span></div></div></article>
-      <article class="timeline-item reveal"><time data-i18n="labels.project">PROJECT</time><div><h3 data-i18n="exp.zenduTitle">ZenduIt — Fleet Management & Field Services</h3><p class="company" data-i18n="exp.zenduLabel">Real-time dashboard + backend systems</p><p data-i18n="exp.zendu">Developed a real-time fleet dashboard, engineered REST APIs, optimized MongoDB aggregation and worked on backend scalability and error handling.</p><div class="tag-list"><span>React</span><span>Redux</span><span>REST</span><span>MongoDB</span></div></div></article>
-      <article class="timeline-item reveal"><time data-i18n="exp.currentTime">CURRENT</time><div><h3 data-i18n="exp.current">Product / Full-stack Engineering</h3><p class="company">Rudra Innovative Software · KiteSuite</p><p data-i18n="exp.kite">Contributing across product surfaces and engineering workflows spanning HRM, ATS, projects, meetings, docs, forms, integrations, testing and AI-enabled features.</p><div class="tag-list"><span>Angular</span><span>Node.js</span><span>MongoDB</span><span>ATS</span><span>HRM</span><span>AI</span></div></div></article>
+<section class="section dark" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">08 · <span data-i18n="experience.kicker">EXPERIENCE</span></div><h2 class="section-title" data-i18n-html="experience.title">Where the<br><span class="muted">work happened.</span></h2></div>
+      <p class="section-copy" data-i18n="experience.intro">A straightforward timeline — current role, previous role, and education.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-date mono" data-i18n="experience.i1date">CURRENT</div>
+        <div><h3 data-i18n="experience.i1title">Full-Stack / Product Engineer · Rudra Innovative Software</h3><p data-i18n="experience.i1copy">Contributing across KiteSuite's frontend, backend, integrations and GenAI-adjacent product workflows.</p><span class="role-tag" data-i18n="experience.i1tag">CONTRIBUTOR, NOT OWNER</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date mono">DEC 2023 – APR 2025</div>
+        <div><h3 data-i18n="experience.i2title">Associate Web Developer · Sumedha Softtech Pvt. Ltd., Jaipur</h3><p data-i18n="experience.i2copy">Full-stack (MERN) development on ZenduIt, a fleet-management and field-services platform.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date mono" data-i18n="experience.i3date">GRADUATED MAY 2024</div>
+        <div><h3 data-i18n="experience.i3title">B.Tech, Computer Science &amp; Engineering · Rajasthan Technical University</h3><p data-i18n="experience.i3copy">GPA 8.6 / 10.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section" id="about">
-  <div class="container about-grid">
-    <div class="reveal"><p class="eyebrow">07 · <span data-i18n="about.eyebrow">ABOUT</span></p><h2 data-i18n="about.title">I like building things that have to keep working.</h2></div>
-    <div class="about-copy reveal"><p data-i18n="about.p1">I'm Asendra Chauhan, a full-stack/product engineer focused on turning product requirements into reliable web systems.</p><p data-i18n="about.p2">My background spans React, Angular, Node.js, MongoDB, APIs, authentication, integrations, testing and deployment, with a growing focus on practical GenAI engineering.</p><div class="identity-grid"><div><span data-i18n="about.education">Education</span><b>B.Tech · Computer Science & Engineering</b><small>Rajasthan Technical University · GPA 8.6/10 · 2024</small></div><div><span data-i18n="about.links">Public links</span><a href="https://www.linkedin.com/in/asendra-chauhan-410344221" target="_blank" rel="noreferrer" data-i18n="links.linkedin">LinkedIn ↗</a><a href="https://github.com/asendrachauhan" target="_blank" rel="noreferrer" data-i18n="links.github">GitHub ↗</a><a href="mailto:asendrachauhan176@gmail.com" data-i18n="links.email">Email ↗</a></div></div></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><div class="mono">09 · <span data-i18n="about.kicker">ABOUT</span></div><h2 class="section-title" data-i18n-html="about.title">I like building<br><span class="muted">things that keep working.</span></h2></div>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-body"><p data-i18n="about.body">Full-stack product engineering across SaaS, integrations and practical GenAI, with a production mindset — I care as much about what happens after a feature ships as what it looks like before. I work across frontend, backend and systems thinking, and I'm genuinely interested in where AI is actually useful in a product, versus where it's just decoration.</p></div>
+      <div class="about-cards">
+        <div class="about-card"><div class="mono" data-i18n="about.eduLabel">EDUCATION</div><h3>B.Tech CSE · RTU</h3><p data-i18n="about.eduCopy">Rajasthan Technical University · GPA 8.6/10 · May 2024</p></div>
+        <div class="about-card"><div class="mono" data-i18n="about.focusLabel">FOCUS</div><h3 data-i18n="about.focusTitle">Product × engineering</h3><p data-i18n="about.focusCopy">Turning ambiguous requirements into interfaces, systems and production-ready implementations.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section contact" id="contact">
-  <div class="container contact-grid">
-    <div class="reveal"><p class="eyebrow">08 · <span data-i18n="contact.eyebrow">CONTACT</span></p><h2><span data-i18n="contact.title1">Let's build</span><br><span class="accent" data-i18n="contact.title2">something real.</span></h2><p data-i18n="contact.intro">Have a product, platform or engineering problem worth solving? Send a note.</p><div class="contact-links"><a href="mailto:asendrachauhan176@gmail.com" data-i18n="links.emailCaps">EMAIL ↗</a><a href="https://www.linkedin.com/in/asendra-chauhan-410344221" target="_blank" rel="noreferrer" data-i18n="links.linkedinCaps">LINKEDIN ↗</a><a href="https://github.com/asendrachauhan" target="_blank" rel="noreferrer" data-i18n="links.githubCaps">GITHUB ↗</a></div></div>
-    <form class="contact-form reveal" id="contactForm"><label><span data-i18n="form.name">Name</span><input name="name" required autocomplete="name"></label><label><span data-i18n="form.email">Email</span><input name="email" type="email" required autocomplete="email"></label><label><span data-i18n="form.message">What are you building?</span><textarea name="message" rows="6" required></textarea></label><button class="btn btn-primary" type="submit" data-i18n="form.send">PREPARE EMAIL ↗</button><p class="form-status" id="formStatus" role="status"></p></form>
+<section class="cta-band" id="contact-cta">
+  <div class="wrap">
+    <div class="mono" id="contact"><span data-i18n="contact.kicker">10 · CONTACT</span></div>
+    <h2 data-i18n-html="contact.title">Let's build<br><span class="accent">something real.</span></h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="mono" data-i18n="contact.openTo">OPEN TO</div>
+        <p class="section-copy" data-i18n="contact.openToCopy">Full-time opportunities, product collaborations and challenging software problems.</p>
+        <div class="contact-list">
+          <a href="mailto:asendrachauhan176@gmail.com"><span data-i18n="contact.email">EMAIL</span><span>↗</span></a>
+          <a href="https://www.linkedin.com/in/asendra-chauhan-410344221" target="_blank" rel="noopener"><span data-i18n="contact.linkedin">LINKEDIN</span><span>↗</span></a>
+          <a href="https://github.com/asendrachauhan" target="_blank" rel="noopener"><span data-i18n="contact.github">GITHUB</span><span>↗</span></a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <form class="form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="cf-name" data-i18n="contact.nameLabel">Name</label>
+            <input id="cf-name" name="name" autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Your name" required>
+            <div class="field-error" id="err-name" role="alert"></div>
+          </div>
+          <div class="field">
+            <label for="cf-email" data-i18n="contact.emailLabel">Email</label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" data-i18n-placeholder="contact.emailPh" placeholder="your.email@example.com" required>
+            <div class="field-error" id="err-email" role="alert"></div>
+          </div>
+          <div class="field">
+            <label for="cf-message" data-i18n="contact.messageLabel">Message</label>
+            <textarea id="cf-message" name="message" data-i18n-placeholder="contact.messagePh" placeholder="Tell me about your project..." required></textarea>
+            <div class="field-error" id="err-message" role="alert"></div>
+          </div>
+          <button class="btn alt" type="submit" id="cf-submit"><span data-i18n="contact.send">SEND MESSAGE ↗</span></button>
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          <button type="button" class="copy-email-btn" id="copyEmailBtn" style="display:none" data-i18n="contact.copyEmail">Copy email address</button>
+        </form>
+      </div>
+    </div>
+    <div class="wrap footer" style="margin-inline:0;width:100%;padding-inline:0">
+      <span>ASENDRA / ENGINEERING</span>
+      <span><a href="https://github.com/asendrachauhan" target="_blank" rel="noopener">GITHUB</a> · <a href="https://www.linkedin.com/in/asendra-chauhan-410344221" target="_blank" rel="noopener">LINKEDIN</a> · <a href="mailto:asendrachauhan176@gmail.com">EMAIL</a> · <span data-i18n="footer.rights">© 2026 Asendra Chauhan</span></span>
+    </div>
   </div>
 </section>
 </main>
-<div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
-  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image preview" data-i18n="a11y.close" data-i18n-attr="aria-label">×</button>
-  <figure><img id="lightboxImage" src="" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
-</div>
-<footer><div class="container footer-inner"><span>© <span id="year"></span> ASENDRA CHAUHAN</span><span data-i18n="footer">FULL-STACK · PRODUCT · AI / GENAI</span><a href="#top" data-i18n="footer.top">↑ TOP</a></div></footer>
-<script src="script.js"></script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+"use strict";
+const T = {
+"a11y.skip":["Skip to main content","मुख्य सामग्री पर जाएँ","Saltar al contenido principal","Aller au contenu principal","Zum Hauptinhalt springen","メインコンテンツへスキップ"],
+"loader.tag":["BUILD · INTEGRATE · SHIP","बनाएँ · इंटीग्रेट करें · शिप करें","CONSTRUIR · INTEGRAR · LANZAR","CONSTRUIRE · INTÉGRER · LIVRER","BAUEN · INTEGRIEREN · AUSLIEFERN","構築・統合・出荷"],
+"aria.themeToggle":["Toggle theme","थीम बदलें","Cambiar tema","Changer de thème","Design wechseln","テーマを切り替え"],
+"aria.langToggle":["Change language","भाषा बदलें","Cambiar idioma","Changer de langue","Sprache ändern","言語を変更"],
+"aria.openMenu":["Open menu","मेनू खोलें","Abrir menú","Ouvrir le menu","Menü öffnen","メニューを開く"],
+"aria.closeMenu":["Close menu","मेनू बंद करें","Cerrar menú","Fermer le menu","Menü schließen","メニューを閉じる"],
+"nav.work":["WORK","काम","TRABAJO","TRAVAIL","ARBEIT","実績"],
+"nav.systems":["SYSTEMS","सिस्टम","SISTEMAS","SYSTÈMES","SYSTEME","システム"],
+"nav.skills":["SKILLS","कौशल","HABILIDADES","COMPÉTENCES","FÄHIGKEITEN","スキル"],
+"nav.ai":["GENAI","जेनAI","GENAI","GENIA","GENAI","生成AI"],
+"nav.proof":["PROOF","प्रमाण","PRUEBA","PREUVE","NACHWEIS","証拠"],
+"nav.experience":["EXPERIENCE","अनुभव","EXPERIENCIA","EXPÉRIENCE","ERFAHRUNG","経歴"],
+"nav.about":["ABOUT","मेरे बारे में","SOBRE MÍ","À PROPOS","ÜBER MICH","自己紹介"],
+"nav.contact":["CONTACT","संपर्क","CONTACTO","CONTACT","KONTAKT","連絡先"],
+"hero.eyebrow":["FULL-STACK / PRODUCT ENGINEER · PRACTICAL GENAI","फुल-स्टैक / प्रोडक्ट इंजीनियर · प्रैक्टिकल GenAI","FULL-STACK / INGENIERO DE PRODUCTO · GENAI PRÁCTICA","FULL-STACK / INGÉNIEUR PRODUIT · GENAI CONCRÈTE","FULL-STACK / PRODUCT ENGINEER · PRAKTISCHES GENAI","フルスタック／プロダクトエンジニア・実践的生成AI"],
+"hero.h1a":["I BUILD","मैं बनाता हूँ","CONSTRUYO","JE CONSTRUIS","ICH BAUE","私は作る"],
+"hero.h1b":["THAT <b class=\"accent\">SURVIVES</b>","जो <b class=\"accent\">प्रोडक्शन</b> में टिके","LO QUE <b class=\"accent\">SOBREVIVE</b> A","CE QUI <b class=\"accent\">SURVIT</b> À LA","WAS DIE <b class=\"accent\">PRODUKTION</b> ÜBERLEBT,","<b class=\"accent\">本番環境で</b>生き残る"],
+"hero.h1c":["PRODUCTION.","रहता है।","PRODUCCIÓN.","PRODUCTION.","IN DER","ものを。"],
+"hero.lead":["I work across frontend, backend, APIs, data and integrations — and increasingly, practical GenAI — contributing to KiteSuite, a production SaaS workspace platform.","मैं frontend, backend, APIs, data और integrations में काम करता हूँ — और अब practical GenAI में भी — KiteSuite नामक production SaaS workspace platform में योगदान देते हुए।","Trabajo en frontend, backend, APIs, datos e integraciones — y cada vez más en GenAI práctica — contribuyendo a KiteSuite, una plataforma SaaS de producción.","Je travaille sur le frontend, le backend, les API, les données et les intégrations — et de plus en plus sur la GenAI concrète — en contribuant à KiteSuite, une plateforme SaaS en production.","Ich arbeite an Frontend, Backend, APIs, Daten und Integrationen — und zunehmend an praktischem GenAI — und trage zu KiteSuite bei, einer produktiven SaaS-Workspace-Plattform.","フロントエンド、バックエンド、API、データ、インテグレーション、そして実践的な生成AIにまたがって、本番稼働中のSaaSワークスペース「KiteSuite」の開発に携わっています。"],
+"hero.ctaWork":["VIEW SELECTED WORK ↘","चुना हुआ काम देखें ↘","VER TRABAJO DESTACADO ↘","VOIR LES RÉALISATIONS ↘","AUSGEWÄHLTE ARBEIT ANSEHEN ↘","代表作を見る ↘"],
+"hero.ctaContact":["LET'S TALK ↗","बात करें ↗","HABLEMOS ↗","DISCUTONS ↗","LASS UNS REDEN ↗","話しましょう ↗"],
+"hero.stat1":["Years building","निर्माण का अनुभव","Años construyendo","Années d'expérience","Jahre Erfahrung","開発経験"],
+"hero.stat2":["Product surfaces contributed to","योगदान की गई प्रोडक्ट सतहें","Superficies de producto en las que contribuí","Modules produit auxquels j'ai contribué","Produktbereiche, zu denen ich beigetragen habe","貢献したプロダクト領域"],
+"hero.stat3":["Integrations worked on","काम की गई इंटीग्रेशन","Integraciones en las que trabajé","Intégrations réalisées","Bearbeitete Integrationen","対応した連携機能"],
+"hero.stat4":["Practical AI workflows","प्रैक्टिकल AI वर्कफ़्लो","Flujos de IA prácticos","Flux de travail IA concrets","Praktische KI-Workflows","実践的なAIワークフロー"],
+"hero.systemLabel":["SYSTEM FLOW","सिस्टम फ़्लो","FLUJO DEL SISTEMA","FLUX SYSTÈME","SYSTEMFLUSS","システムフロー"],
+"hero.systemAria":["Diagram: product surface connects to API layer, authentication, data layer, integrations, AI layer, and production deployment","डायग्राम: प्रोडक्ट सतह API लेयर, प्रमाणीकरण, डेटा लेयर, इंटीग्रेशन, AI लेयर और प्रोडक्शन डिप्लॉयमेंट से जुड़ी है","Diagrama: la superficie de producto se conecta con la capa de API, autenticación, capa de datos, integraciones, capa de IA y despliegue en producción","Diagramme : la surface produit se connecte à la couche API, à l'authentification, à la couche de données, aux intégrations, à la couche IA et au déploiement en production","Diagramm: Die Produktoberfläche verbindet sich mit der API-Schicht, Authentifizierung, Datenschicht, Integrationen, KI-Schicht und Produktionsbereitstellung","図：プロダクト画面はAPI層、認証、データ層、連携機能、AI層、本番デプロイへとつながる"],
+"hero.node1t":["Product surface","प्रोडक्ट सतह","Superficie de producto","Surface produit","Produktoberfläche","プロダクト画面"],
+"hero.node1s":["Interface / UX","इंटरफ़ेस / UX","Interfaz / UX","Interface / UX","Interface / UX","インターフェース／UX"],
+"hero.node2t":["API layer","API लेयर","Capa de API","Couche API","API-Schicht","API層"],
+"hero.node2s":["Node.js / Express","Node.js / Express","Node.js / Express","Node.js / Express","Node.js / Express","Node.js / Express"],
+"hero.node3t":["Data layer","डेटा लेयर","Capa de datos","Couche de données","Datenschicht","データ層"],
+"hero.node3s":["MongoDB / Redis","MongoDB / Redis","MongoDB / Redis","MongoDB / Redis","MongoDB / Redis","MongoDB / Redis"],
+"hero.node4t":["Integrations","इंटीग्रेशन","Integraciones","Intégrations","Integrationen","連携機能"],
+"hero.node4s":["OAuth / Webhooks","OAuth / Webhooks","OAuth / Webhooks","OAuth / Webhooks","OAuth / Webhooks","OAuth / Webhooks"],
+"hero.node5t":["AI layer","AI लेयर","Capa de IA","Couche IA","KI-Schicht","AI層"],
+"hero.node5s":["LLM / retrieval","LLM / retrieval","LLM / recuperación","LLM / récupération","LLM / Retrieval","LLM／検索拡張"],
+"hero.node6t":["Production","प्रोडक्शन","Producción","Production","Produktion","本番環境"],
+"hero.node6s":["Deploy / observe","डिप्लॉय / मॉनिटर","Despliegue / observación","Déploiement / observation","Deployment / Monitoring","デプロイ／監視"]
+};
+Object.assign(T, {
+"work.kicker":["SELECTED WORK","चुना हुआ काम","TRABAJO DESTACADO","TRAVAIL SÉLECTIONNÉ","AUSGEWÄHLTE ARBEIT","代表的な実績"],
+"work.title":["KiteSuite.<br><span class=\"muted\">One product, many systems.</span>","KiteSuite.<br><span class=\"muted\">एक प्रोडक्ट, कई सिस्टम।</span>","KiteSuite.<br><span class=\"muted\">Un producto, muchos sistemas.</span>","KiteSuite.<br><span class=\"muted\">Un produit, plusieurs systèmes.</span>","KiteSuite.<br><span class=\"muted\">Ein Produkt, viele Systeme.</span>","KiteSuite。<br><span class=\"muted\">ひとつのプロダクト、多くのシステム。</span>"],
+"work.intro":["Instead of a list of small projects, this portfolio leads with the strongest proof: a multi-surface production SaaS platform and the engineering work behind it.","छोटे-छोटे प्रोजेक्ट्स की सूची के बजाय, यह पोर्टफोलियो सबसे मजबूत प्रमाण दिखाता है: एक multi-surface production SaaS platform और उसके पीछे की engineering।","En lugar de una lista de proyectos pequeños, este portafolio presenta la prueba más sólida: una plataforma SaaS de producción multisuperficie y la ingeniería detrás de ella.","Plutôt qu'une liste de petits projets, ce portfolio met en avant la preuve la plus solide : une plateforme SaaS de production multi-modules et le travail d'ingénierie qui la soutient.","Statt einer Liste kleiner Projekte zeigt dieses Portfolio den stärksten Beweis: eine produktive SaaS-Plattform mit vielen Oberflächen und die Engineering-Arbeit dahinter.","小さなプロジェクトの羅列ではなく、最も説得力のある証拠を提示します。複数の画面を持つ本番SaaSプラットフォームと、その裏側のエンジニアリングです。"],
+"work.contextLabel":["CONTEXT","संदर्भ","CONTEXTO","CONTEXTE","KONTEXT","背景"],
+"work.context":["KiteSuite is a connected SaaS workspace platform spanning projects, recruiting, documents, meetings, forms, time tracking and integrations. It is a production system used across multiple interconnected modules, not a single-page demo.","KiteSuite एक connected SaaS workspace platform है जो projects, recruiting, documents, meetings, forms, time tracking और integrations को जोड़ती है। यह कई interconnected modules वाला production system है, कोई single-page demo नहीं।","KiteSuite es una plataforma SaaS de espacio de trabajo conectada que abarca proyectos, contratación, documentos, reuniones, formularios, seguimiento de tiempo e integraciones. Es un sistema en producción con múltiples módulos interconectados, no una demo de una sola página.","KiteSuite est une plateforme SaaS d'espace de travail connectée couvrant les projets, le recrutement, les documents, les réunions, les formulaires, le suivi du temps et les intégrations. C'est un système en production avec plusieurs modules interconnectés, pas une simple démo.","KiteSuite ist eine vernetzte SaaS-Workspace-Plattform für Projekte, Recruiting, Dokumente, Meetings, Formulare, Zeiterfassung und Integrationen. Es ist ein produktives System mit mehreren verbundenen Modulen, keine einfache Demo.","KiteSuiteは、プロジェクト、採用、ドキュメント、会議、フォーム、勤怠管理、連携機能をつなぐSaaSワークスペースです。単一ページのデモではなく、複数モジュールが連動する本番システムです。"],
+"work.roleLabelHead":["ROLE","भूमिका","ROL","RÔLE","ROLLE","役割"],
+"work.roleBody":["I contribute as a full-stack product engineer — frontend, backend, integrations and GenAI-adjacent features — across a platform built and owned by Rudra Innovative Software.","मैं एक full-stack product engineer के रूप में योगदान देता हूँ — frontend, backend, integrations और GenAI-संबंधित features में — एक ऐसे platform पर जो Rudra Innovative Software द्वारा बनाया और owned है।","Contribuyo como ingeniero de producto full-stack — frontend, backend, integraciones y funciones relacionadas con GenAI — en una plataforma construida y propiedad de Rudra Innovative Software.","Je contribue en tant qu'ingénieur produit full-stack — frontend, backend, intégrations et fonctionnalités liées à la GenAI — sur une plateforme conçue et détenue par Rudra Innovative Software.","Ich trage als Full-Stack-Product-Engineer bei — Frontend, Backend, Integrationen und GenAI-nahe Funktionen — auf einer Plattform, die Rudra Innovative Software entwickelt hat und besitzt.","フルスタックのプロダクトエンジニアとして、フロントエンド、バックエンド、連携機能、生成AI関連機能に携わっています。プラットフォーム自体はRudra Innovative Softwareが開発・所有しています。"],
+"work.roleNote":["Asendra is a contributing engineer on KiteSuite, not its founder or owner. Screenshots and descriptions below reflect engineering contribution, not company ownership.","Asendra, KiteSuite पर योगदान देने वाला engineer है, इसका संस्थापक या owner नहीं। नीचे दिए गए screenshots और विवरण engineering योगदान दर्शाते हैं, company ownership नहीं।","Asendra es un ingeniero colaborador en KiteSuite, no su fundador ni propietario. Las capturas y descripciones a continuación reflejan contribución técnica, no propiedad de la empresa.","Asendra est un ingénieur contributeur sur KiteSuite, pas son fondateur ni son propriétaire. Les captures et descriptions ci-dessous reflètent une contribution d'ingénierie, pas la propriété de l'entreprise.","Asendra ist ein mitwirkender Engineer bei KiteSuite, nicht dessen Gründer oder Eigentümer. Die folgenden Screenshots und Beschreibungen zeigen den technischen Beitrag, nicht den Firmenbesitz.","AsendraはKiteSuiteの開発に携わるエンジニアであり、創業者や所有者ではありません。以下のスクリーンショットと説明は、会社の所有権ではなく、エンジニアリング上の貢献を示すものです。"],
+"work.step1t":["Problem","समस्या","Problema","Problème","Problem","課題"],
+"work.step1c":["Teams juggling projects, hiring, docs and meetings across disconnected tools lose context between systems.","अलग-अलग tools में projects, hiring, docs और meetings को manage करने वाली teams systems के बीच context खो देती हैं।","Los equipos que gestionan proyectos, contratación, documentos y reuniones en herramientas desconectadas pierden contexto entre sistemas.","Les équipes jonglant entre projets, recrutement, documents et réunions dans des outils déconnectés perdent le contexte entre les systèmes.","Teams, die Projekte, Einstellungen, Dokumente und Meetings in getrennten Tools jonglieren, verlieren den Kontext zwischen den Systemen.","バラバラなツールでプロジェクト・採用・ドキュメント・会議を管理するチームは、システム間で文脈を失いがちです。"],
+"work.step2t":["Contribution","योगदान","Contribución","Contribution","Beitrag","貢献"],
+"work.step2c":["Engineered and shipped features across multiple modules — frontend UI, backend APIs, data models and third-party integrations.","कई modules में features को engineer और ship किया — frontend UI, backend APIs, data models और third-party integrations।","Diseñé y lancé funciones en varios módulos: interfaz frontend, APIs backend, modelos de datos e integraciones de terceros.","J'ai conçu et livré des fonctionnalités sur plusieurs modules — UI frontend, API backend, modèles de données et intégrations tierces.","Habe Funktionen über mehrere Module hinweg entwickelt und ausgeliefert — Frontend-UI, Backend-APIs, Datenmodelle und Drittanbieter-Integrationen.","フロントエンドUI、バックエンドAPI、データモデル、外部連携など、複数モジュールにまたがる機能を設計・実装・リリースしました。"],
+"work.step3t":["Complexity","जटिलता","Complejidad","Complexité","Komplexität","複雑さ"],
+"work.step3c":["Cross-module data (projects ↔ calendar ↔ people ↔ forms) meant every change had to respect shared state and permissions.","Cross-module data (projects ↔ calendar ↔ people ↔ forms) का मतलब था कि हर change को shared state और permissions का ध्यान रखना पड़ता था।","Los datos entre módulos (proyectos ↔ calendario ↔ personas ↔ formularios) exigían que cada cambio respetara el estado compartido y los permisos.","Les données inter-modules (projets ↔ calendrier ↔ personnes ↔ formulaires) imposaient que chaque changement respecte l'état partagé et les permissions.","Modulübergreifende Daten (Projekte ↔ Kalender ↔ Personen ↔ Formulare) bedeuteten, dass jede Änderung den gemeinsamen Zustand und die Berechtigungen berücksichtigen musste.","モジュール横断のデータ（プロジェクト⇔カレンダー⇔メンバー⇔フォーム）により、あらゆる変更が共有状態と権限を考慮する必要がありました。"],
+"work.step4t":["Verification &amp; delivery","सत्यापन और डिलीवरी","Verificación y entrega","Vérification &amp; livraison","Verifizierung &amp; Auslieferung","検証と本番反映"],
+"work.step4c":["Tested, debugged and shipped changes into a live production platform used by real workspaces.","Live production platform में, जिसे real workspaces उपयोग करती हैं, changes को test, debug और ship किया।","Probé, depuré y lancé cambios en una plataforma de producción activa usada por espacios de trabajo reales.","Testé, débogué et livré des changements sur une plateforme en production réelle, utilisée par de vrais espaces de travail.","Änderungen in einer produktiven Live-Plattform getestet, debuggt und ausgeliefert, die von echten Workspaces genutzt wird.","実際のワークスペースで稼働中の本番プラットフォームに対し、変更のテスト・デバッグ・反映を行いました。"]
+});
+Object.assign(T, {
+"evidence.kicker":["PRODUCT SURFACE","प्रोडक्ट सतह","SUPERFICIE DE PRODUCTO","SURFACE PRODUIT","PRODUKTOBERFLÄCHE","プロダクト画面"],
+"evidence.title":["Evidence,<br><span class=\"muted\">not a screenshot wall.</span>","प्रमाण,<br><span class=\"muted\">screenshots की दीवार नहीं।</span>","Evidencia,<br><span class=\"muted\">no un muro de capturas.</span>","Des preuves,<br><span class=\"muted\">pas un mur de captures.</span>","Beweise,<br><span class=\"muted\">keine Screenshot-Wand.</span>","証拠であって、<br><span class=\"muted\">スクリーンショットの羅列ではない。</span>"],
+"evidence.intro":["A deliberate sequence through KiteSuite's product surface — each screenshot chosen for what it proves about the engineering behind it.","KiteSuite की प्रोडक्ट सतह के माध्यम से एक सोची-समझी क्रम — हर screenshot उसके पीछे की engineering साबित करने के लिए चुना गया है।","Una secuencia deliberada por la superficie de producto de KiteSuite — cada captura elegida por lo que demuestra sobre la ingeniería detrás.","Une séquence délibérée à travers la surface produit de KiteSuite — chaque capture choisie pour ce qu'elle prouve sur l'ingénierie sous-jacente.","Eine bewusste Abfolge durch die Produktoberfläche von KiteSuite — jeder Screenshot gewählt für das, was er über die dahinterliegende Technik beweist.","KiteSuiteのプロダクト画面を意図的な順序で紹介します。各スクリーンショットは、その裏にあるエンジニアリングを証明するために選ばれています。"],
+"evidence.item1.label":["RELEASE MANAGEMENT","रिलीज़ प्रबंधन","GESTIÓN DE VERSIONES","GESTION DES VERSIONS","RELEASE-MANAGEMENT","リリース管理"],
+"evidence.item1.title":["Shipping is a tracked workflow, not a hope.","Shipping एक tracked workflow है, कोई उम्मीद नहीं।","Lanzar no es una esperanza, es un flujo controlado.","Livrer n'est pas un espoir, c'est un flux suivi.","Ausliefern ist ein nachverfolgter Prozess, keine Hoffnung.","リリースは希望的観測ではなく、追跡された workflow です。"],
+"evidence.item1.body":["Release planning and version tracking across a multi-module product. Proves comfort working inside structured production-delivery workflows, not just writing code in isolation.","एक multi-module product में release planning और version tracking। यह structured production-delivery workflows में सहज काम करने का प्रमाण है, केवल isolation में code लिखने का नहीं।","Planificación de versiones y seguimiento en un producto multimódulo. Demuestra soltura trabajando dentro de flujos estructurados de entrega en producción, no solo escribiendo código de forma aislada.","Planification des versions et suivi dans un produit multi-modules. Prouve une aisance à travailler dans des flux de livraison en production structurés, pas seulement à écrire du code isolément.","Release-Planung und Versionsverfolgung über ein Multi-Modul-Produkt hinweg. Zeigt Vertrautheit mit strukturierten Produktions-Delivery-Workflows, nicht nur isoliertes Codeschreiben.","マルチモジュール製品にまたがるリリース計画とバージョン管理。単独でコードを書くだけでなく、構造化された本番リリースフローの中で働ける力を示します。"],
+"evidence.item2.title":["Integrations surface","इंटीग्रेशन सतह","Superficie de integraciones","Surface d'intégrations","Integrationsoberfläche","連携機能画面"],
+"evidence.item2.body":["Third-party connectivity configuration — OAuth and webhook-driven integration work.","Third-party connectivity configuration — OAuth और webhook-driven integration काम।","Configuración de conectividad con terceros — trabajo de integración basado en OAuth y webhooks.","Configuration de connectivité tierce — travail d'intégration basé sur OAuth et les webhooks.","Konfiguration der Drittanbieter-Konnektivität — OAuth- und Webhook-basierte Integrationsarbeit.","外部サービスとの接続設定。OAuthとWebhookを用いた連携機能の実装です。"],
+"evidence.item2.alt":["Screenshot of KiteSuite's integrations configuration surface","KiteSuite के integrations configuration सतह का screenshot","Captura de la superficie de configuración de integraciones de KiteSuite","Capture d'écran de la surface de configuration des intégrations de KiteSuite","Screenshot der Integrationskonfigurationsoberfläche von KiteSuite","KiteSuiteの連携機能設定画面のスクリーンショット"],
+"evidence.item3.title":["Recruiting / ATS workflow","भर्ती / ATS वर्कफ़्लो","Flujo de reclutamiento / ATS","Flux de recrutement / ATS","Recruiting- / ATS-Workflow","採用・ATSワークフロー"],
+"evidence.item3.body":["A full applicant-tracking module inside a broader SaaS suite, not a bolt-on feature.","एक व्यापक SaaS suite के भीतर पूर्ण applicant-tracking module, कोई add-on feature नहीं।","Un módulo completo de seguimiento de candidatos dentro de una suite SaaS más amplia, no una función añadida.","Un module complet de suivi des candidats intégré à une suite SaaS plus large, pas une fonctionnalité annexe.","Ein vollständiges Bewerbermanagement-Modul innerhalb einer größeren SaaS-Suite, keine nachträglich angeflanschte Funktion.","より大きなSaaSスイートに組み込まれた本格的な採用管理モジュールであり、付け足しの機能ではありません。"],
+"evidence.item3.alt":["Screenshot of KiteSuite's ATS jobs/candidates card view","KiteSuite के ATS jobs/candidates card view का screenshot","Captura de la vista de tarjetas de empleos/candidatos del ATS de KiteSuite","Capture d'écran de la vue en cartes des offres/candidats de l'ATS de KiteSuite","Screenshot der ATS-Kartenansicht für Jobs/Kandidaten in KiteSuite","KiteSuiteのATS求人・候補者カード画面のスクリーンショット"],
+"evidence.item4.title":["Project planning","प्रोजेक्ट योजना","Planificación de proyectos","Planification de projet","Projektplanung","プロジェクト計画"],
+"evidence.item4.body":["Calendar-driven project scheduling, tied to the same data model as tasks and releases.","Calendar-driven project scheduling, जो tasks और releases के समान data model से जुड़ी है।","Programación de proyectos basada en calendario, vinculada al mismo modelo de datos que tareas y versiones.","Planification de projet basée sur le calendrier, liée au même modèle de données que les tâches et les versions.","Kalendergesteuerte Projektplanung, verknüpft mit demselben Datenmodell wie Aufgaben und Releases.","カレンダー連動のプロジェクトスケジューリングで、タスクやリリースと同じデータモデルに紐づいています。"],
+"evidence.item4.alt":["Screenshot of KiteSuite's project calendar page","KiteSuite के project calendar page का screenshot","Captura de la página de calendario de proyectos de KiteSuite","Capture d'écran de la page calendrier de projet de KiteSuite","Screenshot der Projektkalenderseite von KiteSuite","KiteSuiteのプロジェクトカレンダー画面のスクリーンショット"],
+"evidence.item5.title":["Meetings &amp; collaboration","मीटिंग्स और सहयोग","Reuniones y colaboración","Réunions &amp; collaboration","Meetings &amp; Zusammenarbeit","会議とコラボレーション"],
+"evidence.item5.body":["Scheduling and availability logic that has to stay consistent across time zones and teams.","Scheduling और availability logic जिसे विभिन्न time zones और teams में consistent रहना होता है।","Lógica de programación y disponibilidad que debe mantenerse coherente entre zonas horarias y equipos.","Logique de planification et de disponibilité devant rester cohérente entre fuseaux horaires et équipes.","Planungs- und Verfügbarkeitslogik, die über Zeitzonen und Teams hinweg konsistent bleiben muss.","タイムゾーンやチームをまたいでも一貫性を保つ必要がある、スケジューリングと空き時間のロジックです。"],
+"evidence.item5.alt":["Screenshot of KiteSuite's meetings calendar page","KiteSuite के meetings calendar page का screenshot","Captura de la página de calendario de reuniones de KiteSuite","Capture d'écran de la page calendrier des réunions de KiteSuite","Screenshot der Meeting-Kalenderseite von KiteSuite","KiteSuiteの会議カレンダー画面のスクリーンショット"],
+"evidence.item6.label":["DOCUMENTS &amp; DRIVE","दस्तावेज़ और ड्राइव","DOCUMENTOS Y DRIVE","DOCUMENTS &amp; DRIVE","DOKUMENTE &amp; DRIVE","ドキュメント＆ドライブ"],
+"evidence.item6.title":["File and document workflows at team scale.","टीम स्तर पर file और document वर्कफ़्लो।","Flujos de archivos y documentos a escala de equipo.","Des flux de fichiers et documents à l'échelle de l'équipe.","Datei- und Dokumenten-Workflows im Team-Maßstab.","チーム規模でのファイル・ドキュメント管理ワークフロー。"],
+"evidence.item6.body":["Document listing and organization with permissions tied to workspace roles — the kind of surface that looks simple but breaks first under real usage.","Document listing और organization जिसमें permissions workspace roles से जुड़ी हैं — ऐसी सतह जो सरल दिखती है पर real usage में पहले टूटती है।","Listado y organización de documentos con permisos vinculados a los roles del espacio de trabajo — el tipo de superficie que parece simple pero es la primera en fallar con uso real.","Listage et organisation des documents avec des permissions liées aux rôles de l'espace de travail — le genre de surface qui semble simple mais casse en premier à l'usage réel.","Dokumentenauflistung und -organisation mit Berechtigungen nach Workspace-Rollen — die Art von Oberfläche, die einfach wirkt, aber im echten Einsatz zuerst bricht.","ワークスペースの権限に紐づいたドキュメント一覧・整理機能です。シンプルに見えて、実運用で最初にほころびが出やすい部分でもあります。"],
+"evidence.item6.alt":["Screenshot of KiteSuite's document drive listing page","KiteSuite के document drive listing page का screenshot","Captura de la página de listado de documentos de KiteSuite","Capture d'écran de la page de liste des documents de KiteSuite","Screenshot der Dokumenten-Drive-Übersichtsseite von KiteSuite","KiteSuiteのドキュメントドライブ一覧画面のスクリーンショット"],
+"evidence.item7.title":["Time tracking","समय ट्रैकिंग","Seguimiento de tiempo","Suivi du temps","Zeiterfassung","勤怠管理"],
+"evidence.item7.body":["Time-series productivity data tied back into reporting and billing-adjacent workflows.","Time-series productivity data जो reporting और billing-संबंधित workflows से वापस जुड़ता है।","Datos de productividad en series temporales que se vinculan de vuelta con la generación de informes y flujos cercanos a la facturación.","Données de productivité en série temporelle réinjectées dans les rapports et les flux proches de la facturation.","Zeitreihen-Produktivitätsdaten, die zurück in Reporting- und abrechnungsnahe Workflows fließen.","時系列の生産性データはレポート機能や請求関連ワークフローに反映されます。"],
+"evidence.item7.alt":["Screenshot of KiteSuite's time tracker page","KiteSuite के time tracker page का screenshot","Captura de la página de seguimiento de tiempo de KiteSuite","Capture d'écran de la page de suivi du temps de KiteSuite","Screenshot der Zeiterfassungsseite von KiteSuite","KiteSuiteのタイムトラッカー画面のスクリーンショット"],
+"evidence.item8.label":["REPORTING &amp; ANALYTICS","रिपोर्टिंग और एनालिटिक्स","INFORMES Y ANALÍTICA","RAPPORTS &amp; ANALYSES","REPORTING &amp; ANALYSE","レポート＆分析"],
+"evidence.item8.title":["Turning raw activity into readable signal.","कच्ची गतिविधि को पढ़ने योग्य संकेत में बदलना।","Convertir actividad bruta en una señal legible.","Transformer l'activité brute en signal lisible.","Rohdaten in lesbare Signale verwandeln.","生の活動データを読み取り可能な指標に変換する。"],
+"evidence.item8.body":["Reporting surfaces built on aggregation across projects, time entries and workflow activity — direct application of the data-engineering skills listed below.","Projects, time entries और workflow activity पर aggregation से बनी reporting सतहें — नीचे सूचीबद्ध data-engineering skills का सीधा उपयोग।","Superficies de informes construidas sobre agregación de proyectos, registros de tiempo y actividad de flujo — aplicación directa de las habilidades de ingeniería de datos listadas abajo.","Des surfaces de reporting construites sur l'agrégation entre projets, saisies de temps et activité des flux — application directe des compétences en ingénierie des données listées ci-dessous.","Reporting-Oberflächen, aufgebaut auf Aggregation über Projekte, Zeiteinträge und Workflow-Aktivität hinweg — direkte Anwendung der unten aufgeführten Data-Engineering-Fähigkeiten.","プロジェクト・工数・ワークフロー活動を集計して構築されたレポート画面。下記のデータエンジニアリングスキルの直接的な応用例です。"],
+"evidence.item8.alt":["Screenshot of KiteSuite's reporting and analytics page","KiteSuite के reporting और analytics page का screenshot","Captura de la página de informes y analítica de KiteSuite","Capture d'écran de la page de rapports et d'analyses de KiteSuite","Screenshot der Reporting- und Analyseseite von KiteSuite","KiteSuiteのレポート・分析画面のスクリーンショット"],
+"evidence.item1.alt":["Screenshot of KiteSuite's release management list page","KiteSuite के release management list page का screenshot","Captura de la página de lista de gestión de versiones de KiteSuite","Capture d'écran de la page de liste de gestion des versions de KiteSuite","Screenshot der Release-Management-Listenseite von KiteSuite","KiteSuiteのリリース管理一覧画面のスクリーンショット"]
+});
+Object.assign(T, {
+"systems.kicker":["SYSTEMS","सिस्टम्स","SISTEMAS","SYSTÈMES","SYSTEME","システム"],
+"systems.title":["I think in<br><span class=\"muted\">whole systems.</span>","मैं<br><span class=\"muted\">पूरे सिस्टम में सोचता हूँ।</span>","Pienso en<br><span class=\"muted\">sistemas completos.</span>","Je pense en<br><span class=\"muted\">systèmes complets.</span>","Ich denke in<br><span class=\"muted\">ganzen Systemen.</span>","<span class=\"muted\">システム全体として</span><br>考える。"],
+"systems.intro":["A generalized view of how the layers of a production SaaS platform connect — not KiteSuite's actual infrastructure, but the kind of thinking behind contributing to it safely.","एक production SaaS platform की परतें कैसे जुड़ती हैं इसका सामान्यीकृत दृश्य — यह KiteSuite का वास्तविक infrastructure नहीं, बल्कि उसमें सुरक्षित रूप से योगदान देने की सोच है।","Una vista generalizada de cómo se conectan las capas de una plataforma SaaS en producción — no la infraestructura real de KiteSuite, sino el tipo de razonamiento detrás de contribuir a ella de forma segura.","Une vue générale de la façon dont les couches d'une plateforme SaaS en production se connectent — pas l'infrastructure réelle de KiteSuite, mais le raisonnement derrière une contribution sûre à celle-ci.","Eine verallgemeinerte Sicht darauf, wie die Schichten einer produktiven SaaS-Plattform zusammenhängen — nicht die tatsächliche Infrastruktur von KiteSuite, sondern die Denkweise hinter einem sicheren Beitrag dazu.","本番SaaSプラットフォームの各層がどうつながるかを一般化した図です。KiteSuiteの実際のインフラではなく、安全に貢献するための考え方を示しています。"],
+"systems.l1t":["Product surfaces","प्रोडक्ट सतहें","Superficies de producto","Surfaces produit","Produktoberflächen","プロダクト画面"],
+"systems.l1c":["The modules a user actually touches — projects, ATS, docs, meetings, forms.","वो modules जिन्हें user वास्तव में उपयोग करता है — projects, ATS, docs, meetings, forms।","Los módulos que el usuario realmente toca — proyectos, ATS, documentos, reuniones, formularios.","Les modules que l'utilisateur touche réellement — projets, ATS, documents, réunions, formulaires.","Die Module, mit denen Nutzer tatsächlich interagieren — Projekte, ATS, Dokumente, Meetings, Formulare.","ユーザーが実際に触れるモジュール群——プロジェクト、ATS、ドキュメント、会議、フォーム。"],
+"systems.l2t":["Frontend","फ्रंटएंड","Frontend","Frontend","Frontend","フロントエンド"],
+"systems.l2c":["Component-driven UI, state management and responsive interaction layers.","Component-driven UI, state management और responsive interaction layers।","UI basada en componentes, gestión de estado y capas de interacción responsivas.","UI orientée composants, gestion d'état et couches d'interaction réactives.","Komponentenbasierte UI, State-Management und responsive Interaktionsschichten.","コンポーネント指向のUI、状態管理、レスポンシブなインタラクション層。"],
+"systems.l3t":["API layer","API लेयर","Capa de API","Couche API","API-Schicht","API層"],
+"systems.l3c":["REST endpoints that mediate between the interface and the data underneath.","REST endpoints जो interface और underlying data के बीच mediate करते हैं।","Endpoints REST que median entre la interfaz y los datos subyacentes.","Endpoints REST qui font le lien entre l'interface et les données sous-jacentes.","REST-Endpunkte, die zwischen Oberfläche und darunterliegenden Daten vermitteln.","インターフェースと背後のデータを仲介するRESTエンドポイント。"],
+"systems.l4t":["Auth &amp; access","प्रमाणीकरण और एक्सेस","Autenticación y acceso","Authentification &amp; accès","Auth &amp; Zugriff","認証とアクセス制御"],
+"systems.l4c":["Authentication and role-based access control across workspace boundaries.","Workspace boundaries में authentication और role-based access control।","Autenticación y control de acceso basado en roles entre los límites del espacio de trabajo.","Authentification et contrôle d'accès basé sur les rôles entre les espaces de travail.","Authentifizierung und rollenbasierte Zugriffskontrolle über Workspace-Grenzen hinweg.","ワークスペースをまたぐ認証とロールベースのアクセス制御。"],
+"systems.l5t":["Data layer","डेटा लेयर","Capa de datos","Couche de données","Datenschicht","データ層"],
+"systems.l5c":["Document modeling, indexing and query design for cross-module lookups.","Cross-module lookups के लिए document modeling, indexing और query design।","Modelado de documentos, indexación y diseño de consultas para búsquedas entre módulos.","Modélisation de documents, indexation et conception de requêtes pour les recherches inter-modules.","Dokumentenmodellierung, Indizierung und Query-Design für modulübergreifende Abfragen.","モジュール横断検索のためのドキュメント設計・インデックス・クエリ設計。"],
+"systems.l6t":["Integrations","इंटीग्रेशन","Integraciones","Intégrations","Integrationen","連携機能"],
+"systems.l6c":["OAuth and webhook-driven connections to external services and providers.","External services और providers से OAuth और webhook-driven connections।","Conexiones basadas en OAuth y webhooks con servicios y proveedores externos.","Connexions basées sur OAuth et les webhooks vers des services et fournisseurs externes.","OAuth- und Webhook-basierte Verbindungen zu externen Diensten und Anbietern.","OAuthとWebhookによる外部サービス・プロバイダーとの接続。"],
+"systems.l7t":["Events &amp; async work","इवेंट्स और असिंक कार्य","Eventos y trabajo asíncrono","Événements &amp; travail asynchrone","Events &amp; Async-Verarbeitung","イベントと非同期処理"],
+"systems.l7c":["Background jobs and asynchronous flows that keep the interface responsive.","Background jobs और asynchronous flows जो interface को responsive रखते हैं।","Trabajos en segundo plano y flujos asíncronos que mantienen la interfaz receptiva.","Tâches en arrière-plan et flux asynchrones qui gardent l'interface réactive.","Hintergrundjobs und asynchrone Abläufe, die die Oberfläche reaktionsschnell halten.","インターフェースの応答性を保つバックグラウンドジョブと非同期処理。"],
+"systems.l8t":["AI layer","AI लेयर","Capa de IA","Couche IA","KI-Schicht","AI層"],
+"systems.l8c":["Model/provider integration for AI-assisted product features, kept separate from core logic.","AI-assisted product features के लिए model/provider integration, core logic से अलग रखा गया।","Integración de modelo/proveedor para funciones de producto asistidas por IA, mantenida separada de la lógica central.","Intégration modèle/fournisseur pour les fonctionnalités produit assistées par IA, gardée séparée de la logique principale.","Modell-/Provider-Integration für KI-unterstützte Produktfunktionen, getrennt von der Kernlogik gehalten.","コアロジックから切り離された、AI支援機能のためのモデル・プロバイダー連携。"],
+"systems.l9t":["Observability &amp; validation","अवलोकन और सत्यापन","Observabilidad y validación","Observabilité &amp; validation","Observability &amp; Validierung","可観測性と検証"],
+"systems.l9c":["Input validation, error handling and the checks that catch problems before users do.","Input validation, error handling और वो checks जो users से पहले समस्याओं को पकड़ते हैं।","Validación de entradas, manejo de errores y las verificaciones que detectan problemas antes que los usuarios.","Validation des entrées, gestion des erreurs et vérifications qui détectent les problèmes avant les utilisateurs.","Eingabevalidierung, Fehlerbehandlung und Prüfungen, die Probleme erkennen, bevor Nutzer es tun.","入力検証、エラーハンドリング、ユーザーより先に問題を検知する仕組み。"],
+"systems.l10t":["Production &amp; deployment","प्रोडक्शन और डिप्लॉयमेंट","Producción y despliegue","Production &amp; déploiement","Produktion &amp; Deployment","本番環境とデプロイ"],
+"systems.l10c":["Getting a change from a branch into something real users depend on.","एक branch से बदलाव को उस चीज़ तक पहुंचाना जिस पर real users निर्भर करते हैं।","Llevar un cambio desde una rama hasta algo de lo que dependen usuarios reales.","Faire passer un changement d'une branche à quelque chose dont dépendent de vrais utilisateurs.","Eine Änderung von einem Branch zu etwas bringen, auf das echte Nutzer angewiesen sind.","ブランチ上の変更を、実際のユーザーが依存するものへと届けること。"]
+});
+Object.assign(T, {
+"skills.kicker":["ENGINEERING SKILLS","इंजीनियरिंग कौशल","HABILIDADES DE INGENIERÍA","COMPÉTENCES D'INGÉNIERIE","ENGINEERING-FÄHIGKEITEN","エンジニアリングスキル"],
+"skills.title":["Full range,<br><span class=\"muted\">not a logo wall.</span>","पूरी रेंज,<br><span class=\"muted\">लोगो की दीवार नहीं।</span>","Rango completo,<br><span class=\"muted\">no un muro de logos.</span>","Toute l'étendue,<br><span class=\"muted\">pas un mur de logos.</span>","Volle Bandbreite,<br><span class=\"muted\">keine Logowand.</span>","ロゴの羅列ではなく、<br><span class=\"muted\">スキルの全体像。</span>"],
+"skills.intro":["Grouped by what each skill is actually for — not an unbroken list of names.","हर कौशल असल में किस लिए है इसके अनुसार group किया गया — नामों की एक निरंतर सूची नहीं।","Agrupadas según para qué sirve realmente cada habilidad, no una lista interminable de nombres.","Regroupées selon l'usage réel de chaque compétence — pas une liste ininterrompue de noms.","Gruppiert danach, wofür jede Fähigkeit tatsächlich gebraucht wird — keine endlose Namensliste.","それぞれのスキルが「何のためにあるか」でグループ化しています。名前をただ並べただけのリストではありません。"],
+"skills.g1t":["Frontend Engineering","फ्रंटएंड इंजीनियरिंग","Ingeniería frontend","Ingénierie Frontend","Frontend-Engineering","フロントエンドエンジニアリング"],
+"skills.g2t":["Backend / APIs","बैकएंड / APIs","Backend / APIs","Backend / API","Backend / APIs","バックエンド／API"],
+"skills.g3t":["Data Engineering","डेटा इंजीनियरिंग","Ingeniería de datos","Ingénierie des données","Data-Engineering","データエンジニアリング"],
+"skills.g4t":["Product Engineering","प्रोडक्ट इंजीनियरिंग","Ingeniería de producto","Ingénierie Produit","Product-Engineering","プロダクトエンジニアリング"],
+"skills.g5t":["Integrations / Auth","इंटीग्रेशन / प्रमाणीकरण","Integraciones / Auth","Intégrations / Auth","Integrationen / Auth","連携機能／認証"],
+"skills.g6t":["Testing / Quality","परीक्षण / गुणवत्ता","Pruebas / Calidad","Tests / Qualité","Testing / Qualität","テスト／品質"],
+"skills.g7t":["Cloud / Delivery","क्लाउड / डिलीवरी","Nube / Entrega","Cloud / Livraison","Cloud / Delivery","クラウド／デリバリー"],
+"skills.g8t":["GenAI / AI Engineering","GenAI / AI इंजीनियरिंग","GenAI / Ingeniería de IA","GenAI / Ingénierie IA","GenAI / KI-Engineering","生成AI／AIエンジニアリング"],
+"skills.g9t":["Product / Design Tools","प्रोडक्ट / डिज़ाइन टूल्स","Herramientas de producto / diseño","Outils Produit / Design","Produkt- / Design-Tools","プロダクト／デザインツール"],
+"skills.restApi":["REST API design","REST API डिज़ाइन","Diseño de APIs REST","Conception d'API REST","REST-API-Design","REST API設計"],
+"skills.validation":["Validation","सत्यापन","Validación","Validation","Validierung","バリデーション"],
+"skills.serviceBoundaries":["Service boundaries","सेवा सीमाएँ","Límites de servicio","Frontières de services","Service-Grenzen","サービス境界設計"],
+"skills.aggregation":["Aggregation pipelines","एग्रीगेशन पाइपलाइन","Pipelines de agregación","Pipelines d'agrégation","Aggregation-Pipelines","集計パイプライン"],
+"skills.indexing":["Indexing","इंडेक्सिंग","Indexación","Indexation","Indizierung","インデックス設計"],
+"skills.queryOpt":["Query optimization","क्वेरी अनुकूलन","Optimización de consultas","Optimisation des requêtes","Query-Optimierung","クエリ最適化"],
+"skills.dataModeling":["Data modeling","डेटा मॉडलिंग","Modelado de datos","Modélisation des données","Datenmodellierung","データモデリング"],
+"skills.saasWorkflows":["SaaS workflows","SaaS वर्कफ़्लो","Flujos SaaS","Flux de travail SaaS","SaaS-Workflows","SaaSワークフロー"],
+"skills.modularArch":["Modular product architecture","मॉड्यूलर प्रोडक्ट आर्किटेक्चर","Arquitectura de producto modular","Architecture produit modulaire","Modulare Produktarchitektur","モジュール型プロダクト設計"],
+"skills.crossModule":["Cross-module integrations","क्रॉस-मॉड्यूल इंटीग्रेशन","Integraciones entre módulos","Intégrations inter-modules","Modulübergreifende Integrationen","モジュール横断連携"],
+"skills.uxRefinement":["UX refinement","UX सुधार","Refinamiento de UX","Affinage UX","UX-Verfeinerung","UX改善"],
+"skills.techDocs":["Technical documentation","तकनीकी दस्तावेज़ीकरण","Documentación técnica","Documentation technique","Technische Dokumentation","技術ドキュメント作成"],
+"skills.externalIntegrations":["External integrations","बाहरी इंटीग्रेशन","Integraciones externas","Intégrations externes","Externe Integrationen","外部連携"],
+"skills.emailWorkflows":["Email workflows","ईमेल वर्कफ़्लो","Flujos de correo","Flux e-mail","E-Mail-Workflows","メールワークフロー"],
+"skills.calendarWorkflows":["Calendar workflows","कैलेंडर वर्कफ़्लो","Flujos de calendario","Flux calendrier","Kalender-Workflows","カレンダーワークフロー"],
+"skills.apiIntegrations":["API integrations","API इंटीग्रेशन","Integraciones de API","Intégrations API","API-Integrationen","API連携"],
+"skills.debugging":["Debugging","डिबगिंग","Depuración","Débogage","Debugging","デバッグ"],
+"skills.regression":["Regression testing","रिग्रेशन परीक्षण","Pruebas de regresión","Tests de régression","Regressionstests","回帰テスト"],
+"skills.prodVerification":["Production verification","प्रोडक्शन सत्यापन","Verificación en producción","Vérification en production","Produktionsverifizierung","本番検証"],
+"skills.deployment":["Deployment","डिप्लॉयमेंट","Despliegue","Déploiement","Deployment","デプロイ"],
+"skills.prodTroubleshooting":["Production troubleshooting","प्रोडक्शन समस्या निवारण","Resolución de problemas en producción","Dépannage en production","Produktions-Troubleshooting","本番トラブルシューティング"],
+"skills.llmIntegration":["LLM integration","LLM इंटीग्रेशन","Integración de LLM","Intégration LLM","LLM-Integration","LLM連携"],
+"skills.modelProvider":["Model / provider integration","मॉडल / प्रोवाइडर इंटीग्रेशन","Integración de modelo / proveedor","Intégration modèle / fournisseur","Modell-/Anbieter-Integration","モデル／プロバイダー連携"],
+"skills.promptDesign":["Prompt design","प्रॉम्प्ट डिज़ाइन","Diseño de prompts","Conception de prompts","Prompt-Design","プロンプト設計"],
+"skills.semanticSearch":["Semantic search","सिमेंटिक सर्च","Búsqueda semántica","Recherche sémantique","Semantische Suche","セマンティック検索"],
+"skills.retrievalPatterns":["Retrieval patterns","रिट्रीवल पैटर्न","Patrones de recuperación","Modèles de récupération","Retrieval-Muster","検索拡張パターン"],
+"skills.aiWorkflow":["AI workflow integration","AI वर्कफ़्लो इंटीग्रेशन","Integración de flujos de IA","Intégration de flux IA","KI-Workflow-Integration","AIワークフロー統合"],
+"skills.failureAware":["Failure-aware AI","विफलता-जागरूक AI","IA consciente de fallos","IA consciente des échecs","Fehlertolerante KI","失敗を前提としたAI設計"],
+"skills.apiDebugging":["API debugging","API डिबगिंग","Depuración de API","Débogage d'API","API-Debugging","APIデバッグ"],
+"skills.uiRefinement":["UI/UX refinement","UI/UX सुधार","Refinamiento UI/UX","Affinage UI/UX","UI/UX-Verfeinerung","UI/UX改善"]
+});
+Object.assign(T, {
+"genai.kicker":["PRACTICAL GENAI","प्रैक्टिकल GenAI","GENAI PRÁCTICA","GENAI CONCRÈTE","PRAKTISCHES GENAI","実践的な生成AI"],
+"genai.title":["Practical AI.<br><span class=\"muted\">Not AI theatre.</span>","प्रैक्टिकल AI।<br><span class=\"muted\">AI थिएटर नहीं।</span>","IA práctica.<br><span class=\"muted\">No teatro de IA.</span>","IA concrète.<br><span class=\"muted\">Pas du théâtre IA.</span>","Praktische KI.<br><span class=\"muted\">Kein KI-Theater.</span>","実践的なAI。<br><span class=\"muted\">AIごっこではない。</span>"],
+"genai.intro":["AI treated as a product/engineering capability with real constraints — not a badge on a résumé.","AI को एक product/engineering क्षमता माना गया है जिसकी वास्तविक constraints हैं — resume पर लगा badge नहीं।","La IA tratada como una capacidad de producto/ingeniería con restricciones reales — no una insignia en un currículum.","L'IA traitée comme une capacité produit/ingénierie avec de vraies contraintes — pas un badge sur un CV.","KI als Produkt-/Engineering-Fähigkeit mit echten Einschränkungen behandelt — kein Abzeichen im Lebenslauf.","AIを履歴書の飾りではなく、実際の制約を伴うプロダクト／エンジニアリング能力として扱っています。"],
+"genai.shipped":["SHIPPED DIRECTION","शिप की गई दिशा","DIRECCIÓN LANZADA","DIRECTION LIVRÉE","AUSGELIEFERTE RICHTUNG","実装済みの方向性"],
+"genai.explored":["EXPLORED / PROTOTYPE DIRECTION","खोजी गई / प्रोटोटाइप दिशा","EXPLORADO / DIRECCIÓN PROTOTIPO","EXPLORÉ / DIRECTION PROTOTYPE","ERKUNDET / PROTOTYP-RICHTUNG","検討中／プロトタイプ段階"],
+"genai.c1t":["LLM integration","LLM इंटीग्रेशन","Integración de LLM","Intégration LLM","LLM-Integration","LLM連携"],
+"genai.c1c":["Wiring model/provider APIs into product workflows — prompt construction, response handling and integrating AI output into existing UI, not just calling an endpoint.","Model/provider APIs को product workflows में जोड़ना — prompt construction, response handling और AI output को मौजूदा UI में integrate करना, केवल endpoint call करना नहीं।","Conectar APIs de modelo/proveedor a flujos de producto — construcción de prompts, manejo de respuestas e integración de la salida de IA en la UI existente, no solo llamar a un endpoint.","Connecter les API de modèle/fournisseur aux flux produit — construction de prompts, traitement des réponses et intégration de la sortie IA dans l'UI existante, pas seulement appeler un endpoint.","Model-/Provider-APIs in Produkt-Workflows einbinden — Prompt-Konstruktion, Antwortverarbeitung und Integration der KI-Ausgabe in die bestehende UI, nicht nur ein Endpoint-Aufruf.","モデル・プロバイダーAPIをプロダクトワークフローに組み込む作業。プロンプト構築、レスポンス処理、既存UIへのAI出力統合まで含み、単なるAPI呼び出しではありません。"],
+"genai.c2t":["Embeddings &amp; semantic search","एम्बेडिंग्स और सिमेंटिक सर्च","Embeddings y búsqueda semántica","Embeddings &amp; recherche sémantique","Embeddings &amp; semantische Suche","埋め込みとセマンティック検索"],
+"genai.c2c":["Vector-based retrieval concepts for surfacing relevant content instead of relying on exact keyword matches.","सटीक keyword matches पर निर्भर होने के बजाय relevant content को सामने लाने के लिए vector-based retrieval अवधारणाएँ।","Conceptos de recuperación basados en vectores para mostrar contenido relevante en lugar de depender de coincidencias exactas de palabras clave.","Concepts de récupération basés sur des vecteurs pour faire remonter du contenu pertinent plutôt que de s'appuyer sur des correspondances exactes de mots-clés.","Vektorbasierte Retrieval-Konzepte, um relevante Inhalte anzuzeigen, statt sich auf exakte Keyword-Treffer zu verlassen.","キーワードの完全一致に頼らず、関連性の高いコンテンツを表示するためのベクトル検索の概念検証。"],
+"genai.c3t":["Failure-aware AI","विफलता-जागरूक AI","IA consciente de fallos","IA consciente des échecs","Fehlertolerante KI","失敗を前提としたAI設計"],
+"genai.c3c":["Designing for the case where the model is wrong, slow or unavailable — not just the happy path.","उस स्थिति के लिए design करना जहाँ model गलत, धीमा या अनुपलब्ध हो — केवल happy path के लिए नहीं।","Diseñar para el caso en que el modelo se equivoca, es lento o no está disponible — no solo el camino ideal.","Concevoir pour le cas où le modèle se trompe, est lent ou indisponible — pas seulement le chemin idéal.","Für den Fall gestalten, dass das Modell falsch liegt, langsam ist oder ausfällt — nicht nur den Idealfall.","モデルが誤った回答をする、遅い、あるいは利用できない場合を想定した設計。理想的な経路だけでなく。"],
+"genai.concernsTitle":["PRODUCTION CONCERNS THIS ACTUALLY REQUIRES","ये production concerns वास्तव में आवश्यक हैं","PREOCUPACIONES DE PRODUCCIÓN QUE ESTO REALMENTE EXIGE","CONTRAINTES DE PRODUCTION RÉELLEMENT REQUISES","PRODUKTIONSANFORDERUNGEN, DIE DAS TATSÄCHLICH BRAUCHT","本番運用で実際に必要となる考慮事項"],
+"genai.p1":["Input / output control","इनपुट / आउटपुट नियंत्रण","Control de entrada / salida","Contrôle des entrées / sorties","Ein-/Ausgabekontrolle","入出力制御"],
+"genai.p2":["Latency","विलंबता","Latencia","Latence","Latenz","レイテンシ"],
+"genai.p3":["Fallback behavior","फ़ॉलबैक व्यवहार","Comportamiento de respaldo","Comportement de secours","Fallback-Verhalten","フォールバック動作"],
+"genai.p4":["Validation","सत्यापन","Validación","Validation","Validierung","バリデーション"],
+"genai.p5":["Access control","पहुंच नियंत्रण","Control de acceso","Contrôle d'accès","Zugriffskontrolle","アクセス制御"],
+"genai.p6":["Observability","अवलोकनीयता","Observabilidad","Observabilité","Observability","可観測性"],
+"genai.p7":["Retrieval quality","रिट्रीवल गुणवत्ता","Calidad de recuperación","Qualité de récupération","Retrieval-Qualität","検索精度"],
+"genai.p8":["Model / provider abstraction","मॉडल / प्रोवाइडर एब्स्ट्रैक्शन","Abstracción de modelo / proveedor","Abstraction modèle / fournisseur","Modell-/Anbieter-Abstraktion","モデル／プロバイダーの抽象化"]
+});
+Object.assign(T, {
+"proof.kicker":["PROOF","प्रमाण","PRUEBA","PREUVE","NACHWEIS","証拠"],
+"proof.title":["Evidence,<br><span class=\"muted\">not claims.</span>","प्रमाण,<br><span class=\"muted\">दावे नहीं।</span>","Evidencia,<br><span class=\"muted\">no afirmaciones.</span>","Des preuves,<br><span class=\"muted\">pas des affirmations.</span>","Beweise,<br><span class=\"muted\">keine Behauptungen.</span>","主張ではなく、<br><span class=\"muted\">証拠を。</span>"],
+"proof.intro":["A consistent framework for evaluating engineering work, applied honestly — including numbers that belong to a previous role, kept in that context.","engineering काम को evaluate करने का एक consistent framework, ईमानदारी से लागू किया गया — जिसमें पिछली भूमिका के numbers शामिल हैं, उसी संदर्भ में रखे गए।","Un marco consistente para evaluar el trabajo de ingeniería, aplicado con honestidad — incluyendo cifras que pertenecen a un rol anterior, mantenidas en ese contexto.","Un cadre cohérent pour évaluer le travail d'ingénierie, appliqué honnêtement — y compris des chiffres appartenant à un rôle précédent, conservés dans leur contexte.","Ein konsistenter Rahmen zur Bewertung von Engineering-Arbeit, ehrlich angewendet — einschließlich Zahlen aus einer früheren Rolle, im entsprechenden Kontext belassen.","エンジニアリングの成果を評価するための一貫したフレームワークを、誠実に適用しています。前職の数値も、その文脈のまま示します。"],
+"proof.f1":["Problem","समस्या","Problema","Problème","Problem","課題"],
+"proof.f2":["Decision","निर्णय","Decisión","Décision","Entscheidung","意思決定"],
+"proof.f3":["Implementation","कार्यान्वयन","Implementación","Mise en œuvre","Umsetzung","実装"],
+"proof.f4":["Verification","सत्यापन","Verificación","Vérification","Verifizierung","検証"],
+"proof.f5":["Production","प्रोडक्शन","Producción","Production","Produktion","本番運用"],
+"proof.histLabel":["PREVIOUS-ROLE EVIDENCE — SUMEDHA SOFTTECH / ZENDUIT (DEC 2023–APR 2025)","पिछली भूमिका का प्रमाण — SUMEDHA SOFTTECH / ZENDUIT (DEC 2023–APR 2025)","EVIDENCIA DE ROL ANTERIOR — SUMEDHA SOFTTECH / ZENDUIT (DIC 2023–ABR 2025)","PREUVE D'UN RÔLE PRÉCÉDENT — SUMEDHA SOFTTECH / ZENDUIT (DÉC. 2023–AVR. 2025)","NACHWEIS AUS FRÜHERER ROLLE — SUMEDHA SOFTTECH / ZENDUIT (DEZ. 2023–APR. 2025)","前職の実績 — SUMEDHA SOFTTECH／ZENDUIT（2023年12月〜2025年4月）"],
+"proof.m1":["Page-load improvement","पेज-लोड सुधार","Mejora en tiempo de carga","Amélioration du temps de chargement","Verbesserung der Ladezeit","ページ読み込み速度の改善"],
+"proof.m2":["Fewer component re-renders","कम component re-renders","Menos re-renderizados de componentes","Moins de re-rendus de composants","Weniger Komponenten-Re-Renders","コンポーネント再描画の削減"],
+"proof.m3":["Reduction in authentication failures","प्रमाणीकरण विफलताओं में कमी","Reducción en fallos de autenticación","Réduction des échecs d'authentification","Reduzierung von Authentifizierungsfehlern","認証失敗の削減"],
+"proof.m4":["Database latency reduction","डेटाबेस विलंबता में कमी","Reducción de latencia de base de datos","Réduction de la latence de la base de données","Reduzierung der Datenbanklatenz","データベースレイテンシの削減"],
+"proof.m5":["Reduction in release time","रिलीज़ समय में कमी","Reducción en el tiempo de lanzamiento","Réduction du temps de livraison","Reduzierung der Release-Zeit","リリース時間の短縮"],
+"proof.m6":["Sprint delivery rate","स्प्रिंट डिलीवरी दर","Tasa de entrega de sprints","Taux de livraison des sprints","Sprint-Liefergrad","スプリント達成率"],
+"proof.m7":["API requests handled per day, at 99.9% uptime","प्रतिदिन संभाली गई API requests, 99.9% uptime पर","Solicitudes de API atendidas por día, con 99.9% de disponibilidad","Requêtes API traitées par jour, à 99,9 % de disponibilité","API-Anfragen pro Tag, bei 99,9 % Verfügbarkeit","1日あたりのAPIリクエスト処理数、稼働率99.9%"],
+"proof.histTag":["Sumedha Softtech · previous role","Sumedha Softtech · पिछली भूमिका","Sumedha Softtech · rol anterior","Sumedha Softtech · rôle précédent","Sumedha Softtech · frühere Rolle","Sumedha Softtech・前職"],
+"proof.histTagZenduit":["ZenduIt project · previous role","ZenduIt प्रोजेक्ट · पिछली भूमिका","Proyecto ZenduIt · rol anterior","Projet ZenduIt · rôle précédent","ZenduIt-Projekt · frühere Rolle","ZenduItプロジェクト・前職"],
+"experience.kicker":["EXPERIENCE","अनुभव","EXPERIENCIA","EXPÉRIENCE","ERFAHRUNG","経歴"],
+"experience.title":["Where the<br><span class=\"muted\">work happened.</span>","जहाँ<br><span class=\"muted\">काम हुआ।</span>","Dónde<br><span class=\"muted\">ocurrió el trabajo.</span>","Là où<br><span class=\"muted\">le travail a eu lieu.</span>","Wo die<br><span class=\"muted\">Arbeit stattfand.</span>","仕事をしてきた<br><span class=\"muted\">場所。</span>"],
+"experience.intro":["A straightforward timeline — current role, previous role, and education.","एक सीधी timeline — वर्तमान भूमिका, पिछली भूमिका और शिक्षा।","Una línea de tiempo sencilla — rol actual, rol anterior y educación.","Une chronologie simple — rôle actuel, rôle précédent et formation.","Ein einfacher Zeitstrahl — aktuelle Rolle, frühere Rolle und Ausbildung.","現在の役割、前職、学歴をまとめたシンプルな年表です。"],
+"experience.i1date":["CURRENT","वर्तमान","ACTUAL","ACTUEL","AKTUELL","現在"],
+"experience.i1title":["Full-Stack / Product Engineer · Rudra Innovative Software","फुल-स्टैक / प्रोडक्ट इंजीनियर · Rudra Innovative Software","Ingeniero Full-Stack / de Producto · Rudra Innovative Software","Ingénieur Full-Stack / Produit · Rudra Innovative Software","Full-Stack / Product Engineer · Rudra Innovative Software","フルスタック／プロダクトエンジニア・Rudra Innovative Software"],
+"experience.i1copy":["Contributing across KiteSuite's frontend, backend, integrations and GenAI-adjacent product workflows.","KiteSuite के frontend, backend, integrations और GenAI-संबंधित product workflows में योगदान।","Contribuyendo en el frontend, backend, integraciones y flujos de producto relacionados con GenAI de KiteSuite.","Contribution au frontend, backend, aux intégrations et aux flux produit liés à la GenAI de KiteSuite.","Beiträge zu Frontend, Backend, Integrationen und GenAI-nahen Produkt-Workflows von KiteSuite.","KiteSuiteのフロントエンド、バックエンド、連携機能、生成AI関連のプロダクトワークフローに携わっています。"],
+"experience.i1tag":["CONTRIBUTOR, NOT OWNER","योगदानकर्ता, मालिक नहीं","COLABORADOR, NO PROPIETARIO","CONTRIBUTEUR, PAS PROPRIÉTAIRE","MITWIRKENDER, NICHT EIGENTÜMER","貢献者であり、所有者ではない"],
+"experience.i2title":["Associate Web Developer · Sumedha Softtech Pvt. Ltd., Jaipur","एसोसिएट वेब डेवलपर · Sumedha Softtech Pvt. Ltd., Jaipur","Desarrollador Web Asociado · Sumedha Softtech Pvt. Ltd., Jaipur","Développeur Web Associé · Sumedha Softtech Pvt. Ltd., Jaipur","Associate Web Developer · Sumedha Softtech Pvt. Ltd., Jaipur","アソシエイトWebデベロッパー・Sumedha Softtech Pvt. Ltd.（ジャイプル）"],
+"experience.i2copy":["Full-stack (MERN) development on ZenduIt, a fleet-management and field-services platform.","ZenduIt पर full-stack (MERN) development, एक fleet-management और field-services platform।","Desarrollo full-stack (MERN) en ZenduIt, una plataforma de gestión de flotas y servicios de campo.","Développement full-stack (MERN) sur ZenduIt, une plateforme de gestion de flotte et de services sur le terrain.","Full-Stack-(MERN)-Entwicklung an ZenduIt, einer Flottenmanagement- und Außendienst-Plattform.","フリート管理・フィールドサービスプラットフォーム「ZenduIt」のフルスタック（MERN）開発。"],
+"experience.i3date":["GRADUATED MAY 2024","मई 2024 में स्नातक","GRADUADO EN MAYO DE 2024","DIPLÔMÉ EN MAI 2024","ABSCHLUSS MAI 2024","2024年5月卒業"],
+"experience.i3title":["B.Tech, Computer Science &amp; Engineering · Rajasthan Technical University","B.Tech, कंप्यूटर साइंस और इंजीनियरिंग · Rajasthan Technical University","B.Tech en Ciencias de la Computación e Ingeniería · Rajasthan Technical University","B.Tech, Informatique &amp; Ingénierie · Rajasthan Technical University","B.Tech, Informatik &amp; Ingenieurwesen · Rajasthan Technical University","B.Tech（コンピューターサイエンス工学）・Rajasthan Technical University"],
+"experience.i3copy":["GPA 8.6 / 10.","GPA 8.6 / 10।","Promedio 8.6 / 10.","Moyenne 8.6 / 10.","Notendurchschnitt 8.6 / 10.","GPA 8.6／10。"],
+"about.kicker":["ABOUT","मेरे बारे में","SOBRE MÍ","À PROPOS","ÜBER MICH","自己紹介"],
+"about.title":["I like building<br><span class=\"muted\">things that keep working.</span>","मुझे ऐसी चीज़ें बनाना पसंद है<br><span class=\"muted\">जो काम करती रहें।</span>","Me gusta construir<br><span class=\"muted\">cosas que sigan funcionando.</span>","J'aime construire<br><span class=\"muted\">des choses qui continuent de fonctionner.</span>","Ich baue gerne<br><span class=\"muted\">Dinge, die weiter funktionieren.</span>","動き続けるものを<br><span class=\"muted\">作るのが好きです。</span>"],
+"about.body":["Full-stack product engineering across SaaS, integrations and practical GenAI, with a production mindset — I care as much about what happens after a feature ships as what it looks like before. I work across frontend, backend and systems thinking, and I'm genuinely interested in where AI is actually useful in a product, versus where it's just decoration.","SaaS, integrations और practical GenAI में full-stack product engineering, एक production mindset के साथ — मुझे उतना ही ध्यान इस बात पर है कि feature ship होने के बाद क्या होता है जितना कि वह पहले कैसा दिखता है। मैं frontend, backend और systems thinking में काम करता हूँ, और मुझे इस बात में सच्ची दिलचस्पी है कि AI किसी product में वास्तव में कहाँ उपयोगी है, बनाम कहाँ सिर्फ सजावट है।","Ingeniería de producto full-stack en SaaS, integraciones y GenAI práctica, con mentalidad de producción — me importa tanto lo que pasa después de lanzar una función como su aspecto antes. Trabajo en frontend, backend y pensamiento de sistemas, y me interesa genuinamente dónde la IA es realmente útil en un producto, frente a dónde es solo decoración.","Ingénierie produit full-stack sur le SaaS, les intégrations et la GenAI concrète, avec un état d'esprit production — ce qui se passe après la mise en ligne d'une fonctionnalité m'importe autant que son apparence avant. Je travaille sur le frontend, le backend et la pensée systémique, et je m'intéresse vraiment à l'endroit où l'IA est réellement utile dans un produit, par opposition à un simple décor.","Full-Stack-Product-Engineering über SaaS, Integrationen und praktisches GenAI, mit Produktions-Mindset — mir ist wichtig, was nach dem Release passiert, genauso wie das Aussehen davor. Ich arbeite an Frontend, Backend und Systemdenken und interessiere mich wirklich dafür, wo KI in einem Produkt tatsächlich nützlich ist — statt nur Dekoration.","SaaS、連携機能、実践的な生成AIにまたがるフルスタックのプロダクトエンジニアリングを、本番運用を意識して行っています。機能をリリースする前の見た目と同じくらい、リリース後に何が起きるかを気にかけています。フロントエンド、バックエンド、システム思考にまたがって働きながら、AIがプロダクトの中で本当に役立つ場所と、単なる装飾に過ぎない場所の違いに強い関心を持っています。"],
+"about.eduLabel":["EDUCATION","शिक्षा","EDUCACIÓN","FORMATION","AUSBILDUNG","学歴"],
+"about.eduCopy":["Rajasthan Technical University · GPA 8.6/10 · May 2024","Rajasthan Technical University · GPA 8.6/10 · मई 2024","Rajasthan Technical University · Promedio 8.6/10 · Mayo 2024","Rajasthan Technical University · Moyenne 8.6/10 · Mai 2024","Rajasthan Technical University · Notendurchschnitt 8.6/10 · Mai 2024","Rajasthan Technical University・GPA 8.6/10・2024年5月"],
+"about.focusLabel":["FOCUS","फोकस","ENFOQUE","FOCUS","FOKUS","フォーカス"],
+"about.focusTitle":["Product × engineering","प्रोडक्ट × इंजीनियरिंग","Producto × ingeniería","Produit × ingénierie","Produkt × Engineering","プロダクト×エンジニアリング"],
+"about.focusCopy":["Turning ambiguous requirements into interfaces, systems and production-ready implementations.","अस्पष्ट requirements को interfaces, systems और production-ready implementations में बदलना।","Convertir requisitos ambiguos en interfaces, sistemas e implementaciones listas para producción.","Transformer des exigences ambiguës en interfaces, systèmes et implémentations prêtes pour la production.","Mehrdeutige Anforderungen in Interfaces, Systeme und produktionsreife Implementierungen verwandeln.","曖昧な要件を、インターフェース・システム・本番対応の実装へと落とし込む。"],
+"contact.kicker":["CONTACT","संपर्क","CONTACTO","CONTACT","KONTAKT","連絡先"],
+"contact.title":["Let's build<br><span class=\"accent\">something real.</span>","आइए बनाते हैं<br><span class=\"accent\">कुछ असली।</span>","Construyamos<br><span class=\"accent\">algo real.</span>","Construisons<br><span class=\"accent\">quelque chose de réel.</span>","Lass uns<br><span class=\"accent\">etwas Echtes bauen.</span>","一緒に<br><span class=\"accent\">本物を作りましょう。</span>"],
+"contact.openTo":["OPEN TO","इसके लिए उपलब्ध","DISPONIBLE PARA","OUVERT À","OFFEN FÜR","対応可能"],
+"contact.openToCopy":["Full-time opportunities, product collaborations and challenging software problems.","Full-time अवसर, product collaborations और challenging software problems।","Oportunidades a tiempo completo, colaboraciones de producto y problemas de software desafiantes.","Opportunités à temps plein, collaborations produit et problèmes logiciels stimulants.","Vollzeitstellen, Produktkollaborationen und anspruchsvolle Softwareprobleme.","フルタイムの機会、プロダクトでのコラボレーション、やりがいのあるソフトウェアの課題。"],
+"contact.email":["EMAIL","ईमेल","CORREO","E-MAIL","E-MAIL","メール"],
+"contact.linkedin":["LINKEDIN","लिंक्डइन","LINKEDIN","LINKEDIN","LINKEDIN","LinkedIn"],
+"contact.github":["GITHUB","गिटहब","GITHUB","GITHUB","GITHUB","GitHub"],
+"contact.nameLabel":["Name","नाम","Nombre","Nom","Name","名前"],
+"contact.emailLabel":["Email","ईमेल","Correo","E-mail","E-Mail","メールアドレス"],
+"contact.messageLabel":["Message","संदेश","Mensaje","Message","Nachricht","メッセージ"],
+"contact.namePh":["Your name","आपका नाम","Tu nombre","Votre nom","Dein Name","お名前"],
+"contact.emailPh":["your.email@example.com","your.email@example.com","tu.correo@ejemplo.com","votre.email@exemple.com","ihre.email@beispiel.com","your.email@example.com"],
+"contact.messagePh":["Tell me about your project...","अपने project के बारे में बताएं...","Cuéntame sobre tu proyecto...","Parlez-moi de votre projet...","Erzähl mir von deinem Projekt...","プロジェクトについて教えてください..."],
+"contact.send":["SEND MESSAGE ↗","संदेश भेजें ↗","ENVIAR MENSAJE ↗","ENVOYER LE MESSAGE ↗","NACHRICHT SENDEN ↗","メッセージを送る ↗"],
+"contact.errRequired":["This field is required.","यह फ़ील्ड आवश्यक है।","Este campo es obligatorio.","Ce champ est obligatoire.","Dieses Feld ist erforderlich.","この項目は必須です。"],
+"contact.errEmail":["Enter a valid email address.","एक मान्य ईमेल पता दर्ज करें।","Introduce una dirección de correo válida.","Saisissez une adresse e-mail valide.","Gib eine gültige E-Mail-Adresse ein.","有効なメールアドレスを入力してください。"],
+"contact.sending":["Opening your email client…","आपका ईमेल क्लाइंट खोला जा रहा है…","Abriendo tu cliente de correo…","Ouverture de votre client e-mail…","E-Mail-Programm wird geöffnet…","メールアプリを起動しています…"],
+"contact.errNetwork":["Couldn't open your email client automatically. Copy the address below and email directly.","आपका ईमेल क्लाइंट अपने आप नहीं खुल सका। नीचे दिया पता कॉपी करें और सीधे ईमेल करें।","No se pudo abrir tu cliente de correo automáticamente. Copia la dirección y escribe directamente.","Impossible d'ouvrir automatiquement votre client e-mail. Copiez l'adresse ci-dessous et écrivez directement.","E-Mail-Programm konnte nicht automatisch geöffnet werden. Kopiere die Adresse unten und schreibe direkt.","メールアプリを自動的に開けませんでした。下のアドレスをコピーして直接ご連絡ください。"],
+"contact.opened":["Your email app should now be open. Didn't launch? Email directly at asendrachauhan176@gmail.com","आपका ईमेल ऐप अब खुला होना चाहिए। नहीं खुला? सीधे asendrachauhan176@gmail.com पर ईमेल करें","Tu app de correo debería estar abierta. ¿No se abrió? Escribe directamente a asendrachauhan176@gmail.com","Votre application e-mail devrait maintenant être ouverte. Rien ne s'est passé ? Écrivez directement à asendrachauhan176@gmail.com","Deine E-Mail-App sollte jetzt geöffnet sein. Nichts passiert? Schreib direkt an asendrachauhan176@gmail.com","メールアプリが開いているはずです。開かない場合は asendrachauhan176@gmail.com へ直接ご連絡ください"],
+"contact.copyEmail":["Copy email address","ईमेल पता कॉपी करें","Copiar dirección de correo","Copier l'adresse e-mail","E-Mail-Adresse kopieren","メールアドレスをコピー"],
+"contact.copied":["Email address copied","ईमेल पता कॉपी किया गया","Dirección de correo copiada","Adresse e-mail copiée","E-Mail-Adresse kopiert","メールアドレスをコピーしました"],
+"footer.rights":["© 2026 Asendra Chauhan","© 2026 Asendra Chauhan","© 2026 Asendra Chauhan","© 2026 Asendra Chauhan","© 2026 Asendra Chauhan","© 2026 Asendra Chauhan"]
+});
+const LANGS = ["en","hi","es","fr","de","ja"];
+const LANG_NAMES = {en:"EN",hi:"HI",es:"ES",fr:"FR",de:"DE",ja:"JA"};
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeColorMeta = document.getElementById('themeColorMeta');
+const langToggle = document.getElementById('langToggle');
+const langLabel = document.getElementById('langLabel');
+const langMenu = document.getElementById('langMenu');
+const menuBtn = document.getElementById('menuBtn');
+const menuIcon = document.getElementById('menuIcon');
+const mobileMenu = document.getElementById('mobileMenu');
+const loader = document.getElementById('loader');
+const progressBar = document.getElementById('progressBar');
+const toast = document.getElementById('toast');
+
+/* ---- THEME ---- */
+function applyTheme(mode){
+  root.classList.toggle('dark', mode === 'dark');
+  themeIcon.textContent = mode === 'dark' ? '☀' : '◐';
+  themeColorMeta.setAttribute('content', mode === 'dark' ? '#0a0d0d' : '#f5f1e8');
+}
+let savedTheme = localStorage.getItem('asendra-theme');
+if(!savedTheme){ savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+applyTheme(savedTheme);
+themeToggle.addEventListener('click', () => {
+  const next = root.classList.contains('dark') ? 'light' : 'dark';
+  localStorage.setItem('asendra-theme', next);
+  applyTheme(next);
+});
+
+/* ---- I18N ---- */
+function applyLang(lang){
+  const idx = LANGS.indexOf(lang);
+  document.documentElement.lang = lang;
+  langLabel.textContent = LANG_NAMES[lang];
+  langMenu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.lang === lang)));
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if(T[k]) el.textContent = T[k][idx]; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { const k = el.dataset.i18nHtml; if(T[k]) el.innerHTML = T[k][idx]; });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { const k = el.dataset.i18nAria; if(T[k]) el.setAttribute('aria-label', T[k][idx]); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.dataset.i18nPlaceholder; if(T[k]) el.setAttribute('placeholder', T[k][idx]); });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => { const k = el.dataset.i18nAlt; if(T[k]) el.setAttribute('alt', T[k][idx]); });
+  localStorage.setItem('asendra-lang', lang);
+}
+let currentLang = localStorage.getItem('asendra-lang') || 'en';
+if(!LANGS.includes(currentLang)) currentLang = 'en';
+applyLang(currentLang);
+
+langToggle.addEventListener('click', () => {
+  const open = langMenu.classList.toggle('open');
+  langToggle.setAttribute('aria-expanded', String(open));
+});
+langMenu.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.dataset.lang;
+    applyLang(currentLang);
+    langMenu.classList.remove('open');
+    langToggle.setAttribute('aria-expanded', 'false');
+    langToggle.focus();
+  });
+});
+document.addEventListener('click', (e) => {
+  if(!langMenu.contains(e.target) && e.target !== langToggle && !langToggle.contains(e.target)){
+    langMenu.classList.remove('open');
+    langToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape'){
+    langMenu.classList.remove('open');
+    langToggle.setAttribute('aria-expanded', 'false');
+    closeMobileMenu();
+  }
+});
+
+/* ---- MOBILE MENU ---- */
+function closeMobileMenu(){
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuIcon.innerHTML = '<path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>';
+}
+menuBtn.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuIcon.innerHTML = open
+    ? '<path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>'
+    : '<path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>';
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+/* ---- LOADER ---- */
+function hideLoader(){
+  if(loader.classList.contains('hide')) return;
+  loader.classList.add('hide');
+}
+document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 500));
+window.addEventListener('load', () => setTimeout(hideLoader, 100));
+setTimeout(hideLoader, 1800);
+
+/* ---- REVEAL ON SCROLL ---- */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduceMotion){
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+} else {
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+/* ---- MEANINGFUL 3D SYSTEM VISUAL ----
+   Not a decorative object: this renders the same six pipeline nodes from the
+   accessible list above as a 3D depth path (front = product surface, back =
+   production), with a small pulse travelling node-to-node to represent a
+   request/data flow moving through the system. It is a progressive
+   enhancement layered BEHIND the real text list — if three.js fails to load
+   (offline, blocked, reduced motion, no WebGL), the canvas simply never
+   appears and the existing labelled list is the entire (unchanged,
+   accessible) experience. */
+function initSystem3D(){
+  try{
+    if(typeof THREE === 'undefined') return;
+    const wrap = document.getElementById('svCanvasWrap');
+    const canvas = document.getElementById('systemCanvas');
+    if(!wrap || !canvas) return;
+    const w = wrap.clientWidth, h = wrap.clientHeight;
+    if(!w || !h) return;
+    const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(w, h, false);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, w/h, 0.1, 100);
+    camera.position.set(0, 0.5, 8.6);
+    camera.lookAt(0, 0, -1.2);
+
+    const group = new THREE.Group();
+    scene.add(group);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+    const point = new THREE.PointLight(0xffffff, 0.85);
+    point.position.set(4, 5, 6);
+    scene.add(point);
+
+    const accentColor = root.classList.contains('dark') ? 0xff6a34 : 0xe8501c;
+    const nodeCount = 6;
+    const positions = [];
+    for(let i = 0; i < nodeCount; i++){
+      const t = i / (nodeCount - 1);
+      positions.push(new THREE.Vector3((t - 0.5) * 6.2, Math.sin(t * Math.PI) * 1.0 - 0.2, -t * 3.4));
+    }
+    const nodeGeo = new THREE.IcosahedronGeometry(0.3, 0);
+    positions.forEach(pos => {
+      const mat = new THREE.MeshStandardMaterial({color:accentColor, emissive:accentColor, emissiveIntensity:0.32, roughness:0.4, metalness:0.2, transparent:true, opacity:0.85});
+      const mesh = new THREE.Mesh(nodeGeo, mat);
+      mesh.position.copy(pos);
+      group.add(mesh);
+    });
+    const lineMat = new THREE.LineBasicMaterial({color:accentColor, transparent:true, opacity:0.28});
+    group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(positions), lineMat));
+
+    const pulseMat = new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.95});
+    const pulse = new THREE.Mesh(new THREE.SphereGeometry(0.11, 12, 12), pulseMat);
+    group.add(pulse);
+
+    const clock = new THREE.Clock();
+    let running = true;
+    const segSeconds = 2.6;
+    function frame(){
+      if(!running) return;
+      requestAnimationFrame(frame);
+      const t = clock.getElapsedTime();
+      group.rotation.y = Math.sin(t * 0.1) * 0.16;
+      const total = segSeconds * (nodeCount - 1) + 1.2;
+      const cycle = t % total;
+      if(cycle < segSeconds * (nodeCount - 1)){
+        const seg = Math.floor(cycle / segSeconds);
+        const segT = (cycle - seg * segSeconds) / segSeconds;
+        pulse.position.lerpVectors(positions[seg], positions[seg + 1], Math.min(segT, 1));
+        pulse.visible = true;
+      } else {
+        pulse.visible = false;
+      }
+      renderer.render(scene, camera);
+    }
+    frame();
+    function pause(){ running = false; }
+    function resume(){ if(!running){ running = true; frame(); } }
+    document.addEventListener('visibilitychange', () => { document.hidden ? pause() : resume(); });
+    new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting ? resume() : pause()), {threshold:.05}).observe(wrap);
+    window.addEventListener('resize', () => {
+      const nw = wrap.clientWidth, nh = wrap.clientHeight;
+      if(!nw || !nh) return;
+      camera.aspect = nw / nh;
+      camera.updateProjectionMatrix();
+      renderer.setSize(nw, nh, false);
+    });
+    canvas.style.display = 'block';
+    wrap.classList.add('sv-3d-active');
+  } catch(err){ /* silent fallback — accessible text list remains the full experience */ }
+}
+if(!reduceMotion){
+  const threeScript = document.createElement('script');
+  threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  threeScript.defer = true;
+  threeScript.onload = () => setTimeout(initSystem3D, 60);
+  document.head.appendChild(threeScript);
+}
+
+/* ---- SCROLL PROGRESS + ACTIVE NAV ---- */
+const sections = [...document.querySelectorAll('main section[id], #contact')];
+const navLinks = [...document.querySelectorAll('.navlinks a')];
+function updateScroll(){
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  let active = 'top';
+  sections.forEach(s => { if(window.scrollY + 140 >= s.offsetTop) active = s.id; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active));
+}
+window.addEventListener('scroll', updateScroll, {passive:true});
+updateScroll();
+
+/* ---- CONTACT FORM ---- */
+const form = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+const copyEmailBtn = document.getElementById('copyEmailBtn');
+const CONTACT_EMAIL = 'asendrachauhan176@gmail.com';
+function idx(){ return LANGS.indexOf(currentLang); }
+function setFieldError(field, key){
+  const el = document.getElementById('err-' + field);
+  const input = document.getElementById('cf-' + field);
+  if(key){ el.textContent = T[key][idx()]; input.setAttribute('aria-invalid','true'); }
+  else { el.textContent = ''; input.removeAttribute('aria-invalid'); }
+}
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toast.classList.remove('show'), 3200);
+}
+function copyEmail(){
+  const done = () => { showToast(T['contact.copied'][idx()]); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(CONTACT_EMAIL).then(done).catch(() => fallbackCopy(done));
+  } else {
+    fallbackCopy(done);
+  }
+}
+function fallbackCopy(done){
+  try{
+    const ta = document.createElement('textarea');
+    ta.value = CONTACT_EMAIL; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    done();
+  } catch(err){
+    showToast(CONTACT_EMAIL);
+  }
+}
+copyEmailBtn.addEventListener('click', copyEmail);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+  let valid = true;
+  setFieldError('name', name ? null : 'contact.errRequired'); if(!name) valid = false;
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  setFieldError('email', !email ? 'contact.errRequired' : (!emailOk ? 'contact.errEmail' : null)); if(!email || !emailOk) valid = false;
+  setFieldError('message', message ? null : 'contact.errRequired'); if(!message) valid = false;
+  if(!valid) return;
+  formStatus.classList.remove('is-error');
+  copyEmailBtn.style.display = 'none';
+  formStatus.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>' + T['contact.sending'][idx()] + '</span>';
+  const subject = encodeURIComponent('Portfolio enquiry from ' + name);
+  const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+  setTimeout(() => {
+    try {
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+      formStatus.textContent = T['contact.opened'][idx()];
+      copyEmailBtn.style.display = 'inline-block';
+    } catch(err) {
+      formStatus.classList.add('is-error');
+      formStatus.textContent = T['contact.errNetwork'][idx()];
+      copyEmailBtn.style.display = 'inline-block';
+    }
+  }, 550);
+});
+})();
+</script>
 </body>
 </html>
