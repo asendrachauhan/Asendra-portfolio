@@ -14,7 +14,7 @@
 <link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml">
 <link rel="preload" href="assets/brand/logo-mark.svg" as="image" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<!-- Web app manifest is intentionally omitted for file:// compatibility. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Asendra Chauhan — Full-Stack Product Engineer">
 <meta property="og:description" content="I build production SaaS, practical GenAI workflows and the systems that connect them.">
@@ -389,6 +389,9 @@ html.dark .loader{background:var(--surface)}
 .skip-link:focus{top:12px}
 html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Final reference-design composition */
+.hero-diagram{min-height:520px;background:radial-gradient(circle at 50% 45%,rgba(255,78,42,.07),transparent 42%),#071016;border:1px solid var(--border);border-radius:22px;padding:20px;overflow:hidden}.diagram-canvas{position:relative;height:430px;max-width:620px;margin:auto}.diagram-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.flow-path{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1.5;stroke-dasharray:5 7}.flow-particle{fill:var(--accent);filter:drop-shadow(0 0 6px var(--accent))}.diagram-node{position:absolute;z-index:2;width:126px;min-height:64px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(14,23,29,.94);color:var(--text);padding:10px 8px;text-align:center;cursor:pointer;transition:.25s ease;box-shadow:0 10px 30px rgba(0,0,0,.16)}.diagram-node:hover,.diagram-node.active{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 0 0 1px rgba(255,78,42,.2),0 12px 35px rgba(0,0,0,.25)}.diagram-node strong,.diagram-node small{display:block}.diagram-node strong{font-size:11px}.diagram-node small{font-size:9px;color:var(--text-muted);margin-top:4px}.node-icon{display:block;color:var(--accent-text);font-size:18px;margin-bottom:2px}.node-users{top:5px;left:calc(50% - 63px)}.node-ui{top:102px;left:calc(50% - 63px)}.node-api{top:202px;left:calc(50% - 63px)}.node-data{top:302px;left:calc(50% - 63px)}.node-integrations{top:152px;left:0}.node-ai{top:152px;right:0}.node-realtime{top:252px;right:0}.node-deploy{bottom:0;left:calc(50% - 63px)}.diagram-status{position:absolute;bottom:-2px;left:0;color:var(--text-muted);font-size:9px;letter-spacing:.12em}.systems-composition{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:28px;align-items:center}.layer-stack{position:relative;height:420px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:25px}.stack-layer{height:48px;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(100deg,rgba(255,255,255,.06),rgba(255,255,255,.015));transform:perspective(500px) rotateX(18deg);transition:.3s ease;box-shadow:0 12px 22px rgba(0,0,0,.2)}.stack-layer:nth-child(2){margin:0 18px}.stack-layer:nth-child(3){margin:0 36px}.stack-layer:nth-child(4){margin:0 54px}.stack-layer:nth-child(5){margin:0 72px}.stack-layer:nth-child(6){margin:0 90px}.stack-layer span{font-size:10px;font-weight:700}.stack-layer small{font-size:9px;color:var(--text-muted)}.stack-layer:hover{border-color:var(--accent);transform:perspective(500px) rotateX(18deg) translateX(8px)}.layer-list{grid-template-columns:repeat(2,1fr)!important}.layer-list .layer{min-height:112px}.systems-composition .layer-list{display:grid}@media(max-width:800px){.systems-composition{grid-template-columns:1fr}.layer-stack{height:330px}.diagram-canvas{height:390px}.diagram-node{width:108px}.node-integrations{left:-4px}.node-ai{right:-4px}.node-realtime{right:-4px}.node-users,.node-ui,.node-api,.node-data,.node-deploy{left:calc(50% - 54px)}.layer-list{grid-template-columns:1fr!important}}
 </style>
 <noscript><style>
 .sv-node .sv-line{transform:scaleY(1) !important}
@@ -400,16 +403,24 @@ html{scroll-behavior:smooth}
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
 <div class="progress-bar" id="progressBar"></div>
 
-  <div class="system-visual reveal" id="svCanvasWrap" role="img" data-i18n-aria="hero.systemAria" aria-label="Diagram: product surface connects to API layer, authentication, data layer, integrations, AI layer, and production deployment">
+  <div class="system-visual hero-diagram reveal" id="svCanvasWrap" role="img" aria-label="Interactive system architecture diagram">
     <div class="sv-head"><span class="mono" data-i18n="hero.systemLabel">SYSTEM FLOW</span><span class="mono" style="color:var(--accent-text)">01 → 06</span></div>
-    <div class="sv-flow" id="svFlow">
-      <div class="sv-pulse" id="svPulse" aria-hidden="true"></div>
-      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">01</div><div class="sv-node-label"><strong data-i18n="hero.node1t">Product surface</strong><small data-i18n="hero.node1s">Interface / UX</small></div></div>
-      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">02</div><div class="sv-node-label"><strong data-i18n="hero.node2t">API layer</strong><small data-i18n="hero.node2s">Node.js / Express</small></div></div>
-      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">03</div><div class="sv-node-label"><strong data-i18n="hero.node3t">Data layer</strong><small data-i18n="hero.node3s">MongoDB / Redis</small></div></div>
-      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">04</div><div class="sv-node-label"><strong data-i18n="hero.node4t">Integrations</strong><small data-i18n="hero.node4s">OAuth / Webhooks</small></div></div>
-      <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">05</div><div class="sv-node-label"><strong data-i18n="hero.node5t">AI layer</strong><small data-i18n="hero.node5s">LLM / retrieval</small></div></div>
-      <div class="sv-node"><div class="sv-dot" aria-hidden="true">06</div><div class="sv-node-label"><strong data-i18n="hero.node6t">Production</strong><small data-i18n="hero.node6s">Deploy / observe</small></div></div>
+    <div class="diagram-canvas" id="svFlow">
+      <svg class="diagram-lines" viewBox="0 0 620 430" aria-hidden="true" preserveAspectRatio="none">
+        <path class="flow-path" d="M310 86 V125 M310 190 V225 M310 290 V325 M245 155 H150 V225 M375 155 H470 V225 M245 260 H150 V325 M375 260 H470 V325" />
+        <circle class="flow-particle p1" r="4"><animateMotion dur="4s" repeatCount="indefinite" path="M310 86 V125"/></circle>
+        <circle class="flow-particle p2" r="4"><animateMotion dur="5s" repeatCount="indefinite" path="M310 190 V225"/></circle>
+        <circle class="flow-particle p3" r="4"><animateMotion dur="6s" repeatCount="indefinite" path="M310 290 V325"/></circle>
+      </svg>
+      <button class="diagram-node node-users" data-node="users"><span class="node-icon">♙</span><strong>Users</strong><small>People / teams</small></button>
+      <button class="diagram-node node-ui" data-node="ui"><span class="node-icon">◈</span><strong>Product UI</strong><small>Angular / React</small></button>
+      <button class="diagram-node node-api" data-node="api"><span class="node-icon">▤</span><strong>API layer</strong><small>Node.js / Express</small></button>
+      <button class="diagram-node node-data" data-node="data"><span class="node-icon">◫</span><strong>Data layer</strong><small>MongoDB / Redis</small></button>
+      <button class="diagram-node node-integrations" data-node="integrations"><span class="node-icon">⚙</span><strong>Integrations</strong><small>OAuth / webhooks</small></button>
+      <button class="diagram-node node-ai" data-node="ai"><span class="node-icon">✦</span><strong>AI layer</strong><small>LLM / retrieval</small></button>
+      <button class="diagram-node node-realtime" data-node="realtime"><span class="node-icon">⌁</span><strong>Realtime</strong><small>Socket.IO / events</small></button>
+      <button class="diagram-node node-deploy" data-node="deploy"><span class="node-icon">▣</span><strong>Deployment</strong><small>AWS / CI/CD</small></button>
+      <div class="diagram-status mono" id="diagramStatus">SELECT A NODE TO TRACE THE FLOW</div>
     </div>
   </div>
 </section>
@@ -487,17 +498,25 @@ html{scroll-behavior:smooth}
       <div><div class="mono">04 · <span data-i18n="systems.kicker">SYSTEMS</span></div><h2 class="section-title" data-i18n-html="systems.title">I think in<br><span class="muted">whole systems.</span></h2></div>
       <p class="section-copy" data-i18n="systems.intro">A generalized view of how the layers of a production SaaS platform connect — not KiteSuite's actual infrastructure, but the kind of thinking behind contributing to it safely.</p>
     </div>
-    <div class="layers reveal">
-      <div class="layer"><div class="mono">01</div><h3 data-i18n="systems.l1t">Product surfaces</h3><p data-i18n="systems.l1c">The modules a user actually touches — projects, ATS, docs, meetings, forms.</p></div>
-      <div class="layer"><div class="mono">02</div><h3 data-i18n="systems.l2t">Frontend</h3><p data-i18n="systems.l2c">Component-driven UI, state management and responsive interaction layers.</p></div>
-      <div class="layer"><div class="mono">03</div><h3 data-i18n="systems.l3t">API layer</h3><p data-i18n="systems.l3c">REST endpoints that mediate between the interface and the data underneath.</p></div>
-      <div class="layer"><div class="mono">04</div><h3 data-i18n="systems.l4t">Auth &amp; access</h3><p data-i18n="systems.l4c">Authentication and role-based access control across workspace boundaries.</p></div>
-      <div class="layer"><div class="mono">05</div><h3 data-i18n="systems.l5t">Data layer</h3><p data-i18n="systems.l5c">Document modeling, indexing and query design for cross-module lookups.</p></div>
-      <div class="layer"><div class="mono">06</div><h3 data-i18n="systems.l6t">Integrations</h3><p data-i18n="systems.l6c">OAuth and webhook-driven connections to external services and providers.</p></div>
-      <div class="layer"><div class="mono">07</div><h3 data-i18n="systems.l7t">Events &amp; async work</h3><p data-i18n="systems.l7c">Background jobs and asynchronous flows that keep the interface responsive.</p></div>
-      <div class="layer"><div class="mono">08</div><h3 data-i18n="systems.l8t">AI layer</h3><p data-i18n="systems.l8c">Model/provider integration for AI-assisted product features, kept separate from core logic.</p></div>
-      <div class="layer"><div class="mono">09</div><h3 data-i18n="systems.l9t">Observability &amp; validation</h3><p data-i18n="systems.l9c">Input validation, error handling and the checks that catch problems before users do.</p></div>
-      <div class="layer"><div class="mono">10</div><h3 data-i18n="systems.l10t">Production &amp; deployment</h3><p data-i18n="systems.l10c">Getting a change from a branch into something real users depend on.</p></div>
+    <div class="systems-composition reveal">
+      <div class="layer-stack" id="layerStack" aria-label="Technology layer stack">
+        <div class="stack-layer stack-product"><span>PRODUCT SURFACE</span><small>Projects · ATS · Docs</small></div>
+        <div class="stack-layer stack-front"><span>FRONTEND</span><small>Angular · React · UI state</small></div>
+        <div class="stack-layer stack-api"><span>API LAYER</span><small>Node.js · Express · REST</small></div>
+        <div class="stack-layer stack-data"><span>DATA LAYER</span><small>MongoDB · Redis · Mongoose</small></div>
+        <div class="stack-layer stack-ai"><span>AI LAYER</span><small>LLM · embeddings · retrieval</small></div>
+        <div class="stack-layer stack-prod"><span>PRODUCTION</span><small>CI/CD · monitoring · scale</small></div>
+      </div>
+      <div class="layers layer-list">
+        <div class="layer"><div class="mono">01</div><h3 data-i18n="systems.l1t">Product surfaces</h3><p data-i18n="systems.l1c">The modules a user actually touches — projects, ATS, docs, meetings, forms.</p></div>
+        <div class="layer"><div class="mono">02</div><h3 data-i18n="systems.l2t">Frontend</h3><p data-i18n="systems.l2c">Component-driven UI, state management and responsive interaction layers.</p></div>
+        <div class="layer"><div class="mono">03</div><h3 data-i18n="systems.l3t">API layer</h3><p data-i18n="systems.l3c">REST endpoints that mediate between the interface and the data underneath.</p></div>
+        <div class="layer"><div class="mono">04</div><h3 data-i18n="systems.l4t">Auth &amp; access</h3><p data-i18n="systems.l4c">Authentication and role-based access control across workspace boundaries.</p></div>
+        <div class="layer"><div class="mono">05</div><h3 data-i18n="systems.l5t">Data layer</h3><p data-i18n="systems.l5c">Document modeling, indexing and query design for cross-module lookups.</p></div>
+        <div class="layer"><div class="mono">06</div><h3 data-i18n="systems.l6t">Integrations</h3><p data-i18n="systems.l6c">OAuth and webhook-driven connections to external services and providers.</p></div>
+        <div class="layer"><div class="mono">07</div><h3 data-i18n="systems.l7t">Events &amp; async work</h3><p data-i18n="systems.l7c">Background jobs and asynchronous flows that keep the interface responsive.</p></div>
+        <div class="layer"><div class="mono">08</div><h3 data-i18n="systems.l8t">AI layer</h3><p data-i18n="systems.l8c">Model/provider integration for AI-assisted product features, kept separate from core logic.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -931,6 +950,8 @@ Object.assign(T, {
 });
 const LANGS = ["en","hi","es","fr","de","ja"];
 const LANG_NAMES = {en:"EN",hi:"HI",es:"ES",fr:"FR",de:"DE",ja:"JA"};
+window.__portfolioT = T;
+window.__portfolioLangs = LANGS;
 const root = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
@@ -1203,11 +1224,11 @@ const form = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 const copyEmailBtn = document.getElementById('copyEmailBtn');
 const CONTACT_EMAIL = 'asendrachauhan176@gmail.com';
-function idx(){ return LANGS.indexOf(currentLang); }
+function idx(){ return (window.__portfolioLangs || []).indexOf(currentLang); }
 function setFieldError(field, key){
   const el = document.getElementById('err-' + field);
   const input = document.getElementById('cf-' + field);
-  if(key){ el.textContent = T[key][idx()]; input.setAttribute('aria-invalid','true'); }
+  if(key){ el.textContent = (window.__portfolioT || {})[key][idx()]; input.setAttribute('aria-invalid','true'); }
   else { el.textContent = ''; input.removeAttribute('aria-invalid'); }
 }
 function showToast(msg){
@@ -1217,7 +1238,7 @@ function showToast(msg){
   showToast._t = setTimeout(() => toast.classList.remove('show'), 3200);
 }
 function copyEmail(){
-  const done = () => { showToast(T['contact.copied'][idx()]); };
+  const done = () => { showToast((window.__portfolioT || {})['contact.copied'][idx()]); };
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(CONTACT_EMAIL).then(done).catch(() => fallbackCopy(done));
   } else {
@@ -1236,8 +1257,8 @@ function fallbackCopy(done){
     showToast(CONTACT_EMAIL);
   }
 }
-copyEmailBtn.addEventListener('click', copyEmail);
-form.addEventListener('submit', (e) => {
+if(copyEmailBtn) copyEmailBtn.addEventListener('click', copyEmail);
+if(form) form.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = document.getElementById('cf-name').value.trim();
   const email = document.getElementById('cf-email').value.trim();
@@ -1250,17 +1271,17 @@ form.addEventListener('submit', (e) => {
   if(!valid) return;
   formStatus.classList.remove('is-error');
   copyEmailBtn.style.display = 'none';
-  formStatus.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>' + T['contact.sending'][idx()] + '</span>';
+  formStatus.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>' + (window.__portfolioT || {})['contact.sending'][idx()] + '</span>';
   const subject = encodeURIComponent('Portfolio enquiry from ' + name);
   const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
   setTimeout(() => {
     try {
       window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
-      formStatus.textContent = T['contact.opened'][idx()];
+      formStatus.textContent = (window.__portfolioT || {})['contact.opened'][idx()];
       copyEmailBtn.style.display = 'inline-block';
     } catch(err) {
       formStatus.classList.add('is-error');
-      formStatus.textContent = T['contact.errNetwork'][idx()];
+      formStatus.textContent = (window.__portfolioT || {})['contact.errNetwork'][idx()];
       copyEmailBtn.style.display = 'inline-block';
     }
   }, 550);
@@ -1270,15 +1291,28 @@ form.addEventListener('submit', (e) => {
 /* ---- FINAL QUALITY GUARDRAILS ---- */
 (function(){
   const missing = [];
-  Object.keys(T).forEach(key => {
-    if(!Array.isArray(T[key]) || T[key].length !== LANGS.length || T[key].some(v => typeof v !== 'string' || !v.trim())) missing.push(key);
+  const translationTable = window.__portfolioT || {};
+  const languageCodes = window.__portfolioLangs || [];
+  Object.keys(translationTable).forEach(key => {
+    if(!Array.isArray(translationTable[key]) || translationTable[key].length !== languageCodes.length || translationTable[key].some(v => typeof v !== 'string' || !v.trim())) missing.push(key);
   });
   document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-aria],[data-i18n-placeholder],[data-i18n-alt]').forEach(el => {
     const key = el.dataset.i18n || el.dataset.i18nHtml || el.dataset.i18nAria || el.dataset.i18nPlaceholder || el.dataset.i18nAlt;
-    if(!T[key]) missing.push(key);
+    if(!translationTable[key]) missing.push(key);
   });
   if(missing.length) console.warn('[Asendra portfolio] incomplete translation keys:', [...new Set(missing)]);
   document.querySelectorAll('img:not([alt])').forEach(img => img.setAttribute('alt',''));
+})();
+</script>
+
+<script>
+(function(){
+  const nodes=[...document.querySelectorAll('.diagram-node')];
+  const status=document.getElementById('diagramStatus');
+  nodes.forEach(node=>node.addEventListener('click',()=>{
+    nodes.forEach(n=>n.classList.remove('active')); node.classList.add('active');
+    if(status) status.textContent='TRACING '+node.textContent.replace(/\s+/g,' ').trim().toUpperCase();
+  }));
 })();
 </script>
 </body>
