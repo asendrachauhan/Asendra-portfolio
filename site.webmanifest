@@ -1,1 +1,13 @@
-{"name":"Asendra Chauhan — Full-Stack / Product Engineer","short_name":"Asendra","start_url":"./","display":"standalone","background_color":"#090b0b","theme_color":"#090b0b","description":"Portfolio of Asendra Chauhan — full-stack/product engineering, connected SaaS systems and practical GenAI.","icons":[{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml"}]}
+{
+  "name": "Asendra Chauhan — Full-Stack Product Engineer",
+  "short_name": "Asendra",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f5f1e8",
+  "theme_color": "#f5f1e8",
+  "icons": [
+    { "src": "assets/brand/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "assets/brand/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "assets/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" role="img" aria-labelledby="title desc">
+  <title id="title">Asendra Engineering</title>
+  <desc id="desc">A geometric A mark followed by the words Asendra Engineering.</desc>
+  <rect width="640" height="160" rx="32" fill="#0a0d0d"/>
+  <path d="M78 116 112 44l34 72h-18l-8-18h-17l-8 18H78Zm33-38-5 11h10l-5-11Z" fill="#f4f0e6"/>
+  <circle cx="148" cy="48" r="8" fill="#ff6a34"/>
+  <text x="188" y="76" fill="#f4f0e6" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" letter-spacing="1">ASENDRA</text>
+  <text x="190" y="108" fill="#a3a69f" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="5">ENGINEERING</text>
+</svg>

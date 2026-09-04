@@ -9,24 +9,30 @@
 <meta name="author" content="Asendra Chauhan">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f5f1e8" id="themeColorMeta">
-<link rel="canonical" href="https://meek-pudding-0ac9b1.netlify.app/">
+<link rel="canonical" href="https://asendrachauhan.github.io/Asendra-portfolio/">
+<link rel="icon" href="assets/brand/favicon.ico" sizes="any">
+<link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml">
+<link rel="preload" href="assets/brand/logo-mark.svg" as="image" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Asendra Chauhan — Full-Stack Product Engineer">
 <meta property="og:description" content="I build production SaaS, practical GenAI workflows and the systems that connect them.">
-<meta property="og:url" content="https://meek-pudding-0ac9b1.netlify.app/">
-<meta property="og:image" content="https://meek-pudding-0ac9b1.netlify.app/assets/kitesuite/kitesuite-releases.webp">
+<meta property="og:url" content="https://asendrachauhan.github.io/Asendra-portfolio/">
+<meta property="og:image" content="https://asendrachauhan.github.io/Asendra-portfolio/assets/brand/og-banner.jpg">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Asendra Chauhan — Full-Stack Product Engineer">
 <meta name="twitter:description" content="I build production SaaS, practical GenAI workflows and the systems that connect them.">
+<meta name="twitter:image" content="https://asendrachauhan.github.io/Asendra-portfolio/assets/brand/og-banner.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Asendra Chauhan","jobTitle":"Full-Stack Product Engineer","url":"https://meek-pudding-0ac9b1.netlify.app/","email":"mailto:asendrachauhan176@gmail.com","sameAs":["https://www.linkedin.com/in/asendra-chauhan-410344221","https://github.com/asendrachauhan"],"knowsAbout":["JavaScript","TypeScript","Angular","React","Node.js","Express.js","MongoDB","REST APIs","GenAI","LLM integration"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Rajasthan Technical University"}}
+{"@context":"https://schema.org","@type":"Person","name":"Asendra Chauhan","jobTitle":"Full-Stack Product Engineer","url":"https://asendrachauhan.github.io/Asendra-portfolio/","email":"mailto:asendrachauhan176@gmail.com","sameAs":["https://www.linkedin.com/in/asendra-chauhan-410344221","https://github.com/asendrachauhan"],"knowsAbout":["JavaScript","TypeScript","Angular","React","Node.js","Express.js","MongoDB","REST APIs","GenAI","LLM integration"],"alumniOf":{"@type":"CollegeOrUniversity","name":"Rajasthan Technical University"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Asendra Chauhan — Portfolio","url":"https://meek-pudding-0ac9b1.netlify.app/"}
+{"@context":"https://schema.org","@type":"WebSite","name":"Asendra Chauhan — Portfolio","url":"https://asendrachauhan.github.io/Asendra-portfolio/"}
 </script>
 <style>
 /* ===== DESIGN TOKENS ===== */
@@ -70,12 +76,16 @@ h1,h2,h3,h4,p{margin:0}
 .visually-decorative{}
 /* ===== NAV ===== */
 .nav{position:fixed;z-index:80;top:12px;left:50%;transform:translateX(-50%);width:min(1320px,calc(100% - 24px));min-height:56px;border:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 18px;border-radius:999px;box-shadow:var(--shadow-sm)}
-.brand{font-weight:900;letter-spacing:-.04em;display:flex;gap:8px;align-items:center;font-size:13px;white-space:nowrap}
+.brand{font-weight:900;letter-spacing:-.04em;display:flex;gap:8px;align-items:center;font-size:13px;white-space:nowrap;flex-shrink:0}
 .brand .dot{width:7px;height:7px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 4px var(--accent-soft);flex:0 0 auto}
-.navlinks{display:flex;gap:18px;align-items:center;font-size:10px;font-weight:800;letter-spacing:.03em}
-.navlinks a{opacity:.6;transition:opacity .2s;padding:6px 2px}
+.brand .brand-mark{width:28px;height:28px;border-radius:8px;flex:0 0 auto}
+.navlinks{display:flex;gap:15px;align-items:center;font-size:10px;font-weight:800;letter-spacing:.03em;min-width:0;overflow:hidden}
+.navlinks a{opacity:.6;transition:opacity .2s;padding:6px 2px;white-space:nowrap}
+.nav.compact .navlinks{gap:11px;font-size:9px}
+.nav.compact .brand-tag-full{display:none}
+.nav.compact .brand-tag-short{display:inline !important}
 .navlinks a:hover,.navlinks a.active{opacity:1}
-.nav-actions{display:flex;gap:6px;align-items:center}
+.nav-actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
 .pill-btn{border:1px solid var(--border-strong);background:transparent;padding:9px 12px;border-radius:999px;font-size:10px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:6px;color:var(--text)}
 .pill-btn:hover{border-color:var(--accent);color:var(--accent-text)}
 .menu-btn{display:none;border:1px solid var(--border-strong);background:transparent;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;cursor:pointer}
@@ -88,7 +98,7 @@ h1,h2,h3,h4,p{margin:0}
 /* ===== MOBILE MENU ===== */
 .mobile-menu{position:fixed;inset:0;z-index:70;background:var(--bg);padding:96px 24px 30px;display:none;flex-direction:column;overflow-y:auto}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:clamp(34px,11vw,52px);font-weight:900;letter-spacing:-.05em;line-height:1.05;padding:11px 0;border-bottom:1px solid var(--border)}
+.mobile-menu a{font-size:clamp(34px,11vw,52px);font-weight:900;letter-spacing:-.05em;line-height:1.05;padding:11px 0;border-bottom:1px solid var(--border);overflow-wrap:anywhere}
 .mobile-menu .mono{margin-top:auto;padding-top:24px}
 /* ===== HERO ===== */
 .hero{min-height:100svh;padding:150px 0 70px;display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center;position:relative}
@@ -109,21 +119,33 @@ h1,h2,h3,h4,p{margin:0}
 .stat small{display:block;margin-top:6px;color:var(--text-muted);font-size:9px;line-height:1.4;text-transform:uppercase;letter-spacing:.06em}
 /* ===== HERO SYSTEM VISUAL ===== */
 .system-visual{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-lg);padding:26px 20px;display:flex;flex-direction:column;gap:0;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;min-height:420px}
-#systemCanvas{position:absolute;inset:0;width:100%;height:100%;display:none;z-index:0;pointer-events:none}
 .system-visual .sv-head,.system-visual .sv-flow{position:relative;z-index:1}
 .system-visual .sv-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.sv-flow{display:flex;flex-direction:column;gap:0}
+.sv-flow{display:flex;flex-direction:column;gap:0;position:relative}
 .sv-node{display:flex;align-items:center;gap:14px;padding:14px 4px;position:relative}
-.sv-node .sv-dot{width:34px;height:34px;border-radius:10px;background:var(--surface-elevated);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;font-weight:700;flex:0 0 auto;color:var(--accent-text);position:relative;z-index:2;transition:border-color .25s,transform .25s}
+.sv-node .sv-dot{width:34px;height:34px;border-radius:10px;background:var(--surface-elevated);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;font-weight:700;flex:0 0 auto;color:var(--accent-text);position:relative;z-index:2;transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease}
 .sv-node:hover .sv-dot{border-color:var(--accent);transform:scale(1.06)}
-.sv-node .sv-line{position:absolute;left:21px;top:44px;width:1px;height:calc(100% - 12px);background:var(--border-strong)}
+.sv-node.lit .sv-dot{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);transform:scale(1.05)}
+.sv-node .sv-line{position:absolute;left:21px;top:44px;width:1px;height:calc(100% - 12px);background:var(--border-strong);transform-origin:top;transform:scaleY(0);transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.sv-node.lit .sv-line{transform:scaleY(1)}
 .sv-node:last-child .sv-line{display:none}
 .sv-node-label strong{font-size:13px;display:block;letter-spacing:-.01em}
 .sv-node-label small{font-family:var(--font-mono);font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+.sv-pulse{position:absolute;left:15px;top:36px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px 2px var(--accent-soft);opacity:0;z-index:1;pointer-events:none}
+.sv-pulse.running{animation:sv-travel 4.8s cubic-bezier(.45,0,.2,1) infinite}
+.sv-pulse.paused{animation-play-state:paused}
+@keyframes sv-travel{
+  0%{opacity:0;transform:translateY(0)}
+  3%{opacity:1}
+  90%{opacity:1}
+  97%{opacity:0}
+  100%{opacity:0;transform:translateY(var(--sv-travel,0px))}
+}
 @media(prefers-reduced-motion:no-preference){.sv-node{animation:sv-in .5s ease both}
-.sv-node:nth-child(1){animation-delay:.05s}.sv-node:nth-child(2){animation-delay:.15s}.sv-node:nth-child(3){animation-delay:.25s}.sv-node:nth-child(4){animation-delay:.35s}.sv-node:nth-child(5){animation-delay:.45s}.sv-node:nth-child(6){animation-delay:.55s}.sv-node:nth-child(7){animation-delay:.65s}}
+.sv-node:nth-child(2){animation-delay:.05s}.sv-node:nth-child(3){animation-delay:.15s}.sv-node:nth-child(4){animation-delay:.25s}.sv-node:nth-child(5){animation-delay:.35s}.sv-node:nth-child(6){animation-delay:.45s}.sv-node:nth-child(7){animation-delay:.55s}}
 @keyframes sv-in{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
 .marquee{background:var(--surface-inverse);color:#c8c7bf;overflow:hidden;border-block:1px solid var(--dark-border)}
+html.dark .marquee{background:var(--surface)}
 .marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 .marquee span{padding:14px 22px;font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;white-space:nowrap}
@@ -158,50 +180,43 @@ html.dark .section.dark{background:var(--surface)}
 .ev-shot img{width:100%;height:auto;display:block}
 .ev-shot .ev-cap{padding:20px 22px 22px}
 .ev-shot .ev-cap .mono{color:var(--accent-text);margin-bottom:6px}
-.ev-shot .ev-cap h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.ev-shot .ev-cap h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px;color:var(--text)}
 .ev-shot .ev-cap p{font-size:13px;color:var(--text-muted);line-height:1.6}
 .ev-row{display:flex;flex-direction:column;gap:18px}
 .ev-mini{border:1px solid var(--border);background:var(--surface-elevated);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
 .ev-mini img{width:100%;height:140px;object-fit:cover;object-position:top}
 .ev-mini .ev-cap{padding:14px 16px 16px}
-.ev-mini .ev-cap h4{font-size:14px;letter-spacing:-.01em;margin-bottom:5px}
+.ev-mini .ev-cap h4{font-size:14px;letter-spacing:-.01em;margin-bottom:5px;color:var(--text)}
 .ev-mini .ev-cap p{font-size:11.5px;color:var(--text-muted);line-height:1.5}
 .evidence-block{margin-bottom:22px}
 /* SYSTEMS / ARCHITECTURE */
 .layers{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.layer{border:1px solid var(--dark-border);background:var(--dark-surface-2);border-radius:var(--radius);padding:18px 20px;transition:border-color .25s,transform .25s;position:relative}
-.dark .layer{background:var(--surface-elevated);border-color:var(--border)}
+.layer{border:1px solid var(--border);background:var(--surface-elevated);border-radius:var(--radius);padding:18px 20px;transition:border-color .25s,transform .25s;position:relative}
 .layer:hover{border-color:var(--accent);transform:translateY(-2px)}
-.layer .mono{color:#7b8280}
-.dark .layer .mono{color:var(--text-faint)}
-.layer h3{font-size:15px;margin:8px 0 6px;letter-spacing:-.01em;font-weight:700}
-.layer p{font-size:12px;color:#8a8f8c;line-height:1.5}
-.dark .layer p{color:var(--text-muted)}
+.layer .mono{color:var(--text-muted)}
+.layer h3{font-size:15px;margin:8px 0 6px;letter-spacing:-.01em;font-weight:700;color:var(--text)}
+.layer p{font-size:12px;color:var(--text-muted);line-height:1.5}
 /* SKILLS */
 .skills-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .skill-group{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);padding:22px}
 .skill-group .mono{color:var(--accent-text)}
-.skill-group h3{font-size:19px;margin:10px 0 12px;letter-spacing:-.02em}
+.skill-group h3{font-size:19px;margin:10px 0 12px;letter-spacing:-.02em;color:var(--text)}
 .skill-logos{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:12px}
 .skill-logos img{width:36px;height:36px;border-radius:10px;box-shadow:var(--shadow-sm);transition:transform .2s ease}
 .skill-logos img:hover{transform:translateY(-3px) scale(1.05)}
 .skill-chips{display:flex;flex-wrap:wrap;gap:6px}
-.skill-chip{border:1px solid var(--border-strong);border-radius:999px;padding:5px 10px;font-size:10.5px;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:.01em}
+.skill-chip{border:1px solid var(--border-strong);border-radius:999px;padding:5px 10px;font-size:10.5px;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:.01em;display:inline-flex;align-items:center;gap:5px}
+.skill-chip .chip-icon{width:14px;height:14px;flex:0 0 auto}
 /* GENAI */
 .genai-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:26px}
-.genai-card{border:1px solid var(--dark-border);border-radius:var(--radius-lg);background:var(--dark-surface-2);padding:24px}
-.dark .genai-card{background:var(--surface-elevated);border-color:var(--border)}
-.genai-card .badge{display:inline-block;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 9px;color:#c9ccca;margin-bottom:14px}
-.dark .genai-card .badge{border-color:var(--border-strong);color:var(--text-muted)}
-.genai-card h3{font-size:19px;margin-bottom:8px;letter-spacing:-.02em}
-.genai-card p{font-size:12.5px;line-height:1.6;color:#9a9e9c}
-.dark .genai-card p{color:var(--text-muted)}
-.concerns{border:1px solid var(--dark-border);border-radius:var(--radius-lg);padding:22px 24px}
-.dark .concerns{border-color:var(--border)}
-.concerns .mono{margin-bottom:14px;color:#7b8280}
-.dark .concerns .mono{color:var(--text-faint)}
+.genai-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface-elevated);padding:24px}
+.genai-card .badge{display:inline-block;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--border-strong);border-radius:999px;padding:4px 9px;color:var(--text-muted);margin-bottom:14px}
+.genai-card h3{font-size:19px;margin-bottom:8px;letter-spacing:-.02em;color:var(--text)}
+.genai-card p{font-size:12.5px;line-height:1.6;color:var(--text-muted)}
+.concerns{border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;background:var(--surface-elevated)}
+.concerns .mono{margin-bottom:14px;color:var(--text-muted)}
 .concern-list{display:flex;flex-wrap:wrap;gap:8px}
-.concern-chip{border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 12px;font-size:11px;color:#c9ccca;font-family:var(--font-mono)}
+.concern-chip{border:1px solid var(--border-strong);border-radius:999px;padding:7px 12px;font-size:11px;color:var(--text);font-family:var(--font-mono)}
 .dark .concern-chip{border-color:var(--border-strong);color:var(--text)}
 /* PROOF */
 .proof-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:34px}
@@ -214,7 +229,7 @@ html.dark .section.dark{background:var(--surface)}
 .metric{border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;background:var(--surface-elevated)}
 .metric strong{font-size:24px;letter-spacing:-.03em;color:var(--accent);display:block;margin-bottom:6px}
 .metric span{font-size:11.5px;color:var(--text-muted);line-height:1.4;display:block}
-.metric small{display:block;margin-top:8px;font-family:var(--font-mono);font-size:8.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-faint)}
+.metric small{display:block;margin-top:8px;font-family:var(--font-mono);font-size:8.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted)}
 /* EXPERIENCE */
 .timeline{display:grid;gap:0}
 .timeline-item{display:grid;grid-template-columns:180px 1fr;gap:26px;padding:26px 0;border-top:1px solid var(--border)}
@@ -271,6 +286,7 @@ html.dark .footer{background:var(--surface)}
 /* LOADER / TOAST / PROGRESS */
 .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);width:0;z-index:150}
 .loader{position:fixed;inset:0;z-index:200;background:var(--surface-inverse);color:var(--dark-text);display:grid;place-items:center;transition:opacity .5s ease,visibility .5s}
+html.dark .loader{background:var(--surface)}
 .loader.hide{opacity:0;visibility:hidden}
 .loader-inner{text-align:center}
 .loader-mark{font-size:38px;font-weight:900;letter-spacing:-.05em}
@@ -283,6 +299,28 @@ html.dark .footer{background:var(--surface)}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* ===== STAGGERED CHILD REVEAL ====
+   Groups fade in as a cascade rather than one flat block: children start
+   hidden/offset, then the parent's .in class (added once, by the existing
+   scroll observer above) reveals each child in sequence via transition-delay.
+   Pure CSS — no extra JS, no measurement, so no alignment risk. */
+.steps .step,.layers .layer,.skills-groups .skill-group,.genai-cards .genai-card,.proof-hist .metric,.timeline .timeline-item,.ev-row .ev-mini{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.steps.in .step,.layers.in .layer,.skills-groups.in .skill-group,.genai-cards.in .genai-card,.proof-hist.in .metric,.timeline.in .timeline-item,.evidence-grid.in .ev-mini{opacity:1;transform:none}
+.steps .step:nth-child(2),.layers .layer:nth-child(2),.skills-groups .skill-group:nth-child(2),.genai-cards .genai-card:nth-child(2),.proof-hist .metric:nth-child(2),.timeline .timeline-item:nth-child(2),.ev-row .ev-mini:nth-child(2){transition-delay:.08s}
+.steps .step:nth-child(3),.layers .layer:nth-child(3),.skills-groups .skill-group:nth-child(3),.genai-cards .genai-card:nth-child(3),.proof-hist .metric:nth-child(3),.timeline .timeline-item:nth-child(3){transition-delay:.16s}
+.steps .step:nth-child(4),.layers .layer:nth-child(4),.skills-groups .skill-group:nth-child(4),.proof-hist .metric:nth-child(4){transition-delay:.24s}
+.layers .layer:nth-child(5),.skills-groups .skill-group:nth-child(5),.proof-hist .metric:nth-child(5){transition-delay:.32s}
+.layers .layer:nth-child(6),.skills-groups .skill-group:nth-child(6),.proof-hist .metric:nth-child(6){transition-delay:.4s}
+.layers .layer:nth-child(7),.proof-hist .metric:nth-child(7){transition-delay:.48s}
+.layers .layer:nth-child(8){transition-delay:.56s}
+.layers .layer:nth-child(9){transition-delay:.64s}
+.layers .layer:nth-child(10){transition-delay:.72s}
+.skill-logos img{opacity:0;transform:translateY(8px) scale(.9);transition:opacity .4s ease,transform .4s ease}
+.skills-groups.in .skill-logos img{opacity:1;transform:none}
+.skill-logos img:nth-child(2){transition-delay:.06s}.skill-logos img:nth-child(3){transition-delay:.12s}.skill-logos img:nth-child(4){transition-delay:.18s}
+@media(prefers-reduced-motion:reduce){
+  .steps .step,.layers .layer,.skills-groups .skill-group,.genai-cards .genai-card,.proof-hist .metric,.timeline .timeline-item,.ev-row .ev-mini,.skill-logos img{opacity:1;transform:none;transition:none;transition-delay:0s}
+}
 /* ===== RESPONSIVE ===== */
 @media(max-width:1080px){
   .wrap{width:min(100% - 32px,780px)}
@@ -311,6 +349,7 @@ html.dark .footer{background:var(--surface)}
   .wrap{width:calc(100% - 24px)}
   .nav{height:52px;padding-left:14px;min-height:52px}
   .brand{font-size:11px}
+  .brand .brand-mark{width:24px;height:24px}
   .brand span.brand-tag-full{display:none}
   .nav-actions{gap:4px}
   .pill-btn{padding:8px 10px;font-size:9px}
@@ -344,77 +383,27 @@ html.dark .footer{background:var(--surface)}
   .ev-shot .ev-cap{padding:16px 18px 18px}
 }
 @media(min-width:1600px){.wrap{width:min(1480px,calc(100% - 60px))}}
+
+/* Final production hardening */
+.skip-link{position:absolute;left:12px;top:-60px;z-index:9999;padding:10px 14px;background:var(--accent);color:#fff;border-radius:8px;font-weight:700}
+.skip-link:focus{top:12px}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<noscript><style>
+.sv-node .sv-line{transform:scaleY(1) !important}
+.loader{display:none !important}
+.reveal{opacity:1 !important;transform:none !important}
+</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
 <div class="progress-bar" id="progressBar"></div>
-<div class="loader" id="loader" role="status" aria-label="Loading"><div class="loader-inner"><div class="loader-mark">ASENDRA</div><div class="loader-line"><i></i></div><small data-i18n="loader.tag">BUILD · INTEGRATE · SHIP</small></div></div>
 
-<header class="nav" aria-label="Primary">
-  <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span><span class="brand-tag-full">ASENDRA / ENGINEERING</span><span class="brand-tag-short" style="display:none">ASENDRA</span></a>
-  <nav class="navlinks" aria-label="Section navigation">
-    <a href="#work" data-i18n="nav.work">WORK</a>
-    <a href="#systems" data-i18n="nav.systems">SYSTEMS</a>
-    <a href="#skills" data-i18n="nav.skills">SKILLS</a>
-    <a href="#genai" data-i18n="nav.ai">GENAI</a>
-    <a href="#proof" data-i18n="nav.proof">PROOF</a>
-    <a href="#experience" data-i18n="nav.experience">EXPERIENCE</a>
-    <a href="#about" data-i18n="nav.about">ABOUT</a>
-    <a href="#contact" data-i18n="nav.contact">CONTACT</a>
-  </nav>
-  <div class="nav-actions">
-    <button class="pill-btn" id="themeToggle" data-i18n-aria="aria.themeToggle" aria-label="Toggle theme"><span id="themeIcon" aria-hidden="true">◐</span></button>
-    <div class="lang-wrap">
-      <button class="pill-btn" id="langToggle" data-i18n-aria="aria.langToggle" aria-label="Change language" aria-haspopup="true" aria-expanded="false"><span id="langLabel">EN</span></button>
-      <div class="lang-menu" id="langMenu" role="menu">
-        <button role="menuitem" data-lang="en" aria-current="true">English</button>
-        <button role="menuitem" data-lang="hi">हिन्दी</button>
-        <button role="menuitem" data-lang="es">Español</button>
-        <button role="menuitem" data-lang="fr">Français</button>
-        <button role="menuitem" data-lang="de">Deutsch</button>
-        <button role="menuitem" data-lang="ja">日本語</button>
-      </div>
-    </div>
-    <button class="menu-btn" id="menuBtn" data-i18n-aria="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg id="menuIcon" width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-    </button>
-  </div>
-</header>
-
-<nav class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Mobile section navigation">
-  <a href="#work" data-i18n="nav.work">WORK</a>
-  <a href="#systems" data-i18n="nav.systems">SYSTEMS</a>
-  <a href="#skills" data-i18n="nav.skills">SKILLS</a>
-  <a href="#genai" data-i18n="nav.ai">GENAI</a>
-  <a href="#proof" data-i18n="nav.proof">PROOF</a>
-  <a href="#experience" data-i18n="nav.experience">EXPERIENCE</a>
-  <a href="#about" data-i18n="nav.about">ABOUT</a>
-  <a href="#contact" data-i18n="nav.contact">CONTACT</a>
-  <div class="mono">ASENDRA / ENGINEERING</div>
-</nav>
-
-<main id="main">
-<section class="hero wrap" id="top">
-  <div class="reveal">
-    <div class="eyebrow mono" data-i18n="hero.eyebrow">FULL-STACK / PRODUCT ENGINEER · PRACTICAL GENAI</div>
-    <h1><span data-i18n="hero.h1a">I BUILD</span><span data-i18n-html="hero.h1b">THAT <b class="accent">SURVIVES</b></span><span data-i18n="hero.h1c">PRODUCTION.</span></h1>
-    <p class="lead" data-i18n="hero.lead">I work across frontend, backend, APIs, data and integrations — and increasingly, practical GenAI — contributing to KiteSuite, a production SaaS workspace platform.</p>
-    <div class="actions">
-      <a class="btn" href="#work" data-i18n="hero.ctaWork">VIEW SELECTED WORK ↘</a>
-      <a class="btn alt" href="#contact" data-i18n="hero.ctaContact">LET'S TALK ↗</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>2.2+</strong><small data-i18n="hero.stat1">Years building</small></div>
-      <div class="stat"><strong>9+</strong><small data-i18n="hero.stat2">Product surfaces contributed to</small></div>
-      <div class="stat"><strong>20+</strong><small data-i18n="hero.stat3">Integrations worked on</small></div>
-      <div class="stat"><strong>GenAI</strong><small data-i18n="hero.stat4">Practical AI workflows</small></div>
-    </div>
-  </div>
   <div class="system-visual reveal" id="svCanvasWrap" role="img" data-i18n-aria="hero.systemAria" aria-label="Diagram: product surface connects to API layer, authentication, data layer, integrations, AI layer, and production deployment">
-    <canvas id="systemCanvas" aria-hidden="true"></canvas>
     <div class="sv-head"><span class="mono" data-i18n="hero.systemLabel">SYSTEM FLOW</span><span class="mono" style="color:var(--accent-text)">01 → 06</span></div>
-    <div class="sv-flow">
+    <div class="sv-flow" id="svFlow">
+      <div class="sv-pulse" id="svPulse" aria-hidden="true"></div>
       <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">01</div><div class="sv-node-label"><strong data-i18n="hero.node1t">Product surface</strong><small data-i18n="hero.node1s">Interface / UX</small></div></div>
       <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">02</div><div class="sv-node-label"><strong data-i18n="hero.node2t">API layer</strong><small data-i18n="hero.node2s">Node.js / Express</small></div></div>
       <div class="sv-node"><div class="sv-line" aria-hidden="true"></div><div class="sv-dot" aria-hidden="true">03</div><div class="sv-node-label"><strong data-i18n="hero.node3t">Data layer</strong><small data-i18n="hero.node3s">MongoDB / Redis</small></div></div>
@@ -521,29 +510,29 @@ html.dark .footer{background:var(--surface)}
     <div class="skills-groups reveal">
       <div class="skill-group"><div class="mono">01</div><h3 data-i18n="skills.g1t">Frontend Engineering</h3>
         <div class="skill-logos"><img src="assets/tech/react.svg" alt="React.js" loading="lazy"><img src="assets/tech/angular.svg" alt="Angular" loading="lazy"><img src="assets/tech/typescript.svg" alt="TypeScript" loading="lazy"><img src="assets/tech/javascript.svg" alt="JavaScript" loading="lazy"></div>
-        <div class="skill-chips"><span class="skill-chip">HTML5</span><span class="skill-chip">CSS3 / SCSS</span><span class="skill-chip">Redux</span><span class="skill-chip">React Router</span><span class="skill-chip">Tailwind CSS</span><span class="skill-chip">Bootstrap</span></div>
+        <div class="skill-chips"><span class="skill-chip"><img src="assets/tech-mini/html5.svg" alt="" class="chip-icon">HTML5</span><span class="skill-chip"><img src="assets/tech-mini/css3.svg" alt="" class="chip-icon">CSS3 / SCSS</span><span class="skill-chip"><img src="assets/tech-mini/redux.svg" alt="" class="chip-icon">Redux</span><span class="skill-chip"><img src="assets/tech-mini/reactrouter.svg" alt="" class="chip-icon">React Router</span><span class="skill-chip"><img src="assets/tech-mini/tailwind.svg" alt="" class="chip-icon">Tailwind CSS</span><span class="skill-chip"><img src="assets/tech-mini/bootstrap.svg" alt="" class="chip-icon">Bootstrap</span></div>
       </div>
       <div class="skill-group"><div class="mono">02</div><h3 data-i18n="skills.g2t">Backend / APIs</h3>
         <div class="skill-logos"><img src="assets/tech/nodejs.svg" alt="Node.js" loading="lazy"><img src="assets/tech/express.svg" alt="Express.js" loading="lazy"></div>
-        <div class="skill-chips"><span class="skill-chip" data-i18n="skills.restApi">REST API design</span><span class="skill-chip">JWT</span><span class="skill-chip">OAuth 2.0</span><span class="skill-chip" data-i18n="skills.validation">Validation</span><span class="skill-chip" data-i18n="skills.serviceBoundaries">Service boundaries</span></div>
+        <div class="skill-chips"><span class="skill-chip" data-i18n="skills.restApi">REST API design</span><span class="skill-chip"><img src="assets/tech-mini/jwt.svg" alt="" class="chip-icon">JWT</span><span class="skill-chip"><img src="assets/tech-mini/oauth.svg" alt="" class="chip-icon">OAuth 2.0</span><span class="skill-chip" data-i18n="skills.validation">Validation</span><span class="skill-chip" data-i18n="skills.serviceBoundaries">Service boundaries</span></div>
       </div>
       <div class="skill-group"><div class="mono">03</div><h3 data-i18n="skills.g3t">Data Engineering</h3>
         <div class="skill-logos"><img src="assets/tech/mongodb.svg" alt="MongoDB" loading="lazy"><img src="assets/tech/redis.svg" alt="Redis" loading="lazy"></div>
-        <div class="skill-chips"><span class="skill-chip">Mongoose</span><span class="skill-chip" data-i18n="skills.aggregation">Aggregation pipelines</span><span class="skill-chip" data-i18n="skills.indexing">Indexing</span><span class="skill-chip" data-i18n="skills.queryOpt">Query optimization</span><span class="skill-chip" data-i18n="skills.dataModeling">Data modeling</span></div>
+        <div class="skill-chips"><span class="skill-chip"><img src="assets/tech-mini/mongoose.svg" alt="" class="chip-icon">Mongoose</span><span class="skill-chip" data-i18n="skills.aggregation">Aggregation pipelines</span><span class="skill-chip" data-i18n="skills.indexing">Indexing</span><span class="skill-chip" data-i18n="skills.queryOpt">Query optimization</span><span class="skill-chip" data-i18n="skills.dataModeling">Data modeling</span></div>
       </div>
       <div class="skill-group"><div class="mono">04</div><h3 data-i18n="skills.g4t">Product Engineering</h3>
         <div class="skill-chips"><span class="skill-chip" data-i18n="skills.saasWorkflows">SaaS workflows</span><span class="skill-chip" data-i18n="skills.modularArch">Modular product architecture</span><span class="skill-chip" data-i18n="skills.crossModule">Cross-module integrations</span><span class="skill-chip" data-i18n="skills.uxRefinement">UX refinement</span><span class="skill-chip" data-i18n="skills.techDocs">Technical documentation</span></div>
       </div>
       <div class="skill-group"><div class="mono">05</div><h3 data-i18n="skills.g5t">Integrations / Auth</h3>
-        <div class="skill-chips"><span class="skill-chip">OAuth</span><span class="skill-chip" data-i18n="skills.externalIntegrations">External integrations</span><span class="skill-chip" data-i18n="skills.emailWorkflows">Email workflows</span><span class="skill-chip" data-i18n="skills.calendarWorkflows">Calendar workflows</span><span class="skill-chip" data-i18n="skills.apiIntegrations">API integrations</span></div>
+        <div class="skill-chips"><span class="skill-chip"><img src="assets/tech-mini/oauth.svg" alt="" class="chip-icon">OAuth</span><span class="skill-chip" data-i18n="skills.externalIntegrations">External integrations</span><span class="skill-chip" data-i18n="skills.emailWorkflows">Email workflows</span><span class="skill-chip" data-i18n="skills.calendarWorkflows">Calendar workflows</span><span class="skill-chip" data-i18n="skills.apiIntegrations">API integrations</span></div>
       </div>
       <div class="skill-group"><div class="mono">06</div><h3 data-i18n="skills.g6t">Testing / Quality</h3>
         <div class="skill-logos"><img src="assets/tech/postman.svg" alt="Postman" loading="lazy"></div>
-        <div class="skill-chips"><span class="skill-chip">React Testing Library</span><span class="skill-chip">Mocha</span><span class="skill-chip" data-i18n="skills.debugging">Debugging</span><span class="skill-chip">QA</span><span class="skill-chip" data-i18n="skills.regression">Regression testing</span><span class="skill-chip" data-i18n="skills.prodVerification">Production verification</span></div>
+        <div class="skill-chips"><span class="skill-chip"><img src="assets/tech-mini/testinglibrary.svg" alt="" class="chip-icon">React Testing Library</span><span class="skill-chip"><img src="assets/tech-mini/mocha.svg" alt="" class="chip-icon">Mocha</span><span class="skill-chip" data-i18n="skills.debugging">Debugging</span><span class="skill-chip">QA</span><span class="skill-chip" data-i18n="skills.regression">Regression testing</span><span class="skill-chip" data-i18n="skills.prodVerification">Production verification</span></div>
       </div>
       <div class="skill-group"><div class="mono">07</div><h3 data-i18n="skills.g7t">Cloud / Delivery</h3>
         <div class="skill-logos"><img src="assets/tech/git.svg" alt="Git" loading="lazy"><img src="assets/tech/github.svg" alt="GitHub" loading="lazy"></div>
-        <div class="skill-chips"><span class="skill-chip">Bitbucket</span><span class="skill-chip">CI/CD</span><span class="skill-chip" data-i18n="skills.deployment">Deployment</span><span class="skill-chip" data-i18n="skills.prodTroubleshooting">Production troubleshooting</span></div>
+        <div class="skill-chips"><span class="skill-chip"><img src="assets/tech-mini/bitbucket.svg" alt="" class="chip-icon">Bitbucket</span><span class="skill-chip">CI/CD</span><span class="skill-chip" data-i18n="skills.deployment">Deployment</span><span class="skill-chip" data-i18n="skills.prodTroubleshooting">Production troubleshooting</span></div>
       </div>
       <div class="skill-group"><div class="mono">08</div><h3 data-i18n="skills.g8t">GenAI / AI Engineering</h3>
         <div class="skill-logos"><img src="assets/tech/ai.svg" alt="GenAI" loading="lazy"></div>
@@ -551,7 +540,7 @@ html.dark .footer{background:var(--surface)}
       </div>
       <div class="skill-group"><div class="mono">09</div><h3 data-i18n="skills.g9t">Product / Design Tools</h3>
         <div class="skill-logos"><img src="assets/tech/figma.svg" alt="Figma" loading="lazy"></div>
-        <div class="skill-chips"><span class="skill-chip">VS Code</span><span class="skill-chip" data-i18n="skills.apiDebugging">API debugging</span><span class="skill-chip" data-i18n="skills.uiRefinement">UI/UX refinement</span></div>
+        <div class="skill-chips"><span class="skill-chip"><img src="assets/tech-mini/vscode.svg" alt="" class="chip-icon">VS Code</span><span class="skill-chip" data-i18n="skills.apiDebugging">API debugging</span><span class="skill-chip" data-i18n="skills.uiRefinement">UI/UX refinement</span></div>
       </div>
     </div>
   </div>
@@ -712,9 +701,9 @@ const T = {
 "nav.about":["ABOUT","मेरे बारे में","SOBRE MÍ","À PROPOS","ÜBER MICH","自己紹介"],
 "nav.contact":["CONTACT","संपर्क","CONTACTO","CONTACT","KONTAKT","連絡先"],
 "hero.eyebrow":["FULL-STACK / PRODUCT ENGINEER · PRACTICAL GENAI","फुल-स्टैक / प्रोडक्ट इंजीनियर · प्रैक्टिकल GenAI","FULL-STACK / INGENIERO DE PRODUCTO · GENAI PRÁCTICA","FULL-STACK / INGÉNIEUR PRODUIT · GENAI CONCRÈTE","FULL-STACK / PRODUCT ENGINEER · PRAKTISCHES GENAI","フルスタック／プロダクトエンジニア・実践的生成AI"],
-"hero.h1a":["I BUILD","मैं बनाता हूँ","CONSTRUYO","JE CONSTRUIS","ICH BAUE","私は作る"],
-"hero.h1b":["THAT <b class=\"accent\">SURVIVES</b>","जो <b class=\"accent\">प्रोडक्शन</b> में टिके","LO QUE <b class=\"accent\">SOBREVIVE</b> A","CE QUI <b class=\"accent\">SURVIT</b> À LA","WAS DIE <b class=\"accent\">PRODUKTION</b> ÜBERLEBT,","<b class=\"accent\">本番環境で</b>生き残る"],
-"hero.h1c":["PRODUCTION.","रहता है।","PRODUCCIÓN.","PRODUCTION.","IN DER","ものを。"],
+"hero.h1a":["I BUILD","मैं बनाता हूँ","CONSTRUYO","JE CONSTRUIS","ICH BAUE","私は"],
+"hero.h1b":["THAT <b class=\"accent\">SURVIVES</b>","जो <b class=\"accent\">प्रोडक्शन</b> में टिके","LO QUE <b class=\"accent\">SOBREVIVE</b> A","CE QUI <b class=\"accent\">SURVIT</b> À LA","SYSTEME, DIE <b class=\"accent\">ÜBERLEBEN</b>","本番環境で<b class=\"accent\">生き残る</b>"],
+"hero.h1c":["PRODUCTION.","रहता है।","LA PRODUCCIÓN.","PRODUCTION.","IN DER PRODUKTION.","ものを作る。"],
 "hero.lead":["I work across frontend, backend, APIs, data and integrations — and increasingly, practical GenAI — contributing to KiteSuite, a production SaaS workspace platform.","मैं frontend, backend, APIs, data और integrations में काम करता हूँ — और अब practical GenAI में भी — KiteSuite नामक production SaaS workspace platform में योगदान देते हुए।","Trabajo en frontend, backend, APIs, datos e integraciones — y cada vez más en GenAI práctica — contribuyendo a KiteSuite, una plataforma SaaS de producción.","Je travaille sur le frontend, le backend, les API, les données et les intégrations — et de plus en plus sur la GenAI concrète — en contribuant à KiteSuite, une plateforme SaaS en production.","Ich arbeite an Frontend, Backend, APIs, Daten und Integrationen — und zunehmend an praktischem GenAI — und trage zu KiteSuite bei, einer produktiven SaaS-Workspace-Plattform.","フロントエンド、バックエンド、API、データ、インテグレーション、そして実践的な生成AIにまたがって、本番稼働中のSaaSワークスペース「KiteSuite」の開発に携わっています。"],
 "hero.ctaWork":["VIEW SELECTED WORK ↘","चुना हुआ काम देखें ↘","VER TRABAJO DESTACADO ↘","VOIR LES RÉALISATIONS ↘","AUSGEWÄHLTE ARBEIT ANSEHEN ↘","代表作を見る ↘"],
 "hero.ctaContact":["LET'S TALK ↗","बात करें ↗","HABLEMOS ↗","DISCUTONS ↗","LASS UNS REDEN ↗","話しましょう ↗"],
@@ -752,7 +741,7 @@ Object.assign(T, {
 "work.step2c":["Engineered and shipped features across multiple modules — frontend UI, backend APIs, data models and third-party integrations.","कई modules में features को engineer और ship किया — frontend UI, backend APIs, data models और third-party integrations।","Diseñé y lancé funciones en varios módulos: interfaz frontend, APIs backend, modelos de datos e integraciones de terceros.","J'ai conçu et livré des fonctionnalités sur plusieurs modules — UI frontend, API backend, modèles de données et intégrations tierces.","Habe Funktionen über mehrere Module hinweg entwickelt und ausgeliefert — Frontend-UI, Backend-APIs, Datenmodelle und Drittanbieter-Integrationen.","フロントエンドUI、バックエンドAPI、データモデル、外部連携など、複数モジュールにまたがる機能を設計・実装・リリースしました。"],
 "work.step3t":["Complexity","जटिलता","Complejidad","Complexité","Komplexität","複雑さ"],
 "work.step3c":["Cross-module data (projects ↔ calendar ↔ people ↔ forms) meant every change had to respect shared state and permissions.","Cross-module data (projects ↔ calendar ↔ people ↔ forms) का मतलब था कि हर change को shared state और permissions का ध्यान रखना पड़ता था।","Los datos entre módulos (proyectos ↔ calendario ↔ personas ↔ formularios) exigían que cada cambio respetara el estado compartido y los permisos.","Les données inter-modules (projets ↔ calendrier ↔ personnes ↔ formulaires) imposaient que chaque changement respecte l'état partagé et les permissions.","Modulübergreifende Daten (Projekte ↔ Kalender ↔ Personen ↔ Formulare) bedeuteten, dass jede Änderung den gemeinsamen Zustand und die Berechtigungen berücksichtigen musste.","モジュール横断のデータ（プロジェクト⇔カレンダー⇔メンバー⇔フォーム）により、あらゆる変更が共有状態と権限を考慮する必要がありました。"],
-"work.step4t":["Verification &amp; delivery","सत्यापन और डिलीवरी","Verificación y entrega","Vérification &amp; livraison","Verifizierung &amp; Auslieferung","検証と本番反映"],
+"work.step4t":["Verification & delivery","सत्यापन और डिलीवरी","Verificación y entrega","Vérification & livraison","Verifizierung & Auslieferung","検証と本番反映"],
 "work.step4c":["Tested, debugged and shipped changes into a live production platform used by real workspaces.","Live production platform में, जिसे real workspaces उपयोग करती हैं, changes को test, debug और ship किया।","Probé, depuré y lancé cambios en una plataforma de producción activa usada por espacios de trabajo reales.","Testé, débogué et livré des changements sur une plateforme en production réelle, utilisée par de vrais espaces de travail.","Änderungen in einer produktiven Live-Plattform getestet, debuggt und ausgeliefert, die von echten Workspaces genutzt wird.","実際のワークスペースで稼働中の本番プラットフォームに対し、変更のテスト・デバッグ・反映を行いました。"]
 });
 Object.assign(T, {
@@ -771,17 +760,17 @@ Object.assign(T, {
 "evidence.item4.title":["Project planning","प्रोजेक्ट योजना","Planificación de proyectos","Planification de projet","Projektplanung","プロジェクト計画"],
 "evidence.item4.body":["Calendar-driven project scheduling, tied to the same data model as tasks and releases.","Calendar-driven project scheduling, जो tasks और releases के समान data model से जुड़ी है।","Programación de proyectos basada en calendario, vinculada al mismo modelo de datos que tareas y versiones.","Planification de projet basée sur le calendrier, liée au même modèle de données que les tâches et les versions.","Kalendergesteuerte Projektplanung, verknüpft mit demselben Datenmodell wie Aufgaben und Releases.","カレンダー連動のプロジェクトスケジューリングで、タスクやリリースと同じデータモデルに紐づいています。"],
 "evidence.item4.alt":["Screenshot of KiteSuite's project calendar page","KiteSuite के project calendar page का screenshot","Captura de la página de calendario de proyectos de KiteSuite","Capture d'écran de la page calendrier de projet de KiteSuite","Screenshot der Projektkalenderseite von KiteSuite","KiteSuiteのプロジェクトカレンダー画面のスクリーンショット"],
-"evidence.item5.title":["Meetings &amp; collaboration","मीटिंग्स और सहयोग","Reuniones y colaboración","Réunions &amp; collaboration","Meetings &amp; Zusammenarbeit","会議とコラボレーション"],
+"evidence.item5.title":["Meetings & collaboration","मीटिंग्स और सहयोग","Reuniones y colaboración","Réunions & collaboration","Meetings & Zusammenarbeit","会議とコラボレーション"],
 "evidence.item5.body":["Scheduling and availability logic that has to stay consistent across time zones and teams.","Scheduling और availability logic जिसे विभिन्न time zones और teams में consistent रहना होता है।","Lógica de programación y disponibilidad que debe mantenerse coherente entre zonas horarias y equipos.","Logique de planification et de disponibilité devant rester cohérente entre fuseaux horaires et équipes.","Planungs- und Verfügbarkeitslogik, die über Zeitzonen und Teams hinweg konsistent bleiben muss.","タイムゾーンやチームをまたいでも一貫性を保つ必要がある、スケジューリングと空き時間のロジックです。"],
 "evidence.item5.alt":["Screenshot of KiteSuite's meetings calendar page","KiteSuite के meetings calendar page का screenshot","Captura de la página de calendario de reuniones de KiteSuite","Capture d'écran de la page calendrier des réunions de KiteSuite","Screenshot der Meeting-Kalenderseite von KiteSuite","KiteSuiteの会議カレンダー画面のスクリーンショット"],
-"evidence.item6.label":["DOCUMENTS &amp; DRIVE","दस्तावेज़ और ड्राइव","DOCUMENTOS Y DRIVE","DOCUMENTS &amp; DRIVE","DOKUMENTE &amp; DRIVE","ドキュメント＆ドライブ"],
+"evidence.item6.label":["DOCUMENTS & DRIVE","दस्तावेज़ और ड्राइव","DOCUMENTOS Y DRIVE","DOCUMENTS & DRIVE","DOKUMENTE & DRIVE","ドキュメント＆ドライブ"],
 "evidence.item6.title":["File and document workflows at team scale.","टीम स्तर पर file और document वर्कफ़्लो।","Flujos de archivos y documentos a escala de equipo.","Des flux de fichiers et documents à l'échelle de l'équipe.","Datei- und Dokumenten-Workflows im Team-Maßstab.","チーム規模でのファイル・ドキュメント管理ワークフロー。"],
 "evidence.item6.body":["Document listing and organization with permissions tied to workspace roles — the kind of surface that looks simple but breaks first under real usage.","Document listing और organization जिसमें permissions workspace roles से जुड़ी हैं — ऐसी सतह जो सरल दिखती है पर real usage में पहले टूटती है।","Listado y organización de documentos con permisos vinculados a los roles del espacio de trabajo — el tipo de superficie que parece simple pero es la primera en fallar con uso real.","Listage et organisation des documents avec des permissions liées aux rôles de l'espace de travail — le genre de surface qui semble simple mais casse en premier à l'usage réel.","Dokumentenauflistung und -organisation mit Berechtigungen nach Workspace-Rollen — die Art von Oberfläche, die einfach wirkt, aber im echten Einsatz zuerst bricht.","ワークスペースの権限に紐づいたドキュメント一覧・整理機能です。シンプルに見えて、実運用で最初にほころびが出やすい部分でもあります。"],
 "evidence.item6.alt":["Screenshot of KiteSuite's document drive listing page","KiteSuite के document drive listing page का screenshot","Captura de la página de listado de documentos de KiteSuite","Capture d'écran de la page de liste des documents de KiteSuite","Screenshot der Dokumenten-Drive-Übersichtsseite von KiteSuite","KiteSuiteのドキュメントドライブ一覧画面のスクリーンショット"],
 "evidence.item7.title":["Time tracking","समय ट्रैकिंग","Seguimiento de tiempo","Suivi du temps","Zeiterfassung","勤怠管理"],
 "evidence.item7.body":["Time-series productivity data tied back into reporting and billing-adjacent workflows.","Time-series productivity data जो reporting और billing-संबंधित workflows से वापस जुड़ता है।","Datos de productividad en series temporales que se vinculan de vuelta con la generación de informes y flujos cercanos a la facturación.","Données de productivité en série temporelle réinjectées dans les rapports et les flux proches de la facturation.","Zeitreihen-Produktivitätsdaten, die zurück in Reporting- und abrechnungsnahe Workflows fließen.","時系列の生産性データはレポート機能や請求関連ワークフローに反映されます。"],
 "evidence.item7.alt":["Screenshot of KiteSuite's time tracker page","KiteSuite के time tracker page का screenshot","Captura de la página de seguimiento de tiempo de KiteSuite","Capture d'écran de la page de suivi du temps de KiteSuite","Screenshot der Zeiterfassungsseite von KiteSuite","KiteSuiteのタイムトラッカー画面のスクリーンショット"],
-"evidence.item8.label":["REPORTING &amp; ANALYTICS","रिपोर्टिंग और एनालिटिक्स","INFORMES Y ANALÍTICA","RAPPORTS &amp; ANALYSES","REPORTING &amp; ANALYSE","レポート＆分析"],
+"evidence.item8.label":["REPORTING & ANALYTICS","रिपोर्टिंग और एनालिटिक्स","INFORMES Y ANALÍTICA","RAPPORTS & ANALYSES","REPORTING & ANALYSE","レポート＆分析"],
 "evidence.item8.title":["Turning raw activity into readable signal.","कच्ची गतिविधि को पढ़ने योग्य संकेत में बदलना।","Convertir actividad bruta en una señal legible.","Transformer l'activité brute en signal lisible.","Rohdaten in lesbare Signale verwandeln.","生の活動データを読み取り可能な指標に変換する。"],
 "evidence.item8.body":["Reporting surfaces built on aggregation across projects, time entries and workflow activity — direct application of the data-engineering skills listed below.","Projects, time entries और workflow activity पर aggregation से बनी reporting सतहें — नीचे सूचीबद्ध data-engineering skills का सीधा उपयोग।","Superficies de informes construidas sobre agregación de proyectos, registros de tiempo y actividad de flujo — aplicación directa de las habilidades de ingeniería de datos listadas abajo.","Des surfaces de reporting construites sur l'agrégation entre projets, saisies de temps et activité des flux — application directe des compétences en ingénierie des données listées ci-dessous.","Reporting-Oberflächen, aufgebaut auf Aggregation über Projekte, Zeiteinträge und Workflow-Aktivität hinweg — direkte Anwendung der unten aufgeführten Data-Engineering-Fähigkeiten.","プロジェクト・工数・ワークフロー活動を集計して構築されたレポート画面。下記のデータエンジニアリングスキルの直接的な応用例です。"],
 "evidence.item8.alt":["Screenshot of KiteSuite's reporting and analytics page","KiteSuite के reporting और analytics page का screenshot","Captura de la página de informes y analítica de KiteSuite","Capture d'écran de la page de rapports et d'analyses de KiteSuite","Screenshot der Reporting- und Analyseseite von KiteSuite","KiteSuiteのレポート・分析画面のスクリーンショット"],
@@ -797,19 +786,19 @@ Object.assign(T, {
 "systems.l2c":["Component-driven UI, state management and responsive interaction layers.","Component-driven UI, state management और responsive interaction layers।","UI basada en componentes, gestión de estado y capas de interacción responsivas.","UI orientée composants, gestion d'état et couches d'interaction réactives.","Komponentenbasierte UI, State-Management und responsive Interaktionsschichten.","コンポーネント指向のUI、状態管理、レスポンシブなインタラクション層。"],
 "systems.l3t":["API layer","API लेयर","Capa de API","Couche API","API-Schicht","API層"],
 "systems.l3c":["REST endpoints that mediate between the interface and the data underneath.","REST endpoints जो interface और underlying data के बीच mediate करते हैं।","Endpoints REST que median entre la interfaz y los datos subyacentes.","Endpoints REST qui font le lien entre l'interface et les données sous-jacentes.","REST-Endpunkte, die zwischen Oberfläche und darunterliegenden Daten vermitteln.","インターフェースと背後のデータを仲介するRESTエンドポイント。"],
-"systems.l4t":["Auth &amp; access","प्रमाणीकरण और एक्सेस","Autenticación y acceso","Authentification &amp; accès","Auth &amp; Zugriff","認証とアクセス制御"],
+"systems.l4t":["Auth & access","प्रमाणीकरण और एक्सेस","Autenticación y acceso","Authentification & accès","Auth & Zugriff","認証とアクセス制御"],
 "systems.l4c":["Authentication and role-based access control across workspace boundaries.","Workspace boundaries में authentication और role-based access control।","Autenticación y control de acceso basado en roles entre los límites del espacio de trabajo.","Authentification et contrôle d'accès basé sur les rôles entre les espaces de travail.","Authentifizierung und rollenbasierte Zugriffskontrolle über Workspace-Grenzen hinweg.","ワークスペースをまたぐ認証とロールベースのアクセス制御。"],
 "systems.l5t":["Data layer","डेटा लेयर","Capa de datos","Couche de données","Datenschicht","データ層"],
 "systems.l5c":["Document modeling, indexing and query design for cross-module lookups.","Cross-module lookups के लिए document modeling, indexing और query design।","Modelado de documentos, indexación y diseño de consultas para búsquedas entre módulos.","Modélisation de documents, indexation et conception de requêtes pour les recherches inter-modules.","Dokumentenmodellierung, Indizierung und Query-Design für modulübergreifende Abfragen.","モジュール横断検索のためのドキュメント設計・インデックス・クエリ設計。"],
 "systems.l6t":["Integrations","इंटीग्रेशन","Integraciones","Intégrations","Integrationen","連携機能"],
 "systems.l6c":["OAuth and webhook-driven connections to external services and providers.","External services और providers से OAuth और webhook-driven connections।","Conexiones basadas en OAuth y webhooks con servicios y proveedores externos.","Connexions basées sur OAuth et les webhooks vers des services et fournisseurs externes.","OAuth- und Webhook-basierte Verbindungen zu externen Diensten und Anbietern.","OAuthとWebhookによる外部サービス・プロバイダーとの接続。"],
-"systems.l7t":["Events &amp; async work","इवेंट्स और असिंक कार्य","Eventos y trabajo asíncrono","Événements &amp; travail asynchrone","Events &amp; Async-Verarbeitung","イベントと非同期処理"],
+"systems.l7t":["Events & async work","इवेंट्स और असिंक कार्य","Eventos y trabajo asíncrono","Événements & travail asynchrone","Events & Async-Verarbeitung","イベントと非同期処理"],
 "systems.l7c":["Background jobs and asynchronous flows that keep the interface responsive.","Background jobs और asynchronous flows जो interface को responsive रखते हैं।","Trabajos en segundo plano y flujos asíncronos que mantienen la interfaz receptiva.","Tâches en arrière-plan et flux asynchrones qui gardent l'interface réactive.","Hintergrundjobs und asynchrone Abläufe, die die Oberfläche reaktionsschnell halten.","インターフェースの応答性を保つバックグラウンドジョブと非同期処理。"],
 "systems.l8t":["AI layer","AI लेयर","Capa de IA","Couche IA","KI-Schicht","AI層"],
 "systems.l8c":["Model/provider integration for AI-assisted product features, kept separate from core logic.","AI-assisted product features के लिए model/provider integration, core logic से अलग रखा गया।","Integración de modelo/proveedor para funciones de producto asistidas por IA, mantenida separada de la lógica central.","Intégration modèle/fournisseur pour les fonctionnalités produit assistées par IA, gardée séparée de la logique principale.","Modell-/Provider-Integration für KI-unterstützte Produktfunktionen, getrennt von der Kernlogik gehalten.","コアロジックから切り離された、AI支援機能のためのモデル・プロバイダー連携。"],
-"systems.l9t":["Observability &amp; validation","अवलोकन और सत्यापन","Observabilidad y validación","Observabilité &amp; validation","Observability &amp; Validierung","可観測性と検証"],
+"systems.l9t":["Observability & validation","अवलोकन और सत्यापन","Observabilidad y validación","Observabilité & validation","Observability & Validierung","可観測性と検証"],
 "systems.l9c":["Input validation, error handling and the checks that catch problems before users do.","Input validation, error handling और वो checks जो users से पहले समस्याओं को पकड़ते हैं।","Validación de entradas, manejo de errores y las verificaciones que detectan problemas antes que los usuarios.","Validation des entrées, gestion des erreurs et vérifications qui détectent les problèmes avant les utilisateurs.","Eingabevalidierung, Fehlerbehandlung und Prüfungen, die Probleme erkennen, bevor Nutzer es tun.","入力検証、エラーハンドリング、ユーザーより先に問題を検知する仕組み。"],
-"systems.l10t":["Production &amp; deployment","प्रोडक्शन और डिप्लॉयमेंट","Producción y despliegue","Production &amp; déploiement","Produktion &amp; Deployment","本番環境とデプロイ"],
+"systems.l10t":["Production & deployment","प्रोडक्शन और डिप्लॉयमेंट","Producción y despliegue","Production & déploiement","Produktion & Deployment","本番環境とデプロイ"],
 "systems.l10c":["Getting a change from a branch into something real users depend on.","एक branch से बदलाव को उस चीज़ तक पहुंचाना जिस पर real users निर्भर करते हैं।","Llevar un cambio desde una rama hasta algo de lo que dependen usuarios reales.","Faire passer un changement d'une branche à quelque chose dont dépendent de vrais utilisateurs.","Eine Änderung von einem Branch zu etwas bringen, auf das echte Nutzer angewiesen sind.","ブランチ上の変更を、実際のユーザーが依存するものへと届けること。"]
 });
 Object.assign(T, {
@@ -864,7 +853,7 @@ Object.assign(T, {
 "genai.explored":["EXPLORED / PROTOTYPE DIRECTION","खोजी गई / प्रोटोटाइप दिशा","EXPLORADO / DIRECCIÓN PROTOTIPO","EXPLORÉ / DIRECTION PROTOTYPE","ERKUNDET / PROTOTYP-RICHTUNG","検討中／プロトタイプ段階"],
 "genai.c1t":["LLM integration","LLM इंटीग्रेशन","Integración de LLM","Intégration LLM","LLM-Integration","LLM連携"],
 "genai.c1c":["Wiring model/provider APIs into product workflows — prompt construction, response handling and integrating AI output into existing UI, not just calling an endpoint.","Model/provider APIs को product workflows में जोड़ना — prompt construction, response handling और AI output को मौजूदा UI में integrate करना, केवल endpoint call करना नहीं।","Conectar APIs de modelo/proveedor a flujos de producto — construcción de prompts, manejo de respuestas e integración de la salida de IA en la UI existente, no solo llamar a un endpoint.","Connecter les API de modèle/fournisseur aux flux produit — construction de prompts, traitement des réponses et intégration de la sortie IA dans l'UI existante, pas seulement appeler un endpoint.","Model-/Provider-APIs in Produkt-Workflows einbinden — Prompt-Konstruktion, Antwortverarbeitung und Integration der KI-Ausgabe in die bestehende UI, nicht nur ein Endpoint-Aufruf.","モデル・プロバイダーAPIをプロダクトワークフローに組み込む作業。プロンプト構築、レスポンス処理、既存UIへのAI出力統合まで含み、単なるAPI呼び出しではありません。"],
-"genai.c2t":["Embeddings &amp; semantic search","एम्बेडिंग्स और सिमेंटिक सर्च","Embeddings y búsqueda semántica","Embeddings &amp; recherche sémantique","Embeddings &amp; semantische Suche","埋め込みとセマンティック検索"],
+"genai.c2t":["Embeddings & semantic search","एम्बेडिंग्स और सिमेंटिक सर्च","Embeddings y búsqueda semántica","Embeddings & recherche sémantique","Embeddings & semantische Suche","埋め込みとセマンティック検索"],
 "genai.c2c":["Vector-based retrieval concepts for surfacing relevant content instead of relying on exact keyword matches.","सटीक keyword matches पर निर्भर होने के बजाय relevant content को सामने लाने के लिए vector-based retrieval अवधारणाएँ।","Conceptos de recuperación basados en vectores para mostrar contenido relevante en lugar de depender de coincidencias exactas de palabras clave.","Concepts de récupération basés sur des vecteurs pour faire remonter du contenu pertinent plutôt que de s'appuyer sur des correspondances exactes de mots-clés.","Vektorbasierte Retrieval-Konzepte, um relevante Inhalte anzuzeigen, statt sich auf exakte Keyword-Treffer zu verlassen.","キーワードの完全一致に頼らず、関連性の高いコンテンツを表示するためのベクトル検索の概念検証。"],
 "genai.c3t":["Failure-aware AI","विफलता-जागरूक AI","IA consciente de fallos","IA consciente des échecs","Fehlertolerante KI","失敗を前提としたAI設計"],
 "genai.c3c":["Designing for the case where the model is wrong, slow or unavailable — not just the happy path.","उस स्थिति के लिए design करना जहाँ model गलत, धीमा या अनुपलब्ध हो — केवल happy path के लिए नहीं।","Diseñar para el caso en que el modelo se equivoca, es lento o no está disponible — no solo el camino ideal.","Concevoir pour le cas où le modèle se trompe, est lent ou indisponible — pas seulement le chemin idéal.","Für den Fall gestalten, dass das Modell falsch liegt, langsam ist oder ausfällt — nicht nur den Idealfall.","モデルが誤った回答をする、遅い、あるいは利用できない場合を想定した設計。理想的な経路だけでなく。"],
@@ -907,7 +896,7 @@ Object.assign(T, {
 "experience.i2title":["Associate Web Developer · Sumedha Softtech Pvt. Ltd., Jaipur","एसोसिएट वेब डेवलपर · Sumedha Softtech Pvt. Ltd., Jaipur","Desarrollador Web Asociado · Sumedha Softtech Pvt. Ltd., Jaipur","Développeur Web Associé · Sumedha Softtech Pvt. Ltd., Jaipur","Associate Web Developer · Sumedha Softtech Pvt. Ltd., Jaipur","アソシエイトWebデベロッパー・Sumedha Softtech Pvt. Ltd.（ジャイプル）"],
 "experience.i2copy":["Full-stack (MERN) development on ZenduIt, a fleet-management and field-services platform.","ZenduIt पर full-stack (MERN) development, एक fleet-management और field-services platform।","Desarrollo full-stack (MERN) en ZenduIt, una plataforma de gestión de flotas y servicios de campo.","Développement full-stack (MERN) sur ZenduIt, une plateforme de gestion de flotte et de services sur le terrain.","Full-Stack-(MERN)-Entwicklung an ZenduIt, einer Flottenmanagement- und Außendienst-Plattform.","フリート管理・フィールドサービスプラットフォーム「ZenduIt」のフルスタック（MERN）開発。"],
 "experience.i3date":["GRADUATED MAY 2024","मई 2024 में स्नातक","GRADUADO EN MAYO DE 2024","DIPLÔMÉ EN MAI 2024","ABSCHLUSS MAI 2024","2024年5月卒業"],
-"experience.i3title":["B.Tech, Computer Science &amp; Engineering · Rajasthan Technical University","B.Tech, कंप्यूटर साइंस और इंजीनियरिंग · Rajasthan Technical University","B.Tech en Ciencias de la Computación e Ingeniería · Rajasthan Technical University","B.Tech, Informatique &amp; Ingénierie · Rajasthan Technical University","B.Tech, Informatik &amp; Ingenieurwesen · Rajasthan Technical University","B.Tech（コンピューターサイエンス工学）・Rajasthan Technical University"],
+"experience.i3title":["B.Tech, Computer Science & Engineering · Rajasthan Technical University","B.Tech, कंप्यूटर साइंस और इंजीनियरिंग · Rajasthan Technical University","B.Tech en Ciencias de la Computación e Ingeniería · Rajasthan Technical University","B.Tech, Informatique & Ingénierie · Rajasthan Technical University","B.Tech, Informatik & Ingenieurwesen · Rajasthan Technical University","B.Tech（コンピューターサイエンス工学）・Rajasthan Technical University"],
 "experience.i3copy":["GPA 8.6 / 10.","GPA 8.6 / 10।","Promedio 8.6 / 10.","Moyenne 8.6 / 10.","Notendurchschnitt 8.6 / 10.","GPA 8.6／10。"],
 "about.kicker":["ABOUT","मेरे बारे में","SOBRE MÍ","À PROPOS","ÜBER MICH","自己紹介"],
 "about.title":["I like building<br><span class=\"muted\">things that keep working.</span>","मुझे ऐसी चीज़ें बनाना पसंद है<br><span class=\"muted\">जो काम करती रहें।</span>","Me gusta construir<br><span class=\"muted\">cosas que sigan funcionando.</span>","J'aime construire<br><span class=\"muted\">des choses qui continuent de fonctionner.</span>","Ich baue gerne<br><span class=\"muted\">Dinge, die weiter funktionieren.</span>","動き続けるものを<br><span class=\"muted\">作るのが好きです。</span>"],
@@ -957,34 +946,77 @@ const progressBar = document.getElementById('progressBar');
 const toast = document.getElementById('toast');
 
 /* ---- THEME ---- */
-function applyTheme(mode){
-  root.classList.toggle('dark', mode === 'dark');
-  themeIcon.textContent = mode === 'dark' ? '☀' : '◐';
-  themeColorMeta.setAttribute('content', mode === 'dark' ? '#0a0d0d' : '#f5f1e8');
+const systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+function applyTheme(mode, persist = false){
+  const resolved = mode === 'dark' ? 'dark' : 'light';
+  root.classList.toggle('dark', resolved === 'dark');
+  root.dataset.theme = resolved;
+  root.dataset.themeSource = persist ? 'user' : 'system';
+  themeIcon.textContent = resolved === 'dark' ? '☀' : '◐';
+  themeToggle.setAttribute('aria-pressed', String(resolved === 'dark'));
+  themeColorMeta.setAttribute('content', resolved === 'dark' ? '#0a0d0d' : '#f5f1e8');
 }
+function getSystemTheme(){ return systemThemeQuery.matches ? 'dark' : 'light'; }
 let savedTheme = localStorage.getItem('asendra-theme');
-if(!savedTheme){ savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
-applyTheme(savedTheme);
+applyTheme(savedTheme || getSystemTheme(), Boolean(savedTheme));
 themeToggle.addEventListener('click', () => {
   const next = root.classList.contains('dark') ? 'light' : 'dark';
   localStorage.setItem('asendra-theme', next);
-  applyTheme(next);
+  applyTheme(next, true);
 });
+const handleSystemThemeChange = () => {
+  if(!localStorage.getItem('asendra-theme')) applyTheme(getSystemTheme(), false);
+};
+if(systemThemeQuery.addEventListener) systemThemeQuery.addEventListener('change', handleSystemThemeChange);
+else if(systemThemeQuery.addListener) systemThemeQuery.addListener(handleSystemThemeChange);
 
 /* ---- I18N ---- */
-function applyLang(lang){
-  const idx = LANGS.indexOf(lang);
-  document.documentElement.lang = lang;
-  langLabel.textContent = LANG_NAMES[lang];
-  langMenu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.lang === lang)));
-  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if(T[k]) el.textContent = T[k][idx]; });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => { const k = el.dataset.i18nHtml; if(T[k]) el.innerHTML = T[k][idx]; });
-  document.querySelectorAll('[data-i18n-aria]').forEach(el => { const k = el.dataset.i18nAria; if(T[k]) el.setAttribute('aria-label', T[k][idx]); });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.dataset.i18nPlaceholder; if(T[k]) el.setAttribute('placeholder', T[k][idx]); });
-  document.querySelectorAll('[data-i18n-alt]').forEach(el => { const k = el.dataset.i18nAlt; if(T[k]) el.setAttribute('alt', T[k][idx]); });
-  localStorage.setItem('asendra-lang', lang);
+function checkNavOverflow(){
+  const nav = document.querySelector('.nav');
+  const links = document.querySelector('.navlinks');
+  if(!nav || !links) return;
+  nav.classList.remove('compact');
+  const overflowing = links.scrollWidth > links.clientWidth + 2;
+  if(overflowing) nav.classList.add('compact');
 }
-let currentLang = localStorage.getItem('asendra-lang') || 'en';
+function translationFor(key, idx){
+  const value = T[key];
+  if(!Array.isArray(value)) return '';
+  return value[idx] ?? value[0] ?? '';
+}
+function applyLang(lang){
+  const safeLang = LANGS.includes(lang) ? lang : 'en';
+  const idx = LANGS.indexOf(safeLang);
+  document.documentElement.lang = safeLang;
+  document.documentElement.dir = 'ltr';
+  langLabel.textContent = LANG_NAMES[safeLang];
+  langMenu.querySelectorAll('button').forEach(b => b.setAttribute('aria-current', String(b.dataset.lang === safeLang)));
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = translationFor(el.dataset.i18n, idx); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = translationFor(el.dataset.i18nHtml, idx); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', translationFor(el.dataset.i18nAria, idx)); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.setAttribute('placeholder', translationFor(el.dataset.i18nPlaceholder, idx)); });
+  document.querySelectorAll('[data-i18n-alt]').forEach(el => { el.setAttribute('alt', translationFor(el.dataset.i18nAlt, idx)); });
+  if(languageWasSelected || localStorage.getItem('asendra-lang')) localStorage.setItem('asendra-lang', safeLang);
+  currentLang = safeLang;
+  if(window.__svRemeasure) setTimeout(window.__svRemeasure, 30);
+  setTimeout(checkNavOverflow, 20);
+}
+let navResizeT;
+window.addEventListener('resize', () => { clearTimeout(navResizeT); navResizeT = setTimeout(checkNavOverflow, 150); });
+function detectBrowserLang(){
+  const prefs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'en'];
+  for(const raw of prefs){
+    const normalized = String(raw).trim().toLowerCase();
+    const exact = LANGS.find(code => normalized === code);
+    if(exact) return exact;
+    const base = normalized.split('-')[0].split('_')[0];
+    if(LANGS.includes(base)) return base;
+  }
+  return 'en';
+}
+let currentLang = localStorage.getItem('asendra-lang');
+const languageWasSelected = LANGS.includes(currentLang);
+if(!languageWasSelected) currentLang = detectBrowserLang();
 if(!LANGS.includes(currentLang)) currentLang = 'en';
 applyLang(currentLang);
 
@@ -1034,8 +1066,8 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeM
 
 /* ---- LOADER ---- */
 function hideLoader(){
-  if(loader.classList.contains('hide')) return;
-  loader.classList.add('hide');
+  if(!loader || loader.classList.contains('hide')) return;
+  loader && loader.classList.add('hide');
 }
 document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 500));
 window.addEventListener('load', () => setTimeout(hideLoader, 100));
@@ -1043,109 +1075,110 @@ setTimeout(hideLoader, 1800);
 
 /* ---- REVEAL ON SCROLL ---- */
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(reduceMotion){
+if(reduceMotion || typeof IntersectionObserver === 'undefined'){
   document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
 } else {
-  const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-}
-
-/* ---- MEANINGFUL 3D SYSTEM VISUAL ----
-   Not a decorative object: this renders the same six pipeline nodes from the
-   accessible list above as a 3D depth path (front = product surface, back =
-   production), with a small pulse travelling node-to-node to represent a
-   request/data flow moving through the system. It is a progressive
-   enhancement layered BEHIND the real text list — if three.js fails to load
-   (offline, blocked, reduced motion, no WebGL), the canvas simply never
-   appears and the existing labelled list is the entire (unchanged,
-   accessible) experience. */
-function initSystem3D(){
   try{
-    if(typeof THREE === 'undefined') return;
-    const wrap = document.getElementById('svCanvasWrap');
-    const canvas = document.getElementById('systemCanvas');
-    if(!wrap || !canvas) return;
-    const w = wrap.clientWidth, h = wrap.clientHeight;
-    if(!w || !h) return;
-    const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true});
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(w, h, false);
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, w/h, 0.1, 100);
-    camera.position.set(0, 0.5, 8.6);
-    camera.lookAt(0, 0, -1.2);
-
-    const group = new THREE.Group();
-    scene.add(group);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    const point = new THREE.PointLight(0xffffff, 0.85);
-    point.position.set(4, 5, 6);
-    scene.add(point);
-
-    const accentColor = root.classList.contains('dark') ? 0xff6a34 : 0xe8501c;
-    const nodeCount = 6;
-    const positions = [];
-    for(let i = 0; i < nodeCount; i++){
-      const t = i / (nodeCount - 1);
-      positions.push(new THREE.Vector3((t - 0.5) * 6.2, Math.sin(t * Math.PI) * 1.0 - 0.2, -t * 3.4));
-    }
-    const nodeGeo = new THREE.IcosahedronGeometry(0.3, 0);
-    positions.forEach(pos => {
-      const mat = new THREE.MeshStandardMaterial({color:accentColor, emissive:accentColor, emissiveIntensity:0.32, roughness:0.4, metalness:0.2, transparent:true, opacity:0.85});
-      const mesh = new THREE.Mesh(nodeGeo, mat);
-      mesh.position.copy(pos);
-      group.add(mesh);
-    });
-    const lineMat = new THREE.LineBasicMaterial({color:accentColor, transparent:true, opacity:0.28});
-    group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(positions), lineMat));
-
-    const pulseMat = new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.95});
-    const pulse = new THREE.Mesh(new THREE.SphereGeometry(0.11, 12, 12), pulseMat);
-    group.add(pulse);
-
-    const clock = new THREE.Clock();
-    let running = true;
-    const segSeconds = 2.6;
-    function frame(){
-      if(!running) return;
-      requestAnimationFrame(frame);
-      const t = clock.getElapsedTime();
-      group.rotation.y = Math.sin(t * 0.1) * 0.16;
-      const total = segSeconds * (nodeCount - 1) + 1.2;
-      const cycle = t % total;
-      if(cycle < segSeconds * (nodeCount - 1)){
-        const seg = Math.floor(cycle / segSeconds);
-        const segT = (cycle - seg * segSeconds) / segSeconds;
-        pulse.position.lerpVectors(positions[seg], positions[seg + 1], Math.min(segT, 1));
-        pulse.visible = true;
-      } else {
-        pulse.visible = false;
-      }
-      renderer.render(scene, camera);
-    }
-    frame();
-    function pause(){ running = false; }
-    function resume(){ if(!running){ running = true; frame(); } }
-    document.addEventListener('visibilitychange', () => { document.hidden ? pause() : resume(); });
-    new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting ? resume() : pause()), {threshold:.05}).observe(wrap);
-    window.addEventListener('resize', () => {
-      const nw = wrap.clientWidth, nh = wrap.clientHeight;
-      if(!nw || !nh) return;
-      camera.aspect = nw / nh;
-      camera.updateProjectionMatrix();
-      renderer.setSize(nw, nh, false);
-    });
-    canvas.style.display = 'block';
-    wrap.classList.add('sv-3d-active');
-  } catch(err){ /* silent fallback — accessible text list remains the full experience */ }
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }), {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } catch(err){
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
 }
-if(!reduceMotion){
-  const threeScript = document.createElement('script');
-  threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-  threeScript.defer = true;
-  threeScript.onload = () => setTimeout(initSystem3D, 60);
-  document.head.appendChild(threeScript);
-}
+
+/* ---- MEANINGFUL HERO SYSTEM ANIMATION ----
+   Earlier version used a WebGL 3D scene with node positions guessed
+   independently of the real DOM layout — that caused nodes to visibly
+   float disconnected from their text labels. Fixed by anchoring the
+   animation to the SAME six list elements already in the accessible
+   list: each row's own connector line grows and its own dot lights up
+   in sequence (a boot/init sequence), then a small pulse travels the
+   real measured pixel distance between the first and last dot — so it
+   can never misalign, in any language or viewport, because it is
+   driven by actual getBoundingClientRect() of the real content. */
+(function(){
+  const wrap = document.getElementById('svCanvasWrap');
+  const flow = document.getElementById('svFlow');
+  const pulse = document.getElementById('svPulse');
+  if(!wrap || !flow || !pulse) return;
+  const nodes = [...flow.querySelectorAll('.sv-node')];
+  let booted = false;
+  let visible = false;
+
+  function measure(){
+    const dots = flow.querySelectorAll('.sv-dot');
+    if(dots.length < 2) return;
+    const first = dots[0].getBoundingClientRect();
+    const last = dots[dots.length - 1].getBoundingClientRect();
+    const dist = (last.top + last.height / 2) - (first.top + first.height / 2);
+    flow.style.setProperty('--sv-travel', dist + 'px');
+  }
+
+  function boot(){
+    if(booted) return;
+    booted = true;
+    measure();
+    if(reduceMotion){
+      nodes.forEach(n => n.classList.add('lit'));
+      return;
+    }
+    nodes.forEach((n, i) => setTimeout(() => n.classList.add('lit'), 120 * i));
+    setTimeout(() => { pulse.classList.add('running'); }, 120 * nodes.length + 200);
+  }
+
+  function setPulsePaused(paused){
+    pulse.classList.toggle('paused', paused);
+  }
+
+  try{
+    if(typeof IntersectionObserver === 'undefined') throw new Error('no io');
+    new IntersectionObserver(entries => entries.forEach(e => {
+      visible = e.isIntersecting;
+      if(visible){ boot(); setPulsePaused(false); } else { setPulsePaused(true); }
+    }), {threshold:.2}).observe(wrap);
+  } catch(err){
+    boot();
+  }
+
+  document.addEventListener('visibilitychange', () => setPulsePaused(document.hidden || !visible));
+
+  let resizeT;
+  window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(measure, 150); });
+  window.__svRemeasure = measure;
+})();
+
+/* ---- ANIMATED STAT COUNTERS ----
+   The hero stats (2.2+, 9+, 20+) count up from 0 when scrolled into
+   view, using the real target values already in the markup — not a
+   generic decorative tick, a direct animation of the actual figures. */
+(function(){
+  const els = [...document.querySelectorAll('[data-count-to]')];
+  if(!els.length) return;
+  function animateEl(el){
+    const target = parseFloat(el.dataset.countTo);
+    const suffix = el.dataset.suffix || '';
+    const decimals = (el.dataset.countTo.split('.')[1] || '').length;
+    if(reduceMotion){ el.textContent = target.toFixed(decimals) + suffix; return; }
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(decimals) + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const seen = new WeakSet();
+  try{
+    if(typeof IntersectionObserver === 'undefined') throw new Error('no io');
+    new IntersectionObserver(entries => entries.forEach(e => {
+      if(e.isIntersecting && !seen.has(e.target)){ seen.add(e.target); animateEl(e.target); }
+    }), {threshold:.6}).observe(els[0].closest('.stats'));
+  } catch(err){
+    els.forEach(el => { if(!seen.has(el)){ seen.add(el); animateEl(el); } });
+  }
+})();
 
 /* ---- SCROLL PROGRESS + ACTIVE NAV ---- */
 const sections = [...document.querySelectorAll('main section[id], #contact')];
@@ -1227,6 +1260,20 @@ form.addEventListener('submit', (e) => {
     }
   }, 550);
 });
+})();
+
+/* ---- FINAL QUALITY GUARDRAILS ---- */
+(function(){
+  const missing = [];
+  Object.keys(T).forEach(key => {
+    if(!Array.isArray(T[key]) || T[key].length !== LANGS.length || T[key].some(v => typeof v !== 'string' || !v.trim())) missing.push(key);
+  });
+  document.querySelectorAll('[data-i18n],[data-i18n-html],[data-i18n-aria],[data-i18n-placeholder],[data-i18n-alt]').forEach(el => {
+    const key = el.dataset.i18n || el.dataset.i18nHtml || el.dataset.i18nAria || el.dataset.i18nPlaceholder || el.dataset.i18nAlt;
+    if(!T[key]) missing.push(key);
+  });
+  if(missing.length) console.warn('[Asendra portfolio] incomplete translation keys:', [...new Set(missing)]);
+  document.querySelectorAll('img:not([alt])').forEach(img => img.setAttribute('alt',''));
 })();
 </script>
 </body>
