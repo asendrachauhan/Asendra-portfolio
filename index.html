@@ -2342,6 +2342,608 @@ html.dark .cta-band {
   .proof-flow, .metric-grid, .global-nodes-list { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
 }
+
+/* ===== TEXT SAFETY & GLOBAL DIACRITIC/MATRA WRAPPING GUARDS ===== */
+h1, h2, h3, h4, h5, h6, p, span, strong, small, a, button {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.section-title {
+  line-height: 1.12 !important;
+  letter-spacing: -0.02em !important;
+  overflow-wrap: break-word !important;
+}
+.lead {
+  line-height: 1.65 !important;
+  overflow-wrap: break-word !important;
+}
+.block-title {
+  line-height: 1.08 !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ===== EXECUTIVE BLUEPRINT & RECRUITER DOSSIER (THE 5 DIMENSIONS) ===== */
+.dossier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+.dossier-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+}
+.dossier-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-gold);
+}
+.dossier-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.dossier-card:hover::before {
+  opacity: 1;
+}
+.dossier-head-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.dossier-pill {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dossier-card h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: -.02em;
+  color: var(--text);
+  margin: 0;
+}
+.dossier-card p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+  white-space: pre-line;
+}
+.dossier-card .card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ===== AUTOAPPLY AI SHOWCASE & MOTION GRAPHICS ===== */
+.autoapply-showcase-box {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 34px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-gold);
+}
+.autoapply-kicker-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.solo-founder-badge {
+  background: linear-gradient(135deg, rgba(245, 186, 66, 0.2), rgba(245, 186, 66, 0.05));
+  border: 1px solid var(--gold-bright);
+  color: var(--gold-bright);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+.solo-founder-badge .badge-star {
+  color: #fff;
+  font-size: 13px;
+  animation: starSpin 6s linear infinite;
+}
+@keyframes starSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.autoapply-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 22px 0 28px;
+}
+.autoapply-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  text-align: center;
+  transition: all .25s;
+}
+.autoapply-stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.autoapply-stat-card strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--gold-bright);
+  line-height: 1.1;
+}
+.autoapply-stat-card small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-top: 4px;
+}
+
+/* Horizontal Animated Motion Graphic Autonomous Pipeline */
+.pipeline-wrapper {
+  background: #040508;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 28px 0;
+  position: relative;
+  overflow: hidden;
+}
+.pipeline-wrapper-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.pipeline-wrapper-head .pipeline-title {
+  color: var(--gold-bright);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pipeline-flow-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+.flow-step-box {
+  background: rgba(10, 14, 21, 0.85);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 16px;
+  position: relative;
+  transition: all .25s ease;
+  backdrop-filter: blur(10px);
+}
+.flow-step-box:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 0 16px var(--cyan-glow);
+}
+.flow-step-box .step-index {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--cyan);
+  letter-spacing: .08em;
+  margin-bottom: 6px;
+}
+.flow-step-box h4 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.flow-step-box p {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+.flow-step-box .step-indicator {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+@keyframes pulseDot { 0%, 100% { opacity: 0.4; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.2); } }
+
+/* 5 Core Feature Pillars Grid */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+  margin: 28px 0;
+}
+.pillar-card {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all .25s;
+}
+.pillar-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+.pillar-card .pillar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--gold-bright);
+}
+.pillar-card h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: -.02em;
+  margin: 0;
+  color: var(--text);
+}
+.pillar-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+.pillar-card .pillar-tags {
+  margin-top: auto;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-top: 10px;
+}
+.pillar-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* Production Screenshot Gallery & Filter Tabs */
+.autoapply-gallery-wrap {
+  margin-top: 36px;
+}
+.gallery-filter-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.gallery-tab-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-elevated);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .2s;
+}
+.gallery-tab-btn:hover, .gallery-tab-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.gallery-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all .3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
+}
+.gallery-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-gold);
+}
+.gallery-card .img-viewport {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 10;
+}
+.gallery-card .img-viewport img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform .4s ease;
+}
+.gallery-card:hover .img-viewport img {
+  transform: scale(1.04);
+}
+.gallery-card .screen-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(6, 7, 10, 0.88);
+  border: 1px solid var(--border-strong);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+.gallery-card .zoom-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(6, 7, 10, 0.85);
+  border: 1px solid var(--border-strong);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.gallery-card:hover .zoom-hint {
+  opacity: 1;
+}
+.gallery-card .gallery-meta {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.gallery-card .gallery-meta h4 {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  letter-spacing: -.01em;
+  margin: 0;
+  color: var(--text);
+}
+.gallery-card .gallery-meta p {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== KITESUITE ENTERPRISE SHOWCASE ===== */
+.kitesuite-showcase-box {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 30px;
+}
+
+/* ===== UPGRADED 3-TIER SYSTEMS HUD ===== */
+.systems-3tier {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 22px;
+  margin-bottom: 32px;
+}
+.tier-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.tier-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+.tier-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tier-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--gold-bright);
+}
+.tier-card-head h3 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: -.02em;
+  margin: 0;
+}
+.tier-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tier-specs-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.tier-specs-list li strong {
+  color: var(--text);
+}
+.tier-specs-list .bullet {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* ===== GENAI PRODUCTION COMPARISON WORKBENCH ===== */
+.genai-workbench-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.workbench-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.workbench-card.pro {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-gold);
+}
+.workbench-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  align-self: flex-start;
+}
+.workbench-badge.toy {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.workbench-badge.pro {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--border-strong);
+}
+
+/* ===== CIRCULAR METRIC SVG GAUGES ===== */
+.gauge-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.gauge-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  text-align: center;
+  transition: all .25s ease;
+}
+.gauge-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.gauge-card strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--gold-bright);
+  line-height: 1.1;
+}
+.gauge-card span {
+  display: block;
+  font-size: 12.5px;
+  color: var(--text);
+  font-weight: 600;
+  margin: 6px 0 4px;
+}
+.gauge-card small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -2357,8 +2959,10 @@ html.dark .cta-band {
     <span class="gold-text">ASENDRA / TECH</span>
   </a>
   <nav class="navlinks" aria-label="Section navigation">
-    <a href="#work" data-i18n="nav.work">WORK</a>
+    <a href="#dossier" data-i18n="nav.dossier">DOSSIER</a>
     <a href="#global" data-i18n="nav.global">GLOBAL</a>
+    <a href="#autoapply" data-i18n="nav.autoapply">AUTOAPPLY AI</a>
+    <a href="#kitesuite" data-i18n="nav.kitesuite">KITESUITE</a>
     <a href="#systems" data-i18n="nav.systems">SYSTEMS</a>
     <a href="#skills" data-i18n="nav.skills">SKILLS</a>
     <a href="#genai" data-i18n="nav.ai">GENAI</a>
@@ -2392,8 +2996,10 @@ html.dark .cta-band {
 
 <!-- MOBILE MENU -->
 <nav class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Mobile section navigation">
-  <a href="#work" data-i18n="nav.work">WORK</a>
+  <a href="#dossier" data-i18n="nav.dossier">DOSSIER</a>
   <a href="#global" data-i18n="nav.global">GLOBAL</a>
+  <a href="#autoapply" data-i18n="nav.autoapply">AUTOAPPLY AI</a>
+  <a href="#kitesuite" data-i18n="nav.kitesuite">KITESUITE</a>
   <a href="#systems" data-i18n="nav.systems">SYSTEMS</a>
   <a href="#skills" data-i18n="nav.skills">SKILLS</a>
   <a href="#genai" data-i18n="nav.ai">GENAI</a>
@@ -2419,9 +3025,9 @@ html.dark .cta-band {
     </h1>
     <p class="lead" data-i18n="hero.lead">Full-Stack Developer with 2+ years of experience shipping production SaaS applications end to end (Angular 17+, React, TypeScript, Node.js, Express.js, NestJS, MongoDB, and Groq/Llama GenAI). Led technical execution on KiteSuite and solo-engineered &amp; launched AutoApply AI.</p>
     <div class="hero-actions">
-      <a class="btn primary" href="#work" data-i18n="hero.ctaWork">VIEW SAAS SYSTEMS ↘</a>
-      <a class="btn glass" href="#global" data-i18n="hero.ctaGlobal">GLOBAL TELEMETRY ↘</a>
-      <a class="btn glass" href="#contact" data-i18n="hero.ctaContact">TRANSMIT INQUIRY ↗</a>
+      <a class="btn primary" href="#autoapply" data-i18n="hero.ctaAutoApply">AUTOAPPLY AI (SOLO SAAS) ↘</a>
+      <a class="btn glass" href="#kitesuite" data-i18n="hero.ctaKiteSuite">KITESUITE (ENTERPRISE) ↘</a>
+      <a class="btn glass" href="#dossier" data-i18n="hero.ctaDossier">EXECUTIVE DOSSIER ↘</a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat-card"><strong data-count-to="2.2" data-suffix="+">2.2+</strong><small data-i18n="hero.stat1">Years SaaS Experience</small></div>
@@ -2624,6 +3230,108 @@ html.dark .cta-band {
 </div></div>
 
 <!-- ===== GLOBALIZATION & MULTI-REGION TELEMETRY SECTION ===== -->
+
+<!-- ===== SECTION 01: EXECUTIVE BLUEPRINT & RECRUITER DOSSIER ===== -->
+<section class="section" id="dossier">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-kicker" data-i18n="dossier.kicker">01 · EXECUTIVE BLUEPRINT &amp; RECRUITER DOSSIER</div>
+        <h2 class="section-title" data-i18n-html="dossier.title">The 5 Core Dimensions.<br><span class="muted">Who I am, what I've done, where, what I can do, and how I do it.</span></h2>
+      </div>
+      <p class="section-copy" data-i18n="dossier.intro">A transparent architectural dossier designed for engineering leaders, hiring managers, and clients seeking verified full-stack &amp; GenAI capabilities.</p>
+    </div>
+
+    <div class="dossier-grid reveal">
+      <!-- 01: WHO I AM -->
+      <div class="dossier-card">
+        <div class="dossier-head-row">
+          <span class="dossier-pill" data-i18n="dossier.d1t">01 · WHO I AM</span>
+          <span class="mono" style="font-size:10px;color:var(--text-muted)">IDENTITY &amp; SCOPE</span>
+        </div>
+        <h3 data-i18n="dossier.d1h">Full-Stack Engineer &amp; SaaS Builder</h3>
+        <p data-i18n="dossier.d1c">Full-Stack Developer with 2+ years of production experience building scalable web applications end-to-end using Angular 17+, React, TypeScript, Node.js, Express.js, NestJS, and MongoDB. Proven track record leading technical delivery, architecting resilient distributed APIs, and integrating practical GenAI workflows.</p>
+        <div class="card-footer">
+          <span class="pillar-tag">Full-Stack MEAN/MERN</span>
+          <span class="pillar-tag">GenAI Specialist</span>
+          <span class="pillar-tag">Mohali &amp; Jaipur, India</span>
+        </div>
+      </div>
+
+      <!-- 02: WHAT I HAVE DONE -->
+      <div class="dossier-card">
+        <div class="dossier-head-row">
+          <span class="dossier-pill" data-i18n="dossier.d2t">02 · WHAT I HAVE DONE</span>
+          <span class="mono" style="font-size:10px;color:var(--text-muted)">PROVEN TRACK RECORD</span>
+        </div>
+        <h3 data-i18n="dossier.d2h">Flagship Solo SaaS + Enterprise Platform</h3>
+        <p data-i18n="dossier.d2c">• AutoApply AI: Solo-founded, architected, and shipped an autonomous job application SaaS for India &amp; Europe with Groq LLMs, Chrome Extension, and Stripe billing.
+• KiteSuite: Owned full-stack feature delivery on an enterprise multi-module SaaS (ATS, CRM, scheduling, docs, no-code AI builder) at Rudra Innovative Software.
+• ZenduIt: Built high-throughput fleet management APIs (10k+ daily requests, 99.9% uptime) at Sumedha Softtech.</p>
+        <div class="card-footer">
+          <span class="pillar-tag">AutoApply AI (Solo)</span>
+          <span class="pillar-tag">KiteSuite (Enterprise)</span>
+          <span class="pillar-tag">ZenduIt Fleet (Scale)</span>
+        </div>
+      </div>
+
+      <!-- 03: WHERE I HAVE DONE IT -->
+      <div class="dossier-card">
+        <div class="dossier-head-row">
+          <span class="dossier-pill" data-i18n="dossier.d3t">03 · WHERE I HAVE DONE IT</span>
+          <span class="mono" style="font-size:10px;color:var(--text-muted)">EXPERIENCE &amp; EDUCATION</span>
+        </div>
+        <h3 data-i18n="dossier.d3h">Mohali · Jaipur · Sri Balaji (RTU)</h3>
+        <p data-i18n="dossier.d3c">• Rudra Innovative Software (Mohali, Punjab): Junior MEAN Stack Developer — GenAI &amp; AI Applications.
+• Sumedha Softtech Pvt. Ltd. (Jaipur, Rajasthan): Software Developer &amp; Web Developer Intern.
+• Sri Balaji College of Engineering &amp; Technology, Jaipur (Affiliated to RTU): B.Tech CSE (GPA: 8.6 / 10, Class of 2024).</p>
+        <div class="card-footer">
+          <span class="pillar-tag">Rudra Innovative (Aug 2025–Sep 2026)</span>
+          <span class="pillar-tag">Sumedha (Dec 2023–Apr 2025)</span>
+          <span class="pillar-tag">B.Tech 8.6 GPA</span>
+        </div>
+      </div>
+
+      <!-- 04: WHAT I CAN DO -->
+      <div class="dossier-card">
+        <div class="dossier-head-row">
+          <span class="dossier-pill" data-i18n="dossier.d4t">04 · WHAT I CAN DO</span>
+          <span class="mono" style="font-size:10px;color:var(--text-muted)">TECHNICAL TAXONOMY</span>
+        </div>
+        <h3 data-i18n="dossier.d4h">Frontend × Backend × GenAI × Cloud</h3>
+        <p data-i18n="dossier.d4c">• Frontend: Angular 17+ (Signals/Universal), React.js, TypeScript, NgRx/RxJS, SCSS glassmorphism, WCAG.
+• Backend: Node.js, Express.js, NestJS, REST APIs, WebSockets, Redis, JWT, OAuth 2.0, Auth0.
+• GenAI &amp; Automation: Groq LPUs (Llama 3.3 70B), RAG, Semantic Search, Manifest V3 Extensions, Puppeteer &amp; 15ms vector pdf-lib.
+• Cloud &amp; Infra: MongoDB Atlas, Stripe billing, Twilio SMS, Resend, Railway, Vercel, Docker, GitHub Actions CI/CD.</p>
+        <div class="card-footer">
+          <span class="pillar-tag">Angular 17+ &amp; React</span>
+          <span class="pillar-tag">Node / NestJS</span>
+          <span class="pillar-tag">Groq LPU / RAG</span>
+          <span class="pillar-tag">Chrome Extensions</span>
+        </div>
+      </div>
+
+      <!-- 05: HOW I DO IT -->
+      <div class="dossier-card">
+        <div class="dossier-head-row">
+          <span class="dossier-pill" data-i18n="dossier.d5t">05 · HOW I DO IT</span>
+          <span class="mono" style="font-size:10px;color:var(--text-muted)">ENGINEERING PHILOSOPHY</span>
+        </div>
+        <h3 data-i18n="dossier.d5h">Architecture-First &amp; Failure-Aware</h3>
+        <p data-i18n="dossier.d5c">• Clean separation of concerns with modular service boundaries.
+• Failure-aware GenAI: strict latency budgets, timeouts, schema validation, and deterministic fallbacks so models never crash production.
+• 99.9% uptime discipline with automated CI/CD and zero-downtime rollouts.
+• Rigorous quality: unit &amp; integration test suites, Postman collections, and PR code reviews.</p>
+        <div class="card-footer">
+          <span class="pillar-tag">Failure-Aware AI</span>
+          <span class="pillar-tag">99.9% Uptime Discipline</span>
+          <span class="pillar-tag">Test-Driven CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="global">
   <div class="wrap">
     <div class="section-head reveal">
@@ -2721,71 +3429,352 @@ html.dark .cta-band {
   </div>
 </section>
 
-<!-- ===== WORK / SELECTED PRODUCTION SAAS SYSTEMS ===== -->
-<section class="section dark" id="work">
+
+<!-- ===== SECTION 03: FLAGSHIP SOLO VENTURE — AUTOAPPLY AI ===== -->
+<section class="section dark" id="autoapply">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <div class="section-kicker">02 · <span data-i18n="work.kicker">FLAGSHIP SAAS SYSTEMS</span></div>
-        <h2 class="section-title" data-i18n-html="work.title">Production SaaS.<br><span class="muted">Engineered end-to-end.</span></h2>
+        <div class="section-kicker" data-i18n="autoapply.kicker">03 · FLAGSHIP SOLO VENTURE</div>
+        <h2 class="section-title" data-i18n-html="autoapply.title">AutoApply AI.<br><span class="muted">Autonomous Job Application &amp; Career Intelligence SaaS.</span></h2>
       </div>
-      <p class="section-copy" data-i18n="work.intro">Proven production execution across two flagship systems: a solo-engineered AI automation SaaS serving candidates across India &amp; Europe, and a multi-module enterprise SaaS workspace.</p>
+      <p class="section-copy" data-i18n="autoapply.intro">Designed, architected, and shipped solo from front end to cloud infrastructure. An autonomous job-search platform empowering tech job seekers across India and Europe with sub-second AI matching, ghost-job credibility filtering, and 15ms ATS resume tailoring.</p>
     </div>
 
-    <!-- FLAGSHIP 01: AUTOAPPLY AI (SOLO-BUILT SAAS) -->
-    <div class="autoapply-feature-card reveal">
-      <div class="autoapply-visual" data-zoom="assets/cyber/autoapply-ai-architecture.jpg" data-caption="AutoApply AI Engine: Laser Resume Parsing, Groq LLM Matchmaker, Dynamic Tailoring, and Multi-Board Dispatch Pipeline.">
-        <img src="assets/cyber/autoapply-ai-architecture.jpg" alt="AutoApply AI SaaS Architecture 3D Isometric View" width="1024" height="1024" loading="lazy" decoding="async">
-        <div class="visual-overlay-btn">
-          <span>🔍</span> <span data-i18n="work.expandArch">EXPAND 3D ARCHITECTURE</span>
+    <!-- MAIN AUTOAPPLY SHOWCASE BOX -->
+    <div class="autoapply-showcase-box reveal">
+      <div class="autoapply-kicker-strip">
+        <div class="solo-founder-badge">
+          <span class="badge-star">★</span>
+          <span data-i18n="autoapply.soloTag">FLAGSHIP SOLO VENTURE · OWNED &amp; SHIPPED SOLO</span>
         </div>
-      </div>
-      <div class="autoapply-details">
         <div class="autoapply-badges">
-          <span class="badge-solo" data-i18n="work.soloBadge">★ SOLO FOUNDED &amp; SHIPPED</span>
-          <span class="badge-region" data-i18n="work.regionBadge">INDIA &amp; EUROPE JOB ECOSYSTEMS</span>
+          <span class="badge-solo" data-i18n="autoapply.roleTag">SOLO FOUNDER &amp; FULL-STACK ARCHITECT</span>
+          <span class="badge-region" data-i18n="autoapply.targetTag">TARGET: INDIA (NAUKRI, LINKEDIN, INDEED) &amp; EUROPE / GLOBAL REMOTE</span>
         </div>
-        <h3 data-i18n="work.autoapplyTitle">AutoApply AI — AI-Powered Job Application Automation SaaS</h3>
-        <p data-i18n="work.autoapplyDesc">Designed and built an AI-powered job-search SaaS platform solo, end to end, for job seekers in India and Europe — including resume parsing, job discovery across multiple platforms, AI-explained match scoring, ghost-job detection, AI resume tailoring, auto-apply and instant job alerts.</p>
-        
-        <div class="autoapply-feature-grid">
-          <div class="af-item">
-            <strong data-i18n="work.af1Title">⚡ Laser Resume Parsing &amp; Groq AI</strong>
-            <small data-i18n="work.af1Desc">Ingests PDFs, structures skills into vector representations, and computes AI match scores with explanations.</small>
+      </div>
+
+      <!-- Hero Visual + Overview Grid -->
+      <div class="autoapply-feature-card" style="margin-bottom:28px">
+        <div class="autoapply-visual" data-zoom="assets/cyber/autoapply-ai-architecture.jpg" data-caption="AutoApply AI Engine: Laser Resume Parsing, Groq LLM Matchmaker, Dynamic Tailoring, and Multi-Board Dispatch Pipeline.">
+          <img src="assets/cyber/autoapply-ai-architecture.jpg" alt="AutoApply AI SaaS Architecture 3D Isometric View" width="1024" height="1024" loading="lazy" decoding="async">
+          <div class="visual-overlay-btn">
+            <span>🔍</span> <span data-i18n="work.expandArch">EXPAND 3D ARCHITECTURE</span>
           </div>
-          <div class="af-item">
-            <strong data-i18n="work.af2Title">🎯 Ghost-Job Filter &amp; Tailoring</strong>
-            <small data-i18n="work.af2Desc">Detects dead/stale postings and automatically tailors resumes to keyword requirements before submission.</small>
+        </div>
+        <div class="autoapply-details">
+          <h3 data-i18n="work.autoapplyTitle">AutoApply AI — AI-Powered Job Application Automation SaaS</h3>
+          <p data-i18n="work.autoapplyDesc">Designed and built an AI-powered job-search SaaS platform solo, end to end, for job seekers in India and Europe — including resume parsing, job discovery across multiple platforms, AI-explained match scoring, ghost-job detection, AI resume tailoring, auto-apply and instant job alerts.</p>
+          
+          <div class="autoapply-stats-grid">
+            <div class="autoapply-stat-card">
+              <strong>15ms</strong>
+              <small>Vector ATS Engine</small>
+            </div>
+            <div class="autoapply-stat-card">
+              <strong>180ms</strong>
+              <small>Groq LPU Inference</small>
+            </div>
+            <div class="autoapply-stat-card">
+              <strong>0s</strong>
+              <small>Focus-Stealing</small>
+            </div>
+            <div class="autoapply-stat-card">
+              <strong>10</strong>
+              <small>Languages (i18n)</small>
+            </div>
+            <div class="autoapply-stat-card">
+              <strong>100%</strong>
+              <small>Solo Engineered</small>
+            </div>
           </div>
-          <div class="af-item">
-            <strong data-i18n="work.af3Title">📬 Notifications &amp; Alerts Hub</strong>
-            <small data-i18n="work.af3Desc">Multi-channel delivery via Twilio SMS alerts and Resend transactional emails for real-time status.</small>
+
+          <div class="autoapply-tech-row">
+            <span class="tech-tag">Angular 17+ (Signals)</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">MongoDB (Mongoose)</span>
+            <span class="tech-tag">Groq LPUs (Llama 3.3 70B &amp; 3.1 8B)</span>
+            <span class="tech-tag">Manifest V3 Extension</span>
+            <span class="tech-tag">Puppeteer &amp; pdf-lib</span>
+            <span class="tech-tag">Stripe</span>
+            <span class="tech-tag">Twilio</span>
+            <span class="tech-tag">Resend</span>
+            <span class="tech-tag">Vercel &amp; Railway</span>
           </div>
-          <div class="af-item">
-            <strong data-i18n="work.af4Title">💳 Monetization &amp; Multi-Lang</strong>
-            <small data-i18n="work.af4Desc">Stripe recurring subscription billing, referral growth engine, admin control panel, and 10-language i18n.</small>
+        </div>
+      </div>
+
+      <!-- MOTION GRAPHIC AUTONOMOUS PIPELINE DIAGRAM -->
+      <div class="pipeline-wrapper">
+        <div class="pipeline-wrapper-head">
+          <div class="pipeline-title">
+            <span class="badge-dot" style="background:var(--cyan);box-shadow:0 0 8px var(--cyan)"></span>
+            <span>AUTONOMOUS PROCESSING PIPELINE // REAL-TIME EVENT STREAM</span>
+          </div>
+          <div class="mono" style="color:var(--text-muted)">STATUS: 0 ERRORS · 100% DISPATCH INTEGRITY</div>
+        </div>
+
+        <div class="pipeline-flow-container">
+          <div class="flow-step-box">
+            <div class="step-indicator"></div>
+            <div class="step-index">PHASE 01</div>
+            <h4>Laser Resume Ingestion</h4>
+            <p>PDF/DOCX documents parsed into normalized JSON schemas. 4 skill buckets extracted.</p>
+          </div>
+          <div class="flow-step-box">
+            <div class="step-indicator"></div>
+            <div class="step-index">PHASE 02</div>
+            <h4>Groq LPU Match Analysis</h4>
+            <p>Llama 3.3 70B computes explainable match confidence (0-100%) against live job descriptions.</p>
+          </div>
+          <div class="flow-step-box">
+            <div class="step-indicator"></div>
+            <div class="step-index">PHASE 03</div>
+            <h4>Ghost-Job Shield</h4>
+            <p>Heuristic filter screens out dead, reposted, or phantom listings before applying.</p>
+          </div>
+          <div class="flow-step-box">
+            <div class="step-indicator"></div>
+            <div class="step-index">PHASE 04</div>
+            <h4>15ms Vector ATS Tailoring</h4>
+            <p>Pure-JS pdf-lib generator tailors bullet points with 14mm/16mm ATS-verified margins.</p>
+          </div>
+          <div class="flow-step-box">
+            <div class="step-indicator"></div>
+            <div class="step-index">PHASE 05</div>
+            <h4>Multi-Board Autopilot</h4>
+            <p>1-click Easy Apply via Manifest V3 Chrome Extension across Naukri, LinkedIn &amp; Indeed.</p>
+          </div>
+          <div class="flow-step-box">
+            <div class="step-indicator"></div>
+            <div class="step-index">PHASE 06</div>
+            <h4>Alerts &amp; Billing</h4>
+            <p>Stripe webhook validation and instant status updates via Twilio SMS &amp; Resend emails.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE 5 CORE FEATURE PILLARS -->
+      <div class="section-head" style="margin:42px 0 20px">
+        <div>
+          <div class="section-kicker">ARCHITECTURAL HIGHLIGHTS</div>
+          <h3 class="section-title" style="font-size:clamp(24px,3vw,38px)">5 Core Engineering Pillars</h3>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">⚡</div>
+          <h3 data-i18n="pillar.p1Title">⚡ Laser Resume Parsing &amp; Groq Matchmaker</h3>
+          <p data-i18n="pillar.p1Desc">Ingests unstructured PDFs, normalizes 4 skill buckets (technical, tools, soft, languages), and computes explainable match percentages with missing skill gap reports using Groq LPUs (llama-3.3-70b-versatile &amp; llama-3.1-8b-instant).</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Groq LPUs</span>
+            <span class="pillar-tag">Llama 3.3 70B</span>
+            <span class="pillar-tag">JSON Schema Guards</span>
           </div>
         </div>
 
-        <div class="autoapply-tech-row">
-          <span class="tech-tag">Angular 17+</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">Express.js</span>
-          <span class="tech-tag">MongoDB</span>
-          <span class="tech-tag">Groq LLMs (Llama-3.3)</span>
-          <span class="tech-tag">Stripe</span>
-          <span class="tech-tag">Resend</span>
-          <span class="tech-tag">Twilio</span>
-          <span class="tech-tag">Railway &amp; Vercel CI/CD</span>
+        <!-- Pillar 2 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">🛡️</div>
+          <h3 data-i18n="pillar.p2Title">🛡️ Ghost-Job Credibility Shield</h3>
+          <p data-i18n="pillar.p2Desc">Algorithmic 0–100 heuristic scoring engine that analyzes posting age, reposting frequencies, recruiter responsiveness, and company domain trust to weed out expired, fake, and resume-harvesting postings before applying.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Heuristic Scoring</span>
+            <span class="pillar-tag">Anti-Spam Filter</span>
+            <span class="pillar-tag">Domain Verification</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">📄</div>
+          <h3 data-i18n="pillar.p3Title">📄 15ms Vector ATS Resume Tailoring</h3>
+          <p data-i18n="pillar.p3Desc">Dual-Engine generation: Puppeteer Chromium for high-fidelity rendering + pure-JS 15ms vector pdf-lib. Dynamically adapts bullet points to keyword requirements with zero hallucination and strict 14mm/16mm ATS margins.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">15ms Vector pdf-lib</span>
+            <span class="pillar-tag">Puppeteer Chromium</span>
+            <span class="pillar-tag">ATS 14mm/16mm Margins</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">🚀</div>
+          <h3 data-i18n="pillar.p4Title">🚀 Multi-Portal Autopilot &amp; Chrome Extension</h3>
+          <p data-i18n="pillar.p4Desc">Manifest V3 Chrome Extension copilot with 1-click Easy Apply automation for Naukri, LinkedIn, and Indeed. Features an in-page HUD, background tab throttling protection, anti-bot delays, and zero focus-stealing.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">Manifest V3 Extension</span>
+            <span class="pillar-tag">Naukri · LinkedIn · Indeed</span>
+            <span class="pillar-tag">Zero Focus-Stealing</span>
+          </div>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="pillar-card">
+          <div class="pillar-icon">🌍</div>
+          <h3 data-i18n="pillar.p5Title">🌍 India → Europe Career Intelligence</h3>
+          <p data-i18n="pillar.p5Desc">Empowers global engineering mobility: purchasing power parity conversions from CTC (INR LPA) to EUR (€ gross/net), and automated German &amp; EU Blue Card minimum wage threshold eligibility screening.</p>
+          <div class="pillar-tags">
+            <span class="pillar-tag">CTC to EUR Benchmarks</span>
+            <span class="pillar-tag">EU Blue Card Checker</span>
+            <span class="pillar-tag">Global Mobility</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE PRODUCTION SCREENSHOT GALLERY (9 IMAGES) -->
+      <div class="autoapply-gallery-wrap">
+        <div class="section-head" style="margin-bottom:20px">
+          <div>
+            <div class="section-kicker" data-i18n="autoapply.galleryKicker">PRODUCTION SCREENSHOT EVIDENCE // 9 VERIFIED WORKSPACES</div>
+            <h3 class="section-title" style="font-size:clamp(24px,3vw,38px)" data-i18n-html="autoapply.galleryTitle">Live System Screenshots.<br><span class="muted">The actual SaaS platform in action.</span></h3>
+          </div>
+          <p class="section-copy">Click any screenshot to inspect the high-resolution interface. All screenshots reflect real working code and deployed production systems.</p>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="gallery-filter-tabs" role="tablist">
+          <button class="gallery-tab-btn active" data-filter="all" data-i18n="autoapply.tabAll">ALL SCREENS (9)</button>
+          <button class="gallery-tab-btn" data-filter="core" data-i18n="autoapply.tabCore">CORE PIPELINE &amp; DASHBOARD</button>
+          <button class="gallery-tab-btn" data-filter="resume" data-i18n="autoapply.tabResume">RESUME ATS INTELLIGENCE</button>
+          <button class="gallery-tab-btn" data-filter="eu" data-i18n="autoapply.tabEu">INDIA ➔ EUROPE MOBILITY</button>
+          <button class="gallery-tab-btn" data-filter="commerce" data-i18n="autoapply.tabCommerce">PRICING &amp; AUTHENTICATION</button>
+        </div>
+
+        <div class="gallery-grid" id="autoapplyGalleryGrid">
+          <!-- Screen 01: Landing Hero -->
+          <div class="gallery-card" data-category="core" data-zoom="assets/autoapply/01_landing_hero.png" data-caption="AutoApply AI: Cyber Dark Landing Hero with interactive live ATS simulator and instant resume scoring.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/01_landing_hero.png" alt="AutoApply AI Landing Hero Screen" loading="lazy" decoding="async">
+              <span class="screen-badge">01 · HERO &amp; SIMULATOR</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Landing Hero &amp; Live ATS Simulator</h4>
+              <p>Futuristic cyber dark UI, interactive resume tester, and instant match scoring preview.</p>
+            </div>
+          </div>
+
+          <!-- Screen 02: Full Landing Page -->
+          <div class="gallery-card" data-category="core" data-zoom="assets/autoapply/02_landing_full.png" data-caption="AutoApply AI: Full Landing Surface showcasing ROI calculator, feature breakdowns, and platform comparison.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/02_landing_full.png" alt="AutoApply AI Full Landing Page Surface" loading="lazy" decoding="async">
+              <span class="screen-badge">02 · FULL LANDING SURFACE</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Full Landing Page Architecture</h4>
+              <p>Comprehensive product breakdown, user ROI calculation, and feature matrix.</p>
+            </div>
+          </div>
+
+          <!-- Screen 03: Dashboard -->
+          <div class="gallery-card" data-category="core" data-zoom="assets/autoapply/03_dashboard.png" data-caption="AutoApply AI: User Command Center with live application velocity counters, active queues, and automation toggles.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/03_dashboard.png" alt="AutoApply AI Dashboard Command Center" loading="lazy" decoding="async">
+              <span class="screen-badge">03 · COMMAND CENTER</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>User Dashboard Command Center</h4>
+              <p>Real-time application metrics, active autopilot queues, and quick dispatch controls.</p>
+            </div>
+          </div>
+
+          <!-- Screen 04: Jobs & Ghost Score -->
+          <div class="gallery-card" data-category="resume" data-zoom="assets/autoapply/04_jobs_match_ghost_score.png" data-caption="AutoApply AI: Application Tracker with multi-board filters, match scores, and Ghost-Job credibility ratings.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/04_jobs_match_ghost_score.png" alt="AutoApply AI Jobs Match and Ghost Score" loading="lazy" decoding="async">
+              <span class="screen-badge">04 · JOBS TRACKER &amp; GHOST SHIELD</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Applications &amp; Ghost-Job Shield</h4>
+              <p>Match scores (0-100%), ghost job filtering, and multi-portal status chips.</p>
+            </div>
+          </div>
+
+          <!-- Screen 05: Resume ATS Optimizer -->
+          <div class="gallery-card" data-category="resume" data-zoom="assets/autoapply/05_resume_ats_optimizer.png" data-caption="AutoApply AI: Resume Intelligence showing ATS compatibility breakdown, skill gap analyzer, and keyword heatmaps.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/05_resume_ats_optimizer.png" alt="AutoApply AI Resume ATS Optimizer" loading="lazy" decoding="async">
+              <span class="screen-badge">05 · RESUME INTELLIGENCE</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Resume ATS Optimizer &amp; Gap Analyzer</h4>
+              <p>4-bucket skill categorization, keyword match ratios, and vector tailoring recommendations.</p>
+            </div>
+          </div>
+
+          <!-- Screen 06: Automation Engine -->
+          <div class="gallery-card" data-category="core" data-zoom="assets/autoapply/06_automation_engine.png" data-caption="AutoApply AI: Live Autopilot Engine executing automated Search -> Match -> Tailor -> Apply pipeline.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/06_automation_engine.png" alt="AutoApply AI Automation Engine Pipeline" loading="lazy" decoding="async">
+              <span class="screen-badge">06 · LIVE AUTOPILOT ENGINE</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Live Autopilot Automation Engine</h4>
+              <p>Automated execution pipeline orchestrating search, resume tailoring, and portal submission.</p>
+            </div>
+          </div>
+
+          <!-- Screen 07: EU Career Intelligence -->
+          <div class="gallery-card" data-category="eu" data-zoom="assets/autoapply/07_eu_career_intelligence.png" data-caption="AutoApply AI: Global Mobility Engine converting Indian CTC to European EUR with German Blue Card visa screening.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/07_eu_career_intelligence.png" alt="AutoApply AI Europe Career Mobility Engine" loading="lazy" decoding="async">
+              <span class="screen-badge">07 · INDIA ➔ EUROPE MOBILITY</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>India → Europe Career Mobility</h4>
+              <p>CTC (INR LPA) to EUR (€) purchasing-power conversions and German/EU Blue Card eligibility.</p>
+            </div>
+          </div>
+
+          <!-- Screen 08: Pricing Plans -->
+          <div class="gallery-card" data-category="commerce" data-zoom="assets/autoapply/08_pricing_plans.png" data-caption="AutoApply AI: Commercial Subscription Tiers (Free, Starter ₹299, Pro ₹699, Elite ₹1499) integrated with Stripe.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/08_pricing_plans.png" alt="AutoApply AI Subscription Pricing Plans" loading="lazy" decoding="async">
+              <span class="screen-badge">08 · STRIPE MONETIZATION</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Monetization &amp; Subscription Tiers</h4>
+              <p>Integrated Stripe recurring billing (Starter ₹299, Pro ₹699, Elite ₹1499) with webhook verification.</p>
+            </div>
+          </div>
+
+          <!-- Screen 09: Auth & Login -->
+          <div class="gallery-card" data-category="commerce" data-zoom="assets/autoapply/09_auth_login.png" data-caption="AutoApply AI: Secure Authentication Screen with JWT/OAuth flows, theme toggles, and language selector.">
+            <div class="img-viewport">
+              <img src="assets/autoapply/09_auth_login.png" alt="AutoApply AI Authentication Login Screen" loading="lazy" decoding="async">
+              <span class="screen-badge">09 · AUTH &amp; LOCALIZATION</span>
+              <span class="zoom-hint">🔍 EXPAND HD</span>
+            </div>
+            <div class="gallery-meta">
+              <h4>Authentication &amp; i18n Hub</h4>
+              <p>Glassmorphic authentication card with JWT session control, dark/light theme, and language selection.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- FLAGSHIP 02: KITESUITE (RUDRA INNOVATIVE SOFTWARE) -->
-    <div class="section-head reveal" style="margin-top:20px">
+
+<!-- ===== SECTION 04: FLAGSHIP ENTERPRISE SAAS — KITESUITE ===== -->
+<section class="section" id="kitesuite">
+  <div class="wrap">
+    <div class="section-head reveal">
       <div>
-        <div class="section-kicker">FLAGSHIP 02 · <span data-i18n="work.kitesuiteKicker">ENTERPRISE SAAS WORKSPACE</span></div>
-        <h3 class="section-title" style="font-size:clamp(28px,3.5vw,48px)" data-i18n-html="work.kitesuiteTitle">KiteSuite.<br><span class="muted">One platform, many connected systems.</span></h3>
+        <div class="section-kicker" data-i18n="work.kitesuiteKicker">04 · FLAGSHIP ENTERPRISE SAAS</div>
+        <h2 class="section-title" data-i18n-html="work.kitesuiteTitle">KiteSuite.<br><span class="muted">Connected enterprise workspace platform.</span></h2>
       </div>
       <p class="section-copy" data-i18n="work.kitesuiteCopy">Owned ongoing development and production delivery for KiteSuite at Rudra Innovative Software: a multi-module SaaS platform covering project management, documentation, forms, ATS, scheduling, CRM workflows, and no-code Natural Language Automation Builder.</p>
     </div>
@@ -2803,7 +3792,7 @@ html.dark .cta-band {
 
     <div class="role-note reveal">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <span data-i18n="work.roleNote">Asendra owned features, lead execution, and built core capabilities across KiteSuite at Rudra Innovative Software. The screenshots below demonstrate direct production contributions across frontend, backend APIs, and GenAI workflows.</span>
+      <span data-i18n="work.roleNote">Asendra owned features, led technical execution, and built core capabilities across KiteSuite at Rudra Innovative Software. The screenshots below demonstrate direct production contributions across frontend, backend APIs, and GenAI workflows.</span>
     </div>
 
     <div class="steps reveal">
@@ -2828,16 +3817,12 @@ html.dark .cta-band {
         <p data-i18n="work.step4c">Handled production deployments, live-issue troubleshooting, unit &amp; integration tests; assigned tasks, reviewed PRs, and mentored junior developers.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== EVIDENCE GALLERY ===== -->
-<section class="section" id="evidence">
-  <div class="wrap">
-    <div class="section-head reveal">
+    <!-- KITESUITE EVIDENCE SCREENSHOT SEQUENCE -->
+    <div class="section-head reveal" style="margin-top:56px">
       <div>
-        <div class="section-kicker">03 · <span data-i18n="evidence.kicker">PRODUCT SURFACE</span></div>
-        <h2 class="section-title" data-i18n-html="evidence.title">Evidence,<br><span class="muted">not a screenshot wall.</span></h2>
+        <div class="section-kicker" data-i18n="evidence.kicker">PRODUCT SURFACE</div>
+        <h3 class="section-title" data-i18n-html="evidence.title" style="font-size:clamp(24px,3vw,38px)">Evidence,<br><span class="muted">not a screenshot wall.</span></h3>
       </div>
       <p class="section-copy" data-i18n="evidence.intro">A deliberate sequence through KiteSuite's product surface — each screenshot chosen for what it proves about the engineering behind it. Click any image to expand in high definition.</p>
     </div>
@@ -2851,16 +3836,18 @@ html.dark .cta-band {
           <p data-i18n="evidence.item1.body">Release planning and version tracking across a multi-module product. Proves comfort working inside structured production-delivery workflows, not just writing code in isolation.</p>
         </figcaption>
       </figure>
+
       <div class="ev-row">
-        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-integrations.webp" data-caption="Integrations surface: OAuth 2.0 and webhook connectors.">
-          <img src="assets/kitesuite/kitesuite-integrations.webp" alt="KiteSuite integrations configuration surface" data-i18n-alt="evidence.item2.alt" loading="lazy" decoding="async" width="1200" height="850">
+        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-integrations.webp" data-caption="Integrations & third-party connectivity surface.">
+          <img src="assets/kitesuite/kitesuite-integrations.webp" alt="KiteSuite Integrations configuration page" data-i18n-alt="evidence.item2.alt" loading="lazy" decoding="async" width="600" height="300">
           <figcaption class="ev-cap">
             <h4 data-i18n="evidence.item2.title">Integrations surface</h4>
             <p data-i18n="evidence.item2.body">Third-party connectivity configuration — OAuth and webhook-driven integration work.</p>
           </figcaption>
         </figure>
-        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-ats.webp" data-caption="Recruiting / ATS kanban pipeline.">
-          <img src="assets/kitesuite/kitesuite-ats.webp" alt="KiteSuite ATS jobs/candidates card view" data-i18n-alt="evidence.item3.alt" loading="lazy" decoding="async" width="1176" height="631">
+
+        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-recruiting.webp" data-caption="Recruiting and applicant tracking workflow.">
+          <img src="assets/kitesuite/kitesuite-recruiting.webp" alt="KiteSuite Recruiting and ATS pipeline" data-i18n-alt="evidence.item3.alt" loading="lazy" decoding="async" width="600" height="300">
           <figcaption class="ev-cap">
             <h4 data-i18n="evidence.item3.title">Recruiting / ATS workflow</h4>
             <p data-i18n="evidence.item3.body">A full applicant-tracking module inside a broader SaaS suite, not a bolt-on feature.</p>
@@ -2871,43 +3858,46 @@ html.dark .cta-band {
 
     <div class="evidence-block evidence-grid reverse reveal">
       <div class="ev-row">
-        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-planning.webp" data-caption="Project planning & calendar synchronization.">
-          <img src="assets/kitesuite/kitesuite-planning.webp" alt="KiteSuite project calendar page" data-i18n-alt="evidence.item4.alt" loading="lazy" decoding="async" width="1184" height="661">
+        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-projects.webp" data-caption="Calendar-driven project planning and task scheduling.">
+          <img src="assets/kitesuite/kitesuite-projects.webp" alt="KiteSuite Projects calendar view" data-i18n-alt="evidence.item4.alt" loading="lazy" decoding="async" width="600" height="300">
           <figcaption class="ev-cap">
             <h4 data-i18n="evidence.item4.title">Project planning</h4>
             <p data-i18n="evidence.item4.body">Calendar-driven project scheduling, tied to the same data model as tasks and releases.</p>
           </figcaption>
         </figure>
-        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-meetings.webp" data-caption="Meetings & collaboration scheduling logic.">
-          <img src="assets/kitesuite/kitesuite-meetings.webp" alt="KiteSuite meetings calendar page" data-i18n-alt="evidence.item5.alt" loading="lazy" decoding="async" width="1320" height="596">
+
+        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-meetings.webp" data-caption="Meetings & collaboration availability surface.">
+          <img src="assets/kitesuite/kitesuite-meetings.webp" alt="KiteSuite Meetings scheduling interface" data-i18n-alt="evidence.item5.alt" loading="lazy" decoding="async" width="600" height="300">
           <figcaption class="ev-cap">
             <h4 data-i18n="evidence.item5.title">Meetings &amp; collaboration</h4>
             <p data-i18n="evidence.item5.body">Scheduling and availability logic that has to stay consistent across time zones and teams.</p>
           </figcaption>
         </figure>
       </div>
-      <figure class="ev-shot" data-zoom="assets/kitesuite/kitesuite-reporting.webp" data-caption="Reporting & analytics aggregation pipeline.">
-        <img src="assets/kitesuite/kitesuite-reporting.webp" alt="KiteSuite reporting and analytics page" data-i18n-alt="evidence.item8.alt" loading="lazy" decoding="async" width="1366" height="592">
+
+      <figure class="ev-shot" data-zoom="assets/kitesuite/kitesuite-drive.webp" data-caption="Document organization, team drive, and workspace role permissions.">
+        <img src="assets/kitesuite/kitesuite-drive.webp" alt="KiteSuite Drive and documents view" data-i18n-alt="evidence.item6.alt" loading="lazy" decoding="async" width="1200" height="590">
         <figcaption class="ev-cap">
-          <div class="mono" data-i18n="evidence.item8.label">REPORTING &amp; ANALYTICS</div>
-          <h3 data-i18n="evidence.item8.title">Turning raw activity into readable signal.</h3>
-          <p data-i18n="evidence.item8.body">Reporting surfaces built on aggregation across projects, time entries and workflow activity — direct application of the data-engineering skills listed below.</p>
+          <div class="mono" data-i18n="evidence.item6.label">DOCUMENTS &amp; DRIVE</div>
+          <h3 data-i18n="evidence.item6.title">File and document workflows at team scale.</h3>
+          <p data-i18n="evidence.item6.body">Document listing and organization with permissions tied to workspace roles. Proves experience with content workflows, not just flat form fields.</p>
         </figcaption>
       </figure>
     </div>
 
     <div class="evidence-block evidence-grid reveal">
-      <figure class="ev-shot" data-zoom="assets/kitesuite/kitesuite-docs.webp" data-caption="Documents & Drive workspace with permission tree.">
-        <img src="assets/kitesuite/kitesuite-docs.webp" alt="KiteSuite document drive listing page" data-i18n-alt="evidence.item6.alt" loading="lazy" decoding="async" width="1334" height="656">
+      <figure class="ev-shot" data-zoom="assets/kitesuite/kitesuite-analytics.webp" data-caption="Productivity analytics and data aggregation across projects and time entries.">
+        <img src="assets/kitesuite/kitesuite-analytics.webp" alt="KiteSuite Analytics and reporting dashboard" data-i18n-alt="evidence.item8.alt" loading="lazy" decoding="async" width="1200" height="590">
         <figcaption class="ev-cap">
-          <div class="mono" data-i18n="evidence.item6.label">DOCUMENTS &amp; DRIVE</div>
-          <h3 data-i18n="evidence.item6.title">File and document workflows at team scale.</h3>
-          <p data-i18n="evidence.item6.body">Document listing and organization with permissions tied to workspace roles — the kind of surface that looks simple but breaks first under real usage.</p>
+          <div class="mono" data-i18n="evidence.item8.label">REPORTING &amp; ANALYTICS</div>
+          <h3 data-i18n="evidence.item8.title">Turning raw activity into readable signal.</h3>
+          <p data-i18n="evidence.item8.body">Reporting surfaces built on aggregation across projects, time entries and workflow activity. Proves ability to write queries and transforms that turn operational data into product-level insight.</p>
         </figcaption>
       </figure>
+
       <div class="ev-row">
-        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-time-tracking.webp" data-caption="Time-series tracking & billable hours.">
-          <img src="assets/kitesuite/kitesuite-time-tracking.webp" alt="KiteSuite time tracker page" data-i18n-alt="evidence.item7.alt" loading="lazy" decoding="async" width="919" height="846">
+        <figure class="ev-mini" data-zoom="assets/kitesuite/kitesuite-time.webp" data-caption="Time tracking and productivity timesheets.">
+          <img src="assets/kitesuite/kitesuite-time.webp" alt="KiteSuite Time Tracking interface" data-i18n-alt="evidence.item7.alt" loading="lazy" decoding="async" width="600" height="300">
           <figcaption class="ev-cap">
             <h4 data-i18n="evidence.item7.title">Time tracking</h4>
             <p data-i18n="evidence.item7.body">Time-series productivity data tied back into reporting and billing-adjacent workflows.</p>
@@ -2918,88 +3908,87 @@ html.dark .cta-band {
   </div>
 </section>
 
-<!-- ===== SYSTEMS ARCHITECTURE ===== -->
+
+<!-- ===== SECTION 05: SYSTEMS ARCHITECTURE ===== -->
 <section class="section dark" id="systems">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <div class="section-kicker">04 · <span data-i18n="systems.kicker">SYSTEMS</span></div>
+        <div class="section-kicker" data-i18n="systems.kicker">05 · SYSTEMS ARCHITECTURE</div>
         <h2 class="section-title" data-i18n-html="systems.title">I think in<br><span class="muted">whole systems.</span></h2>
       </div>
-      <p class="section-copy" data-i18n="systems.intro">A generalized view of how the layers of a production SaaS platform connect — not KiteSuite's actual infrastructure, but the kind of thinking behind contributing to it safely.</p>
+      <p class="section-copy" data-i18n="systems.intro">A generalized view of how the layers of a production SaaS platform connect — from reactive interface components down to distributed microservices, caching clusters, and zero-downtime deployment pipelines.</p>
     </div>
 
-    <div class="systems-row reveal">
-      <div class="sys-col stack-col">
-        <div class="mono col-kicker" data-i18n="systems.stackKicker">SYSTEMS I BUILD</div>
-        <div class="stack3d-wrap">
-          <div class="diamond-stack">
-            <div class="diamond" style="--c:#f5ba42"><div class="glow"></div><svg viewBox="0 0 24 24" fill="currentColor" class="ic"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A5.5 5.5 0 0 1 17 8.06 4 4 0 0 1 16.5 16v.02H7z"/></svg></div>
-            <div class="diamond" style="--c:#38bdf8"><div class="glow"></div><svg viewBox="0 0 24 24" fill="currentColor" class="ic"><path d="M12 2 21 7l-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5v2l-9 5-9-5v-2z" opacity=".75"/><path d="M3 16.5l9 5 9-5v2l-9 5-9-5v-2z" opacity=".5"/></svg></div>
-            <div class="diamond" style="--c:#10b981"><div class="glow"></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="ic"><path d="M5 8V6a2 2 0 0 1 2-2h1"/><path d="M19 8V6a2 2 0 0 0-2-2h-1"/><path d="M5 16v2a2 2 0 0 0 2 2h1"/><path d="M19 16v2a2 2 0 0 1-2 2h-1"/><path d="M4 11h2.5M17.5 11H20"/><circle cx="12" cy="11" r="3.2"/></svg></div>
-            <div class="diamond" style="--c:#a855f7"><div class="glow"></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="ic"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3 5.6 5.6"/></svg></div>
-            <div class="diamond" style="--c:#eab308"><div class="glow"></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="ic"><path d="M20 12a8 8 0 1 1-3-6.2"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"/></svg></div>
-            <div class="diamond" style="--c:#ec4899"><div class="glow"></div><svg viewBox="0 0 24 24" fill="currentColor" class="ic"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A5.5 5.5 0 0 1 17 8.06 4 4 0 0 1 16.5 16v.02H14l-2-2-2 2H7z"/><path d="M12 12v7m0-7-2.3 2.3M12 12l2.3 2.3" stroke="#0a0d0d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+    <!-- 3-TIER EXECUTIVE ARCHITECTURE HUD SCHEMATIC -->
+    <div class="systems-3tier reveal">
+      <!-- Tier 1: Client & Interface Tier -->
+      <div class="tier-card">
+        <div class="tier-card-head">
+          <div class="tier-icon">💻</div>
+          <div>
+            <div class="mono" style="font-size:10px;color:var(--accent)">TIER 01</div>
+            <h3>Client &amp; Interface Layer</h3>
           </div>
         </div>
-        <ul class="stack-list">
-          <li><span class="dot" style="--c:#f5ba42"></span><div><strong data-i18n="systems.l1t">Product Surface</strong><small data-i18n="systems.stackD1">Beautiful &amp; responsive UIs</small></div></li>
-          <li><span class="dot" style="--c:#38bdf8"></span><div><strong data-i18n="systems.l3t">API Layer</strong><small data-i18n="systems.stackD2">Secure, scalable services</small></div></li>
-          <li><span class="dot" style="--c:#10b981"></span><div><strong data-i18n="systems.l5t">Data Layer</strong><small data-i18n="systems.stackD3">MongoDB, caching</small></div></li>
-          <li><span class="dot" style="--c:#a855f7"></span><div><strong data-i18n="systems.l6t">Integrations</strong><small data-i18n="systems.stackD4">APIs, OAuth, Webhooks</small></div></li>
-          <li><span class="dot" style="--c:#eab308"></span><div><strong data-i18n="systems.l8t">AI Layer</strong><small data-i18n="systems.stackD5">LLMs, embeddings, search</small></div></li>
-          <li><span class="dot" style="--c:#ec4899"></span><div><strong data-i18n="systems.stackProduction">Production</strong><small data-i18n="systems.stackD6">CI/CD, monitoring, scale</small></div></li>
+        <ul class="tier-specs-list">
+          <li><span class="bullet">▸</span><span><strong>Angular 17+ &amp; React 18:</strong> Component-based reactive interfaces with Signals and Angular Universal SSR.</span></li>
+          <li><span class="bullet">▸</span><span><strong>State &amp; Reactivity:</strong> NgRx, Redux, and RxJS observable streams managing complex cross-module state.</span></li>
+          <li><span class="bullet">▸</span><span><strong>Design System:</strong> SCSS glassmorphism, responsive CSS grid, and WCAG accessibility standards.</span></li>
         </ul>
       </div>
 
-      <div class="sys-col skills-col">
-        <div class="mono col-kicker" data-i18n="systems.techSkillsKicker">TECHNICAL SKILLS</div>
-        <div class="skill-row-compact"><div class="srl" data-i18n="systems.l2t">Frontend</div>
-          <div class="skill-icons-row"><img src="assets/tech/angular.svg" alt="Angular" loading="lazy"><img src="assets/tech/react.svg" alt="React" loading="lazy"><img src="assets/tech/typescript.svg" alt="TypeScript" loading="lazy"><img src="assets/tech-mini/html5.svg" alt="HTML5" loading="lazy"><img src="assets/tech-mini/sass.svg" alt="Sass" loading="lazy"><img src="assets/tech-mini/tailwind.svg" alt="Tailwind CSS" loading="lazy"></div>
+      <!-- Tier 2: API & Intelligence Tier -->
+      <div class="tier-card">
+        <div class="tier-card-head">
+          <div class="tier-icon">⚡</div>
+          <div>
+            <div class="mono" style="font-size:10px;color:var(--cyan)">TIER 02</div>
+            <h3>API &amp; Intelligence Layer</h3>
+          </div>
         </div>
-        <div class="skill-row-compact"><div class="srl" data-i18n="skills.g2t">Backend / APIs</div>
-          <div class="skill-icons-row"><img src="assets/tech/nodejs.svg" alt="Node.js" loading="lazy"><img src="assets/tech/express.svg" alt="Express" loading="lazy"><img src="assets/tech-mini/jwt.svg" alt="JWT" loading="lazy"></div>
-        </div>
-        <div class="skill-row-compact"><div class="srl" data-i18n="skillrow.dataStorage">Data &amp; Storage</div>
-          <div class="skill-icons-row"><img src="assets/tech/mongodb.svg" alt="MongoDB" loading="lazy"><img src="assets/tech/redis.svg" alt="Redis" loading="lazy"></div>
-        </div>
-        <div class="skill-row-compact"><div class="srl" data-i18n="skillrow.devopsTools">DevOps &amp; Tools</div>
-          <div class="skill-icons-row"><img src="assets/tech/aws-icon.svg" alt="AWS" loading="lazy"><img src="assets/tech/docker-icon.svg" alt="Docker" loading="lazy"><img src="assets/tech/git.svg" alt="Git" loading="lazy"><img src="assets/tech/github.svg" alt="GitHub" loading="lazy"><img src="assets/tech/postman.svg" alt="Postman" loading="lazy"></div>
-        </div>
-        <div class="skill-row-compact"><div class="srl" data-i18n="skillrow.aiGenai">AI / GenAI</div>
-          <div class="skill-icons-row"><img src="assets/tech/ai.svg" alt="GenAI" loading="lazy"><img src="assets/tech-mini/vector.svg" alt="Embeddings" loading="lazy"><img src="assets/tech-mini/prompt.svg" alt="Prompting" loading="lazy"><img src="assets/tech-mini/automation.svg" alt="Automation" loading="lazy"></div>
-        </div>
+        <ul class="tier-specs-list">
+          <li><span class="bullet">▸</span><span><strong>Node.js, Express &amp; NestJS:</strong> RESTful APIs, Swagger/OpenAPI documentation, and modular route guards.</span></li>
+          <li><span class="bullet">▸</span><span><strong>Real-Time &amp; Security:</strong> WebSockets, JWT token security, role-based authorization (RBAC), and OAuth 2.0 (Google/Auth0).</span></li>
+          <li><span class="bullet">▸</span><span><strong>GenAI &amp; RAG:</strong> Groq LPUs, Llama 3 70B inference, semantic vector embeddings, and JSON schema outputs.</span></li>
+        </ul>
       </div>
 
-      <div class="sys-col genai-col">
-        <div class="mono col-kicker" data-i18n="systems.practicalAiKicker">PRACTICAL AI, NOT AI THEATRE</div>
-        <div class="genai-mini-list">
-          <div class="genai-mini"><span class="gicon"><img src="assets/icons/genai-llm.svg" alt=""></span><div><strong data-i18n="genai.c1t">LLM Integration</strong><small data-i18n="genai.miniLlmD">Structured output, model integration, workflow automation</small></div></div>
-          <div class="genai-mini"><span class="gicon"><img src="assets/icons/genai-search.svg" alt=""></span><div><strong data-i18n="genai.miniSearchT">Embeddings &amp; Search</strong><small data-i18n="genai.miniSearchD">Vector representations, semantic search, retrieval strategies</small></div></div>
-          <div class="genai-mini"><span class="gicon"><img src="assets/icons/genai-failsafe.svg" alt=""></span><div><strong data-i18n="genai.c3t">Failure-aware AI</strong><small data-i18n="genai.miniFailD">Fallbacks, validation, error handling, observability</small></div></div>
-          <div class="genai-mini"><span class="gicon"><img src="assets/icons/genai-product.svg" alt=""></span><div><strong data-i18n="genai.miniProductT">AI in Products</strong><small data-i18n="genai.miniProductD">AI features inside real workflows that users rely on</small></div></div>
+      <!-- Tier 3: Storage, Pipeline & Cloud Tier -->
+      <div class="tier-card">
+        <div class="tier-card-head">
+          <div class="tier-icon">🗄️</div>
+          <div>
+            <div class="mono" style="font-size:10px;color:var(--emerald)">TIER 03</div>
+            <h3>Storage, Events &amp; Cloud</h3>
+          </div>
         </div>
+        <ul class="tier-specs-list">
+          <li><span class="bullet">▸</span><span><strong>MongoDB Atlas &amp; Redis:</strong> Document schemas, aggregation pipelines, compound indexing, and in-memory caching.</span></li>
+          <li><span class="bullet">▸</span><span><strong>Integrations Hub:</strong> Stripe recurring subscriptions, Twilio SMS/WhatsApp, Resend transactional emails, and ClickUp APIs.</span></li>
+          <li><span class="bullet">▸</span><span><strong>Cloud Delivery:</strong> Docker containerization, Railway, Vercel, and GitHub Actions automated CI/CD pipelines.</span></li>
+        </ul>
       </div>
     </div>
 
     <!-- 10 Full Layers Breakdown -->
-    <div class="section-head reveal" style="margin-top:72px">
+    <div class="section-head reveal" style="margin-top:56px">
       <div>
-        <div class="section-kicker" data-i18n="systems.detailKicker">A deeper breakdown</div>
-        <h2 class="section-title" data-i18n-html="systems.detailTitle" style="font-size:clamp(24px,3vw,38px)">The full layer list, <span class="muted">in detail.</span></h2>
+        <div class="section-kicker" data-i18n="systems.detailKicker">ARCHITECTURAL BLUEPRINT</div>
+        <h3 class="section-title" data-i18n-html="systems.detailTitle" style="font-size:clamp(24px,3vw,38px)">End-to-End System Layers.<br><span class="muted">From interface to bare metal.</span></h3>
       </div>
     </div>
     <div class="layers reveal">
-      <div class="layer"><div class="mono">01</div><h3 data-i18n="systems.l1t">Product surfaces</h3><p data-i18n="systems.l1c">The modules a user actually touches — projects, ATS, docs, meetings, forms.</p></div>
-      <div class="layer"><div class="mono">02</div><h3 data-i18n="systems.l2t">Frontend</h3><p data-i18n="systems.l2c">Component-driven UI, state management and responsive interaction layers.</p></div>
-      <div class="layer"><div class="mono">03</div><h3 data-i18n="systems.l3t">API layer</h3><p data-i18n="systems.l3c">REST endpoints that mediate between the interface and the data underneath.</p></div>
-      <div class="layer"><div class="mono">04</div><h3 data-i18n="systems.l4t">Auth &amp; access</h3><p data-i18n="systems.l4c">Authentication and role-based access control across workspace boundaries.</p></div>
-      <div class="layer"><div class="mono">05</div><h3 data-i18n="systems.l5t">Data layer</h3><p data-i18n="systems.l5c">Document modeling, indexing and query design for cross-module lookups.</p></div>
-      <div class="layer"><div class="mono">06</div><h3 data-i18n="systems.l6t">Integrations</h3><p data-i18n="systems.l6c">OAuth and webhook-driven connections to external services and providers.</p></div>
-      <div class="layer"><div class="mono">07</div><h3 data-i18n="systems.l7t">Events &amp; async work</h3><p data-i18n="systems.l7c">Background jobs and asynchronous flows that keep the interface responsive.</p></div>
-      <div class="layer"><div class="mono">08</div><h3 data-i18n="systems.l8t">AI layer</h3><p data-i18n="systems.l8c">Model/provider integration for AI-assisted product features, kept separate from core logic.</p></div>
-      <div class="layer"><div class="mono">09</div><h3 data-i18n="systems.l9t">Observability &amp; validation</h3><p data-i18n="systems.l9c">Input validation, error handling and the checks that catch problems before users do.</p></div>
-      <div class="layer"><div class="mono">10</div><h3 data-i18n="systems.l10t">Production &amp; deployment</h3><p data-i18n="systems.l10c">Getting a change from a branch into something real users depend on.</p></div>
+      <div class="layer"><div class="mono">01</div><h3 data-i18n="systems.l1t">Product surfaces</h3><p data-i18n="systems.l1c">Interactive modules, reactive state, cross-module context preservation, WCAG accessibility.</p></div>
+      <div class="layer"><div class="mono">02</div><h3 data-i18n="systems.l2t">Frontend</h3><p data-i18n="systems.l2c">Angular 17+, React 18, TypeScript, RxJS streams, component architecture, SSR universal.</p></div>
+      <div class="layer"><div class="mono">03</div><h3 data-i18n="systems.l3t">API layer</h3><p data-i18n="systems.l3c">Node.js, Express, NestJS, RESTful APIs, rate-limiting, Swagger/OpenAPI documentation.</p></div>
+      <div class="layer"><div class="mono">04</div><h3 data-i18n="systems.l4t">Auth &amp; access</h3><p data-i18n="systems.l4c">JWT tokens, OAuth 2.0 (Google), Auth0, role-based access control, session invalidation.</p></div>
+      <div class="layer"><div class="mono">05</div><h3 data-i18n="systems.l5t">Data layer</h3><p data-i18n="systems.l5c">MongoDB Atlas, Mongoose schemas, compound indexes, aggregation pipelines, Redis cache.</p></div>
+      <div class="layer"><div class="mono">06</div><h3 data-i18n="systems.l6t">Integrations</h3><p data-i18n="systems.l6c">ClickUp, Stripe billing, Google Workspace, Twilio SMS, Resend transactional emails.</p></div>
+      <div class="layer"><div class="mono">07</div><h3 data-i18n="systems.l7t">Events &amp; async work</h3><p data-i18n="systems.l7c">WebSockets live sync, Redis pub/sub, cron schedulers, asynchronous queue workers.</p></div>
+      <div class="layer"><div class="mono">08</div><h3 data-i18n="systems.l8t">AI layer</h3><p data-i18n="systems.l8c">Groq LPU, Llama 3 70B, RAG semantic search, vector embeddings, structured JSON schemas.</p></div>
+      <div class="layer"><div class="mono">09</div><h3 data-i18n="systems.l9t">Observability &amp; validation</h3><p data-i18n="systems.l9c">Live telemetry, error boundary logging, P95 latency tracking, uptime monitors.</p></div>
+      <div class="layer"><div class="mono">10</div><h3 data-i18n="systems.l10t">Production &amp; deployment</h3><p data-i18n="systems.l10c">GitHub Actions CI/CD, Railway, Vercel, Docker containerization, zero-downtime deploys.</p></div>
     </div>
   </div>
 </section>
@@ -3160,15 +4149,41 @@ html.dark .cta-band {
   </div>
 </section>
 
-<!-- ===== PRACTICAL GENAI SECTION ===== -->
+
+<!-- ===== SECTION 07: PRACTICAL GENAI ENGINEERING LAB ===== -->
 <section class="section dark" id="genai">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <div class="section-kicker">06 · <span data-i18n="genai.kicker">PRACTICAL GENAI</span></div>
+        <div class="section-kicker" data-i18n="genai.kicker">07 · PRACTICAL GENAI</div>
         <h2 class="section-title" data-i18n-html="genai.title">Practical AI.<br><span class="muted">Not AI theatre.</span></h2>
       </div>
-      <p class="section-copy" data-i18n="genai.intro">AI treated as a product/engineering capability with real constraints — not a badge on a résumé.</p>
+      <p class="section-copy" data-i18n="genai.intro">AI treated as a product/engineering capability with real constraints — not a badge on a résumé. Real production systems require strict latency budgets, token cost controls, JSON schema validation, and graceful error fallbacks.</p>
+    </div>
+
+    <!-- PRODUCTION FAILURE-AWARE WORKBENCH COMPARISON -->
+    <div class="genai-workbench-grid reveal">
+      <div class="workbench-card">
+        <span class="workbench-badge toy">FRAGILE // TOY AI WRAPPER</span>
+        <h3>Naïve API Call (Unsafe)</h3>
+        <p>Directly passing raw user prompts to an LLM endpoint with no timeouts, no structured schema enforcement, and zero fallback handling. When the model rate-limits or returns unstructured markdown, the frontend crashes.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag" style="color:#ef4444">No Timeout Protection</span>
+          <span class="pillar-tag" style="color:#ef4444">Hallucination Risk</span>
+          <span class="pillar-tag" style="color:#ef4444">High Latency Spikes</span>
+        </div>
+      </div>
+
+      <div class="workbench-card pro">
+        <span class="workbench-badge pro">ROBUST // ASENDRA'S PRODUCTION ARCHITECTURE</span>
+        <h3>Failure-Aware Engineering (Production)</h3>
+        <p>Groq LPUs delivering 180ms TTFT, strict JSON schema validation via Zod/TypeScript, token budgets, semantic cache hits, and deterministic fallbacks to rule-based algorithms if LLMs time out or degrade.</p>
+        <div class="pillar-tags">
+          <span class="pillar-tag" style="color:var(--gold-bright)">Groq LPU (Sub-200ms)</span>
+          <span class="pillar-tag" style="color:var(--cyan)">JSON Schema Guards</span>
+          <span class="pillar-tag" style="color:var(--emerald)">Graceful Fallbacks</span>
+        </div>
+      </div>
     </div>
 
     <div class="genai-cards reveal">
@@ -3180,28 +4195,29 @@ html.dark .cta-band {
     <div class="concerns reveal">
       <div class="mono" data-i18n="genai.concernsTitle">PRODUCTION CONCERNS THIS ACTUALLY REQUIRES</div>
       <div class="concern-list">
-        <span class="concern-chip" data-i18n="genai.p1">Input / output control</span>
-        <span class="concern-chip" data-i18n="genai.p2">Latency</span>
-        <span class="concern-chip" data-i18n="genai.p3">Fallback behavior</span>
-        <span class="concern-chip" data-i18n="genai.p4">Validation</span>
-        <span class="concern-chip" data-i18n="genai.p5">Access control</span>
-        <span class="concern-chip" data-i18n="genai.p6">Observability</span>
-        <span class="concern-chip" data-i18n="genai.p7">Retrieval quality</span>
-        <span class="concern-chip" data-i18n="genai.p8">Model / provider abstraction</span>
+        <span class="concern-chip" data-i18n="genai.p1">Latency budgets</span>
+        <span class="concern-chip" data-i18n="genai.p2">Error fallbacks</span>
+        <span class="concern-chip" data-i18n="genai.p3">Structured outputs</span>
+        <span class="concern-chip" data-i18n="genai.p4">Token cost controls</span>
+        <span class="concern-chip" data-i18n="genai.p5">Prompt versioning</span>
+        <span class="concern-chip" data-i18n="genai.p6">Streaming UX</span>
+        <span class="concern-chip" data-i18n="genai.p7">Eval datasets</span>
+        <span class="concern-chip" data-i18n="genai.p8">Privacy &amp; compliance</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PROOF & HISTORICAL EVIDENCE ===== -->
+
+<!-- ===== SECTION 08: PROOF & HISTORICAL EVIDENCE ===== -->
 <section class="section" id="proof">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <div class="section-kicker">07 · <span data-i18n="proof.kicker">PROOF</span></div>
+        <div class="section-kicker" data-i18n="proof.kicker">08 · PROOF &amp; METRICS</div>
         <h2 class="section-title" data-i18n-html="proof.title">Evidence,<br><span class="muted">not claims.</span></h2>
       </div>
-      <p class="section-copy" data-i18n="proof.intro">A consistent framework for evaluating engineering work, applied honestly — including numbers that belong to a previous role, kept in that context.</p>
+      <p class="section-copy" data-i18n="proof.intro">A consistent framework for evaluating engineering work, applied honestly — including verified benchmarks from previous production roles.</p>
     </div>
 
     <div class="proof-flow reveal">
@@ -3214,14 +4230,43 @@ html.dark .cta-band {
 
     <div class="proof-hist reveal">
       <div class="mono" data-i18n="proof.histLabel">PREVIOUS-ROLE EVIDENCE — SUMEDHA SOFTTECH / ZENDUIT (DEC 2023–APR 2025)</div>
-      <div class="metric-grid">
-        <div class="metric"><strong>35%</strong><span data-i18n="proof.m1">Page-load improvement</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
-        <div class="metric"><strong>40%</strong><span data-i18n="proof.m2">Fewer component re-renders</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
-        <div class="metric"><strong>50%</strong><span data-i18n="proof.m3">Reduction in authentication failures</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
-        <div class="metric"><strong>20%</strong><span data-i18n="proof.m4">Database latency reduction</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
-        <div class="metric"><strong>30%</strong><span data-i18n="proof.m5">Reduction in release time</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
-        <div class="metric"><strong>95%</strong><span data-i18n="proof.m6">Sprint delivery rate</span><small data-i18n="proof.histTag">Sumedha Softtech · previous role</small></div>
-        <div class="metric"><strong>10,000+</strong><span data-i18n="proof.m7">API requests handled per day, at 99.9% uptime</span><small data-i18n="proof.histTagZenduit">ZenduIt project · previous role</small></div>
+      
+      <div class="gauge-card-grid">
+        <div class="gauge-card">
+          <strong>35%</strong>
+          <span data-i18n="proof.m1">Page-load improvement</span>
+          <small data-i18n="proof.histTag">Sumedha Softtech · previous role</small>
+        </div>
+        <div class="gauge-card">
+          <strong>40%</strong>
+          <span data-i18n="proof.m2">Fewer component re-renders</span>
+          <small data-i18n="proof.histTag">Sumedha Softtech · previous role</small>
+        </div>
+        <div class="gauge-card">
+          <strong>50%</strong>
+          <span data-i18n="proof.m3">Reduction in auth failures</span>
+          <small data-i18n="proof.histTag">Sumedha Softtech · previous role</small>
+        </div>
+        <div class="gauge-card">
+          <strong>20%</strong>
+          <span data-i18n="proof.m4">Database latency reduction</span>
+          <small data-i18n="proof.histTag">Sumedha Softtech · previous role</small>
+        </div>
+        <div class="gauge-card">
+          <strong>30%</strong>
+          <span data-i18n="proof.m5">Reduction in release time</span>
+          <small data-i18n="proof.histTag">Sumedha Softtech · previous role</small>
+        </div>
+        <div class="gauge-card">
+          <strong>95%</strong>
+          <span data-i18n="proof.m6">Sprint delivery rate</span>
+          <small data-i18n="proof.histTag">Sumedha Softtech · previous role</small>
+        </div>
+        <div class="gauge-card" style="grid-column: 1 / -1">
+          <strong style="font-size:38px">10,000+</strong>
+          <span data-i18n="proof.m7">API requests handled per day, at 99.9% uptime</span>
+          <small data-i18n="proof.histTagZenduit">ZenduIt project · fleet management platform</small>
+        </div>
       </div>
     </div>
   </div>
@@ -3466,6 +4511,14 @@ const T = {
   "evidence.kicker": ["PRODUCT SURFACE","प्रोडक्ट सतह","SUPERFICIE DE PRODUCTO","SURFACE PRODUIT","PRODUKTOBERFLÄCHE","プロダクト画面"],
   "evidence.title": ["Evidence,<br><span class=\"muted\">not a screenshot wall.</span>","प्रमाण,<br><span class=\"muted\">स्क्रीनशॉट की दीवार नहीं।</span>","Evidencia,<br><span class=\"muted\">no un muro de capturas.</span>","Des preuves,<br><span class=\"muted\">pas un mur de captures.</span>","Beweise,<br><span class=\"muted\">keine Screenshot-Wand.</span>","証拠であって、<br><span class=\"muted\">スクリーンショットの羅列ではない。</span>"],
   "evidence.intro": ["A deliberate sequence through KiteSuite's product surface — each screenshot chosen for what it proves about the engineering behind it.","KiteSuite की प्रोडक्ट सतह के माध्यम से एक सोची-समझी क्रम — हर स्क्रीनशॉट उसके पीछे की इंजीनियरिंग साबित करने के लिए चुना गया है।","Una secuencia deliberada por la superficie de producto de KiteSuite.","Une séquence délibérée à travers la surface produit de KiteSuite.","Eine bewusste Abfolge durch die Produktoberfläche von KiteSuite.","エンジニアリングの確かさを証明するために選ばれたプロダクト画面の数々。"],
+    "evidence.item1.alt": ["KiteSuite Release Management list view","काइटसूट रिलीज मैनेजमेंट सूची दृश्य","Vista de lista de gestión de versiones de KiteSuite","Vue de la liste de gestion des versions de KiteSuite","KiteSuite Release-Management Listenansicht","KiteSuite リリース管理リストビュー"],
+  "evidence.item2.alt": ["KiteSuite Integrations configuration page","काइटसूट इंटीग्रेशन कॉन्फ़िगरेशन पृष्ठ","Página de configuración de integraciones de KiteSuite","Page de configuration des intégrations KiteSuite","KiteSuite Integrationen-Konfigurationsseite","KiteSuite 連携設定ページ"],
+  "evidence.item3.alt": ["KiteSuite Recruiting and ATS pipeline","काइटसूट भर्ती और ATS पाइपलाइन","Pipeline de reclutamiento y ATS de KiteSuite","Pipeline de recrutement et ATS de KiteSuite","KiteSuite Recruiting- und ATS-Pipeline","KiteSuite 採用・ATSパイプライン"],
+  "evidence.item4.alt": ["KiteSuite Projects calendar view","काइटसूट प्रोजेक्ट्स कैलेंडर दृश्य","Vista de calendario de proyectos de KiteSuite","Vue calendrier des projets KiteSuite","KiteSuite Projekt-Kalenderansicht","KiteSuite プロジェクトカレンダービュー"],
+  "evidence.item5.alt": ["KiteSuite Meetings scheduling interface","काइटसूट मीटिंग शेड्यूलिंग इंटरफ़ेस","Interfaz de programación de reuniones de KiteSuite","Interface de planification de réunions KiteSuite","KiteSuite Meeting-Planungsoberfläche","KiteSuite ミーティング日程調整画面"],
+  "evidence.item6.alt": ["KiteSuite Drive and documents view","काइटसूट ड्राइव और दस्तावेज़ दृश्य","Vista de documentos y almacenamiento de KiteSuite","Vue des documents et du drive KiteSuite","KiteSuite Drive- und Dokumentenansicht","KiteSuite ドライブ・文書管理ビュー"],
+  "evidence.item7.alt": ["KiteSuite Time Tracking interface","काइटसूट टाइम ट्रैकिंग इंटरफ़ेस","Interfaz de seguimiento del tiempo de KiteSuite","Interface de suivi du temps KiteSuite","KiteSuite Zeiterfassungs-Interface","KiteSuite 稼働時間記録インターフェース"],
+  "evidence.item8.alt": ["KiteSuite Analytics and reporting dashboard","काइटसूट एनालिटिक्स और रिपोर्टिंग डैशबोर्ड","Panel de analítica e informes de KiteSuite","Tableau de bord d'analyse et de reporting KiteSuite","KiteSuite Analyse- und Reporting-Dashboard","KiteSuite 分析・レポーティングダッシュボード"],
   "evidence.item1.label": ["RELEASE MANAGEMENT","रिलीज़ प्रबंधन","GESTIÓN DE VERSIONES","GESTION DES VERSIONS","RELEASE-MANAGEMENT","リリース管理"],
   "evidence.item1.title": ["Shipping is a tracked workflow, not a hope.","शिपिंग एक ट्रैक किया गया वर्कफ़्लो है, कोई आशा नहीं।","Lanzar no es una esperanza, es un flujo controlado.","Livrer n'est pas un espoir, c'est un flux suivi.","Ausliefern ist ein nachverfolgter Prozess, keine Hoffnung.","リリースは追跡されたワークフローです。"],
   "evidence.item1.body": ["Release planning and version tracking across a multi-module product. Proves comfort working inside structured production-delivery workflows, not just writing code in isolation.","मल्टी-मॉड्यूल प्रोडक्ट में रिलीज़ प्लानिंग और वर्शन ट्रैकिंग।","Planificación de versiones y seguimiento en un producto multimódulo.","Planification des versions et suivi dans un produit multi-modules.","Release-Planung und Versionsverfolgung über Multi-Module hinweg.","マルチモジュール製品での計画的リリース管理。"],
@@ -3658,7 +4711,54 @@ const T = {
   "work.kitesuiteKicker": ["FLAGSHIP PRODUCTION SAAS 02","फ्लैगशिप प्रोडक्शन SAAS 02","SAAS DE PRODUCCIÓN DESTACADO 02","SAAS DE PRODUCTION PHARES 02","PRODUKTIVES SAAS-FLAGGSCHIFF 02","代表的本番SaaS 02"],
   "work.kitesuiteTitle": ["KiteSuite.<br><span class=\"muted\">Connected enterprise workspace engine.</span>","KiteSuite.<br><span class=\"muted\">कनेक्टेड एंटरप्राइज वर्कस्पेस इंजन।</span>","KiteSuite.<br><span class=\"muted\">Motor de espacio de trabajo empresarial conectado.</span>","KiteSuite.<br><span class=\"muted\">Moteur d'espace de travail d'entreprise connecté.</span>","KiteSuite.<br><span class=\"muted\">Vernetzte Enterprise-Workspace-Engine.</span>","KiteSuite。<br><span class=\"muted\">統合型エンタープライズ・ワークスペース。</span>"],
   "work.regionBadge": ["GLOBAL DEPLOYMENT (IN & EU)","ग्लोबल डिप्लॉयमेंट (IN और EU)","DESPLIEGUE GLOBAL (IN Y UE)","DÉPLOIEMENT MONDIAL (IN & UE)","GLOBALER EINSATZ (IN & EU)","グローバル展開（インド・欧州）"],
-  "work.soloBadge": ["SOLO ENGINEERED & LAUNCHED","अकेले निर्मित और लॉन्च किया गया","DESARROLLADO Y LANZADO EN SOLITARIO","CONÇU ET DÉPLOYÉ EN SOLO","SOLO ENTWICKELT & GELAUNCHT","単独開発・リリース"]
+  "work.soloBadge": ["SOLO ENGINEERED & LAUNCHED","अकेले निर्मित और लॉन्च किया गया","DESARROLLADO Y LANZADO EN SOLITARIO","CONÇU ET DÉPLOYÉ EN SOLO","SOLO ENTWICKELT & GELAUNCHT","単独開発・リリース"],
+  "nav.dossier": ["DOSSIER","डोज़ियर","EXPEDIENTE","DOSSIER","DOSSIER","概要"],
+  "nav.autoapply": ["AUTOAPPLY AI","ऑटोअप्लाई AI","AUTOAPPLY AI","AUTOAPPLY AI","AUTOAPPLY AI","オートアプライAI"],
+  "nav.kitesuite": ["KITESUITE","काइटसूट","KITESUITE","KITESUITE","KITESUITE","カイトスイート"],
+  "hero.ctaAutoApply": ["AUTOAPPLY AI (SOLO SAAS) ↘","ऑटोअप्लाई AI (सोलो SAAS) ↘","AUTOAPPLY AI (SAAS EN SOLITARIO) ↘","AUTOAPPLY AI (SAAS SOLO) ↘","AUTOAPPLY AI (SOLO-SAAS) ↘","オートアプライAI（単独開発） ↘"],
+  "hero.ctaKiteSuite": ["KITESUITE (ENTERPRISE) ↘","काइटसूट (एंटरप्राइज) ↘","KITESUITE (EMPRESARIAL) ↘","KITESUITE (ENTREPRISE) ↘","KITESUITE (ENTERPRISE) ↘","カイトスイート（企業向け） ↘"],
+  "hero.ctaDossier": ["EXECUTIVE DOSSIER ↘","कार्यकारी डोज़ियर ↘","EXPEDIENTE EJECUTIVO ↘","DOSSIER EXÉCUTIF ↘","EXECUTIVE-DOSSIER ↘","エグゼクティブ概要 ↘"],
+  "dossier.kicker": ["01 · EXECUTIVE BLUEPRINT & RECRUITER DOSSIER","01 · कार्यकारी खाका और भर्तीकर्ता डोज़ियर","01 · PLAN EJECUTIVO Y EXPEDIENTE PARA RECLUTADORES","01 · DOSSIER EXÉCUTIF & RECRUTEUR","01 · EXECUTIVE-BLAUPAUSE & RECRUITER-DOSSIER","01 · 採用担当者向けエグゼクティブ概要"],
+  "dossier.title": ["The 5 Core Dimensions.<br><span class=\"muted\">Who I am, what I've done, where, what I can do, and how I do it.</span>","5 मुख्य आयाम।<br><span class=\"muted\">मैं कौन हूँ, मैंने क्या किया है, कहाँ किया है, मैं क्या कर सकता हूँ, और कैसे करता हूँ।</span>","Las 5 dimensiones clave.<br><span class=\"muted\">Quién soy, qué he hecho, dónde, qué puedo hacer y cómo lo hago.</span>","Les 5 dimensions clés.<br><span class=\"muted\">Qui je suis, ce que j'ai fait, où, ce que je sais faire et comment je procède.</span>","Die 5 Kerndimensionen.<br><span class=\"muted\">Wer ich bin, was ich getan habe, wo, was ich kann und wie ich arbeite.</span>","5つの重要要素。<br><span class=\"muted\">人物像、実績、拠点、対応技術、開発姿勢。</span>"],
+  "dossier.intro": ["A transparent architectural dossier designed for engineering leaders, hiring managers, and clients seeking verified full-stack & GenAI capabilities.","इंजीनियरिंग लीडर्स, हायरिंग मैनेजर्स और सत्यापित फुल-स्टैक व GenAI क्षमताओं की तलाश करने वाले क्लाइंट्स के लिए डिज़ाइन किया गया एक पारदर्शी आर्किटेक्चरल डोज़ियर।","Un expediente arquitectónico transparente diseñado para líderes de ingeniería, reclutadores y clientes que buscan capacidades verificadas en full-stack e IA generativa.","Un dossier architectural transparent conçu pour les responsables d'ingénierie, recruteurs et clients à la recherche de compétences full-stack et GenAI vérifiées.","Ein transparentes Architektur-Dossier für Engineering-Leiter, Recruiter und Kunden auf der Suche nach verifizierten Full-Stack- und GenAI-Fähigkeiten.","フルスタックおよび生成AIの実践力を求めるエンジニアリング責任者や採用担当者のための透明性の高い技術概要。"],
+  "dossier.d1t": ["01 · WHO I AM","01 · मैं कौन हूँ","01 · QUIÉN SOY","01 · QUI JE SUIS","01 · WER ICH BIN","01 · 人物像"],
+  "dossier.d1h": ["Full-Stack Engineer & SaaS Builder","फुल-स्टैक इंजीनियर और SaaS निर्माता","Ingeniero Full-Stack y Creador SaaS","Ingénieur Full-Stack & Créateur SaaS","Full-Stack Engineer & SaaS-Entwickler","フルスタックエンジニア・SaaS開発者"],
+  "dossier.d1c": ["Full-Stack Developer with 2+ years of production experience building scalable web applications end-to-end using Angular 17+, React, TypeScript, Node.js, Express.js, NestJS, and MongoDB. Proven track record leading technical delivery, architecting resilient distributed APIs, and integrating practical GenAI workflows.","2+ वर्षों के प्रोडक्शन अनुभव वाले फुल-स्टैक डेवलपर, जो Angular 17+, React, TypeScript, Node.js, Express.js, NestJS और MongoDB का उपयोग करके स्केलेबल वेब ऐप्स बनाते हैं। तकनीकी डिलीवरी का नेतृत्व करने, मजबूत वितरित APIs और व्यावहारिक GenAI वर्कफ़्लो को एकीकृत करने का सिद्ध ट्रैक रिकॉर्ड।","Desarrollador Full-Stack con más de 2 años de experiencia en producción construyendo aplicaciones web escalables de extremo a extremo con Angular 17+, React, TypeScript, Node.js, Express.js, NestJS y MongoDB.","Développeur Full-Stack avec plus de 2 ans d'expérience en production sur des applications web scalables de bout en bout avec Angular 17+, React, TypeScript, Node.js, Express.js, NestJS et MongoDB.","Full-Stack-Entwickler mit über 2 Jahren Produktionserfahrung im End-to-End-Bau skalierbarer Webanwendungen mit Angular 17+, React, TypeScript, Node.js, Express.js, NestJS und MongoDB.","Angular 17+、React、TypeScript、Node.js、Express.js、NestJS、MongoDBを用いた2年以上の本番SaaS開発実績を持つフルスタックエンジニア。分散APIと実用的生成AIの統合を牽引。"],
+  "dossier.d2t": ["02 · WHAT I HAVE DONE","02 · मैंने क्या किया है","02 · QUÉ HE HECHO","02 · CE QUE J'AI FAIT","02 · WAS ICH GETAN HABE","02 · 実績"],
+  "dossier.d2h": ["Flagship Solo SaaS + Enterprise Platform","फ्लैगशिप सोलो SaaS + एंटरप्राइज प्लेटफॉर्म","SaaS en Solitario + Plataforma Empresarial","SaaS en Solo + Plateforme d'Entreprise","Solo-SaaS + Enterprise-Plattform","単独開発SaaS ＋ 企業向けSaaS"],
+  "dossier.d2c": ["• AutoApply AI: Solo-founded, architected, and shipped an autonomous job application SaaS for India & Europe with Groq LLMs, Chrome Extension, and Stripe billing.\n• KiteSuite: Owned full-stack feature delivery on an enterprise multi-module SaaS (ATS, CRM, scheduling, docs, no-code AI builder) at Rudra Innovative Software.\n• ZenduIt: Built high-throughput fleet management APIs (10k+ daily requests, 99.9% uptime) at Sumedha Softtech.","• AutoApply AI: भारत और यूरोप के लिए Groq LLMs, क्रोम एक्सटेंशन और Stripe बिलिंग के साथ एक स्वचालित जॉब एप्लिकेशन SaaS अकेले बनाया।\n• KiteSuite: रुद्रा इनोवेटिव सॉफ्टवेयर में एंटरप्राइज मल्टी-मॉड्यूल SaaS पर फुल-स्टैक डिलीवरी का स्वामित्व।\n• ZenduIt: सुमेधा सॉफ्टटेक में उच्च-थ्रूपुट फ्लीट मैनेजमेंट APIs (10k+ दैनिक अनुरोध, 99.9% अपटाइम)।","• AutoApply AI: Fundé, diseñé y lancé en solitario un SaaS de automatización laboral para India y Europa.\n• KiteSuite: Lideré desarrollo full-stack en suite empresarial (ATS, CRM, docs, constructor IA no-code).\n• ZenduIt: Construí APIs de gestión de flotas con 10k+ peticiones diarias y 99.9% de uptime.","• AutoApply AI : Conçu, développé et déployé en solo un SaaS d'automatisation des candidatures pour l'Inde et l'Europe.\n• KiteSuite : Prise en charge du développement full-stack sur plateforme d'entreprise multi-modules.\n• ZenduIt : Conception d'API de gestion de flotte (10k+ requêtes/jour, 99.9% d'uptime).","• AutoApply AI: Solo entwickeltes und gelaunchtes KI-Bewerbungs-SaaS für Indien und Europa.\n• KiteSuite: Technische Leitung und Full-Stack-Auslieferung für Enterprise-Multi-Modul-SaaS.\n• ZenduIt: Hochverfügbare Flottenmanagement-APIs (10k+ tägliche Anfragen, 99.9% Uptime).","• AutoApply AI: Groq LLM、拡張機能、Stripe決済を備えた求職自動化SaaSを完全単独開発。\n• KiteSuite: Rudra社にて複数モジュール統合SaaS（採用、CRM、日程調整、AI自動化）の開発を牽引。\n• ZenduIt: Sumedha社にて日次1万件超のAPI・稼働率99.9%の車両管理基盤を構築。"],
+  "dossier.d3t": ["03 · WHERE I HAVE DONE IT","03 · मैंने कहाँ किया है","03 · DÓNDE LO HE HECHO","03 · OÙ JE L'AI FAIT","03 · WO ICH ES GETAN HABE","03 · 拠点・経歴"],
+  "dossier.d3h": ["Mohali · Jaipur · Sri Balaji (RTU)","मोहाली · जयपुर · श्री बालाजी (RTU)","Mohali · Jaipur · Sri Balaji (RTU)","Mohali · Jaipur · Sri Balaji (RTU)","Mohali · Jaipur · Sri Balaji (RTU)","モハリ · ジャイプール · スリ・バラジ工科大"],
+  "dossier.d3c": ["• Rudra Innovative Software (Mohali, Punjab): Junior MEAN Stack Developer — GenAI & AI Applications.\n• Sumedha Softtech Pvt. Ltd. (Jaipur, Rajasthan): Software Developer & Web Developer Intern.\n• Sri Balaji College of Engineering & Technology, Jaipur (Affiliated to RTU): B.Tech CSE (GPA: 8.6 / 10, Class of 2024).","• रुद्रा इनोवेटिव सॉफ्टवेयर (मोहाली, पंजाब): जूनियर MEAN स्टैक डेवलपर — GenAI और AI एप्लिकेशन।\n• सुमेधा सॉफ्टटेक प्राइवेट लिमिटेड (जयपुर, राजस्थान): सॉफ्टवेयर डेवलपर और वेब डेवलपर इंटर्न।\n• श्री बालाजी कॉलेज ऑफ इंजीनियरिंग एंड टेक्नोलॉजी, जयपुर (RTU संबद्ध): B.Tech CSE (GPA: 8.6 / 10, क्लास 2024)।","• Rudra Innovative Software (Mohali, Punjab): Desarrollador Junior MEAN Stack — GenAI.\n• Sumedha Softtech Pvt. Ltd. (Jaipur, Rajasthan): Desarrollador de Software e Interno.\n• Sri Balaji College (RTU, Jaipur): Grado en Ingeniería Informática (GPA: 8.6 / 10, 2024).","• Rudra Innovative Software (Mohali, Punjab) : Développeur Junior MEAN Stack — GenAI.\n• Sumedha Softtech Pvt. Ltd. (Jaipur, Rajasthan) : Développeur Logiciel & Stagiaire.\n• Sri Balaji College (RTU, Jaipur) : Licence en Technologie Informatique (GPA : 8.6 / 10, 2024).","• Rudra Innovative Software (Mohali, Punjab): Junior MEAN-Stack-Entwickler — GenAI.\n• Sumedha Softtech Pvt. Ltd. (Jaipur, Rajasthan): Software-Entwickler & Web-Intern.\n• Sri Balaji College (RTU, Jaipur): Bachelor in Computer Science (GPA: 8.6 / 10, 2024).","• Rudra Innovative Software（パンジャブ州モハリ）: ジュニアMEANスタック・生成AIエンジニア。\n• Sumedha Softtech（ラジャスタン州ジャイプール）: ソフトウェア開発者・インターン。\n• スリ・バラジ工科大学（RTU提携）: 工学士（情報工学）GPA 8.6 / 10（2024年卒）。"],
+  "dossier.d4t": ["04 · WHAT I CAN DO","04 · मैं क्या कर सकता हूँ","04 · QUÉ PUEDO HACER","04 · CE QUE JE SAIS FAIRE","04 · WAS ICH KANN","04 · 提供可能スキル"],
+  "dossier.d4h": ["Frontend × Backend × GenAI × Cloud","फ्रंटएंड × बैकएंड × GenAI × क्लाउड","Frontend × Backend × GenAI × Nube","Frontend × Backend × GenAI × Cloud","Frontend × Backend × GenAI × Cloud","フロント × バック × 生成AI × クラウド"],
+  "dossier.d4c": ["• Frontend: Angular 17+ (Signals/Universal), React.js, TypeScript, NgRx/RxJS, SCSS glassmorphism, WCAG.\n• Backend: Node.js, Express.js, NestJS, REST APIs, WebSockets, Redis, JWT, OAuth 2.0, Auth0.\n• GenAI & Automation: Groq LPUs (Llama 3.3 70B), RAG, Semantic Search, Manifest V3 Extensions, Puppeteer & 15ms vector pdf-lib.\n• Cloud & Infra: MongoDB Atlas, Stripe billing, Twilio SMS, Resend, Railway, Vercel, Docker, GitHub Actions CI/CD.","• फ्रंटएंड: Angular 17+ (सिग्नल्स/यूनिवर्सल), React.js, TypeScript, NgRx/RxJS, SCSS ग्लासमॉर्फिज्म, WCAG।\n• बैकएंड: Node.js, Express.js, NestJS, REST APIs, WebSockets, Redis, JWT, OAuth 2.0, Auth0।\n• GenAI और ऑटोमेशन: Groq LPUs (Llama 3.3 70B), RAG, सिमेंटिक खोज, Manifest V3 एक्सटेंशन, Puppeteer और 15ms वेक्टर pdf-lib।\n• क्लाउड और इन्फ्रा: MongoDB Atlas, Stripe बिलिंग, Twilio SMS, Resend, Railway, Vercel, Docker, GitHub Actions CI/CD।","• Frontend: Angular 17+ (Signals/Universal), React.js, TypeScript, NgRx/RxJS, SCSS, WCAG.\n• Backend: Node.js, Express.js, NestJS, REST APIs, WebSockets, Redis, JWT, OAuth 2.0.\n• GenAI y Automatización: Groq LPUs (Llama 3.3 70B), RAG, extensiones Manifest V3, Puppeteer y pdf-lib vector.\n• Nube e Infraestructura: MongoDB Atlas, Stripe, Twilio, Resend, Railway, Vercel, Docker, CI/CD.","• Frontend : Angular 17+ (Signals/Universal), React.js, TypeScript, NgRx/RxJS, SCSS, WCAG.\n• Backend : Node.js, Express.js, NestJS, API REST, WebSockets, Redis, JWT, OAuth 2.0.\n• GenAI & Automatisation : Groq LPUs (Llama 3.3 70B), RAG, extensions Manifest V3, Puppeteer & pdf-lib vectoriel.\n• Cloud & Infra : MongoDB Atlas, Stripe, Twilio, Resend, Railway, Vercel, Docker, CI/CD.","• Frontend: Angular 17+ (Signals/Universal), React.js, TypeScript, NgRx/RxJS, SCSS, WCAG.\n• Backend: Node.js, Express.js, NestJS, REST-APIs, WebSockets, Redis, JWT, OAuth 2.0.\n• GenAI & Automatisierung: Groq LPUs (Llama 3.3 70B), RAG, Manifest V3 Extensions, Puppeteer & pdf-lib.\n• Cloud & Infra: MongoDB Atlas, Stripe, Twilio, Resend, Railway, Vercel, Docker, CI/CD.","• フロントエンド: Angular 17+（Signals/SSR）、React.js、TypeScript、NgRx/RxJS、WCAG。\n• バックエンド: Node.js、Express.js、NestJS、REST API、WebSockets、Redis、JWT、OAuth 2.0。\n• 生成AI・自動化: Groq LPU（Llama 3.3 70B）、RAG、拡張機能、Puppeteer、15ms vector pdf-lib。\n• クラウド: MongoDB Atlas、Stripe、Twilio、Resend、Railway、Vercel、Docker、CI/CD。"],
+  "dossier.d5t": ["05 · HOW I DO IT","05 · मैं कैसे करता हूँ","05 · CÓMO LO HAGO","05 · COMMENT JE PROCÈDE","05 · WIE ICH ARBEITE","05 · 開発姿勢と原則"],
+  "dossier.d5h": ["Architecture-First & Failure-Aware","आर्किटेक्चर-फर्स्ट और विफलता-जागरूक","Arquitectura Primero y Resiliencia","Architecture d'Abord & Résilience","Architektur-Fokus & Ausfallsicherheit","設計優先・障害前提の堅牢設計"],
+  "dossier.d5c": ["• Clean separation of concerns with modular service boundaries.\n• Failure-aware GenAI: strict latency budgets, timeouts, schema validation, and deterministic fallbacks so models never crash production.\n• 99.9% uptime discipline with automated CI/CD and zero-downtime rollouts.\n• Rigorous quality: unit & integration test suites, Postman collections, and PR code reviews.","• मॉड्यूलर सर्विस सीमाओं के साथ चिंताओं का स्पष्ट पृथक्करण।\n• विफलता-जागरूक GenAI: सख्त लेटेंसी बजट, टाइमआउट, स्कीमा सत्यापन और नियतात्मक फॉलबैक ताकि मॉडल कभी उत्पादन को क्रैश न करें।\n• स्वचालित CI/CD और शून्य-डाउनटाइम रोलआउट के साथ 99.9% अपटाइम अनुशासन।\n• कठोर गुणवत्ता: यूनिट और इंटीग्रेशन टेस्ट सूट, Postman संग्रह और PR कोड समीक्षाएं।","• Separación limpia de responsabilidades con límites de servicio modulares.\n• GenAI resiliente a fallos: presupuestos de latencia, esquemas y respaldos seguros.\n• Disciplina de 99.9% de uptime con CI/CD automático y despliegues sin caída.\n• Rigor técnico: suites de pruebas unitarias e integración y revisión de código PR.","• Séparation nette des responsabilités avec frontières de services modulaires.\n• GenAI résiliente : budgets de latence, validation de schéma et replis garantis.\n• Discipline de haute disponibilité (99.9% d'uptime) avec CI/CD automatisé.\n• Rigueur d'ingénierie : tests unitaires/intégration, collections Postman et revues de code.","• Klare Trennung von Verantwortlichkeiten mit modularen Servicegrenzen.\n• Ausfallsicheres GenAI: Latenz-Budgets, Timeouts, Schemavalidierung und Fallbacks.\n• 99.9% Uptime-Disziplin mit automatisiertem CI/CD und Zero-Downtime-Rollouts.\n• Höchste Qualität: Unit- und Integrationstests, Postman-Sammlungen und PR-Reviews.","• 明確な関心事の分離と疎結合マイクロサービス設計。\n• 障害前提の生成AI設計: 厳格なレイテンシ管理、タイムアウト、スキーマ検証、フォールバック。\n• CI/CD自動化と無停止デプロイによる稼働率99.9%の運用規律。\n• 単体・結合テスト、Postman検証、PRレビューの徹底。"],
+  "autoapply.kicker": ["03 · FLAGSHIP SOLO VENTURE","03 · फ्लैगशिप सोलो प्रोजेक्ट","03 · PROYECTO PRINCIPAL EN SOLITARIO","03 · PROJET SOLO PRINCIPAL","03 · SOLO-HAUPTPROJEKT","03 · 単独開発の旗艦プロジェクト"],
+  "autoapply.title": ["AutoApply AI.<br><span class=\"muted\">Autonomous Job Application & Career Intelligence SaaS.</span>","AutoApply AI.<br><span class=\"muted\">ऑटोनॉमस जॉब एप्लिकेशन और करियर इंटेलिजेंस SaaS।</span>","AutoApply AI.<br><span class=\"muted\">SaaS autónomo de postulación y career intelligence.</span>","AutoApply AI.<br><span class=\"muted\">SaaS autonome de candidature et intelligence de carrière.</span>","AutoApply AI.<br><span class=\"muted\">Autonomes Bewerbungs- & Karriere-Intelligenz-SaaS.</span>","AutoApply AI。<br><span class=\"muted\">自律型求人応募・キャリア移住インテリジェンスSaaS。</span>"],
+  "autoapply.intro": ["Designed, architected, and shipped solo from front end to cloud infrastructure. An autonomous job-search platform empowering tech job seekers across India and Europe with sub-second AI matching, ghost-job credibility filtering, and 15ms ATS resume tailoring.","फ्रंट एंड से लेकर क्लाउड इन्फ्रास्ट्रक्चर तक अकेले डिज़ाइन, आर्किटेक्ट और शिप किया गया। भारत और यूरोप में टेक जॉब चाहने वालों को सब-सेकंड AI मैचिंग, घोस्ट-जॉब विश्वसनीयता फ़िल्टरिंग और 15ms ATS रिज्यूमे टेलरिंग के साथ सशक्त बनाने वाला एक स्वायत्त जॉब-सर्च प्लेटफॉर्म।","Diseñado, programado y lanzado en solitario desde el frontend hasta la infraestructura en la nube. Plataforma autónoma para profesionales de India y Europa con emparejamiento por IA subsegundo, filtro de ofertas fantasma y adaptación ATS en 15ms.","Conçu, développé et déployé en solo du frontend à l'infrastructure cloud. Plateforme autonome permettant aux candidats en Inde et en Europe de bénéficier d'un matching IA sub-seconde, d'un filtre anti-offres fantômes et d'une adaptation ATS en 15ms.","Allein entworfen, entwickelt und in die Cloud überführt. Eine autonome Jobsuche-Plattform für Fachkräfte in Indien und Europa mit sekundenschnellem KI-Matching, Ghost-Job-Filterung und 15ms ATS-Bewerbungsanpassung.","フロントエンドからクラウド基盤まで完全単独で設計・構築・リリース。サブ秒でのAI適合判定、空求人排除、15msの高速ATSレジュメ最適化でインドと欧州の求職者を支援する自律型求人応募SaaS。"],
+  "autoapply.soloTag": ["FLAGSHIP SOLO VENTURE · OWNED & SHIPPED SOLO","फ्लैगशिप सोलो प्रोजेक्ट · अकेले स्वामित्व और शिप किया गया","PROYECTO EN SOLITARIO · DESARROLLADO Y LANZADO EN SOLITARIO","PROJET SOLO PHARES · CONÇU ET DÉPLOYÉ EN SOLO","SOLO-FLAGGSCHIFF · ALLEIN ENTWICKELT & GELAUNCHT","単独開発代表作 · 完全独自設計・リリース"],
+  "autoapply.roleTag": ["SOLO FOUNDER & FULL-STACK ARCHITECT","सोलो फाउंडर और फुल-स्टैक आर्किटेक्ट","FUNDADOR Y ARQUITECTO FULL-STACK EN SOLITARIO","FONDATEUR & ARCHITECTE FULL-STACK SOLO","SOLO-GRÜNDER & FULL-STACK-ARCHITEKT","単独創設者・フルスタック設計者"],
+  "autoapply.targetTag": ["TARGET: INDIA (NAUKRI, LINKEDIN, INDEED) & EUROPE / GLOBAL REMOTE","लक्षित: भारत (नौकरी, लिंक्डइन, इंडीड) और यूरोप / ग्लोबल रिमोट","DESTINO: INDIA (NAUKRI, LINKEDIN, INDEED) Y EUROPA / REMOTO GLOBAL","CIBLE : INDE DEVISE (NAUKRI, LINKEDIN, INDEED) & EUROPE / TELETRAVAIL","ZIELGRUPPE: INDIEN (NAUKRI, LINKEDIN, INDEED) & EUROPA / REMOTE","対象市場: インド（Naukri, LinkedIn, Indeed）および欧州・グローバルリモート"],
+  "autoapply.galleryKicker": ["PRODUCTION SCREENSHOT EVIDENCE // 9 VERIFIED WORKSPACES","प्रोडक्शन स्क्रीनशॉट प्रमाण // 9 सत्यापित कार्यक्षेत्र","EVIDENCIA DE PANTALLAS EN PRODUCCIÓN // 9 ESPACIOS VERIFICADOS","PREUVES DE CAPTURES EN PRODUCTION // 9 ESPACES VÉRIFIÉS","PRODUKTIONS-SCREENSHOTS // 9 VERIFIZIERTE SYSTEME","本番稼働画面エビデンス // 9画面の実装検証"],
+  "autoapply.galleryTitle": ["Live System Screenshots.<br><span class=\"muted\">The actual SaaS platform in action.</span>","लाइव सिस्टम स्क्रीनशॉट।<br><span class=\"muted\">वास्तविक SaaS प्लेटफॉर्म एक्शन में।</span>","Capturas del sistema activo.<br><span class=\"muted\">La plataforma SaaS real en acción.</span>","Captures du système actif.<br><span class=\"muted\">La véritable plateforme SaaS en action.</span>","Screenshots des Live-Systems.<br><span class=\"muted\">Die produktive SaaS-Plattform im Einsatz.</span>","本番システムの稼働画面。<br><span class=\"muted\">稼働中のSaaS基盤の実際。</span>"],
+  "autoapply.tabAll": ["ALL SCREENS (9)","सभी स्क्रीन (9)","TODAS LAS PANTALLAS (9)","TOUTES LES CAPTURES (9)","ALLE SCREENS (9)","全画面表示 (9)"],
+  "autoapply.tabCore": ["CORE PIPELINE & DASHBOARD","कोर पाइपलाइन और डैशबोर्ड","PIPELINE PRINCIPAL Y DASHBOARD","PIPELINE PRINCIPAL & DASHBOARD","CORE-PIPELINE & DASHBOARD","中核パイプライン・管理画面"],
+  "autoapply.tabResume": ["RESUME ATS INTELLIGENCE","रिज्यूमे ATS इंटेलिजेंस","INTELIGENCIA ATS DE CV","INTELLIGENCE ATS DU CV","RESUME-ATS-INTELLIGENZ","レジュメATS最適化"],
+  "autoapply.tabEu": ["INDIA ➔ EUROPE MOBILITY","भारत ➔ यूरोप मोबिलिटी","MOVILIDAD INDIA ➔ EUROPA","MOBILITÉ INDE ➔ EUROPE","MOBILITÄT INDIEN ➔ EUROPA","インド ➔ 欧州キャリア移住"],
+  "autoapply.tabCommerce": ["PRICING & AUTHENTICATION","मूल्य निर्धारण और प्रमाणीकरण","PRECIOS Y AUTENTICACIÓN","TARIFS & AUTHENTIFICATION","PREISE & AUTHENTIFIZIERUNG","料金プラン・認証画面"],
+  "pillar.p1Title": ["⚡ Laser Resume Parsing & Groq Matchmaker","⚡ लेजर रिज्यूमे पार्सिंग और Groq मैचमेकर","⚡ Parseo láser de CV y Groq Matchmaker","⚡ Analyse laser de CV & Matching Groq","⚡ Laser-Resume-Parsing & Groq-Matching","⚡ 高速レジュメ解析とGroq適合度判定"],
+  "pillar.p1Desc": ["Ingests unstructured PDFs, normalizes 4 skill buckets (technical, tools, soft, languages), and computes explainable match percentages with missing skill gap reports using Groq LPUs (llama-3.3-70b-versatile & llama-3.1-8b-instant).","असंरचित PDFs को पार्स करता है, 4 कौशल श्रेणियों को सामान्यीकृत करता है, और Groq LPUs का उपयोग करके स्पष्टीकरण के साथ मैच प्रतिशत और कमियों की रिपोर्ट तैयार करता है।","Ingesta PDFs no estructurados, normaliza 4 categorías de habilidades y calcula porcentajes de coincidencia explicables con informes de brechas usando Groq LPUs.","Ingère les CV PDF, normalise 4 catégories de compétences et calcule un pourcentage de matching explicable via Groq LPUs.","Parst unstrukturierte PDFs, normalisiert 4 Skill-Kategorien und berechnet erklärbare Match-Scores via Groq-LPUs.","非構造化PDFを解析し4つのスキル領域に分類。Groq LPUを用いて詳細な適合度と不足スキルのレポートを即時生成。"],
+  "pillar.p2Title": ["🛡️ Ghost-Job Credibility Shield","🛡️ घोस्ट-जॉब विश्वसनीयता शील्ड","🛡️ Escudo de credibilidad contra ofertas fantasma","🛡️ Bouclier anti-offres fantômes","🛡️ Ghost-Job-Glaubwürdigkeitsschild","🛡️ 空求人・幽霊求人排除シールド"],
+  "pillar.p2Desc": ["Algorithmic 0–100 heuristic scoring engine that analyzes posting age, reposting frequencies, recruiter responsiveness, and company domain trust to weed out expired, fake, and resume-harvesting postings before applying.","एल्गोरिद्मिक 0-100 स्कोरिंग इंजन जो आवेदन करने से पहले समाप्त, नकली और डेटा एकत्र करने वाली पोस्टिंग्स को फ़िल्टर करता है।","Motor heurístico 0-100 que analiza antigüedad, frecuencia de republicación y dominio de empresa para filtrar ofertas falsas.","Moteur heuristique 0-100 analysant la fraîcheur des offres et la crédibilité de l'entreprise pour filtrer les faux recrutements.","Heuristischer 0-100 Bewertungsalgorithmus, der Posting-Alter und Domain-Vertrauen prüft, um Fake-Jobs auszufiltern.","投稿日時や再掲載頻度、ドメイン信頼性を0〜100でヒューリスティック解析し、期限切れや空求人への無駄な応募を防止。"],
+  "pillar.p3Title": ["📄 15ms Vector ATS Resume Tailoring","📄 15ms वेक्टर ATS रिज्यूमे टेलरिंग","📄 Adaptación de CV ATS vectorial en 15ms","📄 Adaptation de CV ATS vectorielle en 15ms","📄 15ms Vektorielles ATS-Resume-Tailoring","📄 15ms 高速ベクトルATSレジュメ最適化"],
+  "pillar.p3Desc": ["Dual-Engine generation: Puppeteer Chromium for high-fidelity rendering + pure-JS 15ms vector pdf-lib. Dynamically adapts bullet points to keyword requirements with zero hallucination and strict 14mm/16mm ATS margins.","डुअल-इंजन जनरेशन: उच्च-गुणवत्ता के लिए Puppeteer और 15ms वेक्टर pdf-lib। शून्य भ्रम और सख्त 14mm/16mm ATS मार्जिन के साथ बुलेट पॉइंट्स को अनुकूलित करता है।","Generación de motor dual: Puppeteer Chromium + pdf-lib vectorial de 15ms sin alucinaciones y márgenes ATS de 14mm/16mm.","Génération double moteur : Puppeteer Chromium + pdf-lib vectoriel 15ms sans hallucination et marges ATS 14mm/16mm.","Dual-Engine-Generierung: Puppeteer Chromium + 15ms reines JS pdf-lib ohne Halluzinationen mit 14mm/16mm ATS-Rändern.","Puppeteerと15msの高速pdf-libによる二重生成エンジン。ハルシネーションを排除し、厳格なATS余白基準を満たす最適化。"],
+  "pillar.p4Title": ["🚀 Multi-Portal Autopilot & Chrome Extension","🚀 मल्टी-पोर्टल ऑटोपायलट और क्रोम एक्सटेंशन","🚀 Piloto automático multiportales y extensión Chrome","🚀 Pilote automatique multi-portails & extension Chrome","🚀 Multi-Portal-Autopilot & Chrome-Extension","🚀 複数求人媒体自動応募とChrome拡張機能"],
+  "pillar.p4Desc": ["Manifest V3 Chrome Extension copilot with 1-click Easy Apply automation for Naukri, LinkedIn, and Indeed. Features an in-page HUD, background tab throttling protection, anti-bot delays, and zero focus-stealing.","नौकरी, लिंक्डइन और इंडीड के लिए 1-क्लिक इजी अप्लाई ऑटोमेशन के साथ Manifest V3 क्रोम एक्सटेंशन कोपायलट। इन-पेज HUD और शून्य फोकस-स्टीलिंग।","Extensión Chrome Manifest V3 con Easy Apply en 1 clic para Naukri, LinkedIn e Indeed, con HUD en página y sin robo de foco.","Extension Chrome Manifest V3 avec Easy Apply en 1 clic pour Naukri, LinkedIn et Indeed, avec affichage HUD intégré sans interruption.","Manifest V3 Chrome-Extension mit 1-Klick-Bewerbung für Naukri, LinkedIn und Indeed mit In-Page-HUD und Zero-Focus-Stealing.","Naukri、LinkedIn、Indeed対応のManifest V3 Chrome拡張機能。画面操作を邪魔しないHUD表示と安全な自動応募。"],
+  "pillar.p5Title": ["🌍 India → Europe Career Intelligence","🌍 भारत → यूरोप करियर इंटेलिजेंस","🌍 Inteligencia de carrera India → Europa","🌍 Intelligence de carrière Inde → Europe","🌍 Karriere-Intelligenz Indien → Europa","🌍 インド ➔ 欧州キャリア移住インテリジェンス"],
+  "pillar.p5Desc": ["Empowers global engineering mobility: purchasing power parity conversions from CTC (INR LPA) to EUR (€ gross/net), and automated German & EU Blue Card minimum wage threshold eligibility screening.","ग्लोबल इंजीनियरिंग मोबिलिटी को सशक्त बनाता है: CTC (INR LPA) से EUR (€) क्रय शक्ति रूपांतरण और जर्मन व EU ब्लू कार्ड पात्रता जांच।","Potencia la movilidad global: conversión de poder adquisitivo de CTC (INR LPA) a EUR (€) y verificación para Tarjeta Azul UE.","Favorise la mobilité internationale : conversion du pouvoir d'achat CTC (INR LPA) en EUR (€) et éligibilité à la Carte Bleue UE.","Unterstützt globale Ingenieursmobilität: Kaufkraftparitäts-Umrechnung von CTC (INR LPA) in EUR (€) und EU-Blue-Card-Prüfung.","インドの年収（INR LPA）から欧州給与（EUR）への購買力平価換算、ドイツおよびEUブルーカードのビザ適格性自動判定。"],
 };
 
 /* Telemetry nodes data: Dual Architecture (Core Full-Stack + AutoApply AI) */
@@ -4367,8 +5467,9 @@ const lightboxImg = document.getElementById('lightboxImg');
 const lightboxCaption = document.getElementById('lightboxCaption');
 const lightboxClose = document.getElementById('lightboxClose');
 
-document.querySelectorAll('[data-zoom]').forEach(el => {
-  el.addEventListener('click', () => {
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-zoom]');
+  if(el){
     const src = el.dataset.zoom;
     const cap = el.dataset.caption || '';
     if(src && lightboxModal && lightboxImg){
@@ -4377,7 +5478,7 @@ document.querySelectorAll('[data-zoom]').forEach(el => {
       lightboxModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-  });
+  }
 });
 
 function closeLightbox(){
@@ -4563,6 +5664,36 @@ if(form){
 }
 
 // Initial language trigger
+
+/* ---- AUTOAPPLY AI GALLERY CATEGORY FILTER ---- */
+(function initAutoapplyGallery(){
+  const tabBtns = document.querySelectorAll('.gallery-tab-btn');
+  const cards = document.querySelectorAll('#autoapplyGalleryGrid .gallery-card');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if(filter === 'all' || card.dataset.category === filter){
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity .3s ease, transform .3s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 30);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+
 applyLanguage(currentLang);
 
 })();
