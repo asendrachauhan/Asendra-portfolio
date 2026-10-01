@@ -1,5 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-<rect width="100" height="100" rx="22" fill="#0a0d0d"/>
-<path d="M50 24 L74 74 H64 L58.5 62 H41.5 L36 74 H26 Z M50 40 L44.5 52 H55.5 Z" fill="#f4f0e6"/>
-<circle cx="76" cy="26" r="6" fill="#e8501c"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="cyanGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="50%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#f5a623"/>
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd166"/>
+      <stop offset="100%" stop-color="#f5a623"/>
+    </linearGradient>
+    <filter id="cyberGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background Shield -->
+  <rect width="120" height="120" rx="28" fill="#06070a"/>
+  <rect x="2" y="2" width="116" height="116" rx="26" stroke="url(#cyanGold)" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Circuit grid lines -->
+  <path d="M15 60 H30 M90 60 H105 M60 15 V30 M60 90 V105" stroke="#00f2fe" stroke-width="1" stroke-opacity="0.25"/>
+  <circle cx="15" cy="60" r="2" fill="#00f2fe" fill-opacity="0.6"/>
+  <circle cx="105" cy="60" r="2" fill="#f5a623" fill-opacity="0.6"/>
+  <circle cx="60" cy="15" r="2" fill="#00f2fe" fill-opacity="0.6"/>
+  <circle cx="60" cy="105" r="2" fill="#f5a623" fill-opacity="0.6"/>
+  
+  <!-- Stylized Geometric 'A' -->
+  <path d="M46 26 L22 84 H35 L40 70 H56 L61 84 H74 L50 26 Z M48 44 L53 58 H43 Z" fill="none" stroke="url(#neonCyan)" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" filter="url(#cyberGlow)"/>
+  
+  <!-- Interlocking Futuristic 'C' with Gold Arc -->
+  <path d="M88 42 C78 30, 58 32, 52 46 C48 56, 52 70, 64 78 C76 86, 92 82, 96 68" fill="none" stroke="url(#goldGlow)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#cyberGlow)"/>
+  
+  <!-- Core Node Sparks -->
+  <circle cx="48" cy="44" r="2.5" fill="#00f2fe"/>
+  <circle cx="96" cy="68" r="2.5" fill="#ffd166"/>
 </svg>
