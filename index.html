@@ -3468,6 +3468,456 @@ html, body {
   overflow-x: auto;
 }
 
+
+/* ==========================================================================
+   MASTER RESPONSIVE & ANTI-CLIPPING ARCHITECTURE (DEFINITIVE UPGRADE)
+   ========================================================================== */
+
+/* 1. Global Viewport & Container Resets */
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+img, svg, canvas, video {
+  max-width: 100% !important;
+  height: auto;
+}
+.wrap {
+  width: min(1320px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+}
+@media (max-width: 480px) {
+  .wrap {
+    width: calc(100% - 20px) !important;
+  }
+}
+
+/* 2. Navigation Bar Anti-Crowding & Responsive Transition */
+.nav {
+  width: min(1320px, calc(100% - 20px)) !important;
+  padding: 6px 12px 6px 16px !important;
+  min-height: 54px !important;
+}
+.navlinks {
+  gap: clamp(4px, 0.9vw, 10px) !important;
+  font-size: 10.5px !important;
+  letter-spacing: .03em !important;
+}
+.navlinks a {
+  padding: 4px 6px !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 1340px) {
+  /* On medium laptop displays, show the 7 primary flagship anchors, hide secondary */
+  .navlinks a[href="#global"],
+  .navlinks a[href="#skills"],
+  .navlinks a[href="#genai"],
+  .navlinks a[href="#proof"],
+  .navlinks a[href="#about"] {
+    display: none !important;
+  }
+}
+@media (max-width: 1080px) {
+  /* On tablets and smaller screens, collapse desktop links to mobile drawer */
+  .navlinks {
+    display: none !important;
+  }
+  .menu-btn {
+    display: inline-flex !important;
+  }
+}
+
+/* 3. Hero Section Proportions (No Vertical Clipping Above the Fold) */
+.hero {
+  min-height: auto !important;
+  padding: 92px 0 36px !important;
+  display: grid !important;
+  grid-template-columns: 1.05fr 1fr !important;
+  gap: 32px !important;
+  align-items: center !important;
+}
+.hero-profile-badge {
+  padding: 8px 14px !important;
+  margin-bottom: 14px !important;
+  gap: 12px !important;
+}
+.hero-avatar-frame {
+  width: 48px !important;
+  height: 48px !important;
+}
+.hero-profile-name {
+  font-size: 15px !important;
+}
+.hero-profile-role-tag {
+  font-size: 9px !important;
+  padding: 2px 7px !important;
+}
+.hero-profile-chips {
+  font-size: 10.5px !important;
+  gap: 6px !important;
+}
+.hero h1 {
+  font-size: clamp(30px, 3.6vw, 52px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 12px !important;
+}
+.hero h1 span.block-title {
+  display: block !important;
+}
+.hero-copy .lead {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  margin-bottom: 18px !important;
+  max-width: 520px !important;
+}
+.hero-actions {
+  display: flex !important;
+  gap: 8px 12px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 20px !important;
+}
+.hero-actions .btn {
+  padding: 9px 16px !important;
+  font-size: 11px !important;
+}
+.hero-stats {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 10px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--border-soft) !important;
+}
+.hero-stat-card {
+  padding: 6px 4px !important;
+}
+.hero-stat-card strong {
+  font-size: clamp(19px, 2.1vw, 25px) !important;
+}
+.hero-stat-card small {
+  font-size: 9.5px !important;
+}
+
+/* 4. Hologram Card Anti-Clipping (Fix Right Border Overflow & Pin Alignment) */
+.hologram-wrap {
+  width: 100% !important;
+  max-width: 620px !important;
+  margin-left: auto !important;
+}
+.hologram-card {
+  padding: 14px 16px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+.hologram-head {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--border) !important;
+  flex-wrap: wrap !important;
+}
+.hologram-tabs {
+  display: flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  max-width: 100% !important;
+}
+.sys-tab {
+  padding: 4px 8px !important;
+  font-size: 9px !important;
+  letter-spacing: .03em !important;
+  white-space: nowrap !important;
+}
+.hologram-controls {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  margin-left: auto !important;
+}
+.sfx-toggle-btn {
+  padding: 3px 8px !important;
+  font-size: 9px !important;
+}
+.telemetry-coords {
+  font-size: 9px !important;
+  white-space: nowrap !important;
+  color: var(--text-muted) !important;
+  letter-spacing: .02em !important;
+  padding-right: 2px !important;
+}
+.realtime-hud-ticker {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 6px 12px !important;
+  flex-wrap: wrap !important;
+  padding: 6px 12px !important;
+  margin: 0 0 10px 0 !important;
+  font-size: 9.5px !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
+  overflow-x: visible !important;
+}
+.hologram-viewport {
+  aspect-ratio: 16 / 12 !important;
+  max-height: 390px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  border-radius: var(--radius) !important;
+  position: relative !important;
+}
+.hologram-img-layer {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Right-side pin labels: orient inward to prevent right border clipping */
+#pin-database .pin-label,
+#pin-automation .pin-label,
+#pin-aa-dispatch .pin-label,
+#pin-aa-alerts .pin-label {
+  left: auto !important;
+  right: 24px !important;
+  text-align: right !important;
+}
+#pin-database.active .pin-label,
+#pin-automation.active .pin-label,
+#pin-aa-dispatch.active .pin-label,
+#pin-aa-alerts.active .pin-label {
+  transform: translateX(-3px) !important;
+}
+
+/* 5. Mobile Drawer Sleekness */
+.mobile-menu {
+  padding: 84px 20px 32px !important;
+  gap: 4px !important;
+}
+.mobile-menu a {
+  font-size: clamp(17px, 4.8vw, 22px) !important;
+  padding: 8px 0 !important;
+}
+
+/* 6. Tablet Breakpoint (max-width: 992px) */
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-top: 80px !important;
+  }
+  .hologram-wrap {
+    margin: 0 auto !important;
+    max-width: 580px !important;
+  }
+  .systems-3tier {
+    grid-template-columns: 1fr !important;
+  }
+  .evidence-grid, .evidence-grid.reverse {
+    grid-template-columns: 1fr !important;
+  }
+  .ev-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .ev-mini {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  .global-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pipeline-flow-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .skills-groups {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* 7. Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-profile-badge {
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+  .hero h1 {
+    font-size: clamp(26px, 6.8vw, 38px) !important;
+  }
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .dossier-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .autoapply-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .autoapply-stats-grid .stat-box:last-child {
+    grid-column: 1 / -1 !important;
+  }
+  .work-context {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .skills-groups {
+    grid-template-columns: 1fr !important;
+  }
+  .genai-workbench-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .gauge-card-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .gauge-card-grid .gauge-card[style*="grid-column: 1 / -1"] {
+    grid-column: 1 / -1 !important;
+  }
+  .timeline-item {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .about-executive-card {
+    grid-template-columns: 1fr !important;
+    padding: 18px !important;
+    gap: 18px !important;
+  }
+  .about-portrait-wrap {
+    max-width: 180px !important;
+    margin: 0 auto !important;
+  }
+  .education-showcase-box {
+    padding: 20px 16px !important;
+  }
+  .edu-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .edu-gpa-badge {
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+  .edu-curriculum-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .telemetry-metrics-bar {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .world-clocks-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .i18n-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* 8. Small Phone Breakpoint & Pin Focus Mode (max-width: 640px) */
+@media (max-width: 640px) {
+  /* On phones, keep 3D diagram ultra-clean: display only the active pin label centered above the pin */
+  .cyber-pin .pin-label {
+    display: none !important;
+  }
+  .cyber-pin.active .pin-label {
+    display: block !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: calc(100% + 10px) !important;
+    transform: translateX(-50%) !important;
+    white-space: nowrap !important;
+    font-size: 8.5px !important;
+    padding: 3px 8px !important;
+    text-align: center !important;
+    z-index: 20 !important;
+  }
+  .telemetry-main-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .lightbox-modal {
+    padding: 12px !important;
+  }
+  .lightbox-close {
+    top: 8px !important;
+    right: 8px !important;
+    z-index: 20 !important;
+  }
+  .lightbox-content img {
+    max-height: 65vh !important;
+  }
+}
+
+/* 9. Ultra-Narrow Phone Breakpoint (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column !important;
+  }
+  .hero-actions .btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr !important;
+  }
+  .pipeline-flow-container {
+    grid-template-columns: 1fr !important;
+  }
+  .gauge-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-profile-chips {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+  .autoapply-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .telemetry-metrics-bar {
+    grid-template-columns: 1fr !important;
+  }
+  .world-clocks-row {
+    grid-template-columns: 1fr !important;
+  }
+  .i18n-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .autoapply-kicker-strip {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -3558,14 +4008,9 @@ html, body {
         </div>
       </div>
     </div>
-    <div class="cyber-tag">
-      <span class="tag-dot"></span>
-      <span data-i18n="hero.eyebrow">FULL-STACK DEVELOPER | MEAN/MERN &amp; GENAI APPLICATIONS</span>
-    </div>
     <h1>
       <span class="block-title gold-text" data-i18n="hero.h1a">FULL-STACK + AI</span>
-      <span class="block-title" data-i18n="hero.h1b">BUILD. CONNECT.</span>
-      <span class="block-title"><b class="accent" data-i18n="hero.h1c">INTELLIGENTLY.</b></span>
+      <span class="block-title"><span data-i18n="hero.h1b">BUILD. CONNECT.</span> <b class="accent" data-i18n="hero.h1c">INTELLIGENTLY.</b></span>
     </h1>
     <p class="lead" data-i18n="hero.lead">Full-Stack Developer with 2+ years of experience shipping production SaaS applications end to end (Angular 17+, React, TypeScript, Node.js, Express.js, NestJS, MongoDB, and Groq/Llama GenAI). Led technical execution on KiteSuite and solo-engineered &amp; launched AutoApply AI.</p>
     <div class="hero-actions">
