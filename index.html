@@ -3918,9 +3918,354 @@ img, svg, canvas, video {
   }
 }
 
+
+/* ==========================================================================
+   AWWWARDS-TIER KINETIC MOTION GRAPHICS & INTERACTIVE CANVASES
+   ========================================================================== */
+
+/* Ambient Cosmic Cyber Dust Background */
+#bgAmbientCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+  transition: opacity 0.5s ease;
+}
+
+/* Hero Kinetic Motion Canvas */
+.hero-motion-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 8;
+}
+
+/* Section 02: 3D Interactive Cyber Globe & Telemetry Flight Radar */
+.global-globe-card .globe-viewport {
+  position: relative !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.12), inset 0 0 50px rgba(0, 0, 0, 0.95) !important;
+  background: radial-gradient(circle at center, #070d18 0%, #020408 100%) !important;
+  aspect-ratio: 16 / 11;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .global-globe-card .globe-viewport {
+    aspect-ratio: 1 / 1;
+    min-height: 320px;
+  }
+}
+.cyber-globe-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  z-index: 4;
+}
+.cyber-globe-canvas:active {
+  cursor: grabbing;
+}
+.globe-hud-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 18px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.globe-hud-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.globe-hud-pill {
+  background: rgba(6, 10, 18, 0.82);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(10px);
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: var(--cyan);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+.globe-hud-pill .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: hudPulse 1.4s infinite;
+}
+.globe-hud-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.globe-hud-hint {
+  background: rgba(6, 10, 18, 0.88);
+  border: 1px solid rgba(245, 186, 66, 0.35);
+  color: var(--gold-bright);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 9.5px;
+  letter-spacing: .06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+  user-select: none;
+  box-shadow: 0 0 15px rgba(245, 186, 66, 0.2);
+  animation: pulseHint 2.4s ease-in-out infinite;
+}
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.85; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); box-shadow: 0 0 22px rgba(245, 186, 66, 0.4); }
+}
+.globe-hud-coords {
+  color: var(--text-muted);
+  font-size: 9px;
+  letter-spacing: .04em;
+  background: rgba(6, 10, 18, 0.7);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+.node-chip {
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.node-chip:hover, .node-chip.active-target {
+  border-color: var(--cyan) !important;
+  background: rgba(0, 242, 254, 0.12) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.3);
+}
+
+/* Section 03: Interactive AutoApply Pipeline Simulator */
+.pipeline-sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 14px;
+  padding: 10px 14px;
+  background: rgba(6, 10, 18, 0.75);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+.pipeline-sim-btn {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.22), rgba(245, 186, 66, 0.22));
+  border: 1px solid var(--cyan);
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .25s ease;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.3);
+}
+.pipeline-sim-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.4), rgba(245, 186, 66, 0.4));
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.6);
+}
+.pipeline-sim-status {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pipeline-flow-container {
+  position: relative;
+}
+.flow-step-box {
+  transition: all .3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.flow-step-box.sim-active {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 28px rgba(0, 242, 254, 0.65), inset 0 0 20px rgba(0, 242, 254, 0.18) !important;
+  transform: translateY(-4px) scale(1.025) !important;
+  background: rgba(0, 242, 254, 0.12) !important;
+}
+.flow-step-box.sim-active .step-indicator {
+  background: #fff !important;
+  box-shadow: 0 0 16px var(--cyan), 0 0 30px var(--cyan) !important;
+  transform: scale(1.4);
+}
+.flow-step-box.sim-done {
+  border-color: #10b981 !important;
+}
+.flow-step-box.sim-done .step-indicator {
+  background: #10b981 !important;
+  box-shadow: 0 0 10px #10b981 !important;
+}
+
+/* Section 05: Dynamic Systems Bus Ribbon */
+.systems-bus-ribbon {
+  position: relative;
+  margin: 24px 0 12px;
+  height: 44px;
+  background: rgba(6, 10, 18, 0.85);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+}
+.bus-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.bus-label-item {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(6, 10, 18, 0.7);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 640px) {
+  .systems-bus-ribbon {
+    height: auto;
+    padding: 8px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+/* Section 07: Groq LPU Token Synchrotron & Neural Streamer */
+.groq-synchrotron-card {
+  margin-top: 28px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+.groq-synchrotron-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), var(--cyan), transparent);
+}
+.synchrotron-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.synchrotron-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+.synchrotron-beam-box {
+  position: relative;
+  height: 64px;
+  background: #020408;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.synchrotron-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.synchrotron-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+}
+.synchrotron-metric-cell {
+  background: rgba(6, 10, 18, 0.7);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+}
+.synchrotron-metric-cell .cell-label {
+  color: var(--text-muted);
+  font-size: 9.5px;
+  margin-bottom: 4px;
+}
+.synchrotron-metric-cell .cell-val {
+  color: var(--cyan);
+  font-weight: 800;
+  font-size: 13px;
+}
+@media (max-width: 640px) {
+  .synchrotron-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
+  <canvas id="bgAmbientCanvas" aria-hidden="true"></canvas>
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to main content</a>
 <div class="progress-bar" id="progressBar"></div>
 <canvas id="cyberCanvas"></canvas>
@@ -4074,6 +4419,7 @@ img, svg, canvas, video {
 
       <!-- Hologram Visual Viewport -->
       <div class="hologram-viewport" id="hologramViewport">
+        <canvas id="heroMotionCanvas" class="hero-motion-canvas" aria-hidden="true"></canvas>
         <div class="hologram-scanner"></div>
 
         <!-- Layer 1: Core Full-Stack AI Architecture Image -->
@@ -4359,8 +4705,18 @@ img, svg, canvas, video {
           <div class="badge"><span class="badge-dot"></span><span>GLOBAL NETWORK // 6 HUBS ONLINE</span></div>
           <div class="telemetry-code">STATUS: SYNCHRONIZED</div>
         </div>
-        <div class="globe-viewport">
-          <img src="assets/cyber/global-network-telemetry.jpg" alt="3D Global Digital Network and Holographic Cyber Globe" width="1024" height="1024" loading="lazy" decoding="async">
+        <div class="globe-viewport" id="globeViewport">
+          <canvas id="cyberGlobeCanvas" class="cyber-globe-canvas" aria-label="Interactive 3D Global Telemetry Network Globe"></canvas>
+          <div class="globe-hud-overlay">
+            <div class="globe-hud-top">
+              <div class="globe-hud-pill"><span class="pulse-dot"></span><span>LIVE MESH: 6 ACTIVE REGIONS</span></div>
+              <div class="globe-hud-coords" id="globeCoordsDisplay">ROT: 48.5° | TILT: 18.2°</div>
+            </div>
+            <div class="globe-hud-bottom">
+              <div class="globe-hud-hint"><span>✦ DRAG / SWIPE TO ROTATE 3D GLOBE</span></div>
+              <div class="globe-hud-coords">PACKET STREAM: 18.4K/s · P95: 18ms</div>
+            </div>
+          </div>
         </div>
         <div class="global-nodes-list">
           <div class="node-chip">
@@ -4523,6 +4879,17 @@ img, svg, canvas, video {
             <span>AUTONOMOUS PROCESSING PIPELINE // REAL-TIME EVENT STREAM</span>
           </div>
           <div class="mono" style="color:var(--text-muted)">STATUS: 0 ERRORS · 100% DISPATCH INTEGRITY</div>
+        </div>
+
+                <!-- INTERACTIVE AUTONOMOUS PIPELINE CONTROLLER -->
+        <div class="pipeline-sim-header">
+          <button class="pipeline-sim-btn" id="runPipelineSimBtn" aria-label="Simulate Autonomous Job Dispatch Pipeline">
+            <span>▶</span> <span>SIMULATE AUTONOMOUS DISPATCH PIPELINE</span>
+          </button>
+          <div class="pipeline-sim-status" id="pipelineSimStatus">
+            <span class="badge-dot" style="background:#10b981;box-shadow:0 0 8px #10b981"></span>
+            <span>SYSTEM READY // IDLE · CLICK TO SIMULATE REAL-TIME FLOW</span>
+          </div>
         </div>
 
         <div class="pipeline-flow-container">
@@ -4934,6 +5301,14 @@ img, svg, canvas, video {
       <p class="section-copy" data-i18n="systems.intro">A generalized view of how the layers of a production SaaS platform connect — from reactive interface components down to distributed microservices, caching clusters, and zero-downtime deployment pipelines.</p>
     </div>
 
+        <!-- DYNAMIC LIVE FULL-STACK OPTICAL SYSTEM BUS -->
+    <div class="systems-bus-ribbon">
+      <canvas id="systemsBusCanvas" class="bus-canvas" aria-hidden="true"></canvas>
+      <div class="bus-label-item"><span class="badge-dot" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan)"></span><span>CLIENT BUS: WEBSOCKETS · HYDRATION · NGRX</span></div>
+      <div class="bus-label-item"><span class="badge-dot" style="background:var(--accent);box-shadow:0 0 6px var(--accent)"></span><span>API BUS: GROQ LPU · NESTJS · REST · RBAC</span></div>
+      <div class="bus-label-item"><span class="badge-dot" style="background:var(--emerald);box-shadow:0 0 6px var(--emerald)"></span><span>DATA BUS: MONGODB · REDIS · CI/CD · DOCKER</span></div>
+    </div>
+
     <!-- 3-TIER EXECUTIVE ARCHITECTURE HUD SCHEMATIC -->
     <div class="systems-3tier reveal">
       <!-- Tier 1: Client & Interface Tier -->
@@ -5196,6 +5571,36 @@ img, svg, canvas, video {
           <span class="pillar-tag" style="color:var(--gold-bright)">Groq LPU (Sub-200ms)</span>
           <span class="pillar-tag" style="color:var(--cyan)">JSON Schema Guards</span>
           <span class="pillar-tag" style="color:var(--emerald)">Graceful Fallbacks</span>
+        </div>
+      </div>
+    </div>
+
+        <!-- GROQ LPU REAL-TIME TOKEN SYNCHROTRON -->
+    <div class="groq-synchrotron-card reveal">
+      <div class="synchrotron-head">
+        <div class="synchrotron-title">
+          <span class="badge-dot" style="background:var(--gold-bright);box-shadow:0 0 10px var(--gold)"></span>
+          <span>GROQ LPU REAL-TIME TOKEN SYNCHROTRON</span>
+        </div>
+        <button class="pill-btn" id="burstTokenBtn" style="padding:6px 14px;font-size:10px;cursor:pointer;">
+          <span>⚡ FIRE TOKEN BURST</span>
+        </button>
+      </div>
+      <div class="synchrotron-beam-box">
+        <canvas id="synchrotronCanvas" class="synchrotron-canvas" aria-hidden="true"></canvas>
+      </div>
+      <div class="synchrotron-metrics-row">
+        <div class="synchrotron-metric-cell">
+          <div class="cell-label">INFERENCE SPEED</div>
+          <div class="cell-val" id="synchroSpeed">842 tokens/sec</div>
+        </div>
+        <div class="synchrotron-metric-cell">
+          <div class="cell-label">TIME TO FIRST TOKEN (TTFT)</div>
+          <div class="cell-val" style="color:var(--gold-bright)" id="synchroTtft">18.4 ms</div>
+        </div>
+        <div class="synchrotron-metric-cell">
+          <div class="cell-label">STREAM BANDWIDTH</div>
+          <div class="cell-val" style="color:#10b981" id="synchroBandwidth">68.4 KB/s (Real-Time)</div>
         </div>
       </div>
     </div>
@@ -6271,6 +6676,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   let audioCtx = null;
 
   /* ---- WEB AUDIO SCI-FI SYNTHESIZER ---- */
+  window.playGlobalSfx = function(type){ playChime(type); };
   function playChime(type){
     if(!sfxEnabled) return;
     try {
@@ -6872,7 +7278,959 @@ if(form){
   });
 })();
 
-applyLanguage(currentLang);
+
+  /* ==========================================================================
+     AWWWARDS-TIER INTERACTIVE MOTION GRAPHICS & CANVASES SUITE
+     ========================================================================== */
+
+  // Safe global audio trigger
+  function triggerCyberSfx(type) {
+    if (typeof window.playGlobalSfx === 'function') {
+      try { window.playGlobalSfx(type); } catch(e) {}
+    }
+  }
+
+  /* --------------------------------------------------------------------------
+     1. AMBIENT CYBER COSMIC DUST CANVAS (SITE-WIDE PERFORMANCE BACKGROUND)
+     -------------------------------------------------------------------------- */
+  (function initAmbientDust() {
+    const canvas = document.getElementById('bgAmbientCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0, height = 0;
+    let particles = [];
+    const PARTICLE_COUNT = window.innerWidth < 768 ? 35 : 65;
+    let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
+    let animId = null;
+    let isVisible = true;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    window.addEventListener('pointermove', (e) => {
+      mouse.targetX = e.clientX;
+      mouse.targetY = e.clientY;
+    }, { passive: true });
+
+    // Initialize particles
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        baseRadius: Math.random() * 1.8 + 0.6,
+        alpha: Math.random() * 0.5 + 0.2,
+        color: Math.random() > 0.4 ? 'rgba(0, 242, 254,' : 'rgba(245, 186, 66,',
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+
+    function render(time) {
+      if (!isVisible) {
+        animId = requestAnimationFrame(render);
+        return;
+      }
+      ctx.clearRect(0, 0, width, height);
+
+      // Smooth mouse easing
+      mouse.x += (mouse.targetX - mouse.x) * 0.08;
+      mouse.y += (mouse.targetY - mouse.y) * 0.08;
+
+      const t = time * 0.001;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx + Math.sin(t + p.phase) * 0.25;
+        p.y += p.vy + Math.cos(t + p.phase) * 0.25;
+
+        // Wrap boundaries
+        if (p.x < 0) p.x = width;
+        else if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        else if (p.y > height) p.y = 0;
+
+        // Mouse repulsion
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 130 && dist > 0) {
+          const force = (130 - dist) / 130 * 1.5;
+          p.x += (dx / dist) * force;
+          p.y += (dy / dist) * force;
+        }
+
+        const pulse = 1 + Math.sin(t * 2 + p.phase) * 0.25;
+        ctx.fillStyle = p.color + (p.alpha * pulse).toFixed(2) + ')';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.baseRadius * pulse, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      animId = requestAnimationFrame(render);
+    }
+    animId = requestAnimationFrame(render);
+
+    document.addEventListener('visibilitychange', () => {
+      isVisible = !document.hidden;
+    });
+  })();
+
+
+  /* --------------------------------------------------------------------------
+     2. 3D INTERACTIVE CYBER GLOBE & TELEMETRY FLIGHT RADAR (SECTION 02)
+     -------------------------------------------------------------------------- */
+  (function init3DCyberGlobe() {
+    const canvas = document.getElementById('cyberGlobeCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const viewport = document.getElementById('globeViewport');
+    const coordsDisplay = document.getElementById('globeCoordsDisplay');
+
+    let width = 0, height = 0, dpr = 1;
+    let radius = 130;
+    let rotX = 0.28, rotY = 0.85; // Initial angles
+    let targetRotX = 0.28, targetRotY = 0.85;
+    let velX = 0, velY = 0.0035; // Idle rotation
+    let isDragging = false;
+    let lastPointerX = 0, lastPointerY = 0;
+    let isVisible = false;
+    let shockwaveRadius = 0;
+    let shockwaveCity = null;
+
+    const toRad = Math.PI / 180;
+
+    // 6 Global Strategic Hubs
+    const cities = [
+      { id: 'fra', name: 'Frankfurt (eu-central-1)', lat: 50.11, lon: 8.68, ping: '18ms', color: '#00f2fe' },
+      { id: 'bom', name: 'Mumbai (ap-south-1)', lat: 19.07, lon: 72.87, ping: '8ms', color: '#f5ba42' },
+      { id: 'sin', name: 'Singapore (ap-southeast-1)', lat: 1.35, lon: 103.82, ping: '24ms', color: '#00f2fe' },
+      { id: 'nrt', name: 'Tokyo (ap-northeast-1)', lat: 35.67, lon: 139.65, ping: '32ms', color: '#00f2fe' },
+      { id: 'sfo', name: 'San Francisco (us-west-1)', lat: 37.77, lon: -122.42, ping: '42ms', color: '#f5ba42' },
+      { id: 'lon', name: 'London (eu-west-2)', lat: 51.50, lon: -0.12, ping: '14ms', color: '#10b981' }
+    ];
+
+    // Compute 3D unit coordinates
+    cities.forEach(c => {
+      const phi = c.lat * toRad;
+      const lambda = c.lon * toRad;
+      c.ux = Math.cos(phi) * Math.sin(lambda);
+      c.uy = -Math.sin(phi);
+      c.uz = Math.cos(phi) * Math.cos(lambda);
+    });
+
+    // Flight Arcs connecting hubs
+    const arcs = [
+      { from: cities[1], to: cities[0], speed: 0.007, color: '#f5ba42' }, // Mumbai -> Frankfurt
+      { from: cities[0], to: cities[5], speed: 0.009, color: '#00f2fe' }, // Frankfurt -> London
+      { from: cities[5], to: cities[4], speed: 0.006, color: '#10b981' }, // London -> San Francisco
+      { from: cities[4], to: cities[3], speed: 0.006, color: '#f5ba42' }, // San Francisco -> Tokyo
+      { from: cities[3], to: cities[2], speed: 0.008, color: '#00f2fe' }, // Tokyo -> Singapore
+      { from: cities[2], to: cities[1], speed: 0.008, color: '#00f2fe' }  // Singapore -> Mumbai
+    ];
+
+    function resize() {
+      if (!viewport) return;
+      const rect = viewport.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(dpr, dpr);
+      radius = Math.min(width, height) * 0.38;
+    }
+
+    const ro = new ResizeObserver(resize);
+    if (viewport) ro.observe(viewport);
+    resize();
+
+    // IntersectionObserver to pause when off-screen
+    const io = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    if (viewport) io.observe(viewport);
+
+    // Pointer Interaction (Mouse & Touch)
+    canvas.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      lastPointerX = e.clientX;
+      lastPointerY = e.clientY;
+      velX = 0;
+      velY = 0;
+      canvas.setPointerCapture(e.pointerId);
+    });
+
+    canvas.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - lastPointerX;
+      const dy = e.clientY - lastPointerY;
+      lastPointerX = e.clientX;
+      lastPointerY = e.clientY;
+      rotY += dx * 0.007;
+      rotX += dy * 0.007;
+      rotX = Math.max(-1.1, Math.min(1.1, rotX));
+      velY = dx * 0.004;
+      velX = dy * 0.004;
+    });
+
+    function endDrag(e) {
+      if (isDragging) {
+        isDragging = false;
+        try { canvas.releasePointerCapture(e.pointerId); } catch(err){}
+      }
+    }
+    canvas.addEventListener('pointerup', endDrag);
+    canvas.addEventListener('pointercancel', endDrag);
+
+    // Target a city on click of node-chip
+    const nodeChips = document.querySelectorAll('.global-nodes-list .node-chip');
+    nodeChips.forEach((chip, idx) => {
+      chip.addEventListener('click', () => {
+        const city = cities[idx % cities.length];
+        if (!city) return;
+        nodeChips.forEach(c => c.classList.remove('active-target'));
+        chip.classList.add('active-target');
+
+        // Rotate globe so this city faces camera: lambda = -lon, phi = lat
+        targetRotY = -city.lon * toRad;
+        targetRotX = city.lat * toRad * 0.6;
+        shockwaveCity = city;
+        shockwaveRadius = 1;
+        triggerCyberSfx('chime');
+      });
+    });
+
+    // 3D Rotation Math
+    function project3D(x, y, z, cx, cy, R) {
+      // Rotate Y
+      const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+      const x1 = x * cosY + z * sinY;
+      const z1 = -x * sinY + z * cosY;
+
+      // Rotate X
+      const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+      const y2 = y * cosX - z1 * sinX;
+      const z2 = y * sinX + z1 * cosX;
+
+      // Perspective projection
+      const fov = 400;
+      const scale = fov / (fov + z2);
+      return {
+        x: cx + x1 * scale,
+        y: cy + y2 * scale,
+        z: z2,
+        visible: z2 > -R * 0.2
+      };
+    }
+
+    // Great Circle interpolation point
+    function getArcPoint(c1, c2, t) {
+      const dot = Math.max(-1, Math.min(1, c1.ux * c2.ux + c1.uy * c2.uy + c1.uz * c2.uz));
+      const omega = Math.acos(dot);
+      if (omega < 0.001) return { x: c1.ux, y: c1.uy, z: c1.uz };
+
+      const sinOmega = Math.sin(omega);
+      const k1 = Math.sin((1 - t) * omega) / sinOmega;
+      const k2 = Math.sin(t * omega) / sinOmega;
+
+      const elevation = 1 + Math.sin(t * Math.PI) * 0.22; // Elevate in 3D arc
+      return {
+        x: (k1 * c1.ux + k2 * c2.ux) * elevation,
+        y: (k1 * c1.uy + k2 * c2.uy) * elevation,
+        z: (k1 * c1.uz + k2 * c2.uz) * elevation
+      };
+    }
+
+    let lastTime = performance.now();
+
+    function renderGlobe(time) {
+      requestAnimationFrame(renderGlobe);
+      if (!isVisible) return;
+
+      const dt = (time - lastTime) * 0.001;
+      lastTime = time;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const cx = width / 2;
+      const cy = height / 2;
+
+      // Handle rotation and inertia
+      if (!isDragging) {
+        // Interpolate towards target if set
+        if (shockwaveRadius > 0 && shockwaveRadius < 40) {
+          rotY += (targetRotY - rotY) * 0.08;
+          rotX += (targetRotX - rotX) * 0.08;
+        } else {
+          rotY += velY;
+          rotX += velX;
+          velY += (0.003 - velY) * 0.02; // Restore idle spin
+          velX *= 0.95;
+        }
+      }
+
+      // Update HUD display
+      if (coordsDisplay) {
+        const degY = (((rotY * 180 / Math.PI) % 360 + 360) % 360).toFixed(1);
+        const degX = (rotX * 180 / Math.PI).toFixed(1);
+        coordsDisplay.textContent = 'ROT: ' + degY + '° | TILT: ' + degX + '°';
+      }
+
+      // 1. Atmosphere Aura
+      const auraGrad = ctx.createRadialGradient(cx, cy, radius * 0.7, cx, cy, radius * 1.25);
+      auraGrad.addColorStop(0, 'rgba(0, 242, 254, 0.08)');
+      auraGrad.addColorStop(0.7, 'rgba(0, 242, 254, 0.03)');
+      auraGrad.addColorStop(1, 'transparent');
+      ctx.fillStyle = auraGrad;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 1.25, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Outer HUD Ring
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.18)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 1.15, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // 2. Latitude Rings
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.12)';
+      ctx.lineWidth = 1;
+      const lats = [-60, -30, 0, 30, 60];
+      lats.forEach(lat => {
+        const phi = lat * toRad;
+        const rLat = radius * Math.cos(phi);
+        const yLat = -radius * Math.sin(phi);
+
+        ctx.beginPath();
+        let first = true;
+        for (let a = 0; a <= 360; a += 8) {
+          const lambda = a * toRad;
+          const x = rLat * Math.sin(lambda);
+          const z = rLat * Math.cos(lambda);
+          const p = project3D(x, yLat, z, cx, cy, radius);
+          if (p.visible) {
+            if (first) { ctx.moveTo(p.x, p.y); first = false; }
+            else { ctx.lineTo(p.x, p.y); }
+          } else {
+            first = true;
+          }
+        }
+        ctx.stroke();
+      });
+
+      // 3. Longitude Meridians
+      for (let lon = 0; lon < 360; lon += 45) {
+        const lambda = lon * toRad;
+        ctx.beginPath();
+        let first = true;
+        for (let lat = -90; lat <= 90; lat += 6) {
+          const phi = lat * toRad;
+          const x = radius * Math.cos(phi) * Math.sin(lambda);
+          const y = -radius * Math.sin(phi);
+          const z = radius * Math.cos(phi) * Math.cos(lambda);
+          const p = project3D(x, y, z, cx, cy, radius);
+          if (p.visible) {
+            if (first) { ctx.moveTo(p.x, p.y); first = false; }
+            else { ctx.lineTo(p.x, p.y); }
+          } else {
+            first = true;
+          }
+        }
+        ctx.stroke();
+      }
+
+      // 4. Draw 3D Great-Circle Flight Arcs
+      arcs.forEach((arc, i) => {
+        ctx.strokeStyle = arc.color;
+        ctx.lineWidth = 1.2;
+        ctx.globalAlpha = 0.35;
+        ctx.beginPath();
+        let first = true;
+        const STEPS = 36;
+        for (let s = 0; s <= STEPS; s++) {
+          const t = s / STEPS;
+          const pt = getArcPoint(arc.from, arc.to, t);
+          const p = project3D(pt.x * radius, pt.y * radius, pt.z * radius, cx, cy, radius);
+          if (p.visible) {
+            if (first) { ctx.moveTo(p.x, p.y); first = false; }
+            else { ctx.lineTo(p.x, p.y); }
+          }
+        }
+        ctx.stroke();
+        ctx.globalAlpha = 1.0;
+
+        // Traveling Photon Packet
+        const packetT = ((time * 0.00045 * (1 + (i % 3) * 0.2)) + (i * 0.25)) % 1;
+        const packetPt = getArcPoint(arc.from, arc.to, packetT);
+        const pPacket = project3D(packetPt.x * radius, packetPt.y * radius, packetPt.z * radius, cx, cy, radius);
+        if (pPacket.visible) {
+          // Packet glow head
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(pPacket.x, pPacket.y, 3, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = arc.color;
+          ctx.beginPath();
+          ctx.arc(pPacket.x, pPacket.y, 6, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Packet trailing spark
+          const tailPt = getArcPoint(arc.from, arc.to, Math.max(0, packetT - 0.06));
+          const pTail = project3D(tailPt.x * radius, tailPt.y * radius, tailPt.z * radius, cx, cy, radius);
+          if (pTail.visible) {
+            const grad = ctx.createLinearGradient(pTail.x, pTail.y, pPacket.x, pPacket.y);
+            grad.addColorStop(0, 'transparent');
+            grad.addColorStop(1, arc.color);
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(pTail.x, pTail.y);
+            ctx.lineTo(pPacket.x, pPacket.y);
+            ctx.stroke();
+          }
+        }
+      });
+
+      // 5. Draw City Hub Nodes
+      cities.forEach(c => {
+        const p = project3D(c.ux * radius, c.uy * radius, c.uz * radius, cx, cy, radius);
+        if (p.visible) {
+          // Pulse beacon
+          const pulse = (Math.sin(time * 0.005 + c.lon) + 1) * 0.5;
+          ctx.fillStyle = c.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 4 + pulse * 2, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = c.color;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 8 + pulse * 5, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // City Label
+          ctx.font = '700 9px monospace';
+          ctx.fillStyle = '#ffffff';
+          ctx.fillText(c.name.split(' ')[0], p.x + 10, p.y + 3);
+          ctx.fillStyle = 'rgba(0, 242, 254, 0.8)';
+          ctx.fillText(c.ping, p.x + 10, p.y + 13);
+        }
+      });
+
+      // 6. Active Shockwave Pulse if triggered
+      if (shockwaveRadius > 0 && shockwaveCity) {
+        shockwaveRadius += dt * 38;
+        const p = project3D(shockwaveCity.ux * radius, shockwaveCity.uy * radius, shockwaveCity.uz * radius, cx, cy, radius);
+        if (p.visible) {
+          const alpha = Math.max(0, 1 - shockwaveRadius / 45);
+          ctx.strokeStyle = 'rgba(0, 242, 254, ' + alpha.toFixed(2) + ')';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, shockwaveRadius, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        if (shockwaveRadius > 45) shockwaveRadius = 0;
+      }
+    }
+
+    requestAnimationFrame(renderGlobe);
+  })();
+
+
+  /* --------------------------------------------------------------------------
+     3. HERO KINETIC MOTION CANVAS & SHOCKWAVE PULSE ENGINE
+     -------------------------------------------------------------------------- */
+  (function initHeroMotionCanvas() {
+    const canvas = document.getElementById('heroMotionCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const viewport = document.getElementById('hologramViewport');
+    if (!viewport) return;
+
+    let width = 0, height = 0, dpr = 1;
+    let isVisible = false;
+    let shockwaves = [];
+    let particles = [];
+    let mouse = { x: -1000, y: -1000 };
+
+    // Core Architecture Conduits
+    const coreConduits = [
+      { from: { x: 0.20, y: 0.68 }, to: { x: 0.17, y: 0.24 }, cp: { x: 0.18, y: 0.45 }, color: '#f5ba42' },
+      { from: { x: 0.17, y: 0.24 }, to: { x: 0.50, y: 0.48 }, cp: { x: 0.32, y: 0.30 }, color: '#00f2fe' },
+      { from: { x: 0.20, y: 0.68 }, to: { x: 0.50, y: 0.48 }, cp: { x: 0.35, y: 0.60 }, color: '#f5ba42' },
+      { from: { x: 0.50, y: 0.48 }, to: { x: 0.85, y: 0.32 }, cp: { x: 0.68, y: 0.38 }, color: '#00f2fe' },
+      { from: { x: 0.50, y: 0.48 }, to: { x: 0.80, y: 0.76 }, cp: { x: 0.65, y: 0.65 }, color: '#f5ba42' },
+      { from: { x: 0.85, y: 0.32 }, to: { x: 0.80, y: 0.76 }, cp: { x: 0.88, y: 0.54 }, color: '#10b981' }
+    ];
+
+    // AutoApply Conduits
+    const autoApplyConduits = [
+      { from: { x: 0.21, y: 0.28 }, to: { x: 0.50, y: 0.50 }, cp: { x: 0.35, y: 0.35 }, color: '#00f2fe' },
+      { from: { x: 0.50, y: 0.50 }, to: { x: 0.37, y: 0.68 }, cp: { x: 0.42, y: 0.62 }, color: '#f5ba42' },
+      { from: { x: 0.50, y: 0.50 }, to: { x: 0.80, y: 0.74 }, cp: { x: 0.68, y: 0.60 }, color: '#00f2fe' },
+      { from: { x: 0.80, y: 0.74 }, to: { x: 0.80, y: 0.22 }, cp: { x: 0.86, y: 0.48 }, color: '#10b981' }
+    ];
+
+    let currentSystem = 'core';
+
+    function resize() {
+      const rect = viewport.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.scale(dpr, dpr);
+    }
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(viewport);
+    resize();
+
+    const io = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    io.observe(viewport);
+
+    viewport.addEventListener('pointermove', (e) => {
+      const rect = viewport.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }, { passive: true });
+
+    viewport.addEventListener('pointerleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    }, { passive: true });
+
+    // Shockwave on pin click
+    const pins = document.querySelectorAll('.cyber-pin');
+    pins.forEach(pin => {
+      pin.addEventListener('click', () => {
+        const rect = pin.getBoundingClientRect();
+        const vpRect = viewport.getBoundingClientRect();
+        shockwaves.push({
+          x: rect.left + rect.width / 2 - vpRect.left,
+          y: rect.top + rect.height / 2 - vpRect.top,
+          r: 2,
+          maxR: Math.max(width, height) * 0.65,
+          color: '#00f2fe',
+          alpha: 1
+        });
+        triggerCyberSfx('chime');
+      });
+    });
+
+    // Listen to tab switcher
+    const tabCore = document.getElementById('tabCoreArch');
+    const tabAutoApply = document.getElementById('tabAutoApply');
+    if (tabCore) tabCore.addEventListener('click', () => { currentSystem = 'core'; });
+    if (tabAutoApply) tabAutoApply.addEventListener('click', () => { currentSystem = 'autoapply'; });
+
+    // Initialize floating ambient cyber spark particles in viewport
+    for (let i = 0; i < 22; i++) {
+      particles.push({
+        x: Math.random() * 800,
+        y: Math.random() * 500,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 1.6 + 0.8,
+        color: Math.random() > 0.5 ? 'rgba(0, 242, 254,' : 'rgba(245, 186, 66,'
+      });
+    }
+
+    function getQuadraticBezierPoint(p0, cp, p1, t) {
+      const oneMinusT = 1 - t;
+      return {
+        x: oneMinusT * oneMinusT * p0.x + 2 * oneMinusT * t * cp.x + t * t * p1.x,
+        y: oneMinusT * oneMinusT * p0.y + 2 * oneMinusT * t * cp.y + t * t * p1.y
+      };
+    }
+
+    let lastTime = performance.now();
+
+    function renderHeroMotion(time) {
+      requestAnimationFrame(renderHeroMotion);
+      if (!isVisible) return;
+
+      const dt = (time - lastTime) * 0.001;
+      lastTime = time;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const activeConduits = currentSystem === 'core' ? coreConduits : autoApplyConduits;
+
+      // 1. Draw dynamic photon packets along conduits
+      activeConduits.forEach((cond, i) => {
+        const p0 = { x: cond.from.x * width, y: cond.from.y * height };
+        const cp = { x: cond.cp.x * width, y: cond.cp.y * height };
+        const p1 = { x: cond.to.x * width, y: cond.to.y * height };
+
+        // Packet parameter t
+        const t = ((time * 0.0004 * (1 + (i % 2) * 0.3)) + (i * 0.35)) % 1;
+        const pt = getQuadraticBezierPoint(p0, cp, p1, t);
+        const ptTail = getQuadraticBezierPoint(p0, cp, p1, Math.max(0, t - 0.08));
+
+        // Photon glow head
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = cond.color;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 5.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Trailing gradient comet tail
+        const grad = ctx.createLinearGradient(ptTail.x, ptTail.y, pt.x, pt.y);
+        grad.addColorStop(0, 'transparent');
+        grad.addColorStop(1, cond.color);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 3.2;
+        ctx.beginPath();
+        ctx.moveTo(ptTail.x, ptTail.y);
+        ctx.lineTo(pt.x, pt.y);
+        ctx.stroke();
+      });
+
+      // 2. Draw & update interactive cyber sparks
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = width;
+        else if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        else if (p.y > height) p.y = 0;
+
+        // Subtle mouse repulsion
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 90 && dist > 0) {
+          p.x += (dx / dist) * 1.2;
+          p.y += (dy / dist) * 1.2;
+        }
+
+        ctx.fillStyle = p.color + '0.7)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // 3. Shockwave rings
+      for (let s = shockwaves.length - 1; s >= 0; s--) {
+        const sw = shockwaves[s];
+        sw.r += dt * 260;
+        sw.alpha = Math.max(0, 1 - sw.r / sw.maxR);
+
+        ctx.strokeStyle = 'rgba(0, 242, 254, ' + sw.alpha.toFixed(2) + ')';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(sw.x, sw.y, sw.r, 0, Math.PI * 2);
+        ctx.stroke();
+
+        if (sw.alpha <= 0) {
+          shockwaves.splice(s, 1);
+        }
+      }
+    }
+
+    requestAnimationFrame(renderHeroMotion);
+  })();
+
+
+  /* --------------------------------------------------------------------------
+     4. INTERACTIVE AUTOAPPLY PIPELINE SIMULATOR (SECTION 03)
+     -------------------------------------------------------------------------- */
+  (function initPipelineSimulator() {
+    const btn = document.getElementById('runPipelineSimBtn');
+    const statusText = document.getElementById('pipelineSimStatus');
+    const packetStream = document.getElementById('livePacketStream');
+    const stepBoxes = document.querySelectorAll('.pipeline-flow-container .flow-step-box');
+    if (!btn || stepBoxes.length === 0) return;
+
+    let isRunning = false;
+
+    const simLogs = [
+      "[PHASE 01] Laser Ingestion: 2-page Senior CV parsed into JSON schema (14ms).",
+      "[PHASE 02] Groq LPU Match: Llama 3.3 70B computed 95.8% semantic match.",
+      "[PHASE 03] Ghost Shield: Verified active hiring intent, screening passed.",
+      "[PHASE 04] ATS Engine: Tailored 14 core keywords into 16mm verified margins.",
+      "[PHASE 05] Autopilot Dispatch: Dispatched to Naukri & LinkedIn via Manifest V3.",
+      "[PHASE 06] Telemetry: Stripe payment confirmed, Twilio SMS dispatched (0 errors)."
+    ];
+
+    function runSimulation() {
+      if (isRunning) return;
+      isRunning = true;
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '0.7';
+
+      let currentStep = 0;
+      stepBoxes.forEach(b => {
+        b.classList.remove('sim-active', 'sim-done');
+      });
+
+      function step() {
+        if (currentStep < stepBoxes.length) {
+          // Deactivate previous
+          if (currentStep > 0) {
+            stepBoxes[currentStep - 1].classList.remove('sim-active');
+            stepBoxes[currentStep - 1].classList.add('sim-done');
+          }
+
+          // Activate current
+          const box = stepBoxes[currentStep];
+          box.classList.add('sim-active');
+          if (statusText) {
+            statusText.innerHTML = '<span class="badge-dot" style="background:#00f2fe;box-shadow:0 0 10px #00f2fe"></span><span style="color:#00f2fe">EXECUTING PHASE 0' + (currentStep + 1) + '...</span>';
+          }
+          if (packetStream && simLogs[currentStep]) {
+            packetStream.textContent = simLogs[currentStep];
+          }
+
+          triggerCyberSfx('chime');
+          currentStep++;
+          setTimeout(step, 900);
+        } else {
+          // Finished
+          stepBoxes.forEach(b => b.classList.add('sim-done'));
+          if (statusText) {
+            statusText.innerHTML = '<span class="badge-dot" style="background:#10b981;box-shadow:0 0 10px #10b981"></span><span style="color:#10b981">PIPELINE RUN 100% COMPLETE · DISPATCH CONFIRMED</span>';
+          }
+          triggerCyberSfx('chime');
+          setTimeout(() => {
+            isRunning = false;
+            btn.style.pointerEvents = 'auto';
+            btn.style.opacity = '1';
+          }, 1400);
+        }
+      }
+
+      step();
+    }
+
+    btn.addEventListener('click', runSimulation);
+  })();
+
+
+  /* --------------------------------------------------------------------------
+     5. DYNAMIC LIVE FULL-STACK OPTICAL SYSTEM BUS (SECTION 05)
+     -------------------------------------------------------------------------- */
+  (function initSystemsBus() {
+    const canvas = document.getElementById('systemsBusCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const parent = canvas.parentElement;
+
+    let width = 0, height = 0;
+    let packets = [];
+    let isVisible = false;
+
+    function resize() {
+      if (!parent) return;
+      width = canvas.width = parent.clientWidth;
+      height = canvas.height = parent.clientHeight;
+    }
+    const ro = new ResizeObserver(resize);
+    ro.observe(parent);
+    resize();
+
+    const io = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    io.observe(parent);
+
+    // Create moving data packets across the bus channels
+    for (let i = 0; i < 16; i++) {
+      packets.push({
+        x: Math.random() * width,
+        y: (i % 3) * (height / 3) + (height / 6),
+        speed: (Math.random() * 1.5 + 1.2) * (i % 2 === 0 ? 1 : -1),
+        size: Math.random() * 2 + 2,
+        color: i % 3 === 0 ? '#00f2fe' : i % 3 === 1 ? '#f5ba42' : '#10b981'
+      });
+    }
+
+    function renderBus() {
+      requestAnimationFrame(renderBus);
+      if (!isVisible) return;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw subtle channel tracks
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+      ctx.lineWidth = 1;
+      for (let ch = 1; ch <= 2; ch++) {
+        const y = ch * (height / 3);
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // Draw packets
+      packets.forEach(p => {
+        p.x += p.speed;
+        if (p.speed > 0 && p.x > width) p.x = 0;
+        else if (p.speed < 0 && p.x < 0) p.x = width;
+
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Trail
+        const trailX = p.x - p.speed * 8;
+        const grad = ctx.createLinearGradient(trailX, p.y, p.x, p.y);
+        grad.addColorStop(0, 'transparent');
+        grad.addColorStop(1, p.color);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = p.size * 0.8;
+        ctx.beginPath();
+        ctx.moveTo(trailX, p.y);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+      });
+    }
+
+    requestAnimationFrame(renderBus);
+  })();
+
+
+  /* --------------------------------------------------------------------------
+     6. GROQ LPU REAL-TIME TOKEN SYNCHROTRON (SECTION 07)
+     -------------------------------------------------------------------------- */
+  (function initGroqSynchrotron() {
+    const canvas = document.getElementById('synchrotronCanvas');
+    const burstBtn = document.getElementById('burstTokenBtn');
+    const speedDisplay = document.getElementById('synchroSpeed');
+    const ttftDisplay = document.getElementById('synchroTtft');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const parent = canvas.parentElement;
+
+    let width = 0, height = 0;
+    let tokens = [];
+    let isVisible = false;
+    let burstActive = false;
+
+    function resize() {
+      if (!parent) return;
+      width = canvas.width = parent.clientWidth;
+      height = canvas.height = parent.clientHeight;
+    }
+    const ro = new ResizeObserver(resize);
+    ro.observe(parent);
+    resize();
+
+    const io = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    }, { threshold: 0.05 });
+    io.observe(parent);
+
+    function spawnToken(isBurst) {
+      tokens.push({
+        x: 0,
+        y: height / 2 + (Math.random() - 0.5) * 16,
+        vx: (Math.random() * 4 + 7) * (isBurst ? 1.8 : 1),
+        size: Math.random() * 2 + 2,
+        color: Math.random() > 0.35 ? '#f5ba42' : '#00f2fe',
+        alpha: 1
+      });
+    }
+
+    if (burstBtn) {
+      burstBtn.addEventListener('click', () => {
+        burstActive = true;
+        triggerCyberSfx('chime');
+        if (speedDisplay) speedDisplay.textContent = '1,048 tokens/sec (MAX BURST)';
+        if (ttftDisplay) ttftDisplay.textContent = '14.2 ms (GROQ LPU)';
+
+        for (let i = 0; i < 40; i++) {
+          setTimeout(() => spawnToken(true), i * 15);
+        }
+
+        setTimeout(() => {
+          burstActive = false;
+          if (speedDisplay) speedDisplay.textContent = '842 tokens/sec';
+          if (ttftDisplay) ttftDisplay.textContent = '18.4 ms';
+        }, 1200);
+      });
+    }
+
+    let tokenTimer = 0;
+
+    function renderSynchrotron() {
+      requestAnimationFrame(renderSynchrotron);
+      if (!isVisible) return;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Central laser rail
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.25)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(0, height / 2);
+      ctx.lineTo(width, height / 2);
+      ctx.stroke();
+
+      // Emit regular tokens
+      tokenTimer++;
+      if (tokenTimer % 3 === 0) {
+        spawnToken(burstActive);
+      }
+
+      for (let i = tokens.length - 1; i >= 0; i--) {
+        const t = tokens[i];
+        t.x += t.vx;
+
+        ctx.fillStyle = t.color;
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, t.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Trail beam
+        const tailX = Math.max(0, t.x - t.vx * 7);
+        const grad = ctx.createLinearGradient(tailX, t.y, t.x, t.y);
+        grad.addColorStop(0, 'transparent');
+        grad.addColorStop(1, t.color);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = t.size * 1.2;
+        ctx.beginPath();
+        ctx.moveTo(tailX, t.y);
+        ctx.lineTo(t.x, t.y);
+        ctx.stroke();
+
+        if (t.x > width + 20) {
+          tokens.splice(i, 1);
+        }
+      }
+    }
+
+    requestAnimationFrame(renderSynchrotron);
+  })();
+
+
+  applyLanguage(currentLang);
 
 })();
 </script>
