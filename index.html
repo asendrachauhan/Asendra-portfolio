@@ -4462,6 +4462,170 @@ img, svg, canvas, video {
   display: block !important;
 }
 
+
+/* ==========================================================================
+   SECTION: INTERACTIVE RESUME PREVIEW & VERIFIED ATS DOWNLOAD
+   ========================================================================== */
+.resume-showcase-box {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 186, 66, 0.08);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.resume-showcase-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright), var(--cyan), transparent);
+}
+.resume-hud-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.resume-view-tabs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.resume-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.resume-tab:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.resume-tab.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+.resume-actions-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.resume-pdf-container {
+  position: relative;
+  width: 100%;
+  height: 840px;
+  background: #020408;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85);
+  box-sizing: border-box;
+}
+.resume-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #11141c;
+}
+@media (max-width: 768px) {
+  .resume-pdf-container {
+    height: 540px;
+  }
+}
+
+/* ATS Highlights View */
+.ats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .ats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.ats-card {
+  background: rgba(6, 10, 18, 0.85);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.ats-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.ats-specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.ats-specs-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.ats-chips-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.ats-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.ats-exp-item strong {
+  color: var(--text);
+  font-size: 14.5px;
+}
+.ats-exp-item .exp-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -4488,6 +4652,7 @@ img, svg, canvas, video {
     <a href="#proof" data-i18n="nav.proof">PROOF</a>
     <a href="#experience" data-i18n="nav.experience">EXPERIENCE</a>
     <a href="#education" data-i18n="nav.education">EDUCATION</a>
+    <a href="#resume" data-i18n="nav.resume">RESUME</a>
     <a href="#about" data-i18n="nav.about">ABOUT</a>
     <a href="#contact" data-i18n="nav.contact">CONTACT</a>
   </nav>
@@ -4526,6 +4691,7 @@ img, svg, canvas, video {
   <a href="#proof" data-i18n="nav.proof">PROOF</a>
   <a href="#experience" data-i18n="nav.experience">EXPERIENCE</a>
   <a href="#education" data-i18n="nav.education">EDUCATION</a>
+  <a href="#resume" data-i18n="nav.resume">RESUME</a>
   <a href="#about" data-i18n="nav.about">ABOUT</a>
   <a href="#contact" data-i18n="nav.contact">CONTACT</a>
   <div class="mono" style="margin-top:auto;padding-top:20px;color:var(--accent);">ASENDRA / ENGINEERING CORE</div>
@@ -6006,12 +6172,146 @@ img, svg, canvas, video {
   </div>
 </section>
 
-<!-- ===== SECTION 11: ABOUT ASENDRA ===== -->
+
+<!-- ===== SECTION 11: INTERACTIVE RESUME PREVIEW & DOWNLOAD ===== -->
+<section class="section" id="resume">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="section-kicker">11 · <span data-i18n="resume.kicker">EXECUTIVE RESUME &amp; CREDENTIALS</span></div>
+        <h2 class="section-title" data-i18n-html="resume.title">Verified Resume.<br><span class="muted">Interactive document preview &amp; verified download.</span></h2>
+      </div>
+      <p class="section-copy" data-i18n="resume.intro">
+        Explore my complete curriculum vitae covering 2+ years of production full-stack SaaS engineering (MEAN/MERN, TypeScript, Next.js, and GenAI), architectural leadership at Rudra Innovative (KiteSuite), and solo-engineered SaaS products (AutoApply AI).
+      </p>
+    </div>
+
+    <!-- RESUME SHOWCASE CARD -->
+    <div class="resume-showcase-box reveal">
+      <!-- HUD Action Bar -->
+      <div class="resume-hud-bar">
+        <div class="resume-view-tabs" role="tablist" aria-label="Resume View Mode">
+          <button class="resume-tab active" id="tabPdfView" role="tab" aria-selected="true">
+            <span class="badge-dot"></span>
+            <span>📄 INTERACTIVE PDF PREVIEW</span>
+          </button>
+          <button class="resume-tab" id="tabAtsView" role="tab" aria-selected="false">
+            <span class="badge-dot" style="background:var(--cyan);box-shadow:0 0 8px var(--cyan)"></span>
+            <span>⚡ ATS HIGHLIGHTS &amp; SPECS</span>
+          </button>
+        </div>
+        <div class="resume-actions-group">
+          <button class="btn glass" id="copyResumeTextBtn" title="Copy clean plaintext for ATS applications">
+            <span>📋 COPY ATS TEXT</span>
+          </button>
+          <a href="assets/profile/ASENDRA_CHAUHAN_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn glass" title="Open PDF in new tab">
+            <span>↗ EXPAND TAB</span>
+          </a>
+          <a href="assets/profile/ASENDRA_CHAUHAN_Resume.pdf" download="ASENDRA_CHAUHAN_Full_Stack_Resume.pdf" class="btn primary glow" id="downloadResumeBtn" title="Download Official PDF">
+            <span>📥 DOWNLOAD PDF (134 KB)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- VIEW 1: Embedded Interactive PDF Viewer -->
+      <div class="resume-pdf-container" id="resumePdfContainer">
+        <iframe src="assets/profile/ASENDRA_CHAUHAN_Resume.pdf#toolbar=0&navpanes=0&scrollbar=1" class="resume-pdf-frame" id="resumePdfFrame" title="Asendra Chauhan Official Resume Preview" loading="lazy"></iframe>
+      </div>
+
+      <!-- VIEW 2: ATS Structured Key Highlights & Skills Matrix -->
+      <div class="resume-ats-container hidden" id="resumeAtsContainer" style="display:none;">
+        <div class="ats-grid">
+          <!-- Left Column: Core Identity & Snapshot -->
+          <div class="ats-col">
+            <div class="ats-card">
+              <div class="ats-card-header">
+                <span class="ats-tag">EXECUTIVE PROFILE</span>
+                <h3 style="margin:4px 0 2px;font-size:18px;">Asendra Chauhan</h3>
+                <p class="mono" style="color:var(--accent);font-size:11px;margin-bottom:12px;">LEAD FULL-STACK DEVELOPER &amp; GENAI ARCHITECT</p>
+              </div>
+              <ul class="ats-specs-list">
+                <li><strong>Location:</strong> India (Remote / Worldwide Relocation Open)</li>
+                <li><strong>Contact:</strong> asendrachauhan176@gmail.com</li>
+                <li><strong>LinkedIn:</strong> linkedin.com/in/asendra-chauhan-410344221</li>
+                <li><strong>Education:</strong> B.Tech in Computer Science, RTU (8.6 GPA)</li>
+                <li><strong>Experience:</strong> 2+ Years Production SaaS (KiteSuite, AutoApply AI, ZenduIt)</li>
+              </ul>
+            </div>
+
+            <div class="ats-card" style="margin-top:16px;">
+              <div class="ats-card-header">
+                <span class="ats-tag" style="color:var(--cyan);border-color:var(--cyan)">TECHNICAL COMPETENCIES</span>
+                <h4 style="margin:4px 0 10px;font-size:15px;">Primary Core Stack</h4>
+              </div>
+              <div class="ats-chips-group">
+                <span class="ats-chip">Angular 17+ (Signals / Universal)</span>
+                <span class="ats-chip">React 18 &amp; Next.js</span>
+                <span class="ats-chip">TypeScript &amp; Modern ES6+</span>
+                <span class="ats-chip">Node.js, Express &amp; NestJS</span>
+                <span class="ats-chip">MongoDB Atlas &amp; Aggregations</span>
+                <span class="ats-chip">Redis In-Memory Caching</span>
+                <span class="ats-chip">Groq LPUs &amp; Llama 3 70B</span>
+                <span class="ats-chip">REST APIs &amp; WebSockets</span>
+                <span class="ats-chip">Docker Containerization</span>
+                <span class="ats-chip">Git, CI/CD, Stripe, Twilio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Career Milestones & Flagship Products -->
+          <div class="ats-col">
+            <div class="ats-card">
+              <div class="ats-card-header">
+                <span class="ats-tag" style="color:var(--emerald);border-color:var(--emerald)">FLAGSHIP PLATFORMS</span>
+                <h4 style="margin:4px 0 12px;font-size:15px;">Production Experience Summary</h4>
+              </div>
+
+              <div class="ats-exp-item">
+                <div class="exp-title-row">
+                  <strong>Full-Stack Developer &amp; Technical Lead</strong>
+                  <span class="mono" style="color:var(--accent);font-size:10.5px;">Rudra Innovative Software</span>
+                </div>
+                <div class="mono" style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">KiteSuite Enterprise Workspace SaaS · 50,000+ Synchronized Nodes</div>
+                <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;">
+                  Led day-to-day technical execution, task delegation, and PR code reviews. Engineered reactive Angular 17+ modules, sub-25ms WebSockets sync, and client-facing feature deliveries.
+                </p>
+              </div>
+
+              <div class="ats-exp-item" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+                <div class="exp-title-row">
+                  <strong>Solo Founder &amp; Full-Stack Architect</strong>
+                  <span class="mono" style="color:var(--cyan);font-size:10.5px;">AutoApply AI</span>
+                </div>
+                <div class="mono" style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">Autonomous Job Application &amp; Career Intelligence SaaS · Solo Project</div>
+                <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;">
+                  Solely architected and shipped complete platform from scratch: 15ms pure-JS vector ATS resume optimizer, Groq LLM 94% job matchmaker, multi-board dispatch automation, and Stripe subscription billing.
+                </p>
+              </div>
+
+              <div class="ats-exp-item" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
+                <div class="exp-title-row">
+                  <strong>Full-Stack Developer</strong>
+                  <span class="mono" style="color:var(--text-muted);font-size:10.5px;">Sumedha SoftTech</span>
+                </div>
+                <div class="mono" style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">ZenduIt Enterprise Telematics &amp; Fleet Management</div>
+                <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;">
+                  Contributed to high-throughput telematics dashboard, real-time vehicle telemetry feeds, map overlays, and reporting microservices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 12: ABOUT ASENDRA ===== -->
 <section class="section dark" id="about">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
-        <div class="section-kicker">11 · <span data-i18n="about.kicker">ABOUT ASENDRA</span></div>
+        <div class="section-kicker">12 · <span data-i18n="about.kicker">ABOUT ASENDRA</span></div>
         <h2 class="section-title" data-i18n-html="about.title">I engineer systems<br><span class="muted">that scale and endure.</span></h2>
       </div>
     </div>
@@ -6123,6 +6423,10 @@ const LANGS = ['en', 'hi', 'es', 'fr', 'de', 'ja'];
 let currentLang = 'en';
 
 const T = {
+  "nav.resume": ["RESUME", "बायोडाटा", "CURRÍCULUM", "CV", "LEBENSLAUF", "履歴書"],
+  "resume.kicker": ["EXECUTIVE RESUME & CREDENTIALS", "कार्यकारी बायोडाटा और क्रेडेंशियल्स", "CURRÍCULUM EJECUTIVO", "CV EXÉCUTIF", "LEBENSLAUF & QUALIFIKATIONEN", "職務経歴書と資格"],
+  "resume.title": ["Verified Resume.<br><span class=\"muted\">Interactive document preview &amp; verified download.</span>", "सत्यापित बायोडाटा।<br><span class=\"muted\">इंटरएक्टिव दस्तावेज़ पूर्वावलोकन और डाउनलोड।</span>", "Currículum Verificado.<br><span class=\"muted\">Vista previa interactiva y descarga.</span>", "CV Vérifié.<br><span class=\"muted\">Aperçu interactif et téléchargement.</span>", "Verifizierter Lebenslauf.<br><span class=\"muted\">Interaktive Dokumentenvorschau &amp; Download.</span>", "検証済み職務経歴書。<br><span class=\"muted\">インタラクティブなプレビューとダウンロード。</span>"],
+  "resume.intro": ["Explore my complete curriculum vitae covering 2+ years of production full-stack SaaS engineering (MEAN/MERN, TypeScript, Next.js, and GenAI), architectural leadership on KiteSuite, and solo-engineered SaaS products (AutoApply AI).", "उत्पादन फुल-स्टैक सास इंजीनियरिंग (MEAN/MERN, TypeScript, Next.js, और GenAI), KiteSuite पर नेतृत्व, और एकल उत्पाद AutoApply AI को कवर करने वाला मेरा संपूर्ण बायोडाटा देखें।", "Explore mi currículum completo que cubre más de 2 años de ingeniería SaaS full-stack en producción (MEAN/MERN, TypeScript, Next.js y GenAI), liderazgo en KiteSuite y AutoApply AI.", "Explorez mon CV complet couvrant plus de 2 ans d'ingénierie SaaS full-stack en production (MEAN/MERN, TypeScript, Next.js et GenAI), leadership sur KiteSuite et AutoApply AI.", "Entdecken Sie meinen vollständigen Lebenslauf über 2+ Jahre Full-Stack-SaaS-Entwicklung (MEAN/MERN, TypeScript, Next.js und GenAI), technische Führung bei KiteSuite und AutoApply AI.", "MEAN/MERN、TypeScript、Next.js、GenAIにわたる2年以上のSaaSエンジニアリング、KiteSuiteでのリーダーシップ、AutoApply AIの個人開発を網羅した職務経歴書をご覧ください。"],
   "proof.disclaimer": ["Both KiteSuite (developed by Rudra Innovative Software) and ZenduIt (developed by Sumedha SoftTech) are commercial enterprise products owned by their respective employers. Asendra contributed as a Full-Stack Developer and frontend technical lead engineering core modules, APIs, and AI integrations. AutoApply AI is Asendra's independent solo-founded product.","KiteSuite (रुद्रा इनोवेटिव सॉफ्टवेयर द्वारा विकसित) और ZenduIt (सुमेधा सॉफ्टटेक द्वारा विकसित) दोनों अपने नियोक्ताओं के स्वामित्व वाले वाणिज्यिक एंटरप्राइज उत्पाद हैं। असेंद्र ने एक फुल-स्टैक डेवलपर और फ्रंटएंड टेक्निकल लीड के रूप में कोर मॉड्यूल, APIs और AI एकीकरण का निर्माण किया। AutoApply AI असेंद्र का स्वतंत्र सोलो-फाउंडेड उत्पाद है।","Tanto KiteSuite (desarrollado por Rudra Innovative Software) como ZenduIt (desarrollado por Sumedha SoftTech) son productos empresariales propiedad de sus respectivos empleadores. Asendra contribuyó como desarrollador Full-Stack y líder técnico de frontend. AutoApply AI es el proyecto independiente de Asendra.","KiteSuite (développé par Rudra Innovative Software) et ZenduIt (développé par Sumedha SoftTech) sont des produits d'entreprise commerciaux détenus par leurs employeurs respectifs. Asendra y a contribué en tant que développeur Full-Stack et lead technique frontend. AutoApply AI est le projet indépendant fondé en solo par Asendra.","Sowohl KiteSuite (entwickelt von Rudra Innovative Software) als auch ZenduIt (entwickelt von Sumedha SoftTech) sind kommerzielle Produkte der jeweiligen Arbeitgeber. Asendra trug als Full-Stack-Entwickler und Frontend-Tech-Lead an Kernmodulen, APIs und KI bei. AutoApply AI ist Asendras unabhängig gegründetes Solo-Produkt.","KiteSuite（Rudra Innovative Software開発）およびZenduIt（Sumedha SoftTech開発）はいずれも所属企業の商業プロダクトです。Asendraはフルスタック開発者およびフロントエンド技術リードとして中核機能・API・AI統合を担当しました。AutoApply AIはAsendraが単独でゼロから創業・開発した個人プロダクトです。"],
   "proof.tagKiteSuite": ["KiteSuite · Rudra Innovative Software","काइटसूट · रुद्रा इनोवेटिव सॉफ्टवेयर","KiteSuite · Rudra Innovative Software","KiteSuite · Rudra Innovative Software","KiteSuite · Rudra Innovative Software","KiteSuite · Rudra Innovative Software"],
   "proof.tagCombined": ["KiteSuite (Rudra Innovative) & ZenduIt (Sumedha SoftTech) Production Platforms","काइटसूट (रुद्रा इनोवेटिव) और ZenduIt (सुमेधा सॉफ्टटेक) प्रोडक्शन प्लेटफॉर्म","Plataformas en producción: KiteSuite (Rudra) y ZenduIt (Sumedha)","Plateformes de production KiteSuite (Rudra) & ZenduIt (Sumedha)","Produktions-Plattformen KiteSuite (Rudra) & ZenduIt (Sumedha)","KiteSuite（Rudra）および ZenduIt（Sumedha）本番基盤"],
@@ -8524,6 +8828,79 @@ if(form){
     requestAnimationFrame(renderSynchrotron);
   })();
 
+
+  
+  /* --------------------------------------------------------------------------
+     INTERACTIVE RESUME VIEW CONTROLLER (PDF vs ATS SPECS & COPY TEXT)
+     -------------------------------------------------------------------------- */
+  (function initResumeControllers() {
+    const tabPdf = document.getElementById('tabPdfView');
+    const tabAts = document.getElementById('tabAtsView');
+    const pdfContainer = document.getElementById('resumePdfContainer');
+    const atsContainer = document.getElementById('resumeAtsContainer');
+    const copyBtn = document.getElementById('copyResumeTextBtn');
+
+    if (tabPdf && tabAts && pdfContainer && atsContainer) {
+      tabPdf.addEventListener('click', () => {
+        tabPdf.classList.add('active');
+        tabPdf.setAttribute('aria-selected', 'true');
+        tabAts.classList.remove('active');
+        tabAts.setAttribute('aria-selected', 'false');
+        pdfContainer.style.display = 'block';
+        atsContainer.style.display = 'none';
+        triggerCyberSfx('chime');
+      });
+
+      tabAts.addEventListener('click', () => {
+        tabAts.classList.add('active');
+        tabAts.setAttribute('aria-selected', 'true');
+        tabPdf.classList.remove('active');
+        tabPdf.setAttribute('aria-selected', 'false');
+        pdfContainer.style.display = 'none';
+        atsContainer.style.display = 'block';
+        triggerCyberSfx('chime');
+      });
+    }
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const plainResume = `ASENDRA CHAUHAN — FULL-STACK DEVELOPER & GENAI ENGINEER
+Email: asendrachauhan176@gmail.com | Phone: +91 93581 60100
+LinkedIn: https://www.linkedin.com/in/asendra-chauhan-410344221
+Education: B.Tech in Computer Science, Rajasthan Technical University (8.6 GPA)
+
+CORE STACK:
+Angular 17+ (Signals, Universal SSR), React 18, Next.js, TypeScript, Node.js, Express.js, NestJS, MongoDB, Redis, Groq LPUs (Llama 3 70B), WebSockets, Docker, Git.
+
+EXPERIENCE:
+1. Rudra Innovative Software — Full-Stack Developer & Lead (KiteSuite)
+   - Led day-to-day technical execution on KiteSuite, a connected workspace SaaS platform with 50,000+ synchronized nodes.
+   - Built reactive Angular 17+ components, real-time WebSockets synchronization, and core enterprise modules.
+
+2. AutoApply AI — Solo Founder & Full-Stack Architect
+   - Architected, built, and launched autonomous AI-powered job application SaaS platform solo.
+   - Developed 15ms vector ATS resume optimizer, Groq LLM 94% explainable job matchmaker, and multi-board dispatch automation.
+
+3. Sumedha SoftTech — Developer (ZenduIt)
+   - Contributed to enterprise fleet telematics dashboard, live vehicle IoT feeds, and microservices.`;
+
+        navigator.clipboard.writeText(plainResume).then(() => {
+          const originalText = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<span>✓ COPIED TO CLIPBOARD!</span>';
+          copyBtn.style.borderColor = '#10b981';
+          copyBtn.style.color = '#10b981';
+          triggerCyberSfx('chime');
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.style.borderColor = '';
+            copyBtn.style.color = '';
+          }, 2400);
+        }).catch(err => {
+          console.error('Failed to copy resume:', err);
+        });
+      });
+    }
+  })();
 
   applyLanguage(currentLang);
 
