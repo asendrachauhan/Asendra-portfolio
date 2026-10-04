@@ -4262,6 +4262,206 @@ img, svg, canvas, video {
   }
 }
 
+
+/* ==========================================================================
+   DEFINITIVE ZERO-CLIPPING ARCHITECTURE FOR ALL IMAGES & CONTAINERS
+   ========================================================================== */
+
+/* 1. Global Image & Canvas Anti-Clipping Protections */
+img, svg, canvas, video {
+  max-width: 100% !important;
+  display: block;
+}
+
+/* 2. Fix WebKit Border-Radius Bleed on Transformed/Scaled Child Elements */
+.hologram-viewport,
+.autoapply-visual,
+.gallery-card .img-viewport,
+.ev-shot,
+.ev-mini,
+.global-globe-card .globe-viewport,
+.about-portrait-wrap,
+.gallery-card,
+.hero-avatar-frame,
+.synchrotron-beam-box {
+  overflow: hidden !important;
+  isolation: isolate !important;
+  -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Hero Hologram Viewport & Image Layer (Perfect 1:1 Aspect Ratio) */
+.hologram-viewport {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  max-height: min(460px, 85vw) !important;
+  margin: 0 auto !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  background: radial-gradient(circle at center, #0a1120 0%, #03060a 100%) !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 242, 254, 0.08) !important;
+}
+.hologram-img-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+  transition: opacity .4s ease, transform .6s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+.hologram-viewport:hover .hologram-img-layer:not(.hidden) {
+  transform: scale(1.015) !important; /* Gentle scale that never clips */
+}
+.hero-motion-canvas {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 8 !important;
+}
+
+/* 4. Section 03 AutoApply Feature Visual (Perfect 1:1 Aspect Ratio & Containment) */
+.autoapply-visual {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  max-height: min(480px, 85vw) !important;
+  margin: 0 auto !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  background: radial-gradient(circle at center, #0a1120 0%, #03060a 100%) !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85) !important;
+  cursor: pointer !important;
+}
+.autoapply-visual img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+  transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.autoapply-visual:hover img {
+  transform: scale(1.02) !important;
+}
+
+/* 5. Production Screenshot Gallery Cards (16:10 Aspect Ratio & Zero Clipping) */
+.gallery-card {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+  background: var(--surface-elevated) !important;
+  border: 1px solid var(--border-strong) !important;
+  box-sizing: border-box !important;
+}
+.gallery-card .img-viewport {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #04060a !important;
+  aspect-ratio: 16 / 10 !important;
+  width: 100% !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.gallery-card .img-viewport img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+  transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.gallery-card:hover .img-viewport img {
+  transform: scale(1.025) !important;
+}
+
+/* 6. Section 04 & Section 08 Evidence Images (Fluid Scaling, No Clipping) */
+.ev-shot {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-strong) !important;
+  background: var(--surface-elevated) !important;
+  box-sizing: border-box !important;
+}
+.ev-shot img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 480px !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+}
+.ev-mini {
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-strong) !important;
+  background: var(--surface-elevated) !important;
+  box-sizing: border-box !important;
+}
+.ev-mini img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  display: block !important;
+}
+
+/* 7. Section 11 About Executive Portrait */
+.about-portrait-wrap {
+  position: relative !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6) !important;
+  aspect-ratio: 1 / 1 !important;
+  max-width: 240px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+.about-portrait-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
+
+/* 8. Lightbox Modal Image (Safe Sizing, Never Overflow Screen) */
+.lightbox-content {
+  max-width: min(1100px, 94vw) !important;
+  width: 100% !important;
+  max-height: 92vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: auto !important;
+}
+.lightbox-content img {
+  max-height: 78vh !important;
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.95) !important;
+  display: block !important;
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -7417,13 +7617,42 @@ if(form){
       { id: 'lon', name: 'London (eu-west-2)', lat: 51.50, lon: -0.12, ping: '14ms', color: '#10b981' }
     ];
 
-    // Compute 3D unit coordinates
+    // Pre-calculate unit vectors for cities
     cities.forEach(c => {
       const phi = c.lat * toRad;
       const lambda = c.lon * toRad;
       c.ux = Math.cos(phi) * Math.sin(lambda);
       c.uy = -Math.sin(phi);
       c.uz = Math.cos(phi) * Math.cos(lambda);
+    });
+
+    // Generate ~160 landmass & constellation points on globe surface for authentic cyber Earth texture
+    const surfaceDots = [];
+    // Major landmass centers: Europe, India, Asia, Americas, Africa, Australia
+    const landCenters = [
+      { lat: 48, lon: 12, count: 28 },   // Europe
+      { lat: 22, lon: 78, count: 32 },   // India / South Asia
+      { lat: 34, lon: 110, count: 30 },  // East Asia
+      { lat: 40, lon: -95, count: 34 },  // North America
+      { lat: -15, lon: -55, count: 18 }, // South America
+      { lat: 5, lon: 25, count: 20 },    // Africa
+      { lat: -25, lon: 135, count: 14 }  // Australia
+    ];
+
+    landCenters.forEach(lc => {
+      for (let i = 0; i < lc.count; i++) {
+        const dLat = (Math.random() - 0.5) * 24;
+        const dLon = (Math.random() - 0.5) * 32;
+        const phi = (lc.lat + dLat) * toRad;
+        const lambda = (lc.lon + dLon) * toRad;
+        surfaceDots.push({
+          ux: Math.cos(phi) * Math.sin(lambda),
+          uy: -Math.sin(phi),
+          uz: Math.cos(phi) * Math.cos(lambda),
+          size: Math.random() * 1.5 + 0.8,
+          alpha: Math.random() * 0.4 + 0.25
+        });
+      }
     });
 
     // Flight Arcs connecting hubs
@@ -7447,20 +7676,19 @@ if(form){
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
       ctx.scale(dpr, dpr);
-      radius = Math.min(width, height) * 0.38;
+      radius = Math.min(width, height) * 0.36; // Scaled to prevent any boundary clipping
     }
 
     const ro = new ResizeObserver(resize);
     if (viewport) ro.observe(viewport);
     resize();
 
-    // IntersectionObserver to pause when off-screen
     const io = new IntersectionObserver((entries) => {
       isVisible = entries[0].isIntersecting;
     }, { threshold: 0.05 });
     if (viewport) io.observe(viewport);
 
-    // Pointer Interaction (Mouse & Touch)
+    // Pointer Drag & Swipe
     canvas.addEventListener('pointerdown', (e) => {
       isDragging = true;
       lastPointerX = e.clientX;
@@ -7492,7 +7720,7 @@ if(form){
     canvas.addEventListener('pointerup', endDrag);
     canvas.addEventListener('pointercancel', endDrag);
 
-    // Target a city on click of node-chip
+    // Node Chip Click
     const nodeChips = document.querySelectorAll('.global-nodes-list .node-chip');
     nodeChips.forEach((chip, idx) => {
       chip.addEventListener('click', () => {
@@ -7501,29 +7729,25 @@ if(form){
         nodeChips.forEach(c => c.classList.remove('active-target'));
         chip.classList.add('active-target');
 
-        // Rotate globe so this city faces camera: lambda = -lon, phi = lat
         targetRotY = -city.lon * toRad;
-        targetRotX = city.lat * toRad * 0.6;
+        targetRotX = city.lat * toRad * 0.55;
         shockwaveCity = city;
         shockwaveRadius = 1;
         triggerCyberSfx('chime');
       });
     });
 
-    // 3D Rotation Math
+    // 3D Rotation Projection
     function project3D(x, y, z, cx, cy, R) {
-      // Rotate Y
       const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
       const x1 = x * cosY + z * sinY;
       const z1 = -x * sinY + z * cosY;
 
-      // Rotate X
       const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
       const y2 = y * cosX - z1 * sinX;
       const z2 = y * sinX + z1 * cosX;
 
-      // Perspective projection
-      const fov = 400;
+      const fov = 420;
       const scale = fov / (fov + z2);
       return {
         x: cx + x1 * scale,
@@ -7533,7 +7757,6 @@ if(form){
       };
     }
 
-    // Great Circle interpolation point
     function getArcPoint(c1, c2, t) {
       const dot = Math.max(-1, Math.min(1, c1.ux * c2.ux + c1.uy * c2.uy + c1.uz * c2.uz));
       const omega = Math.acos(dot);
@@ -7543,7 +7766,7 @@ if(form){
       const k1 = Math.sin((1 - t) * omega) / sinOmega;
       const k2 = Math.sin(t * omega) / sinOmega;
 
-      const elevation = 1 + Math.sin(t * Math.PI) * 0.22; // Elevate in 3D arc
+      const elevation = 1 + Math.sin(t * Math.PI) * 0.22;
       return {
         x: (k1 * c1.ux + k2 * c2.ux) * elevation,
         y: (k1 * c1.uy + k2 * c2.uy) * elevation,
@@ -7565,46 +7788,44 @@ if(form){
       const cx = width / 2;
       const cy = height / 2;
 
-      // Handle rotation and inertia
+      // Handle inertia
       if (!isDragging) {
-        // Interpolate towards target if set
-        if (shockwaveRadius > 0 && shockwaveRadius < 40) {
+        if (shockwaveRadius > 0 && shockwaveRadius < 42) {
           rotY += (targetRotY - rotY) * 0.08;
           rotX += (targetRotX - rotX) * 0.08;
         } else {
           rotY += velY;
           rotX += velX;
-          velY += (0.003 - velY) * 0.02; // Restore idle spin
+          velY += (0.0028 - velY) * 0.02;
           velX *= 0.95;
         }
       }
 
-      // Update HUD display
       if (coordsDisplay) {
         const degY = (((rotY * 180 / Math.PI) % 360 + 360) % 360).toFixed(1);
         const degX = (rotX * 180 / Math.PI).toFixed(1);
         coordsDisplay.textContent = 'ROT: ' + degY + '° | TILT: ' + degX + '°';
       }
 
-      // 1. Atmosphere Aura
-      const auraGrad = ctx.createRadialGradient(cx, cy, radius * 0.7, cx, cy, radius * 1.25);
-      auraGrad.addColorStop(0, 'rgba(0, 242, 254, 0.08)');
-      auraGrad.addColorStop(0.7, 'rgba(0, 242, 254, 0.03)');
+      // 1. Atmosphere Gradient Aura
+      const auraGrad = ctx.createRadialGradient(cx, cy, radius * 0.75, cx, cy, radius * 1.25);
+      auraGrad.addColorStop(0, 'rgba(0, 242, 254, 0.09)');
+      auraGrad.addColorStop(0.7, 'rgba(0, 242, 254, 0.025)');
       auraGrad.addColorStop(1, 'transparent');
       ctx.fillStyle = auraGrad;
       ctx.beginPath();
       ctx.arc(cx, cy, radius * 1.25, 0, Math.PI * 2);
       ctx.fill();
 
-      // Outer HUD Ring
-      ctx.strokeStyle = 'rgba(0, 242, 254, 0.18)';
+      // Outer Compass Ring with Ticks
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.16)';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(cx, cy, radius * 1.15, 0, Math.PI * 2);
       ctx.stroke();
 
       // 2. Latitude Rings
-      ctx.strokeStyle = 'rgba(0, 242, 254, 0.12)';
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.10)';
       ctx.lineWidth = 1;
       const lats = [-60, -30, 0, 30, 60];
       lats.forEach(lat => {
@@ -7650,7 +7871,18 @@ if(form){
         ctx.stroke();
       }
 
-      // 4. Draw 3D Great-Circle Flight Arcs
+      // 4. Render Landmass Surface Dots (Gives Authentic Continents Texture)
+      surfaceDots.forEach(sd => {
+        const p = project3D(sd.ux * radius, sd.uy * radius, sd.uz * radius, cx, cy, radius);
+        if (p.visible && p.z > 0) {
+          ctx.fillStyle = 'rgba(0, 242, 254, ' + (sd.alpha * (p.z / radius)).toFixed(2) + ')';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, sd.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      // 5. Draw 3D Great-Circle Flight Arcs
       arcs.forEach((arc, i) => {
         ctx.strokeStyle = arc.color;
         ctx.lineWidth = 1.2;
@@ -7670,12 +7902,11 @@ if(form){
         ctx.stroke();
         ctx.globalAlpha = 1.0;
 
-        // Traveling Photon Packet
+        // Traveling Photon Packet with comet tail
         const packetT = ((time * 0.00045 * (1 + (i % 3) * 0.2)) + (i * 0.25)) % 1;
         const packetPt = getArcPoint(arc.from, arc.to, packetT);
         const pPacket = project3D(packetPt.x * radius, packetPt.y * radius, packetPt.z * radius, cx, cy, radius);
-        if (pPacket.visible) {
-          // Packet glow head
+        if (pPacket.visible && pPacket.z > -radius * 0.1) {
           ctx.fillStyle = '#ffffff';
           ctx.beginPath();
           ctx.arc(pPacket.x, pPacket.y, 3, 0, Math.PI * 2);
@@ -7683,11 +7914,10 @@ if(form){
 
           ctx.fillStyle = arc.color;
           ctx.beginPath();
-          ctx.arc(pPacket.x, pPacket.y, 6, 0, Math.PI * 2);
+          ctx.arc(pPacket.x, pPacket.y, 6.5, 0, Math.PI * 2);
           ctx.fill();
 
-          // Packet trailing spark
-          const tailPt = getArcPoint(arc.from, arc.to, Math.max(0, packetT - 0.06));
+          const tailPt = getArcPoint(arc.from, arc.to, Math.max(0, packetT - 0.07));
           const pTail = project3D(tailPt.x * radius, tailPt.y * radius, tailPt.z * radius, cx, cy, radius);
           if (pTail.visible) {
             const grad = ctx.createLinearGradient(pTail.x, pTail.y, pPacket.x, pPacket.y);
@@ -7703,13 +7933,15 @@ if(form){
         }
       });
 
-      // 5. Draw City Hub Nodes
+      // 6. Draw City Hub Nodes
       cities.forEach(c => {
         const p = project3D(c.ux * radius, c.uy * radius, c.uz * radius, cx, cy, radius);
-        if (p.visible) {
-          // Pulse beacon
+        if (p.visible && p.z > -radius * 0.1) {
+          const depthAlpha = Math.max(0.3, Math.min(1, (p.z + radius * 0.2) / radius));
           const pulse = (Math.sin(time * 0.005 + c.lon) + 1) * 0.5;
+
           ctx.fillStyle = c.color;
+          ctx.globalAlpha = depthAlpha;
           ctx.beginPath();
           ctx.arc(p.x, p.y, 4 + pulse * 2, 0, Math.PI * 2);
           ctx.fill();
@@ -7720,18 +7952,19 @@ if(form){
           ctx.arc(p.x, p.y, 8 + pulse * 5, 0, Math.PI * 2);
           ctx.stroke();
 
-          // City Label
-          ctx.font = '700 9px monospace';
+          // City Label & Ping
+          ctx.font = '700 9.5px monospace';
           ctx.fillStyle = '#ffffff';
           ctx.fillText(c.name.split(' ')[0], p.x + 10, p.y + 3);
-          ctx.fillStyle = 'rgba(0, 242, 254, 0.8)';
+          ctx.fillStyle = c.color;
           ctx.fillText(c.ping, p.x + 10, p.y + 13);
+          ctx.globalAlpha = 1.0;
         }
       });
 
-      // 6. Active Shockwave Pulse if triggered
+      // 7. Shockwave Pulse
       if (shockwaveRadius > 0 && shockwaveCity) {
-        shockwaveRadius += dt * 38;
+        shockwaveRadius += dt * 40;
         const p = project3D(shockwaveCity.ux * radius, shockwaveCity.uy * radius, shockwaveCity.uz * radius, cx, cy, radius);
         if (p.visible) {
           const alpha = Math.max(0, 1 - shockwaveRadius / 45);
@@ -7764,7 +7997,9 @@ if(form){
     let isVisible = false;
     let shockwaves = [];
     let particles = [];
+    let sparks = [];
     let mouse = { x: -1000, y: -1000 };
+    let scanLineY = 0;
 
     // Core Architecture Conduits
     const coreConduits = [
@@ -7824,14 +8059,28 @@ if(form){
       pin.addEventListener('click', () => {
         const rect = pin.getBoundingClientRect();
         const vpRect = viewport.getBoundingClientRect();
+        const ox = rect.left + rect.width / 2 - vpRect.left;
+        const oy = rect.top + rect.height / 2 - vpRect.top;
         shockwaves.push({
-          x: rect.left + rect.width / 2 - vpRect.left,
-          y: rect.top + rect.height / 2 - vpRect.top,
+          x: ox,
+          y: oy,
           r: 2,
-          maxR: Math.max(width, height) * 0.65,
+          maxR: Math.max(width, height) * 0.7,
           color: '#00f2fe',
           alpha: 1
         });
+        // Emit spark burst
+        for (let i = 0; i < 14; i++) {
+          sparks.push({
+            x: ox,
+            y: oy,
+            vx: (Math.random() - 0.5) * 3.5,
+            vy: (Math.random() - 0.5) * 3.5,
+            size: Math.random() * 2 + 1,
+            color: Math.random() > 0.4 ? '#00f2fe' : '#f5ba42',
+            alpha: 1
+          });
+        }
         triggerCyberSfx('chime');
       });
     });
@@ -7843,13 +8092,13 @@ if(form){
     if (tabAutoApply) tabAutoApply.addEventListener('click', () => { currentSystem = 'autoapply'; });
 
     // Initialize floating ambient cyber spark particles in viewport
-    for (let i = 0; i < 22; i++) {
+    for (let i = 0; i < 24; i++) {
       particles.push({
         x: Math.random() * 800,
         y: Math.random() * 500,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 1.6 + 0.8,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        size: Math.random() * 1.5 + 0.8,
         color: Math.random() > 0.5 ? 'rgba(0, 242, 254,' : 'rgba(245, 186, 66,'
       });
     }
@@ -7873,18 +8122,34 @@ if(form){
 
       ctx.clearRect(0, 0, width, height);
 
+      // 1. Holographic Laser Scanning Plane (Sweeps downwards)
+      scanLineY = (scanLineY + dt * 55) % (height + 40);
+      const scanGrad = ctx.createLinearGradient(0, scanLineY - 14, 0, scanLineY);
+      scanGrad.addColorStop(0, 'transparent');
+      scanGrad.addColorStop(0.8, 'rgba(0, 242, 254, 0.08)');
+      scanGrad.addColorStop(1, 'rgba(0, 242, 254, 0.35)');
+      ctx.fillStyle = scanGrad;
+      ctx.fillRect(0, scanLineY - 14, width, 14);
+
+      ctx.strokeStyle = 'rgba(0, 242, 254, 0.5)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, scanLineY);
+      ctx.lineTo(width, scanLineY);
+      ctx.stroke();
+
       const activeConduits = currentSystem === 'core' ? coreConduits : autoApplyConduits;
 
-      // 1. Draw dynamic photon packets along conduits
+      // 2. Draw dynamic photon packets along conduits
       activeConduits.forEach((cond, i) => {
         const p0 = { x: cond.from.x * width, y: cond.from.y * height };
         const cp = { x: cond.cp.x * width, y: cond.cp.y * height };
         const p1 = { x: cond.to.x * width, y: cond.to.y * height };
 
         // Packet parameter t
-        const t = ((time * 0.0004 * (1 + (i % 2) * 0.3)) + (i * 0.35)) % 1;
+        const t = ((time * 0.00045 * (1 + (i % 2) * 0.3)) + (i * 0.35)) % 1;
         const pt = getQuadraticBezierPoint(p0, cp, p1, t);
-        const ptTail = getQuadraticBezierPoint(p0, cp, p1, Math.max(0, t - 0.08));
+        const ptTail = getQuadraticBezierPoint(p0, cp, p1, Math.max(0, t - 0.09));
 
         // Photon glow head
         ctx.fillStyle = '#ffffff';
@@ -7894,7 +8159,7 @@ if(form){
 
         ctx.fillStyle = cond.color;
         ctx.beginPath();
-        ctx.arc(pt.x, pt.y, 5.5, 0, Math.PI * 2);
+        ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
         ctx.fill();
 
         // Trailing gradient comet tail
@@ -7902,14 +8167,45 @@ if(form){
         grad.addColorStop(0, 'transparent');
         grad.addColorStop(1, cond.color);
         ctx.strokeStyle = grad;
-        ctx.lineWidth = 3.2;
+        ctx.lineWidth = 3.5;
         ctx.beginPath();
         ctx.moveTo(ptTail.x, ptTail.y);
         ctx.lineTo(pt.x, pt.y);
         ctx.stroke();
+
+        // Spawn junction spark when packet nears arrival
+        if (t > 0.96 && Math.random() < 0.25) {
+          sparks.push({
+            x: p1.x,
+            y: p1.y,
+            vx: (Math.random() - 0.5) * 2,
+            vy: (Math.random() - 0.5) * 2,
+            size: Math.random() * 1.5 + 0.8,
+            color: cond.color,
+            alpha: 1
+          });
+        }
       });
 
-      // 2. Draw & update interactive cyber sparks
+      // 3. Render Sparks
+      for (let s = sparks.length - 1; s >= 0; s--) {
+        const sp = sparks[s];
+        sp.x += sp.vx;
+        sp.y += sp.vy;
+        sp.alpha -= dt * 2.2;
+        if (sp.alpha <= 0) {
+          sparks.splice(s, 1);
+          continue;
+        }
+        ctx.fillStyle = sp.color;
+        ctx.globalAlpha = Math.max(0, sp.alpha);
+        ctx.beginPath();
+        ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+
+      // 4. Draw & update interactive cyber sparks
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
@@ -7918,25 +8214,24 @@ if(form){
         if (p.y < 0) p.y = height;
         else if (p.y > height) p.y = 0;
 
-        // Subtle mouse repulsion
         const dx = p.x - mouse.x;
         const dy = p.y - mouse.y;
         const dist = Math.hypot(dx, dy);
         if (dist < 90 && dist > 0) {
-          p.x += (dx / dist) * 1.2;
-          p.y += (dy / dist) * 1.2;
+          p.x += (dx / dist) * 1.4;
+          p.y += (dy / dist) * 1.4;
         }
 
-        ctx.fillStyle = p.color + '0.7)';
+        ctx.fillStyle = p.color + '0.75)';
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      // 3. Shockwave rings
+      // 5. Shockwave rings
       for (let s = shockwaves.length - 1; s >= 0; s--) {
         const sw = shockwaves[s];
-        sw.r += dt * 260;
+        sw.r += dt * 280;
         sw.alpha = Math.max(0, 1 - sw.r / sw.maxR);
 
         ctx.strokeStyle = 'rgba(0, 242, 254, ' + sw.alpha.toFixed(2) + ')';
