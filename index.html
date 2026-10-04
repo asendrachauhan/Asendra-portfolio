@@ -3350,13 +3350,13 @@ html, body {
 
 @media (max-width: 480px) {
   .hero-stats {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .autoapply-stats-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .gauge-card-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .hero-profile-chips {
     flex-direction: column;
@@ -3886,13 +3886,13 @@ img, svg, canvas, video {
     text-align: center !important;
   }
   .hero-stats {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .pipeline-flow-container {
     grid-template-columns: 1fr !important;
   }
   .gauge-card-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .hero-profile-chips {
     flex-direction: column !important;
@@ -3900,16 +3900,16 @@ img, svg, canvas, video {
     gap: 4px !important;
   }
   .autoapply-stats-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .telemetry-metrics-bar {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .world-clocks-row {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .i18n-cards-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .autoapply-kicker-strip {
     flex-direction: column !important;
@@ -4626,6 +4626,287 @@ img, svg, canvas, video {
   margin-bottom: 2px;
 }
 
+
+/* ==========================================================================
+   MOBILE VIEWPORT ANTI-CLIPPING & COMPACT DASHBOARD ARCHITECTURE (<= 640px)
+   ========================================================================== */
+
+/* Enhanced Sticky Navigation with High Contrast */
+.nav {
+  background: rgba(6, 9, 15, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hero H1 Headline Responsive Balance */
+.hero h1 {
+  font-size: clamp(24px, 3.4vw, 48px) !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 12px !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+.hero h1 span.block-title {
+  display: block !important;
+}
+
+@media (max-width: 640px) {
+  /* Hero Section Compact Fit */
+  .hero {
+    padding: 76px 0 24px !important;
+    gap: 20px !important;
+  }
+  .hero h1 {
+    font-size: clamp(22px, 6.2vw, 32px) !important;
+    line-height: 1.12 !important;
+  }
+  .hero-profile-badge {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 12px !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+  }
+  .hero-avatar-frame {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .hero-profile-name {
+    font-size: 14px !important;
+  }
+  .hero-profile-role-tag {
+    font-size: 8px !important;
+    padding: 2px 6px !important;
+  }
+  .hero-profile-chips {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+    font-size: 9.5px !important;
+  }
+  .hero-profile-chip {
+    white-space: nowrap !important;
+  }
+
+  /* Hero Stats: 2x2 Grid instead of tall 1-column list */
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    padding-top: 10px !important;
+  }
+  .hero-stat-card {
+    padding: 8px 6px !important;
+    text-align: center !important;
+  }
+  .hero-stat-card strong {
+    font-size: clamp(18px, 4.5vw, 22px) !important;
+  }
+  .hero-stat-card small {
+    font-size: 9px !important;
+  }
+
+  /* Hero Mode Switches: Balanced 3-Column Symmetrical Grid */
+  .mode-switches {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .mode-btn {
+    padding: 6px 4px !important;
+    font-size: 8.5px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Telemetry Metrics Bar: Compact 2x2 Grid */
+  .telemetry-metrics-bar {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  /* Hero Hologram Head: Balanced Dual-Tab Grid & Controls */
+  .hologram-head {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    padding: 0 0 8px 0 !important;
+  }
+  .hologram-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    gap: 6px !important;
+  }
+  .sys-tab {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 6px 4px !important;
+    font-size: 8.5px !important;
+    letter-spacing: .02em !important;
+    text-align: center !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .hologram-controls {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin: 0 !important;
+  }
+  .sfx-toggle-btn {
+    padding: 3px 8px !important;
+    font-size: 8.5px !important;
+  }
+  .telemetry-coords {
+    font-size: 8.5px !important;
+  }
+
+  /* HUD Telemetry Stream: 3-column micro-grid */
+  .realtime-hud-ticker {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px 8px !important;
+    padding: 8px 10px !important;
+    font-size: 8.5px !important;
+    text-align: center !important;
+  }
+  .realtime-hud-ticker .hud-item:last-child {
+    grid-column: 1 / -1 !important;
+    justify-content: center !important;
+  }
+
+  /* Section 02 Globe HUD Clean Stacking */
+  .globe-hud-overlay {
+    padding: 10px 12px !important;
+  }
+  .globe-hud-top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .globe-hud-pill {
+    font-size: 8.5px !important;
+    padding: 3px 6px !important;
+  }
+  .globe-hud-coords {
+    font-size: 8px !important;
+  }
+  .globe-hud-bottom {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+  }
+  .globe-hud-hint {
+    font-size: 8px !important;
+    padding: 3px 8px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .globe-hud-bottom .globe-hud-coords {
+    text-align: center !important;
+    width: 100% !important;
+    font-size: 8px !important;
+  }
+
+  /* World Clocks: Compact 2x2 Grid */
+  .world-clocks-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .clock-box {
+    padding: 8px 6px !important;
+    text-align: center !important;
+  }
+  .cb-zone {
+    font-size: 9px !important;
+  }
+  .cb-time {
+    font-size: 13px !important;
+  }
+
+  /* Globalization 6-Language Buttons: Compact 2-column Grid */
+  .i18n-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .i18n-flag-btn {
+    padding: 8px 6px !important;
+  }
+  .i18n-flag-btn .lang-code {
+    font-size: 9.5px !important;
+  }
+  .i18n-flag-btn .lang-native {
+    font-size: 12px !important;
+  }
+
+  /* Section 01 Dossier Cards Polish */
+  .dossier-card {
+    padding: 16px 14px !important;
+  }
+  .dossier-card .card-header-tags {
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+  }
+  .dossier-card .pillar-tags {
+    flex-wrap: wrap !important;
+    gap: 4px 6px !important;
+  }
+  .dossier-card .pillar-tag {
+    font-size: 9px !important;
+    white-space: normal !important;
+    padding: 3px 6px !important;
+  }
+
+  /* Section 11 Resume HUD: Clean Mobile Layout */
+  .resume-hud-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding-bottom: 12px !important;
+  }
+  .resume-view-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100% !important;
+    gap: 6px !important;
+  }
+  .resume-tab {
+    justify-content: center !important;
+    padding: 6px 4px !important;
+    font-size: 9px !important;
+    text-align: center !important;
+  }
+  .resume-actions-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+  .resume-actions-group .btn {
+    flex: 1 1 auto !important;
+    text-align: center !important;
+    justify-content: center !important;
+    font-size: 9.5px !important;
+    padding: 7px 10px !important;
+  }
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -4721,7 +5002,8 @@ img, svg, canvas, video {
     </div>
     <h1>
       <span class="block-title gold-text" data-i18n="hero.h1a">FULL-STACK + AI</span>
-      <span class="block-title"><span data-i18n="hero.h1b">BUILD. CONNECT.</span> <b class="accent" data-i18n="hero.h1c">INTELLIGENTLY.</b></span>
+      <span class="block-title" data-i18n="hero.h1b">BUILD. CONNECT.</span>
+      <span class="block-title"><b class="accent" data-i18n="hero.h1c">INTELLIGENTLY.</b></span>
     </h1>
     <p class="lead" data-i18n="hero.lead">Full-Stack Developer with 2+ years of experience shipping production SaaS applications end to end (Angular 17+, React, TypeScript, Node.js, Express.js, NestJS, MongoDB, and Groq/Llama GenAI). Led technical execution on KiteSuite and solo-engineered &amp; launched AutoApply AI.</p>
     <div class="hero-actions">
