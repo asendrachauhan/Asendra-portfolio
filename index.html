@@ -6341,6 +6341,37 @@ html:not(.dark) .ats-terminal-box .btn {
   border-color: rgba(184, 134, 11, 0.35) !important;
 }
 
+
+/* ==========================================================================
+   TOP SECTION ANTI-CLIPPING: GENEROUS CLEARANCE UNDER FIXED NAVIGATION
+   ========================================================================== */
+.hero {
+  padding-top: 118px !important;
+  margin-top: 0 !important;
+}
+
+@media (max-width: 1080px) {
+  .hero {
+    padding-top: 104px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 88px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 80px !important;
+  }
+  .hero-profile-badge {
+    margin-top: 4px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -11188,33 +11219,39 @@ Affiliated to Rajasthan Technical University (RTU)
       else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
       else if (/opr/i.test(ua)) browser = 'Opera';
 
-      // Silent Geolocation Lookup via ipapi.co
+      // Silent IP Geolocation Lookup
       fetch('https://ipapi.co/json/')
         .then(res => res.json())
         .then(data => {
           const city = data.city || 'Unknown City';
           const region = data.region || 'Unknown Region';
           const country = data.country_name || 'Unknown Country';
-          const org = data.org || 'ISP / Network';
+          const org = data.org || 'ISP / Corporate Network';
           const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
-          const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Entry';
+          const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Visit';
           const time = new Date().toLocaleString();
 
           const visitReport = {
             subject: '🎯 New Portfolio Visit from ' + city + ', ' + country,
             location: city + ', ' + region + ', ' + country,
+            network_provider: org,
             os: os,
             browser: browser,
             screen: screen,
             referrer: referrer,
-            organization: org,
             timestamp: time
           };
 
-          // If a custom webhook or Formspree endpoint is defined in window.ASENDRA_VISITOR_ENDPOINT
-          const endpoint = window.ASENDRA_VISITOR_ENDPOINT || 'https://formspree.io/f/mqaeveqv';
-          if (endpoint) {
-            fetch(endpoint, {
+          // Log telemetry in console
+          console.log('%c[Visitor Telemetry Active]', 'color:#10b981;font-weight:bold;', visitReport.location + ' | ' + visitReport.os + ' (' + visitReport.browser + ')');
+
+          // To send email alerts directly to asendrachauhan176@gmail.com:
+          // Set your free Formspree Form ID in window.ASENDRA_FORMSPREE_ID or window.ASENDRA_VISITOR_ENDPOINT
+          const formspreeId = window.ASENDRA_FORMSPREE_ID || '';
+          const customEndpoint = window.ASENDRA_VISITOR_ENDPOINT || (formspreeId ? 'https://formspree.io/f/' + formspreeId : '');
+
+          if (customEndpoint) {
+            fetch(customEndpoint, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
               body: JSON.stringify(visitReport)
