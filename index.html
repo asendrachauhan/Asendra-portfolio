@@ -6372,6 +6372,32 @@ html:not(.dark) .ats-terminal-box .btn {
   }
 }
 
+
+/* ==========================================================================
+   SECTION 07: SYNCHRONOTRON LIGHT THEME BACKGROUND & CLEAN CARD GAPS
+   ========================================================================== */
+html:not(.dark) .synchrotron-beam-box {
+  background: radial-gradient(circle at 50% 50%, #fcfbf7 0%, #f4eee2 100%) !important;
+  border: 1px solid rgba(184, 134, 11, 0.35) !important;
+  box-shadow: inset 0 2px 12px rgba(184, 134, 11, 0.08) !important;
+}
+
+html.dark .synchrotron-beam-box {
+  background: #020408 !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Generous Visual Separation Between Synchrotron Card and Lower GenAI Cards */
+.groq-synchrotron-card {
+  margin-bottom: 36px !important;
+}
+
+.genai-cards {
+  margin-top: 36px !important;
+  gap: 20px !important;
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -10847,12 +10873,17 @@ if(form){
     io.observe(parent);
 
     function spawnToken(isBurst) {
+      const isDark = document.documentElement.classList.contains('dark');
+      const tokenColor = isDark
+        ? (Math.random() > 0.35 ? '#f5ba42' : '#00f2fe')
+        : (Math.random() > 0.35 ? '#b8860b' : '#0284c7');
+
       tokens.push({
         x: 0,
         y: height / 2 + (Math.random() - 0.5) * 16,
         vx: (Math.random() * 4 + 7) * (isBurst ? 1.8 : 1),
         size: Math.random() * 2 + 2,
-        color: Math.random() > 0.35 ? '#f5ba42' : '#00f2fe',
+        color: tokenColor,
         alpha: 1
       });
     }
@@ -10885,7 +10916,8 @@ if(form){
       ctx.clearRect(0, 0, width, height);
 
       // Central laser rail
-      ctx.strokeStyle = 'rgba(0, 242, 254, 0.25)';
+      const isDarkTheme = document.documentElement.classList.contains('dark');
+      ctx.strokeStyle = isDarkTheme ? 'rgba(0, 242, 254, 0.25)' : 'rgba(184, 134, 11, 0.35)';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(0, height / 2);
