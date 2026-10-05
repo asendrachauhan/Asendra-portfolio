@@ -5918,6 +5918,225 @@ html:not(.dark) .pdf-zoom-btn {
   color: #1f2937 !important;
 }
 
+
+/* ==========================================================================
+   DESKTOP / MOBILE RESPONSIVE NAVIGATION & BUTTON FIXES
+   ========================================================================== */
+#menuBtn,
+.menu-btn {
+  display: none !important;
+}
+
+@media (max-width: 1080px) {
+  #menuBtn,
+  .menu-btn {
+    display: inline-flex !important;
+  }
+  .navlinks {
+    display: none !important;
+  }
+}
+
+/* Mobile Screen Fluid Navigation (No Overflow on 320px–480px) */
+@media (max-width: 480px) {
+  .nav {
+    top: 8px !important;
+    padding: 6px 10px !important;
+    width: calc(100% - 16px) !important;
+    gap: 6px !important;
+    min-height: 48px !important;
+  }
+  .nav-brand {
+    font-size: 13px !important;
+    gap: 6px !important;
+  }
+  .nav-brand .brand-tag,
+  .nav-brand span:not(.brand-name) {
+    display: none !important;
+  }
+  .icon-circle-btn {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+  .lang-pill-btn {
+    height: 34px !important;
+    padding: 0 8px !important;
+    font-size: 10px !important;
+    gap: 4px !important;
+  }
+  .lang-pill-btn .globe-icon {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .lang-pill-btn .lang-chevron-svg {
+    width: 9px !important;
+    height: 9px !important;
+  }
+}
+
+/* ==========================================================================
+   FLICKER-FREE THEME CROSS-FADE TRANSITIONS (ZERO JUMP, ZERO HEADER HIDING)
+   ========================================================================== */
+html, body, .nav, .resume-showcase-box, .deck-card, .resume-exp-card {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+/* Remove disruptive 3D page tilt warp */
+.theme-3d-active-warp {
+  animation: none !important;
+  transform: none !important;
+}
+
+#theme3dShockwave {
+  display: none !important;
+}
+
+
+/* ==========================================================================
+   STANDARD EXECUTIVE RESUME SHOWCASE (CLEAN, COMPACT & THEME-PARITY)
+   ========================================================================== */
+.resume-showcase-box {
+  padding: 20px 24px !important;
+}
+
+.resume-hud-bar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  padding-bottom: 14px !important;
+  margin-bottom: 16px !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.resume-view-tabs {
+  display: flex !important;
+  gap: 8px !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* High contrast tabs in both light and dark mode */
+.resume-tab {
+  padding: 7px 14px !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--border-strong) !important;
+  background: var(--surface-glass) !important;
+  color: var(--text) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+html:not(.dark) .resume-tab {
+  background: #f8f6f0 !important;
+  color: #374151 !important;
+  border-color: rgba(184, 134, 11, 0.3) !important;
+}
+
+html:not(.dark) .resume-tab:hover {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #b8860b !important;
+}
+
+html:not(.dark) .resume-tab.active {
+  background: #b8860b !important;
+  color: #ffffff !important;
+  border-color: #b8860b !important;
+  box-shadow: 0 2px 10px rgba(184, 134, 11, 0.3) !important;
+}
+
+html.dark .resume-tab {
+  background: rgba(12, 16, 23, 0.85) !important;
+  color: #9aa3b4 !important;
+  border-color: var(--border) !important;
+}
+
+html.dark .resume-tab:hover {
+  color: #ffffff !important;
+  border-color: var(--accent) !important;
+}
+
+html.dark .resume-tab.active {
+  background: var(--accent-soft) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 12px var(--gold-glow) !important;
+}
+
+/* Resume Matcher Toolbar Compactness */
+.resume-matcher-toolbar {
+  margin-bottom: 16px !important;
+  padding: 10px 14px !important;
+  gap: 8px !important;
+}
+
+.resume-exp-card {
+  padding: 16px 18px !important;
+  margin-bottom: 12px !important;
+}
+
+.resume-exp-header {
+  margin-bottom: 8px !important;
+}
+
+.resume-exp-title {
+  font-size: 15px !important;
+}
+
+.resume-exp-desc {
+  font-size: 12.5px !important;
+  line-height: 1.55 !important;
+  margin-bottom: 10px !important;
+}
+
+.resume-exp-metrics {
+  gap: 6px !important;
+  margin-bottom: 10px !important;
+}
+
+.resume-exp-metric {
+  padding: 3px 8px !important;
+  font-size: 10px !important;
+}
+
+.resume-competencies-matrix {
+  margin-top: 16px !important;
+  gap: 12px !important;
+}
+
+.competency-group {
+  padding: 12px 14px !important;
+}
+
+
+/* Action Group High Contrast in Light & Dark Mode */
+html:not(.dark) .resume-actions-group .btn.glass {
+  background: #f8f6f0 !important;
+  border-color: rgba(184, 134, 11, 0.35) !important;
+  color: #1e293b !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .resume-actions-group .btn.glass:hover {
+  background: #ffffff !important;
+  color: #b8860b !important;
+  border-color: #b8860b !important;
+  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.2) !important;
+}
+
+html:not(.dark) .resume-actions-group .btn.primary {
+  background: #b8860b !important;
+  color: #ffffff !important;
+  border-color: #b8860b !important;
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -6401,28 +6620,20 @@ html:not(.dark) .pdf-zoom-btn {
         </div>
         <div class="global-nodes-list">
           <div class="node-chip">
-            <span class="nc-city"><span class="nc-dot"></span>Frankfurt (eu-central-1)</span>
-            <span class="nc-ping" id="ping-fra">18ms</span>
+            <span class="nc-city"><span class="nc-dot"></span>India (Jaipur &amp; Mohali)</span>
+            <span class="nc-ping" id="ping-bom">Primary Base</span>
           </div>
           <div class="node-chip">
-            <span class="nc-city"><span class="nc-dot"></span>Mumbai (ap-south-1)</span>
-            <span class="nc-ping" id="ping-bom">8ms</span>
+            <span class="nc-city"><span class="nc-dot"></span>North America (US East &amp; West)</span>
+            <span class="nc-ping" id="ping-sfo">Enterprise Clients</span>
           </div>
           <div class="node-chip">
-            <span class="nc-city"><span class="nc-dot"></span>Singapore (ap-southeast-1)</span>
-            <span class="nc-ping" id="ping-sin">24ms</span>
+            <span class="nc-city"><span class="nc-dot"></span>Europe (UK &amp; Germany)</span>
+            <span class="nc-ping" id="ping-lhr">Remote Workflows</span>
           </div>
           <div class="node-chip">
-            <span class="nc-city"><span class="nc-dot"></span>Tokyo (ap-northeast-1)</span>
-            <span class="nc-ping" id="ping-nrt">32ms</span>
-          </div>
-          <div class="node-chip">
-            <span class="nc-city"><span class="nc-dot"></span>San Francisco (us-west-1)</span>
-            <span class="nc-ping" id="ping-sfo">42ms</span>
-          </div>
-          <div class="node-chip">
-            <span class="nc-city"><span class="nc-dot"></span>London (eu-west-2)</span>
-            <span class="nc-ping" id="ping-lhr">22ms</span>
+            <span class="nc-city"><span class="nc-dot"></span>APAC (Singapore &amp; Tokyo)</span>
+            <span class="nc-ping" id="ping-sin">Async Delivery</span>
           </div>
         </div>
       </div>
@@ -7540,43 +7751,10 @@ html:not(.dark) .pdf-zoom-btn {
         </div>
       </div>
 
-      <!-- Telemetry Verification Strip -->
-      <div class="resume-telemetry-strip">
-        <div class="rts-item">
-          <span class="rts-dot"></span>
-          <span class="rts-label">VERIFIED HASH:</span>
-          <span class="rts-val">SHA-256 · e82b...f91a</span>
-        </div>
-        <div class="rts-item">
-          <span class="rts-label">ATS COMPLIANCE:</span>
-          <span class="rts-val highlight">99.4% (Tier-1 Enterprise ATS)</span>
-        </div>
-        <div class="rts-item">
-          <span class="rts-label">LAST COMPILED:</span>
-          <span class="rts-val">OCTOBER 2026</span>
-        </div>
-        <div class="rts-item">
-          <span class="rts-label">STATUS:</span>
-          <span class="rts-val active-status">READY FOR PRODUCTION DISPATCH</span>
-        </div>
-      </div>
-
       <!-- VIEW 1: INTERACTIVE DOSSIER (DEFAULT ACTIVE VIEW) -->
       <div class="resume-view-panel" id="viewDossier">
       <!-- LIVE INTERACTIVE CAREER NEURAL PIPELINE GRAPHIC -->
-      <div class="career-neural-panel reveal">
-        <div class="neural-panel-header">
-          <div style="display:flex;align-items:center;gap:8px;">
-            <span class="badge-dot" style="background:#10b981;box-shadow:0 0 10px #10b981;"></span>
-            <span style="font-weight:700;letter-spacing:0.06em;">LIVE ARCHITECTURAL PIPELINE // REAL-TIME CAREER GRAPH</span>
-          </div>
-          <div class="neural-status-badge">
-            <span>⚡ 6 NODES SYNCHRONIZED</span>
-          </div>
-        </div>
-        <canvas id="careerNeuralCanvas" class="career-neural-canvas" width="1160" height="220" aria-label="Interactive career neural network graph"></canvas>
-      </div>
-        <!-- Interactive Role Matcher Bar -->
+      <!-- Interactive Role Matcher Bar -->
         <div class="ats-matcher-toolbar">
           <div class="matcher-head">
             <span class="mono" style="color:var(--gold-bright);font-size:10.5px;">✦ INTERACTIVE ROLE MATCHER &amp; FILTER</span>
@@ -7813,6 +7991,9 @@ html:not(.dark) .pdf-zoom-btn {
       </div>
 
       <!-- VIEW 2: HIGH-DEFINITION PDF VIEWER (ON DEMAND) -->
+      <div class="resume-view-panel hidden" 
+      </div>
+
       <div class="resume-view-panel hidden" id="viewPdf" style="display:none;">
         <div class="pdf-toolbar">
           <div class="pt-info">
@@ -8132,12 +8313,12 @@ const T = {
   "hero.modeAuto": ["AUTOMATION","ऑटोमेशन","AUTOMATIZACIÓN","AUTOMATISATION","AUTOMATISIERUNG","自動化"],
 
   /* GLOBALIZATION SECTION */
-  "global.kicker": ["02 · GLOBAL DEPLOYMENT ARCHITECTURE","02 · ग्लोबल डिप्लॉयमेंट आर्किटेक्चर","02 · ARQUITECTURA DE DESPLIEGUE GLOBAL","02 · ARCHITECTURE DE DÉPLOIEMENT GLOBAL","02 · GLOBALE DEPLOYMENT-ARCHITEKTUR","02 · グローバル展開・配信アーキテクチャ"],
-  "global.title": ["Cross-Border SaaS Infrastructure.<br><span class=\"muted\">Multi-region deployment for AutoApply AI &amp; KiteSuite.</span>","सीमा-पार SaaS इन्फ्रास्ट्रक्चर।<br><span class=\"muted\">AutoApply AI और KiteSuite के लिए मल्टी-रीजन डिप्लॉयमेंट।</span>","Infraestructura SaaS transfronteriza.<br><span class=\"muted\">Despliegue multirregión para AutoApply AI y KiteSuite.</span>","Infrastructure SaaS transfrontalière.<br><span class=\"muted\">Déploiement multi-régions pour AutoApply AI &amp; KiteSuite.</span>","Grenzüberschreitende SaaS-Infrastruktur.<br><span class=\"muted\">Multi-Region-Deployment für AutoApply AI &amp; KiteSuite.</span>","国境を越えるSaaS基盤。<br><span class=\"muted\">AutoApply AI と KiteSuite のマルチリージョン展開。</span>"],
-  "global.intro": ["Architecting for cross-border scale: AutoApply AI deployed across India and Europe with sub-25ms regional latency and 10-language internationalization; KiteSuite synchronizing enterprise workspaces across US, UK, and APAC timezones.","सीमा-पार पैमाने के लिए आर्किटेक्चर: AutoApply AI भारत और यूरोप में उप-25ms लेटेंसी और 10-भाषा अंतर्राष्ट्रीयकरण के साथ तैनात; KiteSuite यूएस, यूके और APAC समय क्षेत्रों में वर्कस्पेस को सिंक्रनाइज़ करता है।","Arquitectura a escala global: AutoApply AI desplegado en India y Europa con latencia inferior a 25ms y 10 idiomas; KiteSuite sincroniza espacios de trabajo en zonas horarias de EE. UU., Reino Unido y APAC.","Conçu pour l'échelle internationale : AutoApply AI déployé en Inde et en Europe avec une latence inférieure à 25ms et 10 langues ; KiteSuite synchronise les équipes entre États-Unis, Royaume-Uni et APAC.","Architektur für weltweite Skalierung: AutoApply AI im Einsatz in Indien und Europa mit unter 25ms Latenz und 10 Sprachen; KiteSuite synchronisiert Workspaces über US-, UK- und APAC-Zeitzonen hinweg.","グローバル規模での設計: AutoApply AI はインドおよび欧州にて25ms未満の遅延と10言語対応で稼働。KiteSuite は米国・英国・アジア太平洋の時差を越えてリアルタイム同期を実現。"],
-  "global.liveClocks": ["WORLD CLOCKS & REGIONAL TIME","विश्व घड़ियाँ और क्षेत्रीय समय","RELOJES MUNDIALES Y HORA REGIONAL","HORLOGES MONDIALES ET HEURE RÉGIONALE","WELTUHREN & REGIONALE ZEIT","世界時計と地域時間"],
-  "global.pingBtn": ["RUN PING TEST","पिंग टेस्ट चलाएं","TEST DE PING","TEST DE PING","PING-TEST STARTEN","Pingテスト実行"],
-  "global.pingStatus": ["Average multi-region latency: 24.2ms","औसत मल्टी-रीजन लेटेंसी: 24.2ms","Latencia promedio multirregión: 24.2ms","Latence moyenne multi-régions : 24.2ms","Durchschnittliche Multi-Region-Latenz: 24.2ms","平均マルチリージョン遅延: 24.2ms"],
+  "global.kicker": ["02 · GLOBAL COLLABORATION & REMOTE READINESS","02 · वैश्विक सहयोग और रिमोट तत्परता","02 · COLABORACIÓN GLOBAL Y TRABAJO REMOTO","02 · COLLABORATION MONDIALE ET TÉLÉTRAVAIL","02 · GLOBALE ZUSAMMENARBEIT & REMOTE-EINSATZ","02 · グローバル協調とリモート対応力"],
+  "global.title": ["Worldwide Delivery & Remote Engineering.<br><span class=\"muted\">Cross-timezone collaboration, international client demos &amp; distributed SaaS systems.</span>","वैश्विक वितरण और रिमोट इंजीनियरिंग।<br><span class=\"muted\">विभिन्न समय क्षेत्रों में सहयोग, अंतर्राष्ट्रीय ग्राहक डेमो और वितरित सास सिस्टम।</span>","Entrega global e ingeniería remota.<br><span class=\"muted\">Colaboración en múltiples zonas horarias y demos con clientes internacionales.</span>","Livraison mondiale &amp; ingénierie à distance.<br><span class=\"muted\">Collaboration inter-fuseaux horaires, démos clients internationaux et systèmes SaaS distribués.</span>","Weltweite Bereitstellung &amp; Remote-Engineering.<br><span class=\"muted\">Zeitzonenübergreifende Zusammenarbeit, internationale Kundendemos und verteilte SaaS-Systeme.</span>","グローバル開発デリバリーとリモート協調力。<br><span class=\"muted\">時差を越えた協調開発、国際クライアント向けデモ、分散型SaaS基盤の構築。</span>"],
+  "global.intro": ["Engineered for distributed high-performance teams: delivering production SaaS features for international enterprise clients across US, UK, and APAC at Rudra Innovative (KiteSuite), deploying autonomous career AI with edge CDN distribution (AutoApply AI), and native 6-language internationalization. Actively available for remote engineering roles and worldwide relocation.","वितरित उच्च-प्रदर्शन टीमों के लिए निर्मित: रुद्रा इनोवेटिव (KiteSuite) में यूएस, यूके और APAC में अंतर्राष्ट्रीय उद्यम ग्राहकों के लिए उत्पादन सास सुविधाओं का वितरण, एज सीडीएन (AutoApply AI) के साथ स्वायत्त करियर एआई की तैनाती, और 6 भाषाओं में अंतर्राष्ट्रीयकरण। दूरस्थ इंजीनियरिंग भूमिकाओं और वैश्विक स्थानांतरण के लिए सक्रिय रूप से उपलब्ध।","Preparado para equipos distribuidos de alto rendimiento: entrega de características SaaS de producción para clientes empresariales internacionales en EE. UU., Reino Unido y APAC en Rudra Innovative (KiteSuite), despliegue de AutoApply AI con CDN edge y localización nativa en 6 idiomas. Abierto a reubicación global y trabajo remoto.","Conçu pour les équipes distribuées à haute performance : livraison de fonctionnalités SaaS pour des clients d'entreprise aux États-Unis, Royaume-Uni et APAC chez Rudra Innovative (KiteSuite), déploiement d'AutoApply AI sur CDN edge et internationalisation native 6 langues. Ouvert au télétravail mondial et à la relocalisation.","Entwickelt für verteilte Hochleistungsteams: Bereitstellung von Produktions-SaaS-Funktionen für internationale Enterprise-Kunden in den USA, Großbritannien und APAC bei Rudra Innovative (KiteSuite), Deployment von AutoApply AI über Edge-CDNs und native 6-Sprachen-Internationalisierung. Offen für weltweite Relocation und Remote-Rollen.","分散型ハイパフォーマンスチームのためのエンジニアリング：Rudra Innovative（KiteSuite）にて米国・英国・APACの企業顧客向け機能開発・デモを担当。AutoApply AIのエッジCDN配信およびネイティブ6言語対応を実装。海外移住（リロケーション）およびフルリモート勤務に即時対応可能です。"],
+  "global.liveClocks": ["COORDINATED COLLABORATION TIMEZONES","समन्वित सहयोग समय क्षेत्र","ZONAS HORARIAS DE COLABORACIÓN COORDINADA","FUSEAUX HORAIRES DE COLLABORATION COORDONNÉE","KOORDINIERTE ZUSAMMENARBEITS-ZEITZONEN","グローバル協調タイムゾーン"],
+  "global.pingBtn": ["CHECK AVAILABILITY","उपलब्धता जांचें","VER DISPONIBILIDAD","VÉRIFIER DISPONIBILITÉ","VERFÜGBARKEIT PRÜFEN","稼働状況を確認"],
+  "global.pingStatus": ["Worldwide Remote & Relocation Ready: Jaipur / Mohali to Global Hubs","वैश्विक रिमोट और स्थानांतरण के लिए तैयार: जयपुर / मोहाली से वैश्विक केंद्र","Listo para trabajo remoto y reubicación mundial: Jaipur / Mohali hacia hubs globales","Prêt pour le travail à distance et la relocalisation mondiale : de Jaipur / Mohali vers les hubs mondiaux","Bereit für weltweites Remote & Relocation: von Jaipur / Mohali zu globalen Hubs","世界規模のリモート勤務・海外移住に対応：ジャイプール／モハリから世界各拠点へ"],
   "global.i18nHub": ["GLOBALIZATION ENGINE","ग्लोबलाइजेशन इंजन","MOTOR DE GLOBALIZACIÓN","MOTEUR DE GLOBALISATION","GLOBALISIERUNGS-ENGINE","多言語グローバリゼーション機構"],
   "global.i18nDesc": ["Native 6-language instant localization without page refresh. Formatted numbers, dates, and localized telemetry.","बिना पेज रिफ्रेश के 6 भाषाओं में तुरंत लोकलाइजेशन। फॉर्मेटेड नंबर, तारीखें और स्थानीयकृत टेलीमेट्री।","Localización instantánea nativa en 6 idiomas sin recarga. Números formateados, fechas y telemetría localizada.","Localisation instantanée native en 6 langues sans rechargement. Nombres formatés, dates et télémétrie localisée.","Native 6-Sprachen-Sofortlokalisierung ohne Seiten-Reload. Formatierte Zahlen, Daten und lokalisierte Telemetrie.","ページリロード不要のネイティブ6言語即時切り替え。数値・日付の地域化フォーマットと多言語テレメトリ。"],
 
@@ -8645,42 +8826,10 @@ try {
 } catch(e){ setTheme('dark'); }
 
 if (themeToggle) {
-  themeToggle.addEventListener('click', (e) => {
+  themeToggle.addEventListener('click', () => {
     const isDark = document.documentElement.classList.contains('dark');
-    const targetTheme = isDark ? 'light' : 'dark';
-
-    // 1. Calculate click center for 3D radial shockwave
-    const rect = themeToggle.getBoundingClientRect();
-    const originX = rect.left + rect.width / 2;
-    const originY = rect.top + rect.height / 2;
-
-    const shockwaveContainer = document.getElementById('theme3dShockwave');
-    if (shockwaveContainer) {
-      shockwaveContainer.innerHTML = '';
-      const pulse = document.createElement('div');
-      pulse.className = 'theme-shockwave-pulse';
-      pulse.style.setProperty('--theme-origin-x', originX + 'px');
-      pulse.style.setProperty('--theme-origin-y', originY + 'px');
-      shockwaveContainer.appendChild(pulse);
-      setTimeout(() => { shockwaveContainer.innerHTML = ''; }, 750);
-    }
-
-    // 2. Trigger 3D perspective warp tilt on document element
-    document.documentElement.classList.add('theme-3d-active-warp');
-    setTimeout(() => {
-      document.documentElement.classList.remove('theme-3d-active-warp');
-    }, 750);
-
-    // 3. Modern View Transitions API support with 3D circular clip if available
-    if (document.startViewTransition) {
-      document.startViewTransition(() => {
-        setTheme(targetTheme);
-      });
-    } else {
-      setTheme(targetTheme);
-    }
-
-    if (typeof triggerCyberSfx === 'function') triggerCyberSfx('chime');
+    setTheme(isDark ? 'light' : 'dark');
+    if (typeof triggerCyberSfx === 'function') triggerCyberSfx('click');
   });
 }
 
@@ -10784,164 +10933,7 @@ Affiliated to Rajasthan Technical University (RTU)
   /* ==========================================================================
      AWARD-WINNING CAREER NEURAL DATA PIPELINE GRAPHIC (SECTION 11 CANVAS)
      ========================================================================== */
-  (function initCareerNeuralCanvas() {
-    const canvas = document.getElementById('careerNeuralCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let width = canvas.width = canvas.parentElement.clientWidth || 1000;
-    let height = canvas.height = 220;
-
-    window.addEventListener('resize', () => {
-      if (canvas.parentElement) {
-        width = canvas.width = canvas.parentElement.clientWidth || 1000;
-        height = canvas.height = 220;
-      }
-    });
-
-    const nodes = [
-      { id: 'asendra', label: 'ASENDRA CHAUHAN', role: 'Full-Stack Lead & GenAI', x: 0.50, y: 0.50, r: 18, color: '#f5ba42', pulse: 0 },
-      { id: 'kitesuite', label: 'KITESUITE (Rudra)', role: 'Angular 17 • WebSockets • RAG', x: 0.16, y: 0.28, r: 12, color: '#00f2fe', pulse: 1 },
-      { id: 'autoapply', label: 'AUTOAPPLY AI', role: 'Solo SaaS • Groq LPU • Ext', x: 0.84, y: 0.28, r: 12, color: '#10b981', pulse: 2 },
-      { id: 'zenduit', label: 'ZENDUIT (Sumedha)', role: 'IoT Telematics • 10k+ Vehicles', x: 0.22, y: 0.78, r: 10, color: '#a855f7', pulse: 3 },
-      { id: 'intern', label: 'SUMEDHA INTERN', role: 'Web Developer Intern', x: 0.50, y: 0.88, r: 8, color: '#38bdf8', pulse: 4 },
-      { id: 'education', label: 'B.TECH CSE (Distinction)', role: 'RTU • 8.6 GPA • Honors', x: 0.78, y: 0.78, r: 10, color: '#f59e0b', pulse: 5 }
-    ];
-
-    const connections = [
-      { from: 0, to: 1, label: 'Enterprise Workspace', active: true },
-      { from: 0, to: 2, label: 'Solo GenAI SaaS', active: true },
-      { from: 0, to: 3, label: 'Telematics Backend', active: true },
-      { from: 0, to: 4, label: 'Foundations', active: true },
-      { from: 0, to: 5, label: 'Academic Rigor', active: true },
-      { from: 1, to: 2, label: 'Architecture Parity', active: false },
-      { from: 4, to: 3, label: 'Promotion Path', active: false }
-    ];
-
-    // Data packets flowing through connections
-    const packets = [];
-    for (let i = 0; i < 28; i++) {
-      packets.push({
-        connIdx: Math.floor(Math.random() * connections.length),
-        t: Math.random(),
-        speed: 0.003 + Math.random() * 0.006,
-        size: 2 + Math.random() * 2.5
-      });
-    }
-
-    let activeFilter = 'all';
-
-    // Hook into ATS Role Matcher buttons
-    document.querySelectorAll('.matcher-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeFilter = btn.getAttribute('data-role') || 'all';
-      });
-    });
-
-    let animationFrameId;
-
-    function renderNeuralGraph() {
-      ctx.clearRect(0, 0, width, height);
-
-      const isDark = document.documentElement.classList.contains('dark');
-      const textColor = isDark ? '#f3f5f8' : '#111827';
-      const textMuted = isDark ? '#9aa3b4' : '#6b7280';
-      const lineColor = isDark ? 'rgba(245, 186, 66, 0.18)' : 'rgba(184, 134, 11, 0.22)';
-      const activeLineColor = isDark ? 'rgba(245, 186, 66, 0.7)' : 'rgba(184, 134, 11, 0.8)';
-
-      // 1. Draw Connection Lines
-      connections.forEach((conn, idx) => {
-        const n1 = nodes[conn.from];
-        const n2 = nodes[conn.to];
-        const x1 = n1.x * width;
-        const y1 = n1.y * height;
-        const x2 = n2.x * width;
-        const y2 = n2.y * height;
-
-        const isHighlighted = (activeFilter === 'all') ||
-          (activeFilter === 'lead' && (conn.from === 1 || conn.to === 1)) ||
-          (activeFilter === 'ai' && (conn.from === 2 || conn.to === 2 || conn.to === 1)) ||
-          (activeFilter === 'backend' && (conn.from === 3 || conn.to === 3)) ||
-          (activeFilter === 'founder' && (conn.from === 2 || conn.to === 2));
-
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.strokeStyle = isHighlighted ? activeLineColor : lineColor;
-        ctx.lineWidth = isHighlighted ? 2 : 1;
-        ctx.stroke();
-      });
-
-      // 2. Animate and Render Data Packets
-      packets.forEach(p => {
-        const conn = connections[p.connIdx];
-        const n1 = nodes[conn.from];
-        const n2 = nodes[conn.to];
-        p.t += p.speed;
-        if (p.t > 1) p.t = 0;
-
-        const px = n1.x * width + (n2.x * width - n1.x * width) * p.t;
-        const py = n1.y * height + (n2.y * height - n1.y * height) * p.t;
-
-        ctx.beginPath();
-        ctx.arc(px, py, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = n2.color;
-        ctx.shadowColor = n2.color;
-        ctx.shadowBlur = 8;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      });
-
-      // 3. Draw Nodes with Holographic Glow
-      nodes.forEach((n, idx) => {
-        const nx = n.x * width;
-        const ny = n.y * height;
-        n.pulse += 0.04;
-
-        const pulseScale = Math.sin(n.pulse) * 2;
-        const radius = n.r + pulseScale;
-
-        // Outer glow ring
-        ctx.beginPath();
-        ctx.arc(nx, ny, radius + 4, 0, Math.PI * 2);
-        ctx.strokeStyle = n.color;
-        ctx.globalAlpha = 0.35 + Math.sin(n.pulse) * 0.25;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-        ctx.globalAlpha = 1.0;
-
-        // Node center
-        ctx.beginPath();
-        ctx.arc(nx, ny, radius, 0, Math.PI * 2);
-        ctx.fillStyle = isDark ? '#0c1017' : '#ffffff';
-        ctx.fill();
-        ctx.strokeStyle = n.color;
-        ctx.lineWidth = 2.5;
-        ctx.stroke();
-
-        // Inner core
-        ctx.beginPath();
-        ctx.arc(nx, ny, radius * 0.45, 0, Math.PI * 2);
-        ctx.fillStyle = n.color;
-        ctx.fill();
-
-        // Labels
-        ctx.font = 'bold ' + (idx === 0 ? '11px' : '9.5px') + ' var(--font-mono)';
-        ctx.fillStyle = textColor;
-        ctx.textAlign = 'center';
-        ctx.fillText(n.label, nx, ny - radius - 6);
-
-        ctx.font = '8px var(--font-mono)';
-        ctx.fillStyle = textMuted;
-        ctx.fillText(n.role, nx, ny + radius + 13);
-      });
-
-      animationFrameId = requestAnimationFrame(renderNeuralGraph);
-    }
-
-    renderNeuralGraph();
-  })();
+  
 
   /* 3D Dynamic Card Tilt Interaction */
   (function initCardTilt() {
@@ -10963,6 +10955,70 @@ Affiliated to Rajasthan Technical University (RTU)
         card.style.transform = '';
       });
     });
+  })();
+
+
+
+  /* ==========================================================================
+     PORTFOLIO VISITOR TELEMETRY & NOTIFICATION SYSTEM
+     Silently logs visitor city, region, country, OS, browser, and device
+     ========================================================================== */
+  (function initVisitorTelemetry() {
+    try {
+      if (sessionStorage.getItem('asendra_v_logged')) return;
+      sessionStorage.setItem('asendra_v_logged', '1');
+
+      const ua = navigator.userAgent || '';
+      let os = 'Unknown OS';
+      if (/windows nt 10/i.test(ua)) os = 'Windows 10/11';
+      else if (/windows/i.test(ua)) os = 'Windows';
+      else if (/macintosh|mac os x/i.test(ua)) os = 'macOS';
+      else if (/android/i.test(ua)) os = 'Android';
+      else if (/iphone|ipad|ipod/i.test(ua)) os = 'iOS';
+      else if (/linux/i.test(ua)) os = 'Linux';
+
+      let browser = 'Unknown Browser';
+      if (/edg/i.test(ua)) browser = 'Microsoft Edge';
+      else if (/chrome|crios/i.test(ua) && !/opr/i.test(ua)) browser = 'Chrome';
+      else if (/safari/i.test(ua) && !/chrome/i.test(ua)) browser = 'Safari';
+      else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
+      else if (/opr/i.test(ua)) browser = 'Opera';
+
+      // Silent Geolocation Lookup via ipapi.co
+      fetch('https://ipapi.co/json/')
+        .then(res => res.json())
+        .then(data => {
+          const city = data.city || 'Unknown City';
+          const region = data.region || 'Unknown Region';
+          const country = data.country_name || 'Unknown Country';
+          const org = data.org || 'ISP / Network';
+          const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
+          const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Entry';
+          const time = new Date().toLocaleString();
+
+          const visitReport = {
+            subject: '🎯 New Portfolio Visit from ' + city + ', ' + country,
+            location: city + ', ' + region + ', ' + country,
+            os: os,
+            browser: browser,
+            screen: screen,
+            referrer: referrer,
+            organization: org,
+            timestamp: time
+          };
+
+          // If a custom webhook or Formspree endpoint is defined in window.ASENDRA_VISITOR_ENDPOINT
+          const endpoint = window.ASENDRA_VISITOR_ENDPOINT || 'https://formspree.io/f/mqaeveqv';
+          if (endpoint) {
+            fetch(endpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(visitReport)
+            }).catch(() => {});
+          }
+        })
+        .catch(() => {});
+    } catch(e){}
   })();
 
 </script>
