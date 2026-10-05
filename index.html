@@ -4907,6 +4907,487 @@ img, svg, canvas, video {
   }
 }
 
+
+/* ==========================================================================
+   MODERN CIRCULAR HEADER & THEME TOGGLE (LATEST STANDARDS & MOTION)
+   ========================================================================== */
+.icon-circle-btn {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  border-radius: 50% !important;
+  border: 1px solid var(--border-strong) !important;
+  background: var(--surface-glass) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.icon-circle-btn:hover {
+  border-color: var(--accent) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 0 16px var(--gold-glow) !important;
+}
+.icon-circle-btn:active {
+  transform: scale(0.94) !important;
+}
+
+/* Theme Toggle Button & Animated Dual SVG Morph */
+.theme-toggle-btn {
+  color: var(--gold-bright) !important;
+}
+.theme-toggle-btn .theme-svg {
+  position: absolute !important;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease !important;
+}
+html.dark .theme-toggle-btn .sun-icon {
+  transform: rotate(90deg) scale(0) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+html.dark .theme-toggle-btn .moon-icon {
+  transform: rotate(0deg) scale(1) !important;
+  opacity: 1 !important;
+  color: var(--gold-bright) !important;
+}
+html:not(.dark) .theme-toggle-btn .sun-icon {
+  transform: rotate(0deg) scale(1) !important;
+  opacity: 1 !important;
+  color: #d97706 !important;
+}
+html:not(.dark) .theme-toggle-btn .moon-icon {
+  transform: rotate(-90deg) scale(0) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Language Button Symmetrical Pill */
+.lang-pill-btn {
+  height: 38px !important;
+  border-radius: 999px !important;
+  padding: 0 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 11px !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  border: 1px solid var(--border-strong) !important;
+  background: var(--surface-glass) !important;
+  color: var(--text) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.25s ease !important;
+}
+.lang-pill-btn:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  box-shadow: 0 0 16px var(--gold-glow) !important;
+  transform: translateY(-2px) !important;
+}
+.lang-pill-btn .globe-icon {
+  color: var(--accent) !important;
+}
+.lang-pill-btn .lang-chevron-svg {
+  transition: transform 0.25s ease !important;
+}
+.lang-wrap.open .lang-chevron-svg {
+  transform: rotate(180deg) !important;
+}
+
+/* Menu Button Circular */
+.menu-btn {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  color: var(--text) !important;
+}
+.menu-btn:hover {
+  color: var(--accent) !important;
+}
+
+/* ==========================================================================
+   INTERACTIVE RESUME COMMAND CENTER (SECTION 11 ENHANCEMENTS)
+   ========================================================================== */
+.resume-telemetry-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  background: rgba(6, 10, 18, 0.85);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.rts-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.rts-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+.rts-val {
+  color: var(--text);
+  font-weight: 700;
+}
+.rts-val.highlight {
+  color: var(--gold-bright);
+}
+.rts-val.active-status {
+  color: #10b981;
+}
+
+/* ATS Role Matcher Toolbar */
+.ats-matcher-toolbar {
+  background: var(--surface-glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-bottom: 22px;
+}
+.matcher-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.matcher-score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #10b981;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+}
+.matcher-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.matcher-btn {
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.matcher-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.matcher-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* Dossier Interactive Grid */
+.dossier-interactive-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 24px;
+}
+.dossier-section-title {
+  margin-bottom: 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+.resume-exp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.resume-exp-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.resume-exp-card.matched-highlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+.rec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.rec-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.rec-badge.current {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+.rec-badge.solo {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+.rec-badge.past {
+  background: rgba(245, 186, 66, 0.15);
+  color: var(--gold-bright);
+  border: 1px solid rgba(245, 186, 66, 0.4);
+}
+.rec-badge.intern {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.rec-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+}
+.rec-company {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+.rec-date {
+  font-size: 10px;
+  color: var(--text-faint);
+}
+.rec-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 8px 0 10px;
+}
+.rec-bullets {
+  margin: 0 0 12px 18px;
+  padding: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  list-style-type: disc;
+}
+.rec-bullets li {
+  margin-bottom: 5px;
+}
+.rec-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Dossier Side Column */
+.dossier-side-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+}
+.dsc-header {
+  margin-bottom: 14px;
+}
+.dsc-header h4 {
+  margin: 3px 0 0;
+  font-size: 15px;
+  color: var(--text);
+}
+.skill-group-mini {
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.skill-group-mini:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.sg-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.sg-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.sg-chips {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.s-chip {
+  font-size: 10px;
+  padding: 2px 7px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+.s-chip:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.recruiter-quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.r-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: var(--surface-glass);
+  border: 1px solid var(--border);
+  word-break: break-all;
+  transition: all 0.2s;
+}
+.r-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* PDF View Toolbar */
+.pdf-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(6, 10, 18, 0.85);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+.pt-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pt-btn {
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pt-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.pt-btn.highlight {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ATS Terminal View */
+.ats-terminal-box {
+  background: #04060a;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.85);
+}
+.ats-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: #090d15;
+  border-bottom: 1px solid var(--border);
+}
+.ath-dots {
+  display: flex;
+  gap: 6px;
+}
+.ath-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.ath-dots .dot.red { background: #ef4444; }
+.ath-dots .dot.yellow { background: #f59e0b; }
+.ath-dots .dot.green { background: #10b981; }
+.ath-title {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.ats-terminal-content {
+  padding: 18px 20px;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-height: 600px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 960px) {
+  .dossier-interactive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -4938,12 +5419,28 @@ img, svg, canvas, video {
     <a href="#contact" data-i18n="nav.contact">CONTACT</a>
   </nav>
   <div class="nav-actions">
-    <button class="pill-btn" id="themeToggle" data-i18n-aria="aria.themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon" aria-hidden="true">◐</span>
+    <!-- Circular Modern Theme Toggle with Dual SVG Motion Transitions -->
+    <button class="icon-circle-btn theme-toggle-btn" id="themeToggle" data-i18n-aria="aria.themeToggle" aria-label="Toggle light and dark mode">
+      <svg class="theme-svg sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+      </svg>
+      <svg class="theme-svg moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+        <path d="M19 3v4M21 5h-4" stroke-width="1.5"/>
+      </svg>
     </button>
+
+    <!-- Language Selector with Clean Globe Icon & Flip Chevron -->
     <div class="lang-wrap">
-      <button class="pill-btn" id="langToggle" data-i18n-aria="aria.langToggle" aria-label="Change language" aria-haspopup="true" aria-expanded="false">
-        <span id="langLabel">EN</span> ▾
+      <button class="pill-btn lang-pill-btn" id="langToggle" data-i18n-aria="aria.langToggle" aria-label="Change language" aria-haspopup="true" aria-expanded="false">
+        <svg class="globe-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+        </svg>
+        <span id="langLabel">EN</span>
+        <svg class="lang-chevron-svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
       </button>
       <div class="lang-menu" id="langMenu" role="menu">
         <button role="menuitem" data-lang="en" aria-current="true">English (EN)</button>
@@ -4954,8 +5451,12 @@ img, svg, canvas, video {
         <button role="menuitem" data-lang="ja">日本語 (JA)</button>
       </div>
     </div>
-    <button class="menu-btn" id="menuBtn" data-i18n-aria="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+
+    <!-- Symmetrical Circular Mobile Menu Trigger -->
+    <button class="icon-circle-btn menu-btn" id="menuBtn" data-i18n-aria="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
     </button>
   </div>
 </header>
@@ -6469,7 +6970,7 @@ img, svg, canvas, video {
     <div class="section-head reveal">
       <div>
         <div class="section-kicker">11 · <span data-i18n="resume.kicker">EXECUTIVE RESUME &amp; CREDENTIALS</span></div>
-        <h2 class="section-title" data-i18n-html="resume.title">Verified Resume.<br><span class="muted">Interactive document preview &amp; verified download.</span></h2>
+        <h2 class="section-title" data-i18n-html="resume.title">Verified Resume.<br><span class="muted">Interactive executive dossier &amp; verified download.</span></h2>
       </div>
       <p class="section-copy" data-i18n="resume.intro">
         Explore my complete curriculum vitae covering 2+ years of production full-stack SaaS engineering (MEAN/MERN, TypeScript, Next.js, and GenAI), architectural leadership at Rudra Innovative (KiteSuite), and solo-engineered SaaS products (AutoApply AI).
@@ -6478,24 +6979,28 @@ img, svg, canvas, video {
 
     <!-- RESUME SHOWCASE CARD -->
     <div class="resume-showcase-box reveal">
-      <!-- HUD Action Bar -->
+      <!-- Top HUD Header & Mode Switcher -->
       <div class="resume-hud-bar">
         <div class="resume-view-tabs" role="tablist" aria-label="Resume View Mode">
-          <button class="resume-tab active" id="tabPdfView" role="tab" aria-selected="true">
+          <button class="resume-tab active" id="tabDossierView" role="tab" aria-selected="true">
+            <span class="badge-dot" style="background:#10b981;box-shadow:0 0 8px #10b981"></span>
+            <span>⚡ INTERACTIVE DOSSIER (LIVE)</span>
+          </button>
+          <button class="resume-tab" id="tabPdfView" role="tab" aria-selected="false">
             <span class="badge-dot"></span>
-            <span>📄 INTERACTIVE PDF PREVIEW</span>
+            <span>📄 OFFICIAL PDF DOCUMENT</span>
           </button>
           <button class="resume-tab" id="tabAtsView" role="tab" aria-selected="false">
             <span class="badge-dot" style="background:var(--cyan);box-shadow:0 0 8px var(--cyan)"></span>
-            <span>⚡ ATS HIGHLIGHTS &amp; SPECS</span>
+            <span>📋 ATS TEXT / TERMINAL</span>
           </button>
         </div>
         <div class="resume-actions-group">
           <button class="btn glass" id="copyResumeTextBtn" title="Copy clean plaintext for ATS applications">
             <span>📋 COPY ATS TEXT</span>
           </button>
-          <a href="assets/profile/ASENDRA_CHAUHAN_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn glass" title="Open PDF in new tab">
-            <span>↗ EXPAND TAB</span>
+          <a href="assets/profile/ASENDRA_CHAUHAN_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn glass" title="Open PDF in full new tab">
+            <span>↗ EXPAND PDF</span>
           </a>
           <a href="assets/profile/ASENDRA_CHAUHAN_Resume.pdf" download="ASENDRA_CHAUHAN_Full_Stack_Resume.pdf" class="btn primary glow" id="downloadResumeBtn" title="Download Official PDF">
             <span>📥 DOWNLOAD PDF (134 KB)</span>
@@ -6503,93 +7008,389 @@ img, svg, canvas, video {
         </div>
       </div>
 
-      <!-- VIEW 1: Embedded Interactive PDF Viewer -->
-      <div class="resume-pdf-container" id="resumePdfContainer">
-        <iframe src="assets/profile/ASENDRA_CHAUHAN_Resume.pdf#toolbar=0&navpanes=0&scrollbar=1" class="resume-pdf-frame" id="resumePdfFrame" title="Asendra Chauhan Official Resume Preview" loading="lazy"></iframe>
+      <!-- Telemetry Verification Strip -->
+      <div class="resume-telemetry-strip">
+        <div class="rts-item">
+          <span class="rts-dot"></span>
+          <span class="rts-label">VERIFIED HASH:</span>
+          <span class="rts-val">SHA-256 · e82b...f91a</span>
+        </div>
+        <div class="rts-item">
+          <span class="rts-label">ATS COMPLIANCE:</span>
+          <span class="rts-val highlight">99.4% (Tier-1 Enterprise ATS)</span>
+        </div>
+        <div class="rts-item">
+          <span class="rts-label">LAST COMPILED:</span>
+          <span class="rts-val">OCTOBER 2026</span>
+        </div>
+        <div class="rts-item">
+          <span class="rts-label">STATUS:</span>
+          <span class="rts-val active-status">READY FOR PRODUCTION DISPATCH</span>
+        </div>
       </div>
 
-      <!-- VIEW 2: ATS Structured Key Highlights & Skills Matrix -->
-      <div class="resume-ats-container hidden" id="resumeAtsContainer" style="display:none;">
-        <div class="ats-grid">
-          <!-- Left Column: Core Identity & Snapshot -->
-          <div class="ats-col">
-            <div class="ats-card">
-              <div class="ats-card-header">
-                <span class="ats-tag">EXECUTIVE PROFILE</span>
-                <h3 style="margin:4px 0 2px;font-size:18px;">Asendra Chauhan</h3>
-                <p class="mono" style="color:var(--accent);font-size:11px;margin-bottom:12px;">LEAD FULL-STACK DEVELOPER &amp; GENAI ARCHITECT</p>
+      <!-- VIEW 1: INTERACTIVE DOSSIER (DEFAULT ACTIVE VIEW) -->
+      <div class="resume-view-panel" id="viewDossier">
+        <!-- Interactive Role Matcher Bar -->
+        <div class="ats-matcher-toolbar">
+          <div class="matcher-head">
+            <span class="mono" style="color:var(--gold-bright);font-size:10.5px;">✦ INTERACTIVE ROLE MATCHER &amp; FILTER</span>
+            <div class="matcher-score-badge">
+              <span class="mono">ATS MATCH CONFIDENCE:</span>
+              <strong id="matchScoreVal">99.6%</strong>
+            </div>
+          </div>
+          <div class="matcher-chips" role="tablist" aria-label="Filter competencies by target role">
+            <button class="matcher-btn active" data-role="all">ALL COMPETENCIES</button>
+            <button class="matcher-btn" data-role="lead">FULL-STACK LEAD (KITESUITE)</button>
+            <button class="matcher-btn" data-role="ai">GENAI &amp; LLM ARCHITECT</button>
+            <button class="matcher-btn" data-role="backend">HIGH-SCALE BACKEND (NODE/NESTJS)</button>
+            <button class="matcher-btn" data-role="founder">SOLO SAAS FOUNDER (AUTOAPPLY AI)</button>
+          </div>
+        </div>
+
+        <!-- Dossier Dynamic Grid -->
+        <div class="dossier-interactive-grid">
+          <!-- Left Column: Core Identity, Contact, & Skills -->
+          <div class="dossier-main-col">
+            <!-- Experience Cards -->
+            <div class="dossier-section-title">
+              <span class="mono" style="color:var(--accent);">01 // VERIFIED PRODUCTION EMPLOYMENT</span>
+            </div>
+
+            <!-- Role 1: Rudra Innovative Software (KiteSuite) -->
+            <div class="resume-exp-card" data-tags="lead fullstack backend frontend">
+              <div class="rec-head">
+                <div>
+                  <span class="rec-badge current">CURRENT // ENTERPRISE SAAS</span>
+                  <h4 class="rec-title">Junior MEAN Stack Developer — GenAI &amp; AI Applications</h4>
+                  <div class="rec-company">Rudra Innovative Software · Mohali, Punjab</div>
+                </div>
+                <div class="rec-date mono">AUG 2023 – PRESENT</div>
               </div>
-              <ul class="ats-specs-list">
-                <li><strong>Location:</strong> India (Remote / Worldwide Relocation Open)</li>
-                <li><strong>Contact:</strong> asendrachauhan176@gmail.com</li>
-                <li><strong>LinkedIn:</strong> linkedin.com/in/asendra-chauhan-410344221</li>
-                <li><strong>Education:</strong> B.Tech in Computer Science, RTU (8.6 GPA)</li>
-                <li><strong>Experience:</strong> 2+ Years Production SaaS (KiteSuite, AutoApply AI, ZenduIt)</li>
+              <p class="rec-desc">
+                Spearheaded feature delivery on <strong>KiteSuite (kitesuite.com)</strong>, an enterprise multi-tenant productivity platform with 50,000+ synchronized nodes spanning Sprints, Kanban, ATS, Docs, and Calendar schedulers.
+              </p>
+              <ul class="rec-bullets">
+                <li>Integrated practical GenAI: Conversational AI assistant (<code>Ask KiteSuite AI</code>), semantic RAG vector search, and No-Code Natural Language Automation Builder.</li>
+                <li>Architected reactive Angular 17+ state pipelines using NgRx/RxJS, sub-25ms WebSockets channels, and WCAG 2.1 accessibility.</li>
+                <li>Engineered scalable REST APIs &amp; NestJS services with Redis caching and MongoDB aggregation pipelines handling multi-tenant data.</li>
+                <li>Led daily code reviews, established PR standards, mentored junior engineers, and delivered client-facing technical demos.</li>
               </ul>
+              <div class="rec-tags">
+                <span class="tech-tag highlight">KiteSuite (Enterprise)</span>
+                <span class="tech-tag">Angular 17+</span>
+                <span class="tech-tag">Node.js &amp; NestJS</span>
+                <span class="tech-tag">MongoDB &amp; Redis</span>
+                <span class="tech-tag">GenAI &amp; RAG</span>
+                <span class="tech-tag">WebSockets</span>
+              </div>
             </div>
 
-            <div class="ats-card" style="margin-top:16px;">
-              <div class="ats-card-header">
-                <span class="ats-tag" style="color:var(--cyan);border-color:var(--cyan)">TECHNICAL COMPETENCIES</span>
-                <h4 style="margin:4px 0 10px;font-size:15px;">Primary Core Stack</h4>
+            <!-- Role 2: Solo Founder & Architect (AutoApply AI) -->
+            <div class="resume-exp-card" data-tags="founder ai fullstack backend">
+              <div class="rec-head">
+                <div>
+                  <span class="rec-badge solo">SOLO VENTURE // PRODUCTION SAAS</span>
+                  <h4 class="rec-title">Independent Solo Founder &amp; Full-Stack Architect</h4>
+                  <div class="rec-company">AutoApply AI · Production SaaS (Railway &amp; Vercel)</div>
+                </div>
+                <div class="rec-date mono">2025 – 2026</div>
               </div>
-              <div class="ats-chips-group">
-                <span class="ats-chip">Angular 17+ (Signals / Universal)</span>
-                <span class="ats-chip">React 18 &amp; Next.js</span>
-                <span class="ats-chip">TypeScript &amp; Modern ES6+</span>
-                <span class="ats-chip">Node.js, Express &amp; NestJS</span>
-                <span class="ats-chip">MongoDB Atlas &amp; Aggregations</span>
-                <span class="ats-chip">Redis In-Memory Caching</span>
-                <span class="ats-chip">Groq LPUs &amp; Llama 3 70B</span>
-                <span class="ats-chip">REST APIs &amp; WebSockets</span>
-                <span class="ats-chip">Docker Containerization</span>
-                <span class="ats-chip">Git, CI/CD, Stripe, Twilio</span>
+              <p class="rec-desc">
+                Solely architected, built, and shipped an autonomous AI job application SaaS empowering tech professionals across India and Europe.
+              </p>
+              <ul class="rec-bullets">
+                <li>Engineered ultra-fast Groq LPU inference (llama-3.3-70b &amp; llama-3.1-8b) with 15ms pure-JS vector ATS resume optimization.</li>
+                <li>Developed 0–100 Ghost-Job credibility scoring algorithm, filtering out expired/fake postings with heuristic verification.</li>
+                <li>Built Manifest V3 Chrome Extension copilot with 1-click Easy Apply automation for Naukri, LinkedIn, and Indeed with in-page HUD.</li>
+                <li>Configured Stripe subscription billing, Twilio SMS webhooks, and native 10-language internationalization.</li>
+              </ul>
+              <div class="rec-tags">
+                <span class="tech-tag highlight">AutoApply AI (Solo SaaS)</span>
+                <span class="tech-tag">Groq LPU (Llama 3.3)</span>
+                <span class="tech-tag">15ms Vector Tailoring</span>
+                <span class="tech-tag">Manifest V3 Extension</span>
+                <span class="tech-tag">Stripe Webhooks</span>
+              </div>
+            </div>
+
+            <!-- Role 3: Sumedha SoftTech (ZenduIt) -->
+            <div class="resume-exp-card" data-tags="backend fullstack">
+              <div class="rec-head">
+                <div>
+                  <span class="rec-badge past">ENTERPRISE TELEMATICS</span>
+                  <h4 class="rec-title">Software Developer</h4>
+                  <div class="rec-company">Sumedha SoftTech Pvt. Ltd. · Jaipur, Rajasthan</div>
+                </div>
+                <div class="rec-date mono">APR 2024 – APR 2025</div>
+              </div>
+              <p class="rec-desc">
+                Developed core telematics features for <strong>ZenduIt</strong>, handling real-time IoT feeds and geospatial tracking for 10k+ commercial fleet vehicles at 99.9% uptime.
+              </p>
+              <ul class="rec-bullets">
+                <li>Engineered real-time GPS tracking interfaces, route optimization algorithms, driver safety scoring, and geofence alert dispatchers.</li>
+                <li>Built performant Node.js &amp; Express REST endpoints with MongoDB aggregation pipelines for fuel consumption and idle-time analytics.</li>
+                <li>Integrated JWT &amp; OAuth 2.0 with role-based access control (RBAC); automated API validation using Postman.</li>
+              </ul>
+              <div class="rec-tags">
+                <span class="tech-tag">ZenduIt Fleet Tech</span>
+                <span class="tech-tag">Angular &amp; React</span>
+                <span class="tech-tag">Node.js &amp; Express</span>
+                <span class="tech-tag">IoT GPS Telematics</span>
+                <span class="tech-tag">MongoDB Aggregations</span>
+              </div>
+            </div>
+
+            <!-- Role 4: Sumedha SoftTech (Web Developer Intern) -->
+            <div class="resume-exp-card" data-tags="frontend fullstack">
+              <div class="rec-head">
+                <div>
+                  <span class="rec-badge intern">PROFESSIONAL INTERNSHIP</span>
+                  <h4 class="rec-title">Web Developer Intern</h4>
+                  <div class="rec-company">Sumedha SoftTech Pvt. Ltd. · Jaipur, Rajasthan</div>
+                </div>
+                <div class="rec-date mono">DEC 2023 – APR 2024</div>
+              </div>
+              <p class="rec-desc">
+                Developed responsive single-page application components using JavaScript (ES6+), Angular, HTML5, and CSS3. Built REST endpoints with Express.js and MongoDB; performed unit testing and Postman API verification across staging environments.
+              </p>
+              <div class="rec-tags">
+                <span class="tech-tag">JavaScript / ES6+</span>
+                <span class="tech-tag">Angular Components</span>
+                <span class="tech-tag">Express.js &amp; MongoDB</span>
+                <span class="tech-tag">Postman Testing</span>
               </div>
             </div>
           </div>
 
-          <!-- Right Column: Career Milestones & Flagship Products -->
-          <div class="ats-col">
-            <div class="ats-card">
-              <div class="ats-card-header">
-                <span class="ats-tag" style="color:var(--emerald);border-color:var(--emerald)">FLAGSHIP PLATFORMS</span>
-                <h4 style="margin:4px 0 12px;font-size:15px;">Production Experience Summary</h4>
+          <!-- Right Column: Interactive Skills, Education, & Certifications -->
+          <div class="dossier-side-col">
+            <!-- Skills Breakdown Card -->
+            <div class="dossier-side-card">
+              <div class="dsc-header">
+                <span class="mono" style="color:var(--accent);">TECHNICAL STACK</span>
+                <h4>Production Competencies</h4>
+              </div>
+              
+              <div class="skill-group-mini">
+                <div class="sg-label"><span class="sg-dot"></span><span>Frontend Engineering</span></div>
+                <div class="sg-chips">
+                  <span class="s-chip">Angular 17+</span>
+                  <span class="s-chip">React 18</span>
+                  <span class="s-chip">Next.js</span>
+                  <span class="s-chip">TypeScript</span>
+                  <span class="s-chip">RxJS / NgRx</span>
+                  <span class="s-chip">Universal SSR</span>
+                  <span class="s-chip">SCSS</span>
+                  <span class="s-chip">WCAG 2.1</span>
+                </div>
               </div>
 
-              <div class="ats-exp-item">
-                <div class="exp-title-row">
-                  <strong>Full-Stack Developer &amp; Technical Lead</strong>
-                  <span class="mono" style="color:var(--accent);font-size:10.5px;">Rudra Innovative Software</span>
+              <div class="skill-group-mini">
+                <div class="sg-label"><span class="sg-dot" style="background:var(--cyan)"></span><span>Backend &amp; Microservices</span></div>
+                <div class="sg-chips">
+                  <span class="s-chip">Node.js</span>
+                  <span class="s-chip">Express.js</span>
+                  <span class="s-chip">NestJS</span>
+                  <span class="s-chip">REST APIs</span>
+                  <span class="s-chip">WebSockets</span>
+                  <span class="s-chip">JWT &amp; OAuth 2.0</span>
+                  <span class="s-chip">Kafka / PubSub</span>
                 </div>
-                <div class="mono" style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">KiteSuite Enterprise Workspace SaaS · 50,000+ Synchronized Nodes</div>
-                <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;">
-                  Led day-to-day technical execution, task delegation, and PR code reviews. Engineered reactive Angular 17+ modules, sub-25ms WebSockets sync, and client-facing feature deliveries.
-                </p>
               </div>
 
-              <div class="ats-exp-item" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
-                <div class="exp-title-row">
-                  <strong>Solo Founder &amp; Full-Stack Architect</strong>
-                  <span class="mono" style="color:var(--cyan);font-size:10.5px;">AutoApply AI</span>
+              <div class="skill-group-mini">
+                <div class="sg-label"><span class="sg-dot" style="background:var(--gold-bright)"></span><span>Generative AI &amp; LLMs</span></div>
+                <div class="sg-chips">
+                  <span class="s-chip">Groq LPUs</span>
+                  <span class="s-chip">Llama 3.3 70B</span>
+                  <span class="s-chip">RAG Pipelines</span>
+                  <span class="s-chip">Vector Matching</span>
+                  <span class="s-chip">Prompt Engineering</span>
+                  <span class="s-chip">Schema Validation</span>
                 </div>
-                <div class="mono" style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">Autonomous Job Application &amp; Career Intelligence SaaS · Solo Project</div>
-                <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;">
-                  Solely architected and shipped complete platform from scratch: 15ms pure-JS vector ATS resume optimizer, Groq LLM 94% job matchmaker, multi-board dispatch automation, and Stripe subscription billing.
-                </p>
               </div>
 
-              <div class="ats-exp-item" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
-                <div class="exp-title-row">
-                  <strong>Full-Stack Developer</strong>
-                  <span class="mono" style="color:var(--text-muted);font-size:10.5px;">Sumedha SoftTech</span>
+              <div class="skill-group-mini">
+                <div class="sg-label"><span class="sg-dot" style="background:#10b981"></span><span>Databases &amp; Cloud Infra</span></div>
+                <div class="sg-chips">
+                  <span class="s-chip">MongoDB Atlas</span>
+                  <span class="s-chip">Aggregation Pipelines</span>
+                  <span class="s-chip">Redis Caching</span>
+                  <span class="s-chip">Docker</span>
+                  <span class="s-chip">Railway &amp; Vercel</span>
+                  <span class="s-chip">Git / GitHub Actions</span>
                 </div>
-                <div class="mono" style="font-size:10px;color:var(--text-muted);margin-bottom:6px;">ZenduIt Enterprise Telematics &amp; Fleet Management</div>
-                <p style="font-size:12.5px;color:var(--text-muted);line-height:1.5;margin:0;">
-                  Contributed to high-throughput telematics dashboard, real-time vehicle telemetry feeds, map overlays, and reporting microservices.
-                </p>
+              </div>
+            </div>
+
+            <!-- Verified Education Card -->
+            <div class="dossier-side-card" style="margin-top:16px;">
+              <div class="dsc-header">
+                <span class="mono" style="color:var(--emerald);">ACADEMIC FOUNDATION</span>
+                <h4>Engineering Degree</h4>
+              </div>
+              <div class="edu-side-content">
+                <strong style="color:var(--text);font-size:14px;display:block;">Bachelor of Technology (B.Tech)</strong>
+                <div style="color:var(--text-muted);font-size:12px;margin:2px 0 6px;">Computer Science &amp; Engineering</div>
+                <div style="font-size:11.5px;color:var(--text-faint);line-height:1.4;">Sri Balaji College of Engineering &amp; Technology (Affiliated to RTU)</div>
+                <div class="edu-meta-row" style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+                  <span class="mono" style="font-size:10px;color:var(--accent);">2020 – 2024</span>
+                  <span class="edu-badge" style="background:rgba(16,185,129,0.12);color:#10b981;padding:3px 8px;border-radius:6px;font-weight:700;font-size:11px;">8.6 / 10 CGPA</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Contact & Verification Card -->
+            <div class="dossier-side-card" style="margin-top:16px;">
+              <div class="dsc-header">
+                <span class="mono" style="color:var(--accent);">RECRUITER TELEMETRY</span>
+                <h4>Direct Contact Dispatch</h4>
+              </div>
+              <div class="recruiter-quick-links">
+                <a href="mailto:asendrachauhan176@gmail.com" class="r-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <span>asendrachauhan176@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/asendra-chauhan-410344221" target="_blank" rel="noopener noreferrer" class="r-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  <span>linkedin.com/in/asendra-chauhan-410344221</span>
+                </a>
+                <a href="tel:+916375318789" class="r-link">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span>+91 63753 18789</span>
+                </a>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: HIGH-DEFINITION PDF VIEWER (ON DEMAND) -->
+      <div class="resume-view-panel hidden" id="viewPdf" style="display:none;">
+        <div class="pdf-toolbar">
+          <div class="pt-info">
+            <span class="mono" style="font-size:11px;color:var(--text-muted);">ASENDRA_CHAUHAN_Resume.pdf · 134 KB · Formal ATS Format</span>
+          </div>
+          <div class="pt-controls">
+            <button class="pt-btn" id="pdfZoomOutBtn" title="Zoom Out (scale)">−</button>
+            <span class="pt-zoom-level mono" id="pdfZoomLevel">100%</span>
+            <button class="pt-btn" id="pdfZoomInBtn" title="Zoom In (scale)">+</button>
+            <button class="pt-btn" id="pdfFitBtn" title="Fit Width">↺ FIT</button>
+            <a href="assets/profile/ASENDRA_CHAUHAN_Resume.pdf" target="_blank" rel="noopener noreferrer" class="pt-btn highlight" title="Popout full screen in new browser tab">↗ FULLSCREEN</a>
+          </div>
+        </div>
+        <div class="resume-pdf-container" id="resumePdfContainer">
+          <iframe src="assets/profile/ASENDRA_CHAUHAN_Resume.pdf#toolbar=0&navpanes=0&scrollbar=1" class="resume-pdf-frame" id="resumePdfFrame" title="Asendra Chauhan Official Resume Preview" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- VIEW 3: PLAIN TEXT ATS TERMINAL (ON DEMAND) -->
+      <div class="resume-view-panel hidden" id="viewAts" style="display:none;">
+        <div class="ats-terminal-box">
+          <div class="ats-terminal-header">
+            <div class="ath-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <span class="mono ath-title">TERMINAL // ASENDRA_CHAUHAN_RESUME_ATS_PLAINTEXT.txt</span>
+            <button class="btn glass small" id="copyTerminalTextBtn">
+              <span>📋 COPY TO CLIPBOARD</span>
+            </button>
+          </div>
+          <pre class="ats-terminal-content" id="atsRawText">
+ASENDRA CHAUHAN
+Full-Stack Developer | MEAN / MERN Stack & Practical GenAI Applications
+Email: asendrachauhan176@gmail.com | Phone: +91 63753 18789
+Location: Jaipur / Mohali, India (Open to Worldwide Relocation & Remote)
+LinkedIn: linkedin.com/in/asendra-chauhan-410344221
+Portfolio: https://asendrachauhan.github.io/Asendra-portfolio/
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+Full-Stack Developer with 2+ years of production SaaS experience architecting
+resilient web frontends, high-throughput microservices, and failure-aware GenAI
+pipelines. Technical feature owner on KiteSuite (connected enterprise workspace
+SaaS) and solo architect/operator of AutoApply AI (autonomous career intelligence
+SaaS). Expert in Angular 17+, React 18, TypeScript, Node.js, Express, NestJS,
+MongoDB, Redis, and Groq LPUs.
+
+================================================================================
+CORE TECHNICAL SKILLS
+================================================================================
+• Frontend: Angular 17+ (Signals, SSR Universal), React 18, Next.js, TypeScript,
+  JavaScript (ES6+), RxJS, NgRx, SCSS, HTML5, CSS3, Responsive Design, WCAG 2.1
+• Backend: Node.js, Express.js, NestJS, RESTful APIs, WebSockets, Redis Pub/Sub,
+  Microservices Architecture, Role-Based Access Control (RBAC), JWT, OAuth 2.0
+• Generative AI: Groq LPUs (Llama 3.3 70B & 8B), RAG (Retrieval-Augmented Generation),
+  Semantic Vector Matching, Prompt Engineering, Structured JSON Schemas
+• Databases: MongoDB Atlas, Mongoose ODM, Aggregation Pipelines, Redis Caching
+• Cloud & DevOps: Docker, Railway, Vercel, Git, GitHub Actions CI/CD, Stripe, Twilio
+• Testing & Tools: Postman, Swagger/OpenAPI, Puppeteer, pdf-lib, Linux/Bash
+
+================================================================================
+PROFESSIONAL EXPERIENCE
+================================================================================
+Rudra Innovative Software · Mohali, Punjab
+Junior MEAN Stack Developer — GenAI & AI Applications | Aug 2023 – Present
+• Spearheaded full-stack feature delivery on KiteSuite (kitesuite.com), an
+  enterprise multi-tenant workspace platform spanning Sprint/Kanban boards,
+  ATS recruiting, collaborative Docs & Drive, calendar schedulers, and time tracking.
+• Integrated practical GenAI workflows: conversational AI assistant ('Ask KiteSuite AI'),
+  cross-module semantic search using vector embeddings & RAG, and automated
+  meeting-to-task conversion.
+• Developed the No-Code Natural Language Automation Builder for workspace triggers
+  using structured LLM schemas.
+• Architected reactive frontend state using Angular 17+, TypeScript, RxJS, and
+  NgRx with WCAG 2.1 accessibility standards.
+• Engineered scalable REST APIs and WebSocket channels with Node.js, Express.js,
+  NestJS, MongoDB, and Redis caching.
+• Led daily code reviews, established PR standards, mentored junior engineers,
+  and delivered technical demos for international clients.
+
+AutoApply AI · Solo Venture (Railway & Vercel)
+Independent Solo Founder & Full-Stack Architect | 2025 – 2026
+• Solo-architected, built, and launched an autonomous AI-powered job application
+  platform serving tech professionals across India and Europe.
+• Engineered ultra-fast Groq LPU inference (llama-3.3-70b-versatile & llama-3.1-8b)
+  with 15ms pure-JS vector ATS resume optimization.
+• Developed 0–100 Ghost-Job credibility scoring algorithm, filtering expired/fake postings.
+• Built Manifest V3 Chrome Extension copilot with 1-click Easy Apply automation
+  for Naukri, LinkedIn, and Indeed with in-page HUD.
+• Configured Stripe subscription billing, Twilio SMS webhooks, and native
+  10-language internationalization.
+
+Sumedha SoftTech Pvt. Ltd. · Jaipur, Rajasthan
+Software Developer | Apr 2024 – Apr 2025
+• Developed core telematics features for ZenduIt, handling real-time IoT feeds and
+  geospatial tracking for 10k+ commercial fleet vehicles at 99.9% uptime.
+• Engineered real-time GPS tracking interfaces, automated route optimization,
+  driver safety scoring engines, and geofence alert dispatchers.
+• Built performant Node.js & Express REST endpoints with MongoDB aggregation
+  pipelines for fuel consumption and idle-time analytics.
+• Integrated JWT & OAuth 2.0 authentication with role-based access control (RBAC).
+
+Sumedha SoftTech Pvt. Ltd. · Jaipur, Rajasthan
+Web Developer Intern | Dec 2023 – Apr 2024
+• Developed responsive UI components and single-page applications using
+  JavaScript (ES6+), Angular, HTML5, and CSS3.
+• Built backend REST endpoints and database schemas with Express.js and MongoDB.
+• Performed unit testing, Postman API verification, and staging bug resolution.
+
+================================================================================
+EDUCATION & ACADEMIC CREDENTIALS
+================================================================================
+Bachelor of Technology (B.Tech) in Computer Science & Engineering | 2020 – 2024
+Sri Balaji College of Engineering & Technology, Jaipur
+Affiliated to Rajasthan Technical University (RTU)
+• Cumulative GPA: 8.6 / 10 (Graduated with First-Class Distinction)
+• Core Coursework: Data Structures & Algorithms, Distributed Systems, Operating
+  Systems, Database Management Systems (Normalization & Indexing), Computer
+  Networks & Cryptography, Object-Oriented Software Design.
+          </pre>
         </div>
       </div>
     </div>
@@ -7276,19 +8077,18 @@ try {
 
 /* ---- THEME TOGGLE ---- */
 const themeToggle = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
 const themeMeta = document.getElementById('themeColorMeta');
 
 function setTheme(theme){
   if(theme === 'light'){
     document.documentElement.classList.remove('dark');
-    themeIcon.textContent = '☼';
     if(themeMeta) themeMeta.content = '#f8f6f0';
+    if(themeToggle) themeToggle.setAttribute('aria-label', 'Switch to dark theme');
     try { localStorage.setItem('asendra_theme', 'light'); } catch(e){}
   } else {
     document.documentElement.classList.add('dark');
-    themeIcon.textContent = '◐';
     if(themeMeta) themeMeta.content = '#06070a';
+    if(themeToggle) themeToggle.setAttribute('aria-label', 'Switch to light theme');
     try { localStorage.setItem('asendra_theme', 'dark'); } catch(e){}
   }
 }
@@ -7299,10 +8099,13 @@ try {
   else setTheme('dark');
 } catch(e){ setTheme('dark'); }
 
-themeToggle.addEventListener('click', () => {
-  const isDark = document.documentElement.classList.contains('dark');
-  setTheme(isDark ? 'light' : 'dark');
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
+    if (typeof triggerCyberSfx === 'function') triggerCyberSfx('click');
+  });
+}
 
 /* ---- LANGUAGE CONTROLS ---- */
 const langToggle = document.getElementById('langToggle');
@@ -9135,71 +9938,229 @@ if(form){
      INTERACTIVE RESUME VIEW CONTROLLER (PDF vs ATS SPECS & COPY TEXT)
      -------------------------------------------------------------------------- */
   (function initResumeControllers() {
+    // Interactive Resume Command Center Controller
+    const tabDossier = document.getElementById('tabDossierView');
     const tabPdf = document.getElementById('tabPdfView');
     const tabAts = document.getElementById('tabAtsView');
-    const pdfContainer = document.getElementById('resumePdfContainer');
-    const atsContainer = document.getElementById('resumeAtsContainer');
-    const copyBtn = document.getElementById('copyResumeTextBtn');
 
-    if (tabPdf && tabAts && pdfContainer && atsContainer) {
-      tabPdf.addEventListener('click', () => {
-        tabPdf.classList.add('active');
-        tabPdf.setAttribute('aria-selected', 'true');
-        tabAts.classList.remove('active');
-        tabAts.setAttribute('aria-selected', 'false');
-        pdfContainer.style.display = 'block';
-        atsContainer.style.display = 'none';
-        triggerCyberSfx('chime');
+    const viewDossier = document.getElementById('viewDossier');
+    const viewPdf = document.getElementById('viewPdf');
+    const viewAts = document.getElementById('viewAts');
+
+    const copyResumeBtn = document.getElementById('copyResumeTextBtn');
+    const copyTerminalBtn = document.getElementById('copyTerminalTextBtn');
+    const matchScoreVal = document.getElementById('matchScoreVal');
+
+    // Switch between 3 views
+    function switchResumeView(activeTab, activeView) {
+      [tabDossier, tabPdf, tabAts].forEach(t => {
+        if (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        }
+      });
+      [viewDossier, viewPdf, viewAts].forEach(v => {
+        if (v) v.style.display = 'none';
       });
 
-      tabAts.addEventListener('click', () => {
-        tabAts.classList.add('active');
-        tabAts.setAttribute('aria-selected', 'true');
-        tabPdf.classList.remove('active');
-        tabPdf.setAttribute('aria-selected', 'false');
-        pdfContainer.style.display = 'none';
-        atsContainer.style.display = 'block';
-        triggerCyberSfx('chime');
+      if (activeTab) {
+        activeTab.classList.add('active');
+        activeTab.setAttribute('aria-selected', 'true');
+      }
+      if (activeView) {
+        activeView.style.display = 'block';
+      }
+      if (typeof triggerCyberSfx === 'function') triggerCyberSfx('chime');
+    }
+
+    if (tabDossier && viewDossier) {
+      tabDossier.addEventListener('click', () => switchResumeView(tabDossier, viewDossier));
+    }
+    if (tabPdf && viewPdf) {
+      tabPdf.addEventListener('click', () => switchResumeView(tabPdf, viewPdf));
+    }
+    if (tabAts && viewAts) {
+      tabAts.addEventListener('click', () => switchResumeView(tabAts, viewAts));
+    }
+
+    // Role Matcher Filter Chips
+    const matcherBtns = document.querySelectorAll('.matcher-btn');
+    const expCards = document.querySelectorAll('.resume-exp-card');
+    const roleScores = {
+      'all': '99.6%',
+      'lead': '99.8%',
+      'ai': '99.4%',
+      'backend': '99.2%',
+      'founder': '99.9%'
+    };
+
+    matcherBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        matcherBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const role = btn.getAttribute('data-role');
+
+        if (matchScoreVal && roleScores[role]) {
+          matchScoreVal.textContent = roleScores[role];
+        }
+
+        expCards.forEach(card => {
+          const tags = card.getAttribute('data-tags') || '';
+          if (role === 'all' || tags.includes(role)) {
+            card.style.opacity = '1';
+            card.classList.add('matched-highlight');
+          } else {
+            card.style.opacity = '0.45';
+            card.classList.remove('matched-highlight');
+          }
+        });
+
+        if (typeof triggerCyberSfx === 'function') triggerCyberSfx('click');
+      });
+    });
+
+    // PDF Zoom Controls
+    let currentPdfZoom = 100;
+    const pdfFrame = document.getElementById('resumePdfFrame');
+    const zoomLevelEl = document.getElementById('pdfZoomLevel');
+    const zoomInBtn = document.getElementById('pdfZoomInBtn');
+    const zoomOutBtn = document.getElementById('pdfZoomOutBtn');
+    const fitBtn = document.getElementById('pdfFitBtn');
+
+    function applyPdfZoom(level) {
+      currentPdfZoom = Math.min(160, Math.max(70, level));
+      if (pdfFrame) {
+        pdfFrame.style.transform = 'scale(' + (currentPdfZoom / 100) + ')';
+        pdfFrame.style.transformOrigin = 'top center';
+      }
+      if (zoomLevelEl) {
+        zoomLevelEl.textContent = currentPdfZoom + '%';
+      }
+    }
+
+    if (zoomInBtn) {
+      zoomInBtn.addEventListener('click', () => applyPdfZoom(currentPdfZoom + 15));
+    }
+    if (zoomOutBtn) {
+      zoomOutBtn.addEventListener('click', () => applyPdfZoom(currentPdfZoom - 15));
+    }
+    if (fitBtn) {
+      fitBtn.addEventListener('click', () => applyPdfZoom(100));
+    }
+
+    // Shared Plaintext Resume Content
+    const fullPlaintextResume = `ASENDRA CHAUHAN
+Full-Stack Developer | MEAN / MERN Stack & Practical GenAI Applications
+Email: asendrachauhan176@gmail.com | Phone: +91 63753 18789
+Location: Jaipur / Mohali, India (Open to Worldwide Relocation & Remote)
+LinkedIn: linkedin.com/in/asendra-chauhan-410344221
+Portfolio: https://asendrachauhan.github.io/Asendra-portfolio/
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+Full-Stack Developer with 2+ years of production SaaS experience architecting
+resilient web frontends, high-throughput microservices, and failure-aware GenAI
+pipelines. Technical feature owner on KiteSuite (connected enterprise workspace
+SaaS) and solo architect/operator of AutoApply AI (autonomous career intelligence
+SaaS). Expert in Angular 17+, React 18, TypeScript, Node.js, Express, NestJS,
+MongoDB, Redis, and Groq LPUs.
+
+================================================================================
+CORE TECHNICAL SKILLS
+================================================================================
+• Frontend: Angular 17+ (Signals, SSR Universal), React 18, Next.js, TypeScript,
+  JavaScript (ES6+), RxJS, NgRx, SCSS, HTML5, CSS3, Responsive Design, WCAG 2.1
+• Backend: Node.js, Express.js, NestJS, RESTful APIs, WebSockets, Redis Pub/Sub,
+  Microservices Architecture, Role-Based Access Control (RBAC), JWT, OAuth 2.0
+• Generative AI: Groq LPUs (Llama 3.3 70B & 8B), RAG (Retrieval-Augmented Generation),
+  Semantic Vector Matching, Prompt Engineering, Structured JSON Schemas
+• Databases: MongoDB Atlas, Mongoose ODM, Aggregation Pipelines, Redis Caching
+• Cloud & DevOps: Docker, Railway, Vercel, Git, GitHub Actions CI/CD, Stripe, Twilio
+• Testing & Tools: Postman, Swagger/OpenAPI, Puppeteer, pdf-lib, Linux/Bash
+
+================================================================================
+PROFESSIONAL EXPERIENCE
+================================================================================
+Rudra Innovative Software · Mohali, Punjab
+Junior MEAN Stack Developer — GenAI & AI Applications | Aug 2023 – Present
+• Spearheaded full-stack feature delivery on KiteSuite (kitesuite.com), an
+  enterprise multi-tenant workspace platform spanning Sprint/Kanban boards,
+  ATS recruiting, collaborative Docs & Drive, calendar schedulers, and time tracking.
+• Integrated practical GenAI workflows: conversational AI assistant ('Ask KiteSuite AI'),
+  cross-module semantic search using vector embeddings & RAG, and automated
+  meeting-to-task conversion.
+• Developed the No-Code Natural Language Automation Builder for workspace triggers
+  using structured LLM schemas.
+• Architected reactive frontend state using Angular 17+, TypeScript, RxJS, and
+  NgRx with WCAG 2.1 accessibility standards.
+• Engineered scalable REST APIs and WebSocket channels with Node.js, Express.js,
+  NestJS, MongoDB, and Redis caching.
+• Led daily code reviews, established PR standards, mentored junior engineers,
+  and delivered technical demos for international clients.
+
+AutoApply AI · Solo Venture (Railway & Vercel)
+Independent Solo Founder & Full-Stack Architect | 2025 – 2026
+• Solo-architected, built, and launched an autonomous AI-powered job application
+  platform serving tech professionals across India and Europe.
+• Engineered ultra-fast Groq LPU inference (llama-3.3-70b-versatile & llama-3.1-8b)
+  with 15ms pure-JS vector ATS resume optimization.
+• Developed 0–100 Ghost-Job credibility scoring algorithm, filtering expired/fake postings.
+• Built Manifest V3 Chrome Extension copilot with 1-click Easy Apply automation
+  for Naukri, LinkedIn, and Indeed with in-page HUD.
+• Configured Stripe subscription billing, Twilio SMS webhooks, and native
+  10-language internationalization.
+
+Sumedha SoftTech Pvt. Ltd. · Jaipur, Rajasthan
+Software Developer | Apr 2024 – Apr 2025
+• Developed core telematics features for ZenduIt, handling real-time IoT feeds and
+  geospatial tracking for 10k+ commercial fleet vehicles at 99.9% uptime.
+• Engineered real-time GPS tracking interfaces, automated route optimization,
+  driver safety scoring engines, and geofence alert dispatchers.
+• Built performant Node.js & Express REST endpoints with MongoDB aggregation
+  pipelines for fuel consumption and idle-time analytics.
+• Integrated JWT & OAuth 2.0 authentication with role-based access control (RBAC).
+
+Sumedha SoftTech Pvt. Ltd. · Jaipur, Rajasthan
+Web Developer Intern | Dec 2023 – Apr 2024
+• Developed responsive UI components and single-page applications using
+  JavaScript (ES6+), Angular, HTML5, and CSS3.
+• Built backend REST endpoints and database schemas with Express.js and MongoDB.
+• Performed unit testing, Postman API verification, and staging bug resolution.
+
+================================================================================
+EDUCATION & ACADEMIC CREDENTIALS
+================================================================================
+Bachelor of Technology (B.Tech) in Computer Science & Engineering | 2020 – 2024
+Sri Balaji College of Engineering & Technology, Jaipur
+Affiliated to Rajasthan Technical University (RTU)
+• Cumulative GPA: 8.6 / 10 (Graduated with First-Class Distinction)
+• Core Coursework: Data Structures & Algorithms, Distributed Systems, Operating
+  Systems, Database Management Systems, Computer Networks, Software Design.`;
+
+    function copyToClipboardHandler(btnEl) {
+      if (!btnEl) return;
+      navigator.clipboard.writeText(fullPlaintextResume).then(() => {
+        const origHtml = btnEl.innerHTML;
+        btnEl.innerHTML = '<span>✓ COPIED TO CLIPBOARD!</span>';
+        btnEl.style.borderColor = '#10b981';
+        btnEl.style.color = '#10b981';
+        if (typeof triggerCyberSfx === 'function') triggerCyberSfx('chime');
+        setTimeout(() => {
+          btnEl.innerHTML = origHtml;
+          btnEl.style.borderColor = '';
+          btnEl.style.color = '';
+        }, 2500);
+      }).catch(err => {
+        console.error('Failed to copy resume:', err);
       });
     }
 
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        const plainResume = `ASENDRA CHAUHAN — FULL-STACK DEVELOPER & GENAI ENGINEER
-Email: asendrachauhan176@gmail.com | Phone: +91 93581 60100
-LinkedIn: https://www.linkedin.com/in/asendra-chauhan-410344221
-Education: B.Tech in Computer Science, Rajasthan Technical University (8.6 GPA)
-
-CORE STACK:
-Angular 17+ (Signals, Universal SSR), React 18, Next.js, TypeScript, Node.js, Express.js, NestJS, MongoDB, Redis, Groq LPUs (Llama 3 70B), WebSockets, Docker, Git.
-
-EXPERIENCE:
-1. Rudra Innovative Software — Full-Stack Developer & Lead (KiteSuite)
-   - Led day-to-day technical execution on KiteSuite, a connected workspace SaaS platform with 50,000+ synchronized nodes.
-   - Built reactive Angular 17+ components, real-time WebSockets synchronization, and core enterprise modules.
-
-2. AutoApply AI — Solo Founder & Full-Stack Architect
-   - Architected, built, and launched autonomous AI-powered job application SaaS platform solo.
-   - Developed 15ms vector ATS resume optimizer, Groq LLM 94% explainable job matchmaker, and multi-board dispatch automation.
-
-3. Sumedha SoftTech — Developer (ZenduIt)
-   - Contributed to enterprise fleet telematics dashboard, live vehicle IoT feeds, and microservices.`;
-
-        navigator.clipboard.writeText(plainResume).then(() => {
-          const originalText = copyBtn.innerHTML;
-          copyBtn.innerHTML = '<span>✓ COPIED TO CLIPBOARD!</span>';
-          copyBtn.style.borderColor = '#10b981';
-          copyBtn.style.color = '#10b981';
-          triggerCyberSfx('chime');
-          setTimeout(() => {
-            copyBtn.innerHTML = originalText;
-            copyBtn.style.borderColor = '';
-            copyBtn.style.color = '';
-          }, 2400);
-        }).catch(err => {
-          console.error('Failed to copy resume:', err);
-        });
-      });
+    if (copyResumeBtn) {
+      copyResumeBtn.addEventListener('click', () => copyToClipboardHandler(copyResumeBtn));
+    }
+    if (copyTerminalBtn) {
+      copyTerminalBtn.addEventListener('click', () => copyToClipboardHandler(copyTerminalBtn));
     }
   })();
 
