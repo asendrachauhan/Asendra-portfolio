@@ -4633,10 +4633,10 @@ img, svg, canvas, video {
 
 /* Enhanced Sticky Navigation with High Contrast */
 .nav {
-  background: rgba(6, 9, 15, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid var(--border-strong) !important;
 }
 
 /* Hero H1 Headline Responsive Balance */
@@ -5388,6 +5388,536 @@ html:not(.dark) .theme-toggle-btn .moon-icon {
   }
 }
 
+
+/* ==========================================================================
+   HAMBURGER BUTTON & 3D MOBILE MENU MORPH ANIMATIONS
+   ========================================================================== */
+.hamburger-morph {
+  width: 18px;
+  height: 13px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.ham-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform 0.42s cubic-bezier(0.68, -0.6, 0.32, 1.6), opacity 0.25s ease, background 0.3s ease;
+  transform-origin: center;
+}
+
+/* Morph to 3D 'X' Close Icon */
+#menuBtn.is-open .ham-top {
+  transform: translateY(5.5px) rotate(45deg);
+  background: var(--accent);
+}
+
+#menuBtn.is-open .ham-mid {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+#menuBtn.is-open .ham-bot {
+  transform: translateY(-5.5px) rotate(-45deg);
+  background: var(--accent);
+}
+
+#menuBtn:hover .ham-bar {
+  background: var(--accent);
+}
+
+/* Mobile Drawer with 3D Depth, Blur & Staggered Link Animations */
+.mobile-menu {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 85 !important;
+  background: var(--surface-glass) !important;
+  backdrop-filter: blur(36px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(36px) saturate(180%) !important;
+  padding: 92px 24px 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  overflow-y: auto !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: perspective(1200px) rotateX(8deg) translateY(-24px) !important;
+  transition: visibility 0.4s ease, opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45) !important;
+}
+
+.mobile-menu.open {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: perspective(1200px) rotateX(0deg) translateY(0) !important;
+}
+
+.mobile-menu a {
+  font-family: var(--font-display) !important;
+  font-size: clamp(20px, 5.2vw, 26px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  padding: 11px 16px !important;
+  border-radius: var(--radius-sm) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  opacity: 0 !important;
+  transform: translateX(-18px) !important;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease, padding 0.2s ease !important;
+}
+
+.mobile-menu.open a {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a:active {
+  color: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  padding-left: 24px !important;
+}
+
+.mobile-menu a::after {
+  content: '→';
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--accent);
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mobile-menu a:hover::after {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* Staggered entrance for links */
+.mobile-menu a:nth-child(1)  { transition-delay: 0.04s !important; }
+.mobile-menu a:nth-child(2)  { transition-delay: 0.07s !important; }
+.mobile-menu a:nth-child(3)  { transition-delay: 0.10s !important; }
+.mobile-menu a:nth-child(4)  { transition-delay: 0.13s !important; }
+.mobile-menu a:nth-child(5)  { transition-delay: 0.16s !important; }
+.mobile-menu a:nth-child(6)  { transition-delay: 0.19s !important; }
+.mobile-menu a:nth-child(7)  { transition-delay: 0.22s !important; }
+.mobile-menu a:nth-child(8)  { transition-delay: 0.25s !important; }
+.mobile-menu a:nth-child(9)  { transition-delay: 0.28s !important; }
+.mobile-menu a:nth-child(10) { transition-delay: 0.31s !important; }
+.mobile-menu a:nth-child(11) { transition-delay: 0.34s !important; }
+.mobile-menu a:nth-child(12) { transition-delay: 0.37s !important; }
+.mobile-menu a:nth-child(13) { transition-delay: 0.40s !important; }
+
+/* ==========================================================================
+   SPECTACULAR 3D THEME SWITCH MOTION & EXPANDING QUANTUM SHOCKWAVE
+   ========================================================================== */
+#theme3dShockwave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.theme-shockwave-pulse {
+  position: absolute;
+  top: var(--theme-origin-y, 30px);
+  left: var(--theme-origin-x, 90vw);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  box-shadow: 0 0 60px 20px var(--gold-bright), inset 0 0 40px var(--accent);
+  opacity: 0.95;
+  animation: themeWarpExpand 0.72s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes themeWarpExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+    box-shadow: 0 0 40px 15px var(--gold-bright);
+  }
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 0 100px 40px var(--accent), 0 0 0 50vmax rgba(245, 186, 66, 0.12);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(400);
+    opacity: 0;
+    box-shadow: 0 0 160px 80px transparent, 0 0 0 150vmax rgba(245, 186, 66, 0);
+  }
+}
+
+/* Page 3D perspective warp tilt during theme flip */
+.theme-3d-active-warp {
+  animation: theme3dPageTilt 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  transform-origin: 50% 20% !important;
+}
+
+@keyframes theme3dPageTilt {
+  0% {
+    transform: perspective(1400px) rotateX(0deg) scale(1);
+    filter: brightness(1);
+  }
+  30% {
+    transform: perspective(1400px) rotateX(2.8deg) scale(0.982) translateY(5px);
+    filter: brightness(1.2) contrast(1.08) drop-shadow(0 20px 50px rgba(245, 186, 66, 0.3));
+  }
+  75% {
+    transform: perspective(1400px) rotateX(-0.8deg) scale(0.996);
+    filter: brightness(1.04);
+  }
+  100% {
+    transform: perspective(1400px) rotateX(0deg) scale(1) translateY(0);
+    filter: brightness(1);
+  }
+}
+
+/* ==========================================================================
+   COMPLETE THEME COLOR & BACKGROUND RESPONSIVENESS (LIGHT & DARK PARITY)
+   ========================================================================== */
+
+/* Enhanced Sticky Navigation - True Theme Adaptive Glass */
+.nav {
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: var(--shadow-sm), 0 4px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+html:not(.dark) .nav {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(184, 134, 11, 0.32) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(184, 134, 11, 0.1) !important;
+}
+
+html:not(.dark) .nav-brand {
+  color: #111827 !important;
+}
+
+html:not(.dark) .navlinks a {
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .navlinks a:hover,
+html:not(.dark) .navlinks a.active {
+  color: #111827 !important;
+}
+
+html:not(.dark) .lang-pill-btn {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.35) !important;
+  color: #1f2937 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .theme-toggle-btn {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.35) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .menu-btn {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.35) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hero Badge Theme Parity */
+.hero-profile-name {
+  color: var(--text) !important;
+}
+
+html:not(.dark) .hero-profile-badge {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(184, 134, 11, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(184, 134, 11, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .hero-profile-name {
+  color: #111827 !important;
+}
+
+html:not(.dark) .hero-profile-chips {
+  color: #4b5563 !important;
+}
+
+/* Real-Time HUD Ticker Theme Parity */
+.realtime-hud-ticker {
+  background: var(--surface-glass) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+
+html:not(.dark) .realtime-hud-ticker {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(184, 134, 11, 0.32) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .realtime-hud-ticker .hud-val {
+  color: #b8860b !important;
+  font-weight: 700 !important;
+}
+
+/* Section Headings & General Text Theme Parity */
+.edu-degree-title,
+.edu-subject-name,
+.flow-node-title {
+  color: var(--text) !important;
+}
+
+html:not(.dark) .edu-degree-title,
+html:not(.dark) .edu-subject-name,
+html:not(.dark) .flow-node-title {
+  color: #111827 !important;
+}
+
+html:not(.dark) .globe-hud-pill,
+html:not(.dark) .globe-hud-hint,
+html:not(.dark) .pipeline-sim-header,
+html:not(.dark) .systems-bus-ribbon,
+html:not(.dark) .packet-ticker-box,
+html:not(.dark) .about-verified-ribbon {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(184, 134, 11, 0.3) !important;
+  color: #1f2937 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ==========================================================================
+   AWARD-WINNING RESUME SHOWCASE & LIVE CAREER NEURAL MOTION GRAPHIC
+   ========================================================================== */
+.resume-showcase-box {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 24px !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 32px var(--gold-glow) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+html:not(.dark) .resume-showcase-box {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.35) !important;
+  box-shadow: 0 16px 48px rgba(184, 134, 11, 0.12), 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Live Career Neural Mesh Container */
+.career-neural-panel {
+  position: relative;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.25);
+}
+
+html:not(.dark) .career-neural-panel {
+  background: #fcfbfa !important;
+  border-color: rgba(184, 134, 11, 0.3) !important;
+  box-shadow: inset 0 0 20px rgba(184, 134, 11, 0.05), 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+}
+
+.neural-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.neural-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.career-neural-canvas {
+  width: 100%;
+  height: 220px;
+  display: block;
+  border-radius: 6px;
+  background: radial-gradient(circle at 50% 50%, rgba(245, 186, 66, 0.04) 0%, transparent 75%);
+}
+
+html:not(.dark) .career-neural-canvas {
+  background: radial-gradient(circle at 50% 50%, rgba(184, 134, 11, 0.05) 0%, transparent 75%) !important;
+}
+
+/* Section 11 Telemetry Strip Theme Parity */
+.resume-telemetry-strip {
+  background: var(--surface-glass) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+
+html:not(.dark) .resume-telemetry-strip {
+  background: #fdfbf7 !important;
+  border-color: rgba(184, 134, 11, 0.28) !important;
+  color: #4b5563 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Experience Cards 3D Interactive Hover & Theme Parity */
+.resume-exp-card {
+  background: var(--surface-elevated) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 20px 22px !important;
+  margin-bottom: 18px !important;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.25s ease !important;
+  position: relative !important;
+  transform-style: preserve-3d !important;
+  will-change: transform !important;
+}
+
+.resume-exp-card:hover {
+  border-color: var(--accent) !important;
+  transform: perspective(1000px) translateY(-3px) scale(1.01) !important;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25), 0 0 20px var(--gold-glow) !important;
+}
+
+html:not(.dark) .resume-exp-card {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.24) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not(.dark) .resume-exp-card:hover {
+  border-color: #b8860b !important;
+  box-shadow: 0 12px 32px rgba(184, 134, 11, 0.16) !important;
+}
+
+html:not(.dark) .resume-exp-title {
+  color: #111827 !important;
+}
+
+html:not(.dark) .resume-exp-company {
+  color: #b8860b !important;
+  font-weight: 700 !important;
+}
+
+html:not(.dark) .resume-exp-desc {
+  color: #374151 !important;
+}
+
+html:not(.dark) .resume-exp-metric {
+  background: #fdfbf7 !important;
+  border-color: rgba(184, 134, 11, 0.28) !important;
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .resume-exp-metric strong {
+  color: #111827 !important;
+}
+
+/* ATS Role Matcher Filter Chips Theme Parity */
+.matcher-btn {
+  background: var(--surface-glass) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+}
+
+html:not(.dark) .matcher-btn {
+  background: #fdfbf7 !important;
+  border-color: rgba(184, 134, 11, 0.28) !important;
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .matcher-btn:hover {
+  border-color: #b8860b !important;
+  color: #111827 !important;
+}
+
+html:not(.dark) .matcher-btn.active {
+  background: #b8860b !important;
+  color: #ffffff !important;
+  border-color: #b8860b !important;
+  box-shadow: 0 2px 10px rgba(184, 134, 11, 0.3) !important;
+}
+
+/* Technical Competencies Matrix Theme Parity */
+.competency-group {
+  background: var(--surface-elevated) !important;
+  border: 1px solid var(--border) !important;
+}
+
+html:not(.dark) .competency-group {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.24) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+}
+
+html:not(.dark) .competency-title {
+  color: #111827 !important;
+}
+
+html:not(.dark) .comp-chip {
+  background: #fbf9f4 !important;
+  border-color: rgba(184, 134, 11, 0.24) !important;
+  color: #374151 !important;
+}
+
+/* ATS Plaintext Terminal Theme Parity */
+html:not(.dark) .ats-terminal-window {
+  background: #fcfbfa !important;
+  border-color: rgba(184, 134, 11, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not(.dark) .ats-terminal-header {
+  background: #f5f2ea !important;
+  border-bottom-color: rgba(184, 134, 11, 0.25) !important;
+}
+
+html:not(.dark) .ats-terminal-content {
+  color: #1e293b !important;
+}
+
+/* PDF Document Viewer Toolbar Theme Parity */
+html:not(.dark) .resume-pdf-toolbar {
+  background: #fdfbf7 !important;
+  border-color: rgba(184, 134, 11, 0.25) !important;
+  color: #374151 !important;
+}
+
+html:not(.dark) .pdf-zoom-btn {
+  background: #ffffff !important;
+  border-color: rgba(184, 134, 11, 0.28) !important;
+  color: #1f2937 !important;
+}
+
 </style>
 </head>
 <body data-build="futuristic-global-cyber-rev-01">
@@ -5453,10 +5983,12 @@ html:not(.dark) .theme-toggle-btn .moon-icon {
     </div>
 
     <!-- Symmetrical Circular Mobile Menu Trigger -->
-    <button class="icon-circle-btn menu-btn" id="menuBtn" data-i18n-aria="aria.openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
+    <button class="icon-circle-btn menu-btn" id="menuBtn" data-i18n-aria="aria.openMenu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <div class="hamburger-morph" aria-hidden="true">
+        <span class="ham-bar ham-top"></span>
+        <span class="ham-bar ham-mid"></span>
+        <span class="ham-bar ham-bot"></span>
+      </div>
     </button>
   </div>
 </header>
@@ -7031,6 +7563,19 @@ html:not(.dark) .theme-toggle-btn .moon-icon {
 
       <!-- VIEW 1: INTERACTIVE DOSSIER (DEFAULT ACTIVE VIEW) -->
       <div class="resume-view-panel" id="viewDossier">
+      <!-- LIVE INTERACTIVE CAREER NEURAL PIPELINE GRAPHIC -->
+      <div class="career-neural-panel reveal">
+        <div class="neural-panel-header">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="badge-dot" style="background:#10b981;box-shadow:0 0 10px #10b981;"></span>
+            <span style="font-weight:700;letter-spacing:0.06em;">LIVE ARCHITECTURAL PIPELINE // REAL-TIME CAREER GRAPH</span>
+          </div>
+          <div class="neural-status-badge">
+            <span>⚡ 6 NODES SYNCHRONIZED</span>
+          </div>
+        </div>
+        <canvas id="careerNeuralCanvas" class="career-neural-canvas" width="1160" height="220" aria-label="Interactive career neural network graph"></canvas>
+      </div>
         <!-- Interactive Role Matcher Bar -->
         <div class="ats-matcher-toolbar">
           <div class="matcher-head">
@@ -8100,10 +8645,42 @@ try {
 } catch(e){ setTheme('dark'); }
 
 if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
+  themeToggle.addEventListener('click', (e) => {
     const isDark = document.documentElement.classList.contains('dark');
-    setTheme(isDark ? 'light' : 'dark');
-    if (typeof triggerCyberSfx === 'function') triggerCyberSfx('click');
+    const targetTheme = isDark ? 'light' : 'dark';
+
+    // 1. Calculate click center for 3D radial shockwave
+    const rect = themeToggle.getBoundingClientRect();
+    const originX = rect.left + rect.width / 2;
+    const originY = rect.top + rect.height / 2;
+
+    const shockwaveContainer = document.getElementById('theme3dShockwave');
+    if (shockwaveContainer) {
+      shockwaveContainer.innerHTML = '';
+      const pulse = document.createElement('div');
+      pulse.className = 'theme-shockwave-pulse';
+      pulse.style.setProperty('--theme-origin-x', originX + 'px');
+      pulse.style.setProperty('--theme-origin-y', originY + 'px');
+      shockwaveContainer.appendChild(pulse);
+      setTimeout(() => { shockwaveContainer.innerHTML = ''; }, 750);
+    }
+
+    // 2. Trigger 3D perspective warp tilt on document element
+    document.documentElement.classList.add('theme-3d-active-warp');
+    setTimeout(() => {
+      document.documentElement.classList.remove('theme-3d-active-warp');
+    }, 750);
+
+    // 3. Modern View Transitions API support with 3D circular clip if available
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        setTheme(targetTheme);
+      });
+    } else {
+      setTheme(targetTheme);
+    }
+
+    if (typeof triggerCyberSfx === 'function') triggerCyberSfx('chime');
   });
 }
 
@@ -8142,18 +8719,53 @@ document.querySelectorAll('.i18n-flag-btn').forEach(btn => {
 /* ---- MOBILE MENU TOGGLE ---- */
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
-menuBtn.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
-});
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    mobileMenu.setAttribute('aria-hidden', 'true');
+if (menuBtn && mobileMenu) {
+  function toggleMobileMenu(forceClose = false) {
+    const isCurrentlyOpen = mobileMenu.classList.contains('open');
+    const shouldOpen = forceClose ? false : !isCurrentlyOpen;
+
+    if (shouldOpen) {
+      mobileMenu.classList.add('open');
+      menuBtn.classList.add('is-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if (typeof triggerCyberSfx === 'function') triggerCyberSfx('click');
+    } else {
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('is-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (typeof triggerCyberSfx === 'function') triggerCyberSfx('click');
+    }
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMobileMenu();
   });
-});
+
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggleMobileMenu(true);
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      toggleMobileMenu(true);
+    }
+  });
+
+  // Close when tapping backdrop outside content
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      toggleMobileMenu(true);
+    }
+  });
+}
 
 /* ---- AMBIENT CYBER PARTICLE CANVAS ---- */
 (function initCanvas(){
@@ -10167,6 +10779,192 @@ Affiliated to Rajasthan Technical University (RTU)
   applyLanguage(currentLang);
 
 })();
+
+
+  /* ==========================================================================
+     AWARD-WINNING CAREER NEURAL DATA PIPELINE GRAPHIC (SECTION 11 CANVAS)
+     ========================================================================== */
+  (function initCareerNeuralCanvas() {
+    const canvas = document.getElementById('careerNeuralCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = canvas.width = canvas.parentElement.clientWidth || 1000;
+    let height = canvas.height = 220;
+
+    window.addEventListener('resize', () => {
+      if (canvas.parentElement) {
+        width = canvas.width = canvas.parentElement.clientWidth || 1000;
+        height = canvas.height = 220;
+      }
+    });
+
+    const nodes = [
+      { id: 'asendra', label: 'ASENDRA CHAUHAN', role: 'Full-Stack Lead & GenAI', x: 0.50, y: 0.50, r: 18, color: '#f5ba42', pulse: 0 },
+      { id: 'kitesuite', label: 'KITESUITE (Rudra)', role: 'Angular 17 • WebSockets • RAG', x: 0.16, y: 0.28, r: 12, color: '#00f2fe', pulse: 1 },
+      { id: 'autoapply', label: 'AUTOAPPLY AI', role: 'Solo SaaS • Groq LPU • Ext', x: 0.84, y: 0.28, r: 12, color: '#10b981', pulse: 2 },
+      { id: 'zenduit', label: 'ZENDUIT (Sumedha)', role: 'IoT Telematics • 10k+ Vehicles', x: 0.22, y: 0.78, r: 10, color: '#a855f7', pulse: 3 },
+      { id: 'intern', label: 'SUMEDHA INTERN', role: 'Web Developer Intern', x: 0.50, y: 0.88, r: 8, color: '#38bdf8', pulse: 4 },
+      { id: 'education', label: 'B.TECH CSE (Distinction)', role: 'RTU • 8.6 GPA • Honors', x: 0.78, y: 0.78, r: 10, color: '#f59e0b', pulse: 5 }
+    ];
+
+    const connections = [
+      { from: 0, to: 1, label: 'Enterprise Workspace', active: true },
+      { from: 0, to: 2, label: 'Solo GenAI SaaS', active: true },
+      { from: 0, to: 3, label: 'Telematics Backend', active: true },
+      { from: 0, to: 4, label: 'Foundations', active: true },
+      { from: 0, to: 5, label: 'Academic Rigor', active: true },
+      { from: 1, to: 2, label: 'Architecture Parity', active: false },
+      { from: 4, to: 3, label: 'Promotion Path', active: false }
+    ];
+
+    // Data packets flowing through connections
+    const packets = [];
+    for (let i = 0; i < 28; i++) {
+      packets.push({
+        connIdx: Math.floor(Math.random() * connections.length),
+        t: Math.random(),
+        speed: 0.003 + Math.random() * 0.006,
+        size: 2 + Math.random() * 2.5
+      });
+    }
+
+    let activeFilter = 'all';
+
+    // Hook into ATS Role Matcher buttons
+    document.querySelectorAll('.matcher-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.getAttribute('data-role') || 'all';
+      });
+    });
+
+    let animationFrameId;
+
+    function renderNeuralGraph() {
+      ctx.clearRect(0, 0, width, height);
+
+      const isDark = document.documentElement.classList.contains('dark');
+      const textColor = isDark ? '#f3f5f8' : '#111827';
+      const textMuted = isDark ? '#9aa3b4' : '#6b7280';
+      const lineColor = isDark ? 'rgba(245, 186, 66, 0.18)' : 'rgba(184, 134, 11, 0.22)';
+      const activeLineColor = isDark ? 'rgba(245, 186, 66, 0.7)' : 'rgba(184, 134, 11, 0.8)';
+
+      // 1. Draw Connection Lines
+      connections.forEach((conn, idx) => {
+        const n1 = nodes[conn.from];
+        const n2 = nodes[conn.to];
+        const x1 = n1.x * width;
+        const y1 = n1.y * height;
+        const x2 = n2.x * width;
+        const y2 = n2.y * height;
+
+        const isHighlighted = (activeFilter === 'all') ||
+          (activeFilter === 'lead' && (conn.from === 1 || conn.to === 1)) ||
+          (activeFilter === 'ai' && (conn.from === 2 || conn.to === 2 || conn.to === 1)) ||
+          (activeFilter === 'backend' && (conn.from === 3 || conn.to === 3)) ||
+          (activeFilter === 'founder' && (conn.from === 2 || conn.to === 2));
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = isHighlighted ? activeLineColor : lineColor;
+        ctx.lineWidth = isHighlighted ? 2 : 1;
+        ctx.stroke();
+      });
+
+      // 2. Animate and Render Data Packets
+      packets.forEach(p => {
+        const conn = connections[p.connIdx];
+        const n1 = nodes[conn.from];
+        const n2 = nodes[conn.to];
+        p.t += p.speed;
+        if (p.t > 1) p.t = 0;
+
+        const px = n1.x * width + (n2.x * width - n1.x * width) * p.t;
+        const py = n1.y * height + (n2.y * height - n1.y * height) * p.t;
+
+        ctx.beginPath();
+        ctx.arc(px, py, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = n2.color;
+        ctx.shadowColor = n2.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      // 3. Draw Nodes with Holographic Glow
+      nodes.forEach((n, idx) => {
+        const nx = n.x * width;
+        const ny = n.y * height;
+        n.pulse += 0.04;
+
+        const pulseScale = Math.sin(n.pulse) * 2;
+        const radius = n.r + pulseScale;
+
+        // Outer glow ring
+        ctx.beginPath();
+        ctx.arc(nx, ny, radius + 4, 0, Math.PI * 2);
+        ctx.strokeStyle = n.color;
+        ctx.globalAlpha = 0.35 + Math.sin(n.pulse) * 0.25;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.globalAlpha = 1.0;
+
+        // Node center
+        ctx.beginPath();
+        ctx.arc(nx, ny, radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? '#0c1017' : '#ffffff';
+        ctx.fill();
+        ctx.strokeStyle = n.color;
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // Inner core
+        ctx.beginPath();
+        ctx.arc(nx, ny, radius * 0.45, 0, Math.PI * 2);
+        ctx.fillStyle = n.color;
+        ctx.fill();
+
+        // Labels
+        ctx.font = 'bold ' + (idx === 0 ? '11px' : '9.5px') + ' var(--font-mono)';
+        ctx.fillStyle = textColor;
+        ctx.textAlign = 'center';
+        ctx.fillText(n.label, nx, ny - radius - 6);
+
+        ctx.font = '8px var(--font-mono)';
+        ctx.fillStyle = textMuted;
+        ctx.fillText(n.role, nx, ny + radius + 13);
+      });
+
+      animationFrameId = requestAnimationFrame(renderNeuralGraph);
+    }
+
+    renderNeuralGraph();
+  })();
+
+  /* 3D Dynamic Card Tilt Interaction */
+  (function initCardTilt() {
+    const cards = document.querySelectorAll('.resume-exp-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+
+        card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-4px) scale(1.01)';
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  })();
+
 </script>
 </body>
 </html>
