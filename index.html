@@ -67,7 +67,12 @@
   }
 }
 </script>
-  <script>window.ASENDRA_FORMSPREE_ID = "mzedbwdn";</script>
+  <script>
+    // Free & Unlimited Email Delivery (FormSubmit.co - 100% Free, No 50/mo Quota Limits)
+    window.ASENDRA_CONTACT_EMAIL = "asendrachauhan176@gmail.com";
+    window.ASENDRA_CUSTOM_ENDPOINT = ""; // Optional custom endpoint (e.g. Google Apps Script / Telegram webhook)
+    window.ASENDRA_VISITOR_NOTIFY = true; // Set to true to receive visitor alerts (throttled once per session)
+  </script>
   <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Asendra Chauhan — Full-Stack Developer Portfolio","url":"https://asendrachauhan.github.io/Asendra-portfolio/"}
 </script>
@@ -2769,6 +2774,17 @@
 
     .form-status.is-error {
       color: #ef4444;
+    }
+
+    .form-status.is-success {
+      color: #10b981;
+      font-weight: 600;
+    }
+
+    .btn:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     .copy-email-btn {
@@ -10998,7 +11014,9 @@ Affiliated to Rajasthan Technical University (RTU)
         "contact.send": ["TRANSMIT MESSAGE ↗", "संदेश भेजें ↗", "ENVIAR MENSAJE ↗", "TRANSMETTRE LE MESSAGE ↗", "NACHRICHT SENDEN ↗", "メッセージ送信 ↗"],
         "contact.copyEmail": ["Copy email address", "ईमेल पता कॉपी करें", "Copiar correo", "Copier l'adresse email", "E-Mail-Adresse kopieren", "メールアドレスをコピー"],
         "contact.copied": ["Copied to clipboard: asendrachauhan176@gmail.com", "क्लिपबोर्ड पर कॉपी किया गया: asendrachauhan176@gmail.com", "Copiado al portapapeles: asendrachauhan176@gmail.com", "Copié dans le presse-papiers : asendrachauhan176@gmail.com", "In die Zwischenablage kopiert: asendrachauhan176@gmail.com", "クリップボードにコピーしました: asendrachauhan176@gmail.com"],
-        "contact.sending": ["Opening email client...", "ईमेल क्लाइंट खोल रहा है...", "Abriendo cliente de correo...", "Ouverture du client mail...", "Öffne E-Mail-Programm...", "メーラーを起動中..."],
+        "contact.sending": ["Transmitting message...", "संदेश भेजा जा रहा है...", "Transmitiendo mensaje...", "Transmission du message...", "Nachricht wird übertragen...", "メッセージを送信中..."],
+        "contact.success": ["Message delivered successfully! I will reply shortly.", "संदेश सफलतापूर्वक भेजा गया! मैं शीघ्र उत्तर दूंगा।", "¡Mensaje enviado con éxito! Responderé a la brevedad.", "Message transmis avec succès ! Je vous répondrai sous peu.", "Nachricht erfolgreich übertragen! Ich antworte in Kürze.", "送信が完了しました！まもなく返信いたします。"],
+        "contact.error": ["Transmission failed. Please copy email directly.", "संदेश भेजने में त्रुटि। कृपया सीधे ईमेल कॉपी करें।", "Error en el envío. Por favor copia el correo directamente.", "Échec de la transmission. Veuillez copier l'e-mail directement.", "Übertragungsfehler. Bitte E-Mail direkt kopieren.", "送信に失敗しました。直接メールアドレスをコピーしてください。"],
         "contact.opened": ["Email client opened. If it didn't open, copy the email below.", "ईमेल क्लाइंट खुल गया। यदि नहीं खुला, तो नीचे कॉपी करें।", "Cliente abierto. Si no abrió, copia el correo abajo.", "Client ouvert. Si besoin, copiez l'email ci-dessous.", "E-Mail geöffnet. Falls nicht, E-Mail unten kopieren.", "メーラーを起動しました。開かない場合は下記からコピーしてください。"],
         "contact.errRequired": ["This field is required", "यह फ़ील्ड आवश्यक है", "Este campo es obligatorio", "Ce champ est obligatoire", "Dieses Feld ist erforderlich", "この項目は必須です"],
         "contact.errEmail": ["Please enter a valid email", "कृपया वैध ईमेल दर्ज करें", "Introduce un correo válido", "Veuillez entrer un email valide", "Bitte gültige E-Mail eingeben", "有効なメールアドレスを入力してください"],
@@ -12091,13 +12109,14 @@ Affiliated to Rajasthan Technical University (RTU)
           const name = document.getElementById('cf-name').value.trim();
           const email = document.getElementById('cf-email').value.trim();
           const message = document.getElementById('cf-message').value.trim();
+          const submitBtn = document.getElementById('cf-submit');
           const idx = getLangIdx();
           let valid = true;
 
           setFieldError('name', name ? null : 'contact.errRequired');
           if (!name) valid = false;
 
-          const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+          const emailOk = /^[^s@]+@[^s@]+.[^s@]+$/.test(email);
           setFieldError('email', !email ? 'contact.errRequired' : (!emailOk ? 'contact.errEmail' : null));
           if (!email || !emailOk) valid = false;
 
@@ -12106,24 +12125,62 @@ Affiliated to Rajasthan Technical University (RTU)
 
           if (!valid) return;
 
-          formStatus.classList.remove('is-error');
+          formStatus.classList.remove('is-error', 'is-success');
           if (copyEmailBtn) copyEmailBtn.style.display = 'none';
-          formStatus.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>' + T['contact.sending'][idx] + '</span>';
+          if (submitBtn) submitBtn.disabled = true;
+          const sendingText = (T['contact.sending'] && T['contact.sending'][idx]) || 'Transmitting message...';
+          formStatus.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>' + sendingText + '</span>';
 
-          const subject = encodeURIComponent('Portfolio Transmission from ' + name);
-          const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+          const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || CONTACT_EMAIL));
 
-          setTimeout(() => {
+          const payload = {
+            name: name,
+            email: email,
+            message: message,
+            _replyto: email,
+            _subject: '🚀 Portfolio Message from ' + name + ' (' + email + ')',
+            _template: 'table',
+            _captcha: 'false'
+          };
+
+          fetch(targetEndpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+          .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+          })
+          .then(() => {
+            formStatus.classList.remove('is-error');
+            formStatus.classList.add('is-success');
+            const successText = (T['contact.success'] && T['contact.success'][idx]) || 'Message delivered successfully! I will reply shortly.';
+            formStatus.innerHTML = '<span style="color:#10b981;font-weight:bold">✓</span> <span>' + successText + '</span>';
+            form.reset();
+            if (copyEmailBtn) copyEmailBtn.style.display = 'none';
+          })
+          .catch(err => {
+            console.warn('[Contact Submit Fallback]', err);
+            formStatus.classList.remove('is-success');
+            formStatus.classList.add('is-error');
+            const errText = (T['contact.error'] && T['contact.error'][idx]) || 'Transmission failed. Please copy email directly.';
+            formStatus.textContent = errText;
+            if (copyEmailBtn) copyEmailBtn.style.display = 'inline-block';
+
+            // Graceful Mailto Fallback
+            const subject = encodeURIComponent('Portfolio Transmission from ' + name);
+            const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
             try {
-              window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-              formStatus.textContent = T['contact.opened'][idx];
-              if (copyEmailBtn) copyEmailBtn.style.display = 'inline-block';
-            } catch (err) {
-              formStatus.classList.add('is-error');
-              formStatus.textContent = 'Transmission error. Please copy email directly.';
-              if (copyEmailBtn) copyEmailBtn.style.display = 'inline-block';
-            }
-          }, 600);
+              window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+            } catch (e) { }
+          })
+          .finally(() => {
+            if (submitBtn) submitBtn.disabled = false;
+          });
         });
       }
 
@@ -13527,16 +13584,24 @@ Affiliated to Rajasthan Technical University (RTU)
             // Log telemetry in console
             console.log('%c[Visitor Telemetry Active]', 'color:#10b981;font-weight:bold;', visitReport.location + ' | ' + visitReport.os + ' (' + visitReport.browser + ')');
 
-            // To send email alerts directly to asendrachauhan176@gmail.com:
-            // Set your free Formspree Form ID in window.ASENDRA_FORMSPREE_ID or window.ASENDRA_VISITOR_ENDPOINT
-            const formspreeId = window.ASENDRA_FORMSPREE_ID || '';
-            const customEndpoint = window.ASENDRA_VISITOR_ENDPOINT || (formspreeId ? 'https://formspree.io/f/' + formspreeId : '');
+            // Skip telemetry notification during local development
+            if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
 
-            if (customEndpoint) {
-              fetch(customEndpoint, {
+            // Session throttle: send at most ONCE per visitor session to protect inboxes and quotas
+            if (sessionStorage.getItem('asendra_visit_sent')) return;
+            sessionStorage.setItem('asendra_visit_sent', '1');
+
+            if (window.ASENDRA_VISITOR_NOTIFY !== false) {
+              const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'));
+              fetch(targetEndpoint, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(visitReport)
+                body: JSON.stringify({
+                  ...visitReport,
+                  _subject: '🎯 Portfolio Visit: ' + city + ', ' + country,
+                  _captcha: 'false',
+                  _template: 'table'
+                })
               }).catch(() => { });
             }
           })
