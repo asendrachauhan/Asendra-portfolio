@@ -12210,6 +12210,20 @@ Affiliated to Rajasthan Technical University (RTU)
       if (copyEmailBtn) copyEmailBtn.addEventListener('click', copyEmail);
 
       if (form) {
+        // Real-time input validation: clear error immediately as the user types
+        ['name', 'email', 'message'].forEach(field => {
+          const input = document.getElementById('cf-' + field);
+          if (input) {
+            input.addEventListener('input', () => {
+              setFieldError(field, null);
+              if (formStatus && formStatus.classList.contains('is-error')) {
+                formStatus.classList.remove('is-error');
+                formStatus.textContent = '';
+              }
+            });
+          }
+        });
+
         form.addEventListener('submit', (e) => {
           e.preventDefault();
           const name = document.getElementById('cf-name').value.trim();
@@ -12222,7 +12236,8 @@ Affiliated to Rajasthan Technical University (RTU)
           setFieldError('name', name ? null : 'contact.errRequired');
           if (!name) valid = false;
 
-          const emailOk = /^[^s@]+@[^s@]+.[^s@]+$/.test(email);
+          // Standard robust email regex (allows all valid emails including those with 's')
+          const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
           setFieldError('email', !email ? 'contact.errRequired' : (!emailOk ? 'contact.errEmail' : null));
           if (!email || !emailOk) valid = false;
 
@@ -12238,6 +12253,7 @@ Affiliated to Rajasthan Technical University (RTU)
           formStatus.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>' + sendingText + '</span>';
 
           const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || CONTACT_EMAIL));
+          const isGoogleScript = targetEndpoint.includes('script.google.com');
 
           const payload = {
             name: name,
@@ -12249,19 +12265,33 @@ Affiliated to Rajasthan Technical University (RTU)
             _captcha: 'false'
           };
 
-          fetch(targetEndpoint, {
+          // Google Apps Script requires text/plain to avoid browser CORS preflight (OPTIONS) rejection
+          const fetchOptions = isGoogleScript ? {
+            method: 'POST',
+            redirect: 'follow',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify(payload)
+          } : {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
             body: JSON.stringify(payload)
-          })
+          };
+
+          fetch(targetEndpoint, fetchOptions)
             .then(res => {
-              if (!res.ok) throw new Error('HTTP ' + res.status);
-              return res.json();
+              if (!res.ok && res.status !== 0) throw new Error('HTTP ' + res.status);
+              return res.text();
             })
-            .then(() => {
+            .then(responseText => {
+              try {
+                const parsed = JSON.parse(responseText);
+                if (parsed.success === false && parsed.error) console.warn('Endpoint notice:', parsed.error);
+              } catch (_) {}
               formStatus.classList.remove('is-error');
               formStatus.classList.add('is-success');
               const successText = (T['contact.success'] && T['contact.success'][idx]) || 'Message delivered successfully! I will reply shortly.';
@@ -12270,23 +12300,48 @@ Affiliated to Rajasthan Technical University (RTU)
               if (copyEmailBtn) copyEmailBtn.style.display = 'none';
             })
             .catch(err => {
-              console.warn('[Contact Submit Fallback]', err);
-              formStatus.classList.remove('is-success');
-              formStatus.classList.add('is-error');
-              const errText = (T['contact.error'] && T['contact.error'][idx]) || 'Transmission failed. Please copy email directly.';
-              formStatus.textContent = errText;
-              if (copyEmailBtn) copyEmailBtn.style.display = 'inline-block';
-
-              // Graceful Mailto Fallback
-              const subject = encodeURIComponent('Portfolio Transmission from ' + name);
-              const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
-              try {
-                window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
-              } catch (e) { }
+              console.warn('[Contact Submit Error, trying direct fallback]', err);
+              // Fallback to FormSubmit if custom Google Apps Script fails
+              if (isGoogleScript) {
+                fetch('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || CONTACT_EMAIL), {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify(payload)
+                })
+                  .then(r => r.json())
+                  .then(() => {
+                    formStatus.classList.remove('is-error');
+                    formStatus.classList.add('is-success');
+                    const successText = (T['contact.success'] && T['contact.success'][idx]) || 'Message delivered successfully!';
+                    formStatus.innerHTML = '<span style="color:#10b981;font-weight:bold">✓</span> <span>' + successText + '</span>';
+                    form.reset();
+                    return;
+                  })
+                  .catch(fallbackErr => {
+                    handleFail(fallbackErr);
+                  });
+              } else {
+                handleFail(err);
+              }
             })
             .finally(() => {
               if (submitBtn) submitBtn.disabled = false;
             });
+
+          function handleFail(e) {
+            formStatus.classList.remove('is-success');
+            formStatus.classList.add('is-error');
+            const errText = (T['contact.error'] && T['contact.error'][idx]) || 'Transmission failed. Please copy email directly.';
+            formStatus.textContent = errText;
+            if (copyEmailBtn) copyEmailBtn.style.display = 'inline-block';
+
+            // Graceful Mailto Fallback
+            const subject = encodeURIComponent('Portfolio Transmission from ' + name);
+            const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+            try {
+              window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+            } catch (_) { }
+          }
         });
       }
 
@@ -13643,11 +13698,8 @@ Affiliated to Rajasthan Technical University (RTU)
        PORTFOLIO VISITOR TELEMETRY & NOTIFICATION SYSTEM
        Silently logs visitor city, region, country, OS, browser, and device
        ========================================================================== */
-    (function initVisitorTelemetry() {
+    (async function initVisitorTelemetry() {
       try {
-        if (sessionStorage.getItem('asendra_v_logged')) return;
-        sessionStorage.setItem('asendra_v_logged', '1');
-
         const ua = navigator.userAgent || '';
         let os = 'Unknown OS';
         if (/windows nt 10/i.test(ua)) os = 'Windows 10/11';
@@ -13664,55 +13716,125 @@ Affiliated to Rajasthan Technical University (RTU)
         else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
         else if (/opr/i.test(ua)) browser = 'Opera';
 
-        // Silent IP Geolocation Lookup
-        fetch('https://ipapi.co/json/')
-          .then(res => res.json())
-          .then(data => {
-            const city = data.city || 'Unknown City';
-            const region = data.region || 'Unknown Region';
-            const country = data.country_name || 'Unknown Country';
-            const org = data.org || 'ISP / Corporate Network';
-            const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
-            const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Visit';
-            const time = new Date().toLocaleString();
+        const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
+        const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Visit';
+        const time = new Date().toLocaleString();
+        const timezone = (Intl && Intl.DateTimeFormat) ? Intl.DateTimeFormat().resolvedOptions().timeZone : 'Unknown Timezone';
+        const pageUrl = window.location.href;
 
-            const visitReport = {
-              subject: '🎯 New Portfolio Visit from ' + city + ', ' + country,
-              location: city + ', ' + region + ', ' + country,
-              network_provider: org,
-              os: os,
-              browser: browser,
-              screen: screen,
-              referrer: referrer,
-              timestamp: time
+        // Multi-Provider GeoIP Resolver (with timeout so it never hangs)
+        let geoData = {
+          city: 'Unknown City',
+          region: 'Unknown Region',
+          country: 'Unknown Country',
+          org: 'ISP Network'
+        };
+
+        // Attempt 1: ipwho.is (CORS-enabled, 10,000 req/mo free, fast)
+        try {
+          const res = await Promise.race([
+            fetch('https://ipwho.is/').then(r => r.json()),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2500))
+          ]);
+          if (res && res.success !== false && (res.city || res.country)) {
+            geoData = {
+              city: res.city || 'Unknown City',
+              region: res.region || 'Unknown Region',
+              country: res.country || 'Unknown Country',
+              org: res.connection?.isp || res.connection?.org || 'ISP Network'
             };
-
-            // Log telemetry in console
-            console.log('%c[Visitor Telemetry Active]', 'color:#10b981;font-weight:bold;', visitReport.location + ' | ' + visitReport.os + ' (' + visitReport.browser + ')');
-
-            // Skip telemetry notification during local development
-            if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
-
-            // Session throttle: send at most ONCE per visitor session to protect inboxes and quotas
-            if (sessionStorage.getItem('asendra_visit_sent')) return;
-            sessionStorage.setItem('asendra_visit_sent', '1');
-
-            if (window.ASENDRA_VISITOR_NOTIFY !== false) {
-              const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'));
-              fetch(targetEndpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                  ...visitReport,
-                  _subject: '🎯 Portfolio Visit: ' + city + ', ' + country,
-                  _captcha: 'false',
-                  _template: 'table'
-                })
-              }).catch(() => { });
+          }
+        } catch (_) {
+          // Attempt 2: freeipapi.com fallback
+          try {
+            const res2 = await Promise.race([
+              fetch('https://freeipapi.com/api/json').then(r => r.json()),
+              new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2000))
+            ]);
+            if (res2 && (res2.cityName || res2.countryName)) {
+              geoData = {
+                city: res2.cityName || 'Unknown City',
+                region: res2.regionName || 'Unknown Region',
+                country: res2.countryName || 'Unknown Country',
+                org: res2.ipAddress || 'Direct Network'
+              };
             }
-          })
-          .catch(() => { });
-      } catch (e) { }
+          } catch (__) {
+            // Attempt 3: Timezone inference fallback
+            if (timezone && timezone.includes('/')) {
+              const parts = timezone.split('/');
+              geoData.city = (parts[1] || '').replace(/_/g, ' ');
+              geoData.region = parts[0] || 'Global';
+              geoData.country = 'Timezone: ' + timezone;
+            }
+          }
+        }
+
+        const visitReport = {
+          subject: '🎯 New Portfolio Visit from ' + geoData.city + ', ' + geoData.country,
+          location: geoData.city + ', ' + geoData.region + ', ' + geoData.country,
+          network_provider: geoData.org,
+          os: os,
+          browser: browser,
+          screen: screen,
+          referrer: referrer,
+          page_url: pageUrl,
+          timezone: timezone,
+          timestamp: time
+        };
+
+        // Console Telemetry
+        console.log('%c[Visitor Telemetry Active]', 'color:#10b981;font-weight:bold;', visitReport.location + ' | ' + visitReport.os + ' (' + visitReport.browser + ')');
+
+        // Localhost bypass check
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+          console.log('%c[Visitor Alert Suppressed on localhost]', 'color:#94a3b8;');
+          return;
+        }
+
+        // Session throttle: once per tab session
+        if (sessionStorage.getItem('asendra_visit_sent')) return;
+        sessionStorage.setItem('asendra_visit_sent', '1');
+
+        if (window.ASENDRA_VISITOR_NOTIFY !== false) {
+          const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'));
+          const isGoogleScript = targetEndpoint.includes('script.google.com');
+
+          const payload = {
+            ...visitReport,
+            _subject: '🎯 Portfolio Visit: ' + geoData.city + ', ' + geoData.country,
+            _captcha: 'false',
+            _template: 'table'
+          };
+
+          const fetchOptions = isGoogleScript ? {
+            method: 'POST',
+            redirect: 'follow',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          } : {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          };
+
+          fetch(targetEndpoint, fetchOptions)
+            .then(res => res.text())
+            .then(txt => console.log('[Visitor Alert Sent]', txt.substring(0, 80)))
+            .catch(err => {
+              console.warn('[Visitor Alert Main Failed, trying FormSubmit fallback]', err);
+              if (isGoogleScript) {
+                fetch('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'), {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify(payload)
+                }).catch(() => { });
+              }
+            });
+        }
+      } catch (e) {
+        console.warn('[Visitor Telemetry Exception]', e);
+      }
     })();
 
   </script>
