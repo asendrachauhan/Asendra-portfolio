@@ -12260,7 +12260,7 @@ Affiliated to Rajasthan Technical University (RTU)
             email: email,
             message: message,
             _replyto: email,
-            _subject: '🚀 Portfolio Message from ' + name + ' (' + email + ')',
+            _subject: '[PORTFOLIO CONTACT] ' + name + ' (' + email + ')',
             _template: 'table',
             _captcha: 'false'
           };
@@ -13771,7 +13771,7 @@ Affiliated to Rajasthan Technical University (RTU)
         }
 
         const visitReport = {
-          subject: '🎯 New Portfolio Visit from ' + geoData.city + ', ' + geoData.country,
+          subject: '[PORTFOLIO VISIT] ' + geoData.city + ', ' + geoData.country,
           location: geoData.city + ', ' + geoData.region + ', ' + geoData.country,
           network_provider: geoData.org,
           os: os,
@@ -13802,7 +13802,7 @@ Affiliated to Rajasthan Technical University (RTU)
 
           const payload = {
             ...visitReport,
-            _subject: '🎯 Portfolio Visit: ' + geoData.city + ', ' + geoData.country,
+            _subject: '[PORTFOLIO VISIT] ' + geoData.city + ', ' + geoData.country,
             _captcha: 'false',
             _template: 'table'
           };

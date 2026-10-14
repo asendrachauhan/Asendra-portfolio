@@ -37,12 +37,18 @@ function doPost(e) {
     const name = contents.name || "Anonymous Visitor";
     const email = contents.email || "No email provided";
     const message = contents.message || "";
-    const subject = contents._subject || (isVisit 
-      ? ("🎯 Portfolio Visit: " + (contents.location || "Unknown")) 
-      : ("🚀 Portfolio Contact from " + name));
 
-    let htmlBody = "<div style='font-family:system-ui,-apple-system,sans-serif;padding:20px;max-width:600px;border:1px solid #e2e8f0;border-radius:12px;'>";
-    htmlBody += "<h2 style='color:#0f172a;margin-top:0;'>" + subject + "</h2>";
+    // Clean subject line: strip any Unicode replacement characters (\uFFFD) or surrogate pairs
+    let rawSubject = contents._subject || (isVisit 
+      ? ("[PORTFOLIO VISIT] " + (contents.location || "Unknown")) 
+      : ("[PORTFOLIO CONTACT] " + name + (email && email.includes("@") ? " (" + email + ")" : "")));
+    
+    const subject = rawSubject.replace(/[\uFFFD\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim() || 
+      (isVisit ? "[PORTFOLIO VISIT]" : "[PORTFOLIO CONTACT] " + name);
+
+    let htmlBody = "<div style='font-family:system-ui,-apple-system,sans-serif;padding:24px;max-width:600px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;'>";
+    htmlBody += "<div style='display:inline-block;padding:4px 10px;background:#0f172a;color:#10b981;font-weight:700;font-size:11px;letter-spacing:1px;border-radius:6px;text-transform:uppercase;margin-bottom:12px;'>" + (isVisit ? "VISITOR TELEMETRY" : "NEW PORTFOLIO MESSAGE") + "</div>";
+    htmlBody += "<h2 style='color:#0f172a;margin-top:0;margin-bottom:16px;font-size:18px;'>" + subject + "</h2>";
     htmlBody += "<table style='width:100%;border-collapse:collapse;margin-top:15px;'>";
 
     for (const key in contents) {
