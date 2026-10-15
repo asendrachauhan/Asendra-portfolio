@@ -70,8 +70,34 @@
   <script>
     // Free & Unlimited Email Delivery (FormSubmit.co - 100% Free, No 50/mo Quota Limits)
     window.ASENDRA_CONTACT_EMAIL = "asendrachauhan176@gmail.com";
-    window.ASENDRA_CUSTOM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxhcP-YlS-9HXYwfpOuJejZSMKbXWlsq3Igs13jLB_DEgOwFIoYutVRLSkkuCPD3DV89g/exec"; // Optional custom endpoint (e.g. Google Apps Script / Telegram webhook)
-    window.ASENDRA_VISITOR_NOTIFY = true; // Set to true to receive visitor alerts (throttled once per session)
+    window.ASENDRA_CUSTOM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxhcP-YlS-9HXYwfpOuJejZSMKbXWlsq3Igs13jLB_DEgOwFIoYutVRLSkkuCPD3DV89g/exec";
+    window.ASENDRA_VISITOR_NOTIFY = true; // Alerts only on verified human engagement (crawlers & datacenters blocked)
+
+    /* ==========================================================================
+       ANTI-BOT & ANTI-SCRAPING SHIELD
+       Restricts automated headless scrapers, automation tools & malicious bots
+       ========================================================================== */
+    (function antiBotShield() {
+      try {
+        const ua = (navigator.userAgent || '').toLowerCase();
+        const isAutomation = !!(
+          navigator.webdriver || 
+          window.callPhantom || 
+          window._phantom || 
+          window.__nightmare ||
+          (window.chrome && !window.chrome.runtime && /headless/i.test(ua))
+        );
+        const isKnownScraper = /puppeteer|selenium|playwright|phantomjs|scrapy|bytespider|petalbot|semrush|ahrefs|dotbot|mj12bot|dataforseo|blexbot|zoominfobot|python-requests|aiohttp|curl|wget/i.test(ua);
+        const isSearchEngine = /googlebot|bingbot|duckduckbot|yandexbot/i.test(ua);
+
+        if ((isAutomation || isKnownScraper) && !isSearchEngine) {
+          window.__ASENDRA_IS_BOT = true;
+          document.addEventListener('DOMContentLoaded', function() {
+            document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0b0f19;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;text-align:center;padding:24px;box-sizing:border-box;"><div style="max-width:440px;background:#1e293b;padding:32px;border-radius:16px;border:1px solid #334155;box-shadow:0 20px 40px rgba(0,0,0,0.5);"><div style="font-size:44px;margin-bottom:12px;">🛡️</div><h2 style="color:#f87171;margin:0 0 10px;font-size:20px;font-weight:700;">Automated Access Restricted</h2><p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0 0 16px;">Automated scraping, headless crawlers, and bot executions are restricted on this portfolio. If you are a recruiter or visitor, please access via a standard web browser.</p><span style="font-size:12px;color:#64748b;">Asendra Chauhan Portfolio Protection</span></div></div>';
+          });
+        }
+      } catch (err) {}
+    })();
   </script>
   <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"Asendra Chauhan — Full-Stack Developer Portfolio","url":"https://asendrachauhan.github.io/Asendra-portfolio/"}
@@ -13695,148 +13721,203 @@ Affiliated to Rajasthan Technical University (RTU)
 
 
     /* ==========================================================================
-       PORTFOLIO VISITOR TELEMETRY & NOTIFICATION SYSTEM
-       Silently logs visitor city, region, country, OS, browser, and device
+       HUMAN-VERIFIED VISITOR TELEMETRY & ANTI-BOT SYSTEM
+       - Blocks 100% of automated crawlers, scrapers & cloud datacenters
+       - Requires genuine human physical interaction (scroll/mouse/touch)
+       - Requires active dwell time (> 4.5 seconds)
+       - Strict 24-hour persistent cooldown (no email spamming)
        ========================================================================== */
-    (async function initVisitorTelemetry() {
+    (function initHumanVisitorTelemetry() {
       try {
+        // 1. Immediate Bot & Crawler Rejection
+        if (window.__ASENDRA_IS_BOT) return;
+        if (navigator.webdriver) return;
+
         const ua = navigator.userAgent || '';
-        let os = 'Unknown OS';
-        if (/windows nt 10/i.test(ua)) os = 'Windows 10/11';
-        else if (/windows/i.test(ua)) os = 'Windows';
-        else if (/macintosh|mac os x/i.test(ua)) os = 'macOS';
-        else if (/android/i.test(ua)) os = 'Android';
-        else if (/iphone|ipad|ipod/i.test(ua)) os = 'iOS';
-        else if (/linux/i.test(ua)) os = 'Linux';
-
-        let browser = 'Unknown Browser';
-        if (/edg/i.test(ua)) browser = 'Microsoft Edge';
-        else if (/chrome|crios/i.test(ua) && !/opr/i.test(ua)) browser = 'Chrome';
-        else if (/safari/i.test(ua) && !/chrome/i.test(ua)) browser = 'Safari';
-        else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
-        else if (/opr/i.test(ua)) browser = 'Opera';
-
-        const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
-        const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Visit';
-        const time = new Date().toLocaleString();
-        const timezone = (Intl && Intl.DateTimeFormat) ? Intl.DateTimeFormat().resolvedOptions().timeZone : 'Unknown Timezone';
-        const pageUrl = window.location.href;
-
-        // Multi-Provider GeoIP Resolver (with timeout so it never hangs)
-        let geoData = {
-          city: 'Unknown City',
-          region: 'Unknown Region',
-          country: 'Unknown Country',
-          org: 'ISP Network'
-        };
-
-        // Attempt 1: ipwho.is (CORS-enabled, 10,000 req/mo free, fast)
-        try {
-          const res = await Promise.race([
-            fetch('https://ipwho.is/').then(r => r.json()),
-            new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2500))
-          ]);
-          if (res && res.success !== false && (res.city || res.country)) {
-            geoData = {
-              city: res.city || 'Unknown City',
-              region: res.region || 'Unknown Region',
-              country: res.country || 'Unknown Country',
-              org: res.connection?.isp || res.connection?.org || 'ISP Network'
-            };
-          }
-        } catch (_) {
-          // Attempt 2: freeipapi.com fallback
-          try {
-            const res2 = await Promise.race([
-              fetch('https://freeipapi.com/api/json').then(r => r.json()),
-              new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2000))
-            ]);
-            if (res2 && (res2.cityName || res2.countryName)) {
-              geoData = {
-                city: res2.cityName || 'Unknown City',
-                region: res2.regionName || 'Unknown Region',
-                country: res2.countryName || 'Unknown Country',
-                org: res2.ipAddress || 'Direct Network'
-              };
-            }
-          } catch (__) {
-            // Attempt 3: Timezone inference fallback
-            if (timezone && timezone.includes('/')) {
-              const parts = timezone.split('/');
-              geoData.city = (parts[1] || '').replace(/_/g, ' ');
-              geoData.region = parts[0] || 'Global';
-              geoData.country = 'Timezone: ' + timezone;
-            }
-          }
+        const isBotUa = /bot|crawl|spider|slurp|headless|puppeteer|selenium|playwright|phantom|lighthouse|pagespeed|curl|wget|python|axios|httpclient|java|go-http|scrapy|semrush|ahrefs|dotbot|petalbot|bytespider|gptbot|claudebot|bingbot|googlebot|yandex|duckduckbot|facebookexternalhit|search|archive|inspector/i.test(ua);
+        if (isBotUa) {
+          console.log('[Visitor Alert Suppressed: Crawler/Bot signature detected]');
+          return;
         }
 
-        const visitReport = {
-          subject: '[PORTFOLIO VISIT] ' + geoData.city + ', ' + geoData.country,
-          location: geoData.city + ', ' + geoData.region + ', ' + geoData.country,
-          network_provider: geoData.org,
-          os: os,
-          browser: browser,
-          screen: screen,
-          referrer: referrer,
-          page_url: pageUrl,
-          timezone: timezone,
-          timestamp: time
-        };
-
-        // Console Telemetry
-        console.log('%c[Visitor Telemetry Active]', 'color:#10b981;font-weight:bold;', visitReport.location + ' | ' + visitReport.os + ' (' + visitReport.browser + ')');
-
-        // Localhost bypass check
+        // 2. Localhost bypass
         if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
           console.log('%c[Visitor Alert Suppressed on localhost]', 'color:#94a3b8;');
           return;
         }
 
-        // Session throttle: once per tab session
+        // 3. User notification preference check
+        if (window.ASENDRA_VISITOR_NOTIFY === false) return;
+
+        // 4. Strict 24-Hour Persistent Cooldown (localStorage + sessionStorage)
+        const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+        const lastSentTs = localStorage.getItem('asendra_visit_sent_ts');
+        if (lastSentTs && (Date.now() - parseInt(lastSentTs, 10)) < ONE_DAY_MS) {
+          return;
+        }
         if (sessionStorage.getItem('asendra_visit_sent')) return;
-        sessionStorage.setItem('asendra_visit_sent', '1');
 
-        if (window.ASENDRA_VISITOR_NOTIFY !== false) {
-          const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'));
-          const isGoogleScript = targetEndpoint.includes('script.google.com');
+        // 5. Require Confirmed Human Physical Interaction + Dwell Time
+        let hasInteracted = false;
+        let dwellTimeout = null;
 
-          const payload = {
-            ...visitReport,
-            _subject: '[PORTFOLIO VISIT] ' + geoData.city + ', ' + geoData.country,
-            _captcha: 'false',
-            _template: 'table'
-          };
+        function onHumanActivity() {
+          if (hasInteracted) return;
+          hasInteracted = true;
 
-          const fetchOptions = isGoogleScript ? {
-            method: 'POST',
-            redirect: 'follow',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify(payload)
-          } : {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(payload)
-          };
+          // Remove interaction listeners
+          window.removeEventListener('scroll', onHumanActivity);
+          window.removeEventListener('mousemove', onHumanActivity);
+          window.removeEventListener('touchstart', onHumanActivity);
+          window.removeEventListener('click', onHumanActivity);
+          window.removeEventListener('keydown', onHumanActivity);
 
-          fetch(targetEndpoint, fetchOptions)
-            .then(res => res.text())
-            .then(txt => console.log('[Visitor Alert Sent]', txt.substring(0, 80)))
-            .catch(err => {
-              console.warn('[Visitor Alert Main Failed, trying FormSubmit fallback]', err);
-              if (isGoogleScript) {
-                fetch('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'), {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                  body: JSON.stringify(payload)
-                }).catch(() => { });
+          // Require at least 4.5 seconds of active human presence
+          dwellTimeout = setTimeout(dispatchHumanTelemetry, 4500);
+        }
+
+        window.addEventListener('scroll', onHumanActivity, { passive: true });
+        window.addEventListener('mousemove', onHumanActivity, { passive: true });
+        window.addEventListener('touchstart', onHumanActivity, { passive: true });
+        window.addEventListener('click', onHumanActivity, { passive: true });
+        window.addEventListener('keydown', onHumanActivity, { passive: true });
+
+        async function dispatchHumanTelemetry() {
+          try {
+            // Mark session and 24-hour timestamp immediately to prevent race conditions
+            sessionStorage.setItem('asendra_visit_sent', '1');
+            localStorage.setItem('asendra_visit_sent_ts', Date.now().toString());
+
+            let os = 'Unknown OS';
+            if (/windows nt 10/i.test(ua)) os = 'Windows 10/11';
+            else if (/windows/i.test(ua)) os = 'Windows';
+            else if (/macintosh|mac os x/i.test(ua)) os = 'macOS';
+            else if (/android/i.test(ua)) os = 'Android';
+            else if (/iphone|ipad|ipod/i.test(ua)) os = 'iOS';
+            else if (/linux/i.test(ua)) os = 'Linux';
+
+            let browser = 'Unknown Browser';
+            if (/edg/i.test(ua)) browser = 'Microsoft Edge';
+            else if (/chrome|crios/i.test(ua) && !/opr/i.test(ua)) browser = 'Chrome';
+            else if (/safari/i.test(ua) && !/chrome/i.test(ua)) browser = 'Safari';
+            else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
+            else if (/opr/i.test(ua)) browser = 'Opera';
+
+            const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
+            const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Visit';
+            const time = new Date().toLocaleString();
+            const timezone = (Intl && Intl.DateTimeFormat) ? Intl.DateTimeFormat().resolvedOptions().timeZone : 'Unknown Timezone';
+            const pageUrl = window.location.href;
+
+            let geoData = {
+              city: 'Unknown City',
+              region: 'Unknown Region',
+              country: 'Unknown Country',
+              org: 'ISP Network'
+            };
+
+            // GeoIP Resolver
+            try {
+              const res = await Promise.race([
+                fetch('https://ipwho.is/').then(r => r.json()),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2500))
+              ]);
+              if (res && res.success !== false && (res.city || res.country)) {
+                geoData = {
+                  city: res.city || 'Unknown City',
+                  region: res.region || 'Unknown Region',
+                  country: res.country || 'Unknown Country',
+                  org: res.connection?.isp || res.connection?.org || 'ISP Network'
+                };
               }
-            });
+            } catch (_) {
+              try {
+                const res2 = await Promise.race([
+                  fetch('https://freeipapi.com/api/json').then(r => r.json()),
+                  new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 2000))
+                ]);
+                if (res2 && (res2.cityName || res2.countryName)) {
+                  geoData = {
+                    city: res2.cityName || 'Unknown City',
+                    region: res2.regionName || 'Unknown Region',
+                    country: res2.countryName || 'Unknown Country',
+                    org: res2.ipAddress || 'Direct Network'
+                  };
+                }
+              } catch (__) {
+                if (timezone && timezone.includes('/')) {
+                  const parts = timezone.split('/');
+                  geoData.city = (parts[1] || '').replace(/_/g, ' ');
+                  geoData.region = parts[0] || 'Global';
+                  geoData.country = 'Timezone: ' + timezone;
+                }
+              }
+            }
+
+            // 6. Datacenter / Cloud Server Filter (Chase City, Azure, AWS, GCP, etc.)
+            const combinedNetwork = (geoData.org + ' ' + geoData.city + ' ' + geoData.country).toLowerCase();
+            const isDatacenter = /microsoft|azure|amazon|aws|google|datacenter|hosting|digitalocean|cloudflare|ovh|hetzner|linode|vultr|leaseweb|alibaba|choopa|m247|datacamp|cogent|chase city/i.test(combinedNetwork);
+            if (isDatacenter) {
+              console.log('[Visitor Alert Suppressed: Cloud Datacenter / Server IP]', combinedNetwork);
+              return;
+            }
+
+            const visitReport = {
+              subject: '[PORTFOLIO VISIT] ' + geoData.city + ', ' + geoData.country,
+              location: geoData.city + ', ' + geoData.region + ', ' + geoData.country,
+              network_provider: geoData.org,
+              os: os,
+              browser: browser,
+              screen: screen,
+              referrer: referrer,
+              page_url: pageUrl,
+              timezone: timezone,
+              timestamp: time
+            };
+
+            console.log('%c[Verified Human Visitor]', 'color:#10b981;font-weight:bold;', visitReport.location + ' | ' + visitReport.os + ' (' + visitReport.browser + ')');
+
+            const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT || ('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'));
+            const isGoogleScript = targetEndpoint.includes('script.google.com');
+
+            const payload = {
+              ...visitReport,
+              _subject: '[PORTFOLIO VISIT] ' + geoData.city + ', ' + geoData.country,
+              _captcha: 'false',
+              _template: 'table'
+            };
+
+            const fetchOptions = isGoogleScript ? {
+              method: 'POST',
+              redirect: 'follow',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify(payload)
+            } : {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(payload)
+            };
+
+            fetch(targetEndpoint, fetchOptions)
+              .then(res => res.text())
+              .then(txt => console.log('[Visitor Alert Dispatched]', txt.substring(0, 80)))
+              .catch(err => {
+                if (isGoogleScript) {
+                  fetch('https://formsubmit.co/ajax/' + encodeURIComponent(window.ASENDRA_CONTACT_EMAIL || 'asendrachauhan176@gmail.com'), {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(payload)
+                  }).catch(() => { });
+                }
+              });
+          } catch (err) {
+            console.warn('[Telemetry Dispatch Error]', err);
+          }
         }
       } catch (e) {
-        console.warn('[Visitor Telemetry Exception]', e);
+        console.warn('[Human Visitor Telemetry Exception]', e);
       }
     })();
-
   </script>
 </body>
 

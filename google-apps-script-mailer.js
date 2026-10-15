@@ -34,6 +34,20 @@ function doPost(e) {
     const contents = e.postData ? JSON.parse(e.postData.contents) : {};
     
     const isVisit = !!contents.location;
+
+    // Filter out bots, crawlers, and cloud datacenters (Chase City, Azure, AWS, GCP, etc.)
+    if (isVisit) {
+      const net = ((contents.network_provider || "") + " " + (contents.location || "") + " " + (contents.os || "") + " " + (contents.browser || "")).toLowerCase();
+      const isDatacenterOrBot = /microsoft|azure|amazon|aws|google|datacenter|hosting|digitalocean|cloudflare|ovh|hetzner|linode|vultr|datacamp|chase city|bot|crawl|spider|headless|puppeteer|selenium|playwright/i.test(net);
+      if (isDatacenterOrBot) {
+        return ContentService.createTextOutput(JSON.stringify({
+          success: true,
+          filtered: true,
+          message: "Filtered: Automated crawler or datacenter visit suppressed"
+        })).setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
     const name = contents.name || "Anonymous Visitor";
     const email = contents.email || "No email provided";
     const message = contents.message || "";
