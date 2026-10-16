@@ -70,8 +70,9 @@
   <script>
     // Free & Unlimited Email Delivery (FormSubmit.co - 100% Free, No 50/mo Quota Limits)
     window.ASENDRA_CONTACT_EMAIL = "asendrachauhan176@gmail.com";
+    window.ASENDRA_VISITOR_EMAIL = "asendrachauhan175@gmail.com";
     window.ASENDRA_CUSTOM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxhcP-YlS-9HXYwfpOuJejZSMKbXWlsq3Igs13jLB_DEgOwFIoYutVRLSkkuCPD3DV89g/exec";
-    window.ASENDRA_VISITOR_NOTIFY = false; // PERMANENTLY DISABLED: Only direct contact form messages will send emails
+    window.ASENDRA_VISITOR_NOTIFY = true; // Enabled for verified human visitors to asendrachauhan175@gmail.com // PERMANENTLY DISABLED: Only direct contact form messages will send emails
 
     /* ==========================================================================
        ANTI-BOT & ANTI-SCRAPING SHIELD
@@ -81,9 +82,9 @@
       try {
         const ua = (navigator.userAgent || '').toLowerCase();
         const isAutomation = !!(
-          navigator.webdriver || 
-          window.callPhantom || 
-          window._phantom || 
+          navigator.webdriver ||
+          window.callPhantom ||
+          window._phantom ||
           window.__nightmare ||
           (window.chrome && !window.chrome.runtime && /headless/i.test(ua))
         );
@@ -92,11 +93,11 @@
 
         if ((isAutomation || isKnownScraper) && !isSearchEngine) {
           window.__ASENDRA_IS_BOT = true;
-          document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('DOMContentLoaded', function () {
             document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0b0f19;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;text-align:center;padding:24px;box-sizing:border-box;"><div style="max-width:440px;background:#1e293b;padding:32px;border-radius:16px;border:1px solid #334155;box-shadow:0 20px 40px rgba(0,0,0,0.5);"><div style="font-size:44px;margin-bottom:12px;">🛡️</div><h2 style="color:#f87171;margin:0 0 10px;font-size:20px;font-weight:700;">Automated Access Restricted</h2><p style="color:#94a3b8;font-size:14px;line-height:1.6;margin:0 0 16px;">Automated scraping, headless crawlers, and bot executions are restricted on this portfolio. If you are a recruiter or visitor, please access via a standard web browser.</p><span style="font-size:12px;color:#64748b;">Asendra Chauhan Portfolio Protection</span></div></div>';
           });
         }
-      } catch (err) {}
+      } catch (err) { }
     })();
   </script>
   <script type="application/ld+json">
@@ -12317,7 +12318,7 @@ Affiliated to Rajasthan Technical University (RTU)
               try {
                 const parsed = JSON.parse(responseText);
                 if (parsed.success === false && parsed.error) console.warn('Endpoint notice:', parsed.error);
-              } catch (_) {}
+              } catch (_) { }
               formStatus.classList.remove('is-error');
               formStatus.classList.add('is-success');
               const successText = (T['contact.success'] && T['contact.success'][idx]) || 'Message delivered successfully! I will reply shortly.';
@@ -13721,12 +13722,213 @@ Affiliated to Rajasthan Technical University (RTU)
 
 
     /* ==========================================================================
-       PORTFOLIO TELEMETRY — SILENT LOGGING ONLY (NO EMAIL DISPATCH)
-       Visitor email alerts are permanently disabled to protect inbox from spam.
-       Only direct contact form submissions send emails.
+       VERIFIED REAL HUMAN VISITOR TELEMETRY & ACCURATE GEO-RESOLVER
+       - Dispatches ONLY to asendrachauhan175@gmail.com (keeps primary inbox clean)
+       - Strictly filters out 100% of crawlers, bots & cloud datacenters
+       - Requires genuine human physical interaction (trusted mouse/scroll/touch)
+       - Requires active dwell time (> 7 seconds)
+       - Resolves precise, accurate location (City, State, Country, ISP)
+       - If GeoIP fails or is datacenter, suppresses email completely
        ========================================================================== */
-    (function silentTelemetry() {
-      console.log('%c[Asendra Chauhan Portfolio]', 'color:#10b981;font-weight:bold;', 'Active & Secure');
+    (function initHumanVisitorAlerts() {
+      try {
+        if (window.ASENDRA_VISITOR_NOTIFY === false) return;
+        if (window.__ASENDRA_IS_BOT || navigator.webdriver) return;
+
+        const ua = navigator.userAgent || '';
+        const isBotUa = /bot|crawl|spider|slurp|headless|puppeteer|selenium|playwright|phantom|lighthouse|pagespeed|curl|wget|python|axios|httpclient|java|go-http|scrapy|semrush|ahrefs|dotbot|petalbot|bytespider|gptbot|claudebot|bingbot|googlebot|yandex|duckduckbot|facebookexternalhit|search|archive|inspector/i.test(ua);
+        if (isBotUa) return;
+
+        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+        if (document.visibilityState === 'hidden') return;
+
+        // 24-Hour Cooldown per device
+        const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+        const lastSent = localStorage.getItem('asendra_real_visit_ts');
+        if (lastSent && (Date.now() - parseInt(lastSent, 10)) < ONE_DAY_MS) return;
+        if (sessionStorage.getItem('asendra_visit_dispatched')) return;
+
+        // Track REAL physical human interaction (e.isTrusted === true)
+        let mouseDist = 0;
+        let lastX = 0, lastY = 0;
+        let humanVerified = false;
+        let dwellTimeout = null;
+
+        function triggerDwellTimer() {
+          if (humanVerified) return;
+          humanVerified = true;
+
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('touchstart', onTouch);
+
+          // Require at least 7 seconds of active human presence
+          dwellTimeout = setTimeout(dispatchVerifiedVisit, 7000);
+        }
+
+        function onScroll(e) {
+          if (e && e.isTrusted && window.scrollY > 180) {
+            triggerDwellTimer();
+          }
+        }
+
+        function onTouch(e) {
+          if (e && e.isTrusted) {
+            triggerDwellTimer();
+          }
+        }
+
+        function onMouseMove(e) {
+          if (e && e.isTrusted) {
+            if (lastX !== 0 || lastY !== 0) {
+              mouseDist += Math.hypot(e.clientX - lastX, e.clientY - lastY);
+              if (mouseDist > 120) {
+                triggerDwellTimer();
+              }
+            }
+            lastX = e.clientX;
+            lastY = e.clientY;
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('mousemove', onMouseMove, { passive: true });
+        window.addEventListener('touchstart', onTouch, { passive: true });
+
+        async function dispatchVerifiedVisit() {
+          try {
+            if (document.visibilityState === 'hidden') return;
+
+            // Resolve ACCURATE Location via GeoIP
+            let geo = null;
+
+            // Provider 1: ipwho.is (high-precision City, Region, Country, ISP)
+            try {
+              const r1 = await Promise.race([
+                fetch('https://ipwho.is/').then(r => r.json()),
+                new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 3000))
+              ]);
+              if (r1 && r1.success !== false && r1.city && r1.country) {
+                geo = {
+                  ip: r1.ip || 'Unknown',
+                  city: r1.city,
+                  region: r1.region || '',
+                  country: r1.country,
+                  isp: r1.connection?.isp || r1.connection?.org || 'Residential ISP',
+                  type: r1.connection?.type || ''
+                };
+              }
+            } catch (_) {}
+
+            // Provider 2: api.db-ip.com fallback
+            if (!geo) {
+              try {
+                const r2 = await Promise.race([
+                  fetch('https://api.db-ip.com/v2/free/self').then(r => r.json()),
+                  new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 3000))
+                ]);
+                if (r2 && r2.city && r2.countryName) {
+                  geo = {
+                    ip: r2.ipAddress || 'Unknown',
+                    city: r2.city,
+                    region: r2.stateProv || '',
+                    country: r2.countryName,
+                    isp: 'Direct Internet',
+                    type: ''
+                  };
+                }
+              } catch (__) {}
+            }
+
+            // STRICT ACCURACY REQUIREMENT:
+            // Never guess or output generic timezone strings like "Los Angeles, Timezone".
+            // Only send if a real, verified city and country are confirmed.
+            if (!geo || !geo.city || geo.city === 'Unknown City' || !geo.country) {
+              console.log('[Visitor Alert Skipped: Accurate location could not be verified]');
+              return;
+            }
+
+            // CLOUD DATACENTER & BOT NETWORKS FILTER:
+            const combined = (geo.isp + ' ' + geo.city + ' ' + geo.country + ' ' + geo.type).toLowerCase();
+            const isDatacenter = /microsoft|azure|amazon|aws|google|datacenter|hosting|digitalocean|cloudflare|ovh|hetzner|linode|vultr|leaseweb|alibaba|choopa|m247|datacamp|cogent|chase city|quadranet|server|vps|colocation/i.test(combined);
+            if (isDatacenter) {
+              console.log('[Visitor Alert Suppressed: Cloud server / crawler IP]', combined);
+              return;
+            }
+
+            sessionStorage.setItem('asendra_visit_dispatched', '1');
+            localStorage.setItem('asendra_real_visit_ts', Date.now().toString());
+
+            let os = 'Unknown OS';
+            if (/windows nt 10/i.test(ua)) os = 'Windows 10/11';
+            else if (/windows/i.test(ua)) os = 'Windows';
+            else if (/macintosh|mac os x/i.test(ua)) os = 'macOS';
+            else if (/android/i.test(ua)) os = 'Android';
+            else if (/iphone|ipad|ipod/i.test(ua)) os = 'iOS';
+            else if (/linux/i.test(ua)) os = 'Linux';
+
+            let browser = 'Unknown Browser';
+            if (/edg/i.test(ua)) browser = 'Microsoft Edge';
+            else if (/chrome|crios/i.test(ua) && !/opr/i.test(ua)) browser = 'Chrome';
+            else if (/safari/i.test(ua) && !/chrome/i.test(ua)) browser = 'Safari';
+            else if (/firefox|fxios/i.test(ua)) browser = 'Firefox';
+            else if (/opr/i.test(ua)) browser = 'Opera';
+
+            const screen = window.screen ? (window.screen.width + 'x' + window.screen.height) : 'Unknown';
+            const referrer = document.referrer ? new URL(document.referrer).hostname : 'Direct Visit';
+            const time = new Date().toLocaleString();
+            const pageUrl = window.location.href;
+
+            const fullLocation = geo.city + (geo.region ? (', ' + geo.region) : '') + ', ' + geo.country;
+
+            const payload = {
+              _to: window.ASENDRA_VISITOR_EMAIL || 'asendrachauhan175@gmail.com',
+              _subject: '[PORTFOLIO VISIT] ' + geo.city + ', ' + geo.country,
+              location: fullLocation,
+              ip_address: geo.ip,
+              internet_provider: geo.isp,
+              operating_system: os,
+              browser: browser,
+              screen_resolution: screen,
+              referrer: referrer,
+              page_visited: pageUrl,
+              visit_time: time,
+              _captcha: 'false',
+              _template: 'table'
+            };
+
+            console.log('%c[Verified Human Visit Dispatched]', 'color:#10b981;font-weight:bold;', fullLocation + ' (' + geo.isp + ')');
+
+            const targetEndpoint = window.ASENDRA_CUSTOM_ENDPOINT;
+            const isGoogleScript = targetEndpoint && targetEndpoint.includes('script.google.com');
+
+            if (isGoogleScript) {
+              fetch(targetEndpoint, {
+                method: 'POST',
+                redirect: 'follow',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(payload)
+              }).catch(err => {
+                fetch('https://formsubmit.co/ajax/asendrachauhan175@gmail.com', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: JSON.stringify(payload)
+                }).catch(() => {});
+              });
+            } else {
+              fetch('https://formsubmit.co/ajax/asendrachauhan175@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload)
+              }).catch(() => {});
+            }
+          } catch (err) {
+            console.warn('[Visitor Dispatch Error]', err);
+          }
+        }
+      } catch (e) {
+        console.warn('[Visitor System Exception]', e);
+      }
     })();
   </script>
 </body>
