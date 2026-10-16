@@ -32,36 +32,36 @@ const RECIPIENT_EMAIL = "asendrachauhan176@gmail.com";
 function doPost(e) {
   try {
     const contents = e.postData ? JSON.parse(e.postData.contents) : {};
-    
-    const isVisit = !!contents.location;
 
-    // Filter out bots, crawlers, and cloud datacenters (Chase City, Azure, AWS, GCP, etc.)
+    // STRICT ANTI-SPAM RULE: NEVER SEND EMAILS FOR PAGE VISITS / TELEMETRY!
+    // Only real messages from the contact form (name, email, message) are sent.
+    const isVisit = !!(
+      contents.location || 
+      contents.browser || 
+      contents.os || 
+      contents.page_url || 
+      contents.network_provider ||
+      (contents._subject && contents._subject.includes('VISIT'))
+    );
+
     if (isVisit) {
-      const net = ((contents.network_provider || "") + " " + (contents.location || "") + " " + (contents.os || "") + " " + (contents.browser || "")).toLowerCase();
-      const isDatacenterOrBot = /microsoft|azure|amazon|aws|google|datacenter|hosting|digitalocean|cloudflare|ovh|hetzner|linode|vultr|datacamp|chase city|bot|crawl|spider|headless|puppeteer|selenium|playwright/i.test(net);
-      if (isDatacenterOrBot) {
-        return ContentService.createTextOutput(JSON.stringify({
-          success: true,
-          filtered: true,
-          message: "Filtered: Automated crawler or datacenter visit suppressed"
-        })).setMimeType(ContentService.MimeType.JSON);
-      }
+      return ContentService.createTextOutput(JSON.stringify({
+        success: true,
+        filtered: true,
+        message: "Visitor notification permanently silenced. No email sent."
+      })).setMimeType(ContentService.MimeType.JSON);
     }
 
     const name = contents.name || "Anonymous Visitor";
     const email = contents.email || "No email provided";
     const message = contents.message || "";
 
-    // Clean subject line: strip any Unicode replacement characters (\uFFFD) or surrogate pairs
-    let rawSubject = contents._subject || (isVisit 
-      ? ("[PORTFOLIO VISIT] " + (contents.location || "Unknown")) 
-      : ("[PORTFOLIO CONTACT] " + name + (email && email.includes("@") ? " (" + email + ")" : "")));
-    
-    const subject = rawSubject.replace(/[\uFFFD\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim() || 
-      (isVisit ? "[PORTFOLIO VISIT]" : "[PORTFOLIO CONTACT] " + name);
+    // Clean subject line for contact message
+    let rawSubject = contents._subject || ("[PORTFOLIO CONTACT] " + name + (email && email.includes("@") ? " (" + email + ")" : ""));
+    const subject = rawSubject.replace(/[\uFFFD\uD800-\uDBFF\uDC00-\uDFFF]/g, '').trim() || ("[PORTFOLIO CONTACT] " + name);
 
     let htmlBody = "<div style='font-family:system-ui,-apple-system,sans-serif;padding:24px;max-width:600px;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;'>";
-    htmlBody += "<div style='display:inline-block;padding:4px 10px;background:#0f172a;color:#10b981;font-weight:700;font-size:11px;letter-spacing:1px;border-radius:6px;text-transform:uppercase;margin-bottom:12px;'>" + (isVisit ? "VISITOR TELEMETRY" : "NEW PORTFOLIO MESSAGE") + "</div>";
+    htmlBody += "<div style='display:inline-block;padding:4px 10px;background:#0f172a;color:#10b981;font-weight:700;font-size:11px;letter-spacing:1px;border-radius:6px;text-transform:uppercase;margin-bottom:12px;'>NEW PORTFOLIO MESSAGE</div>";
     htmlBody += "<h2 style='color:#0f172a;margin-top:0;margin-bottom:16px;font-size:18px;'>" + subject + "</h2>";
     htmlBody += "<table style='width:100%;border-collapse:collapse;margin-top:15px;'>";
 
